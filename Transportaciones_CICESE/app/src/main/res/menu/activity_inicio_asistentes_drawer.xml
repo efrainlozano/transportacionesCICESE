@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_inicio"
+            android:icon="@drawable/home_icon"
+            android:title="@string/incio" />
+        <item
+            android:id="@+id/nav_registros"
+            android:icon="@drawable/forma_icon"
+            android:title="Registros" />
+        <item
+            android:id="@+id/nav_actualiza"
+            android:icon="@drawable/update_icon"
+            android:title="Actualizaciones" />
+
+        <item
+            android:id="@+id/nav_consulta"
+            android:icon="@drawable/consults_icon"
+            android:title="Consultas" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/logout_icon"
+            android:title="@string/cerrar_sesi_n" />
+    </group>
+
+    <item android:title="@string/general">
+        <menu>
+            <item
+                android:id="@+id/nav_help"
+                android:icon="@drawable/help_icon"
+                android:title="@string/string_ayuda" />
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/about_icon"
+                android:title="@string/acerca_de" />
+        </menu>
+    </item>
+
+</menu>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.transporte.cicese.transportaciones_cicese.InicioPasajeroActivity"
+    tools:showIn="@layout/app_bar_inicio_pasajero"
+    android:id="@+id/ContenedorMain">
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="12dp"
+        app:srcCompat="@android:color/background_light"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bienvenido a CICESE Transportaciones"
+        android:textAlignment="center"
+        android:textColor="@color/ColorActionBarTitle"
+        android:textSize="20dp"
+        tools:ignore="HardcodedText,SpUsage"
+        android:layout_alignTop="@+id/imageView10"
+        android:layout_centerHorizontal="true" />
+
+
+    <ViewFlipper
+        android:id="@+id/flipper1"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imageView10"
+        android:layout_marginTop="22dp"
+        android:autoStart="true"
+        android:flipInterval="3000"
+        android:inAnimation="@android:anim/slide_in_left"
+        android:outAnimation="@android:anim/slide_out_right"
+        tools:ignore="UselessLeaf,UselessParent"
+        android:layout_toStartOf="@+id/imageView10">
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/logocicese"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/instalaciones"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/fondocicese"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ensenada"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/mapa"
+            tools:ignore="ContentDescription" />
+
+    </ViewFlipper>
+
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Como pasajero, a través de esta aplicación usted podrá:"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText"
+        android:layout_alignTop="@+id/flipper1"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/flipper1" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView13"
+        android:drawableLeft="@drawable/forma_iconp"
+        android:drawablePadding="5dp"
+        android:layout_below="@+id/textView9"
+        android:layout_marginTop="11dp"
+        android:text="Dar seguimiento a su solicitud"
+        tools:ignore="RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/imageView10"
+        android:layout_alignStart="@+id/textView9"
+        android:drawableLeft="@drawable/forma_iconp"
+        android:drawablePadding="5dp"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="2dp"
+        android:text="Intercambiar mensajes con su chofer asignado y asistente"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_below="@+id/textView13"
+        android:drawableLeft="@drawable/forma_iconp"
+        android:drawablePadding="5dp"
+        android:layout_marginTop="2dp"
+        android:text="Consultar su calendario de eventos"
+        tools:ignore="HardcodedText,RtlHardcoded"
+        android:layout_alignEnd="@+id/textView13" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView14"
+        android:layout_below="@+id/textView14"
+        android:layout_marginTop="2dp"
+        android:drawableLeft="@drawable/forma_iconp"
+        android:drawablePadding="5dp"
+        android:text="Calificar el servicio que se le ha brindado"
+        tools:ignore="HardcodedText,RtlHardcoded"
+        android:layout_alignEnd="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Para mayor información, favor de consultar la ayuda"
+        android:textSize="10sp"
+        tools:ignore="HardcodedText,SmallSp,SpUsage"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_toStartOf="@+id/textView2"
+        tools:ignore="ContentDescription,UnusedAttribute" />
+
+</RelativeLayout>

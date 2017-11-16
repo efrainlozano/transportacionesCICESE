@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.transporte.cicese.transportaciones_cicese.TextoRapidoActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        app:srcCompat="@drawable/textbacks"
+        tools:ignore="ContentDescription" />
+
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/imageView10"
+        android:layout_alignTop="@+id/imageView10"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="9dp"
+        app:srcCompat="@drawable/forma_icon"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/textViewRC"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView4"
+        android:layout_alignEnd="@+id/imageView10"
+        android:text="Selecccione una de las siguientes opciones"
+        android:textAlignment="viewStart"
+        android:textColor="?attr/actionMenuTextColor"
+        android:textSize="17sp"
+        tools:ignore="MissingConstraints,RtlHardcoded"
+        tools:layout_editor_absoluteX="134dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <Button
+        android:id="@+id/tr_1"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imageView10"
+        android:layout_below="@+id/imageView10"
+        android:layout_marginTop="19dp"
+        android:text="Llego en 5 minutos"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/tr_2"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tr_4"
+        android:layout_below="@+id/tr_4"
+        android:layout_marginTop="11dp"
+        android:text="Tuve un imprevisto"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/tr_3"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tr_5"
+        android:layout_alignTop="@+id/tr_4"
+        android:text="Voy en camino"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/tr_4"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tr_1"
+        android:layout_below="@+id/tr_1"
+        android:layout_marginTop="10dp"
+        android:text="Llego en 10 minutos"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/tr_5"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tr_1"
+        android:layout_alignBottom="@+id/tr_1"
+        android:layout_marginStart="19dp"
+        android:layout_toEndOf="@+id/tr_1"
+        android:text="Le llamaré pronto"
+        android:textAllCaps="false" />
+</RelativeLayout>

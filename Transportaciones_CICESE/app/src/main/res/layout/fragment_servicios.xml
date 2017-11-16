@@ -1,0 +1,312 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.transporte.cicese.transportaciones_cicese.ServiciosFragment">
+
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/border_style"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="70dp">
+    <TableLayout
+        android:layout_width="350dp"
+        android:layout_height="410dp"
+        android:layout_below="@+id/spinner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/holo_blue_dark">
+
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#fafafa" >
+            <TextView
+                android:text="Numero de solicitud"
+                android:padding="3dip" />
+            <TextView
+                android:text="12345678"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#fafafa" >
+
+            <TextView
+                android:padding="3dip"
+                android:text="Estado de solicitud" />
+            <TextView
+                android:text="Proceso"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#fafafa" >
+
+            <TextView
+                android:padding="3dip"
+                android:text="Asistente" />
+            <TextView
+                android:text="Nombre Apellido"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/datosTableRow"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#fafafa" >
+
+            <TextView
+                android:padding="3dip"
+                android:text="Datos del pasajero"
+                android:background="#dadada"/>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#fafafa" >
+
+            <TextView
+                android:padding="3dip"
+                android:text="Nombre" />
+            <TextView
+                android:text="Nombre Apellido"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#fafafa" >
+
+            <TextView
+                android:padding="3dip"
+                android:text="Numero de telefono" />
+            <TextView
+                android:text="123 1234567"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow6"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#fafafa" >
+
+            <TextView
+                android:padding="3dip"
+                android:text="Lugar donde se le recogera" />
+            <TextView
+                android:text="Aeropuerto de Tijuana"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow7"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#fafafa" >
+
+            <TextView
+                android:padding="3dip"
+                android:text="Lugar a donde sera llevado" />
+            <TextView
+                android:text="CICESE"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow8"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#fafafa" >
+
+            <TextView
+                android:padding="3dip"
+                android:text="Fecha estimada para recogerlo" />
+            <TextView
+                android:text="15-10-2017"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/datosTableRow2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#fafafa" >
+
+            <TextView
+                android:padding="3dip"
+                android:text="Datos del chofer"
+                android:background="#dadada"/>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow9"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#fafafa" >
+
+            <TextView
+                android:padding="3dip"
+                android:text="Nombre" />
+            <TextView
+                android:text="Nombre Apellido"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow0"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#fafafa" >
+
+            <TextView
+                android:padding="3dip"
+                android:text="Numero de telefono" />
+            <TextView
+                android:text="123 12345678"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/datosTableRow3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#fafafa" >
+
+            <TextView
+                android:padding="3dip"
+                android:text="Datos de la unidad"
+                android:background="#dadada"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow10"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#fafafa" >
+
+            <TextView
+                android:padding="3dip"
+                android:text="Numero de identificacion" />
+            <TextView
+                android:text="12345678"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow11"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#fafafa" >
+
+            <TextView
+                android:padding="3dip"
+                android:text="Color" />
+            <TextView
+                android:text="Gris"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow12"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#fafafa" >
+
+            <TextView
+                android:padding="3dip"
+                android:text="" />
+            <TextView
+                android:text=""
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow13"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#fafafa" >
+
+            <TextView
+                android:padding="3dip"
+                android:text="Calificacion del servicio" />
+            <TextView
+                android:text="5"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow14"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#fafafa" >
+
+            <TextView
+                android:padding="3dip"
+                android:text="observaciones" />
+            <TextView
+                android:text="Buen servicio"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow15"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#fafafa" >
+
+            <TextView
+                android:padding="3dip"
+                android:text="Ubicacion" />
+            <TextView
+                android:text="145,156"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow16"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#fafafa" >
+
+            <TextView
+                android:padding="3dip"
+                android:text="última actualización de información" />
+            <TextView
+                android:text="16-10-2017"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+    </TableLayout>
+    </ScrollView>
+
+</RelativeLayout>

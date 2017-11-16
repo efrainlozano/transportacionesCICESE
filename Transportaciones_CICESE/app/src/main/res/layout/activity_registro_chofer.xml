@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffff"
+    tools:context="com.transporte.cicese.transportaciones_cicese.RegistroChoferActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/textbacks"
+        tools:ignore="ContentDescription"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/numeroEmpleado" />
+
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/chofer"
+        android:layout_marginStart="13dp"
+        android:layout_alignTop="@+id/imageView10"
+        android:layout_alignStart="@+id/imageView10"
+        android:layout_above="@+id/numeroEmpleado"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/textViewRC"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:text="@string/capture_los_siguientes_datos"
+        android:textAlignment="viewStart"
+        android:textColor="?attr/actionMenuTextColor"
+        android:textSize="17sp"
+        tools:ignore="MissingConstraints,RtlHardcoded"
+        tools:layout_editor_absoluteX="134dp"
+        tools:layout_editor_absoluteY="16dp"
+        android:layout_above="@+id/numeroEmpleado"
+        android:layout_alignEnd="@+id/popup"
+        android:layout_marginBottom="9dp" />
+
+
+    <EditText
+        android:id="@+id/numeroEmpleado"
+        android:layout_width="300dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="40dp"
+        android:background="@drawable/border_style"
+        android:ems="10"
+        android:hint="@string/n_mero_de_empleado"
+        android:drawableLeft="@drawable/emp_icon"
+        android:drawablePadding="5dp"
+        android:inputType="number"
+        android:layout_below="@+id/imageView10"
+        android:layout_centerHorizontal="true"
+        tools:ignore="RtlHardcoded" />
+
+    <EditText
+        android:id="@+id/contrasenaChofer"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_alignEnd="@+id/numeroEmpleado"
+        android:layout_alignStart="@+id/numeroEmpleado"
+        android:layout_below="@+id/numeroEmpleado"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/password_icon"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:hint="@string/contrase_aChofer"
+        android:inputType="textWebPassword"
+        tools:ignore="RtlHardcoded" />
+
+
+    <EditText
+        android:id="@+id/nombreChofer"
+        android:layout_width="300dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/name_icon"
+        android:drawablePadding="5dp"
+        android:hint="@string/nombre"
+        android:inputType="text"
+        android:layout_below="@+id/contrasenaChofer"
+        android:layout_alignStart="@+id/contrasenaChofer"
+        android:layout_alignEnd="@+id/contrasenaChofer"
+        tools:ignore="RtlHardcoded" />
+
+
+    <EditText
+        android:id="@+id/aPaternoChofer"
+        android:layout_width="300dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/name_icon"
+        android:drawablePadding="5dp"
+        android:hint="@string/apellido_paterno"
+        android:inputType="text"
+        android:layout_below="@+id/nombreChofer"
+        android:layout_alignStart="@+id/nombreChofer"
+        android:layout_alignEnd="@+id/nombreChofer"
+        tools:ignore="RtlHardcoded" />
+
+    <EditText
+        android:id="@+id/aMaternoChofer"
+        android:layout_width="300dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/name_icon"
+        android:drawablePadding="5dp"
+        android:hint="@string/apellido_materno"
+        android:inputType="text"
+        android:layout_below="@+id/aPaternoChofer"
+        android:layout_alignStart="@+id/aPaternoChofer"
+        android:layout_alignEnd="@+id/aPaternoChofer"
+        tools:ignore="RtlHardcoded" />
+
+    <!--INFORMACION DE FORMATO-->
+    <EditText
+        android:id="@+id/telefonoChofer"
+        android:layout_width="255dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:hint="@string/tel_fono"
+        android:ems="10"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/cell_icon"
+        android:drawablePadding="5dp"
+        android:inputType="phone"
+        android:layout_below="@+id/aMaternoChofer"
+        android:layout_alignStart="@+id/aMaternoChofer"
+        android:layout_alignEnd="@+id/aMaternoChofer"
+        tools:ignore="RtlHardcoded" />
+
+    <EditText
+        android:id="@+id/emailChofer"
+        android:layout_width="255dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:hint="Correo electrónico"
+        android:ems="10"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/email_icon"
+        android:drawablePadding="5dp"
+        android:inputType="textEmailAddress"
+        android:layout_below="@+id/telefonoChofer"
+        android:layout_alignStart="@+id/telefonoChofer"
+        android:layout_alignEnd="@+id/telefonoChofer"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+
+    <!--TextView
+        android:id="@+id/camposObligatorios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:text="Asegurese que todos los datos sean correctos"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="14sp"
+        tools:ignore="HardcodedText"
+        android:layout_below="@+id/telefonoChofer"
+        android:layout_centerHorizontal="true" /-->
+
+
+    <Button
+        android:id="@+id/registroChofer_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/emailChofer"
+        android:layout_alignStart="@+id/emailChofer"
+        android:layout_below="@+id/emailChofer"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/secondary_button_style"
+        android:text="@string/aceptar"
+        android:textAllCaps="false"
+        android:textColor="@android:color/background_light" />
+
+    <Button
+        android:id="@+id/popup"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/exclamation"
+        tools:ignore="HardcodedText,RtlHardcoded,UnusedAttribute"
+        android:layout_alignTop="@+id/telefonoChofer"
+        android:layout_alignEnd="@+id/telefonoChofer"/>
+
+</RelativeLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Estos datos son solo para ejemplificar-->
+    <string-array name="solicitudes">
+        <item>Servicio 1</item>
+        <item>Servicio 2</item>
+        <item>Servicio 3</item>
+    </string-array>
+</resources>

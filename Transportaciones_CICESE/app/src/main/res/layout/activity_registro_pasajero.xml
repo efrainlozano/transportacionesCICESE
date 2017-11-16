@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffff"
+    tools:context="com.transporte.cicese.transportaciones_cicese.RegistroPasajeroActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/textbacks"
+        tools:ignore="ContentDescription"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/usuario_generado" />
+
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/pasajero"
+        android:layout_marginStart="15dp"
+        android:layout_alignTop="@+id/imageView10"
+        android:layout_alignStart="@+id/imageView10"
+        android:layout_alignBottom="@+id/imageView10" />
+
+    <TextView
+        android:id="@+id/textViewRC"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:text="@string/capture_los_siguientes_datos"
+        android:textAlignment="viewStart"
+        android:textColor="?attr/actionMenuTextColor"
+        android:textSize="17sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="134dp"
+        tools:layout_editor_absoluteY="16dp"
+        android:layout_alignTop="@+id/imageView10"
+        android:layout_alignEnd="@+id/popup3"
+        android:layout_marginTop="8dp" />
+
+
+    <EditText
+        android:id="@+id/usuario_generado"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/user_icon"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="Nombre de usuario"
+        android:inputType="text"
+        android:layout_below="@+id/imageView10"
+        android:layout_alignStart="@+id/ap_pasajero" />
+
+    <EditText
+        android:id="@+id/contrasena_pasajero"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/password_icon"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:hint="@string/contrase_aChofer"
+        android:inputType="textWebPassword"
+        android:layout_below="@+id/usuario_generado"
+        android:layout_alignStart="@+id/usuario_generado" />
+
+
+    <EditText
+        android:id="@+id/nombre_pasajero"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/name_icon"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="@string/nombre"
+        android:inputType="text"
+        android:layout_below="@+id/contrasena_pasajero"
+        android:layout_alignStart="@+id/contrasena_pasajero" />
+
+
+    <EditText
+        android:id="@+id/ap_pasajero"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/name_icon"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="@string/apellido_paterno"
+        android:inputType="text"
+        android:layout_below="@+id/nombre_pasajero"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/am_pasajero"
+        android:layout_width="300dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/ap_pasajero"
+        android:layout_below="@+id/ap_pasajero"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/name_icon"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="@string/apellido_materno"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/tel_pasajero"
+        android:layout_width="300dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/am_pasajero"
+        android:layout_below="@+id/am_pasajero"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/cell_icon"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="@string/tel_fono"
+        android:inputType="phone" />
+
+    <Button
+        android:id="@+id/popup3"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/exclamation"
+        tools:ignore="HardcodedText,UnusedAttribute"
+        android:layout_alignTop="@+id/tel_pasajero"
+        android:layout_alignEnd="@+id/tel_pasajero" />
+
+
+    <EditText
+        android:id="@+id/emailPasajero"
+        android:layout_width="255dp"
+        android:layout_marginTop="8dp"
+        android:layout_height="40dp"
+        android:hint="Correo electrónico"
+        android:ems="10"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/email_icon"
+        android:drawablePadding="5dp"
+        android:inputType="textEmailAddress"
+        android:layout_below="@+id/tel_pasajero"
+        android:layout_alignEnd="@+id/tel_pasajero"
+        android:layout_alignStart="@+id/tel_pasajero" />
+
+
+    <Button
+        android:id="@+id/registroPasajero_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/emailPasajero"
+        android:layout_alignStart="@+id/emailPasajero"
+        android:layout_below="@+id/emailPasajero"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/secondary_button_style"
+        android:text="@string/aceptar"
+        android:textAllCaps="false"
+        android:textColor="@android:color/background_light" />
+
+</RelativeLayout>

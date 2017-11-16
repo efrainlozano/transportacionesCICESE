@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffff"
+    tools:context="com.transporte.cicese.transportaciones_cicese.LoginActivity">
+
+    <EditText
+        android:id="@+id/usuario_editText"
+        android:layout_width="265dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/user_icon"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="Usuario"
+        android:inputType="text"
+        tools:ignore="HardcodedText,LabelFor,MissingConstraints"
+        tools:layout_editor_absoluteX="114dp"
+        tools:layout_editor_absoluteY="233dp" />
+
+    <EditText
+        android:id="@+id/contrasena_editText"
+        android:layout_width="265dp"
+        android:layout_height="50dp"
+        android:layout_alignStart="@+id/usuario_editText"
+        android:layout_below="@+id/usuario_editText"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/password_icon"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:hint="@string/contrasena"
+        android:inputType="textPassword"
+        android:textSize="18sp"
+        tools:ignore="LabelFor" />
+
+    <Button
+        android:id="@+id/iniciar_button"
+        android:layout_width="265dp"
+        android:layout_height="50dp"
+        android:layout_alignStart="@+id/contrasena_editText"
+        android:layout_alignTop="@+id/opciones_login"
+        android:layout_marginTop="59dp"
+        android:background="@drawable/button_style"
+        android:text="@string/inicio_btn"
+        android:textColor="@android:color/background_light" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="51dp"
+        android:contentDescription=""
+        app:srcCompat="@drawable/logocicese"
+        tools:ignore="ContentDescription"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/button2"
+        android:layout_width="200dp"
+        android:layout_height="25dp"
+        android:layout_alignStart="@+id/imageView"
+        android:layout_below="@+id/imageView"
+        android:layout_marginTop="9dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/transportaciones"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/iniciar_button"
+        android:layout_alignStart="@+id/iniciar_button"
+        android:layout_below="@+id/iniciar_button"
+        android:layout_marginTop="11dp"
+        android:background="@drawable/secondary_button_style"
+        android:text="@string/btn_CICESE_user"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
+        android:text="@string/textview_acceso"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:layout_alignTop="@+id/button2"
+        android:layout_centerHorizontal="true" />
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/opciones_login"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/contrasena_editText"
+        android:layout_marginTop="12dp"
+        android:background="#ffff"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_pasajero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pasajero"
+            android:checked="true"
+            tools:ignore="HardcodedText" />
+
+        <RadioButton
+            android:id="@+id/radio_chofer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chofer"
+            tools:ignore="HardcodedText" />
+
+
+        <RadioButton
+            android:id="@+id/radio_asistente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:text="Asistente"
+            tools:ignore="HardcodedText,RtlHardcoded" />
+
+    </RadioGroup>
+
+
+</RelativeLayout>
