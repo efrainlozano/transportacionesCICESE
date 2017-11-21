@@ -38,15 +38,14 @@
                 <TextView
                     android:id="@+id/textView25"
                     android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="?attr/actionMenuTextColor"
-                    android:textSize="17sp"
-                    android:textAlignment="inherit"
+                    android:layout_height="60dp"
+                    android:paddingTop="7dp"
+                    android:layout_alignEnd="@+id/imageView10"
+                    android:layout_alignTop="@+id/imageView10"
                     android:text="@string/capture_los_siguientes_datos"
-                    android:layout_above="@+id/folioSolicitud"
-                    android:layout_toEndOf="@+id/imageView11"
-                    android:layout_marginStart="7dp"
-                    android:layout_marginBottom="9dp" />
+                    android:textAlignment="inherit"
+                    android:textColor="?attr/actionMenuTextColor"
+                    android:textSize="17sp" />
 
                 <EditText
                     android:id="@+id/folioSolicitud"
@@ -113,8 +112,9 @@
             <RelativeLayout
                 android:id="@+id/relativeServicio"
                 android:layout_width="match_parent"
-                android:layout_height="900dp"
+                android:layout_height="1000dp"
                 android:orientation="vertical"
+                android:layout_marginTop="20dp"
                 android:visibility="invisible">
 
 
@@ -123,12 +123,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_alignStart="@+id/descripcion_lugar_encuentro"
-                    android:layout_marginStart="29dp"
-                    android:text="Llenar los siguientes campos"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/requerido"
                     android:textColor="@android:color/background_dark"
-                    android:textSize="18sp"
-                    tools:ignore="HardcodedText" />
+                    android:textSize="18sp"/>
 
                 <TextView
                     android:id="@+id/textViewDE"
@@ -137,10 +135,9 @@
                     android:layout_below="@+id/textViewDA"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="11dp"
-                    android:text="Datos de encuentro"
+                    android:text="@string/datos_de_encuentro"
                     android:textColor="@android:color/darker_gray"
-                    android:textSize="18sp"
-                    tools:ignore="HardcodedText" />
+                    android:textSize="18sp" />
 
                 <EditText
                     android:id="@+id/descripcion_lugar_encuentro"
@@ -157,8 +154,9 @@
                     android:inputType="textPersonName"
                     tools:ignore="RtlHardcoded" />
 
+                <!--Debe llamarse longitud_lugar_encuentro-->
                 <EditText
-                    android:id="@+id/nombre_pasajero"
+                    android:id="@+id/longitud_lugar_encuentro"
                     android:layout_width="145dp"
                     android:layout_height="40dp"
                     android:layout_alignStart="@+id/descripcion_lugar_encuentro"
@@ -169,13 +167,14 @@
                     android:hint="@string/longitud"
                     android:inputType="text" />
 
+                <!--Debe llamarse latitud_lugar_encuentro-->
                 <EditText
-                    android:id="@+id/ap_pasajero"
+                    android:id="@+id/latitud_lugar_encuentro"
                     android:layout_width="150dp"
                     android:layout_height="40dp"
-                    android:layout_alignTop="@+id/nombre_pasajero"
+                    android:layout_alignTop="@+id/longitud_lugar_encuentro"
                     android:layout_marginStart="8dp"
-                    android:layout_toEndOf="@+id/nombre_pasajero"
+                    android:layout_toEndOf="@+id/longitud_lugar_encuentro"
                     android:background="@drawable/border_style"
                     android:ems="10"
                     android:hint="@string/latitud"
@@ -183,17 +182,17 @@
 
                 <ImageButton
                     android:id="@+id/selectorHora"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignStart="@+id/nombre_pasajero"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignStart="@+id/longitud_lugar_encuentro"
                     android:layout_alignTop="@+id/horaEncuentro"
                     app:srcCompat="@drawable/clock"
                     tools:ignore="ContentDescription" />
 
                 <ImageButton
                     android:id="@+id/selectorFecha"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_alignStart="@+id/selectorHora"
                     android:layout_alignTop="@+id/fecha_encuentro"
                     app:srcCompat="@drawable/calendar"
@@ -204,28 +203,31 @@
                     android:id="@+id/horaEncuentro"
                     android:layout_width="50dp"
                     android:layout_height="40dp"
-                    android:layout_alignEnd="@+id/ap_pasajero"
-                    android:layout_alignStart="@+id/textViewDA"
-                    android:layout_below="@+id/nombre_pasajero"
-                    android:layout_marginStart="18dp"
+                    android:layout_alignEnd="@+id/latitud_lugar_encuentro"
+                    android:layout_below="@+id/longitud_lugar_encuentro"
+                    android:layout_marginStart="9dp"
                     android:layout_marginTop="9dp"
+                    android:layout_toEndOf="@+id/selectorHora"
                     android:background="@drawable/border_style"
                     android:ems="10"
                     android:hint="@string/hora"
-                    android:inputType="time" />
+                    android:inputType="time"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="0dp"/>
 
                 <!--SELECCIONAR WIDGET-->
                 <EditText
                     android:id="@+id/fecha_encuentro"
-                    android:layout_width="255dp"
+                    android:layout_width="247dp"
                     android:layout_height="40dp"
-                    android:layout_alignEnd="@+id/descripcion_lugar_encuentro"
-                    android:layout_below="@+id/horaEncuentro"
-                    android:layout_marginTop="8dp"
+                    android:layout_alignStart="@+id/horaEncuentro"
+                    android:layout_below="@+id/selectorHora"
                     android:background="@drawable/border_style"
                     android:ems="10"
                     android:hint="@string/fecha"
-                    android:inputType="date" />
+                    android:inputType="date"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="0dp"/>
 
                 <TextView
                     android:id="@+id/textViewDD"
@@ -234,16 +236,15 @@
                     android:layout_below="@+id/horaEncuentro"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="69dp"
-                    android:text="Datos de destino"
+                    android:text="@string/datos_de_destino"
                     android:textColor="@android:color/darker_gray"
-                    android:textSize="18sp"
-                    tools:ignore="HardcodedText" />
+                    android:textSize="18sp" />
 
                 <EditText
                     android:id="@+id/descripcion_lugar_destino"
                     android:layout_width="300dp"
                     android:layout_height="40dp"
-                    android:layout_alignEnd="@+id/ap_pasajero"
+                    android:layout_alignEnd="@+id/latitud_lugar_encuentro"
                     android:layout_below="@+id/textViewDD"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/border_style"
@@ -254,8 +255,9 @@
                     android:inputType="text"
                     tools:ignore="RtlHardcoded" />
 
+                <!--Debe llamarse longitud_lugar_destino-->
                 <EditText
-                    android:id="@+id/usuario_generado"
+                    android:id="@+id/longitud_lugar_destino"
                     android:layout_width="145dp"
                     android:layout_height="40dp"
                     android:layout_alignStart="@+id/descripcion_lugar_destino"
@@ -266,13 +268,14 @@
                     android:hint="@string/longitud"
                     android:inputType="text" />
 
+                <!--Debe llamarse latitud_lugar_destino-->
                 <EditText
-                    android:id="@+id/contrasena_pasajero"
+                    android:id="@+id/latitud_lugar_destino"
                     android:layout_width="145dp"
                     android:layout_height="40dp"
-                    android:layout_alignBottom="@+id/usuario_generado"
+                    android:layout_alignBottom="@+id/longitud_lugar_destino"
                     android:layout_alignEnd="@+id/descripcion_lugar_destino"
-                    android:layout_alignTop="@+id/usuario_generado"
+                    android:layout_alignTop="@+id/longitud_lugar_destino"
                     android:background="@drawable/border_style"
                     android:ems="10"
                     android:hint="@string/latitud"
@@ -284,13 +287,12 @@
                     android:id="@+id/textViewDV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/contrasena_pasajero"
+                    android:layout_below="@+id/latitud_lugar_destino"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="17dp"
-                    android:text="Datos del vehículo"
+                    android:text="@string/datos_del_vehiculo"
                     android:textColor="@android:color/darker_gray"
-                    android:textSize="18sp"
-                    tools:ignore="HardcodedText" />
+                    android:textSize="18sp"/>
 
 
                 <EditText
@@ -302,7 +304,7 @@
                     android:layout_marginTop="14dp"
                     android:background="@drawable/border_style"
                     android:ems="10"
-                    android:hint="Modelo (Focus, Camry, Spectra,...)"
+                    android:hint="@string/model"
                     android:inputType="text"
                     tools:ignore="HardcodedText" />
 
@@ -315,7 +317,7 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/border_style"
                     android:ems="10"
-                    android:hint="Marca (Ford, Toyota, Kia,...)"
+                    android:hint="@string/marca"
                     android:inputType="text"
                     tools:ignore="HardcodedText" />
 
@@ -329,7 +331,7 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/border_style"
                     android:ems="10"
-                    android:hint="Año"
+                    android:hint="@string/anio"
                     android:inputType="number"
                     tools:ignore="HardcodedText" />
 
@@ -351,14 +353,14 @@
                     android:id="@+id/numero_placas"
                     android:layout_width="300dp"
                     android:layout_height="40dp"
-                    android:layout_alignStart="@+id/usuario_generado"
+                    android:layout_alignStart="@+id/longitud_lugar_destino"
                     android:layout_below="@+id/anio_vehiculo"
                     android:layout_marginTop="18dp"
                     android:background="@drawable/border_style"
                     android:drawableLeft="@drawable/matricula_icon"
                     android:drawablePadding="5dp"
                     android:ems="10"
-                    android:hint="Número de placas"
+                    android:hint="@string/placas"
                     android:inputType="text"
                     tools:ignore="HardcodedText,RtlHardcoded" />
 
@@ -371,7 +373,7 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/border_style"
                     android:ems="10"
-                    android:hint="Tipo (Sedan, Camioneta, Van,...)"
+                    android:hint="@string/tipo"
                     android:inputType="text"
                     tools:ignore="HardcodedText" />
 

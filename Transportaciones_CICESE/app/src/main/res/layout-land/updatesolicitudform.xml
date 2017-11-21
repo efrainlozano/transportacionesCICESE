@@ -176,7 +176,7 @@
 
 
                 <EditText
-                    android:id="@+id/nombre_pasajero"
+                    android:id="@+id/longitud_lugar_encuentro"
 
                     android:background="@drawable/border_style"
                     android:layout_width="500dp"
@@ -191,19 +191,19 @@
                     android:layout_alignEnd="@+id/descripcion_lugar_encuentro" />
 
                 <EditText
-                    android:id="@+id/ap_pasajero"
+                    android:id="@+id/latitud_lugar_encuentro"
 
                     android:background="@drawable/border_style"
                     android:layout_width="500dp"
                     android:layout_height="40dp"
-                    android:layout_below="@+id/nombre_pasajero"
-                    android:layout_alignStart="@+id/nombre_pasajero"
+                    android:layout_below="@+id/longitud_lugar_encuentro"
+                    android:layout_alignStart="@+id/longitud_lugar_encuentro"
                     android:layout_marginTop="10dp"
 
                     android:ems="10"
                     android:hint="Latitud"
                     android:inputType="text"
-                    android:layout_alignEnd="@+id/nombre_pasajero" />
+                    android:layout_alignEnd="@+id/longitud_lugar_encuentro" />
 
 
                 <TextView
@@ -236,7 +236,7 @@
                     android:layout_alignStart="@+id/selectorFecha" />
 
                 <EditText
-                    android:id="@+id/usuario_generado"
+                    android:id="@+id/longitud_lugar_destino"
 
                     android:background="@drawable/border_style"
                     android:layout_width="500dp"
@@ -250,12 +250,12 @@
                     android:inputType="text" />
 
                 <EditText
-                    android:id="@+id/contrasena_pasajero"
+                    android:id="@+id/latitud_lugar_destino"
                     android:background="@drawable/border_style"
                     android:layout_width="500dp"
                     android:layout_height="40dp"
-                    android:layout_below="@+id/usuario_generado"
-                    android:layout_alignStart="@+id/usuario_generado"
+                    android:layout_below="@+id/longitud_lugar_destino"
+                    android:layout_alignStart="@+id/longitud_lugar_destino"
                     android:layout_marginTop="10dp"
                     android:ems="10"
                     android:hint="Latitud"
@@ -265,7 +265,7 @@
                     android:id="@+id/selectorHora"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_alignStart="@+id/nombre_pasajero"
+                    android:layout_alignStart="@+id/longitud_lugar_encuentro"
                     android:layout_alignTop="@+id/horaEncuentro"
                     app:srcCompat="@drawable/clock"
                     tools:ignore="ContentDescription" />
@@ -279,8 +279,8 @@
                     android:ems="10"
                     android:hint="Hora"
                     android:inputType="time"
-                    android:layout_below="@+id/ap_pasajero"
-                    android:layout_alignEnd="@+id/ap_pasajero"
+                    android:layout_below="@+id/latitud_lugar_encuentro"
+                    android:layout_alignEnd="@+id/latitud_lugar_encuentro"
                     android:layout_toEndOf="@+id/selectorHora" />
 
                 <ImageButton
@@ -312,7 +312,7 @@
                     android:textColor="@android:color/darker_gray"
                     android:textSize="18sp"
                     android:layout_marginTop="20dp"
-                    android:layout_below="@+id/contrasena_pasajero"
+                    android:layout_below="@+id/latitud_lugar_destino"
                     android:layout_centerHorizontal="true" />
 
 
@@ -326,7 +326,7 @@
                     android:hint="Modelo (Focus,Camry,Spectra,...)"
                     android:inputType="text"
                     android:layout_below="@+id/textViewDD3"
-                    android:layout_alignStart="@+id/contrasena_pasajero" />
+                    android:layout_alignStart="@+id/latitud_lugar_destino" />
 
                 <EditText
                     android:id="@+id/marca_vehiculo"

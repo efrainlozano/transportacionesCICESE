@@ -141,7 +141,7 @@
                     android:inputType="textPersonName" />
 
                 <EditText
-                    android:id="@+id/nombre_pasajero"
+                    android:id="@+id/longitud_lugar_encuentro"
                     android:layout_width="260dp"
                     android:layout_height="40dp"
                     android:layout_alignStart="@+id/descripcion_lugar_encuentro"
@@ -153,10 +153,10 @@
                     android:inputType="text" />
 
                 <EditText
-                    android:id="@+id/ap_pasajero"
+                    android:id="@+id/latitud_lugar_encuentro"
                     android:layout_width="260dp"
                     android:layout_height="40dp"
-                    android:layout_alignTop="@+id/nombre_pasajero"
+                    android:layout_alignTop="@+id/longitud_lugar_encuentro"
                     android:layout_marginStart="8dp"
                     android:background="@drawable/border_style"
                     android:ems="10"
@@ -174,8 +174,8 @@
                     android:ems="10"
                     android:hint="@string/hora"
                     android:inputType="time"
-                    android:layout_below="@+id/nombre_pasajero"
-                    android:layout_alignStart="@+id/nombre_pasajero" />
+                    android:layout_below="@+id/longitud_lugar_encuentro"
+                    android:layout_alignStart="@+id/longitud_lugar_encuentro" />
 
 
                 <EditText
@@ -211,10 +211,10 @@
                     android:hint="@string/descripci_n"
                     android:inputType="text"
                     android:layout_below="@+id/textViewDD"
-                    android:layout_alignEnd="@+id/ap_pasajero" />
+                    android:layout_alignEnd="@+id/latitud_lugar_encuentro" />
 
                 <EditText
-                    android:id="@+id/usuario_generado"
+                    android:id="@+id/longitud_lugar_destino"
                     android:layout_width="260dp"
                     android:layout_height="40dp"
                     android:layout_alignStart="@+id/descripcion_lugar_destino"
@@ -226,15 +226,15 @@
                     android:inputType="text" />
 
                 <EditText
-                    android:id="@+id/contrasena_pasajero"
+                    android:id="@+id/latitud_lugar_destino"
                     android:layout_width="260dp"
                     android:layout_height="40dp"
                     android:background="@drawable/border_style"
                     android:ems="10"
                     android:hint="@string/latitud"
                     android:inputType=""
-                    android:layout_alignBaseline="@+id/usuario_generado"
-                    android:layout_alignBottom="@+id/usuario_generado"
+                    android:layout_alignBaseline="@+id/longitud_lugar_destino"
+                    android:layout_alignBottom="@+id/longitud_lugar_destino"
                     android:layout_alignEnd="@+id/descripcion_lugar_destino" />
 
 
@@ -246,7 +246,7 @@
                     android:text="Datos del vehículo"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="18sp"
-                    android:layout_below="@+id/contrasena_pasajero"
+                    android:layout_below="@+id/latitud_lugar_destino"
                     android:layout_centerHorizontal="true"
                     tools:ignore="HardcodedText" />
 
@@ -313,7 +313,7 @@
                     android:hint="Número de placas"
                     android:inputType="text"
                     android:layout_below="@+id/anio_vehiculo"
-                    android:layout_alignStart="@+id/usuario_generado"
+                    android:layout_alignStart="@+id/longitud_lugar_destino"
                     tools:ignore="HardcodedText" />
 
                 <EditText

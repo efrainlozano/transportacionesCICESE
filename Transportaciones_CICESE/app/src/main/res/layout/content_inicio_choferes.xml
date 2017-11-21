@@ -21,11 +21,10 @@
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bienvenido a CICESE Transportaciones"
+        android:text="@string/bienvenido"
         android:textAlignment="center"
         android:textColor="@color/ColorActionBarTitle"
         android:textSize="20dp"
-        tools:ignore="HardcodedText,SpUsage"
         android:layout_marginTop="11dp"
         android:layout_alignTop="@+id/imageView10"
         android:layout_alignEnd="@+id/imageView10"
@@ -92,12 +91,11 @@
         android:layout_alignStart="@+id/imageView10"
         android:layout_below="@+id/flipper1"
         android:layout_marginTop="24dp"
-        android:text="Como chofer, a través de esta aplicación usted podrá:"
+        android:text="@string/como_chofer"
         android:textAlignment="center"
         android:textColor="@android:color/holo_blue_light"
         android:textSize="16sp"
-        android:textStyle="bold"
-        tools:ignore="HardcodedText" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView2"
@@ -108,7 +106,7 @@
         android:drawablePadding="5dp"
         android:layout_below="@+id/textView9"
         android:layout_marginTop="11dp"
-        android:text="Dar seguimiento a sus servicios"
+        android:text="@string/dar_seguimiento_a_su_solicitud"
         tools:ignore="RtlHardcoded" />
 
     <TextView
@@ -121,7 +119,7 @@
         android:drawablePadding="5dp"
         android:layout_below="@+id/textView2"
         android:layout_marginTop="2dp"
-        android:text="Intercambiar mensajes con su pasajero asignado y asistente"
+        android:text="@string/int_msj"
         tools:ignore="HardcodedText,RtlHardcoded" />
 
     <TextView
@@ -133,7 +131,7 @@
         android:drawableLeft="@drawable/forma_iconp"
         android:drawablePadding="5dp"
         android:layout_marginTop="2dp"
-        android:text="Enviar notificaciones rápidas a pasajeros"
+        android:text="@string/q_noti"
         tools:ignore="HardcodedText,RtlHardcoded"
         android:layout_alignEnd="@+id/textView13" />
 
@@ -146,7 +144,7 @@
         android:layout_marginTop="2dp"
         android:drawableLeft="@drawable/forma_iconp"
         android:drawablePadding="5dp"
-        android:text="Enviar su localización"
+        android:text="@string/localizacion"
         tools:ignore="HardcodedText,RtlHardcoded"
         android:layout_alignEnd="@+id/textView14" />
 
@@ -154,9 +152,8 @@
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Para mayor información, favor de consultar la ayuda"
+        android:text="@string/mayor_info"
         android:textSize="10sp"
-        tools:ignore="HardcodedText,SmallSp,SpUsage"
         android:layout_marginTop="15dp"
         android:layout_below="@+id/textView15"
         android:layout_centerHorizontal="true" />

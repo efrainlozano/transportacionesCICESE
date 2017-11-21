@@ -11,11 +11,11 @@
         <item
             android:id="@+id/nav_servicio"
             android:icon="@drawable/services_icon"
-            android:title="Servicios" />
+            android:title="@string/servicios" />
         <item
             android:id="@+id/nav_push"
             android:icon="@drawable/chat_icon"
-            android:title="Notificaciones rápidas" />
+            android:title="@string/notificaciones_rapidas" />
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/logout_icon"

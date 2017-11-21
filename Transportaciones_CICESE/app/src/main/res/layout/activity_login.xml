@@ -18,7 +18,7 @@
         android:drawableLeft="@drawable/user_icon"
         android:drawablePadding="5dp"
         android:ems="10"
-        android:hint="Usuario"
+        android:hint="@string/usuario"
         android:inputType="text"
         tools:ignore="HardcodedText,LabelFor,MissingConstraints"
         tools:layout_editor_absoluteX="114dp"
@@ -118,7 +118,7 @@
             android:id="@+id/radio_pasajero"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pasajero"
+            android:text="@string/pasajero"
             android:checked="true"
             tools:ignore="HardcodedText" />
 
@@ -126,7 +126,7 @@
             android:id="@+id/radio_chofer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chofer"
+            android:text="@string/chofer"
             tools:ignore="HardcodedText" />
 
 
@@ -135,7 +135,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="16dp"
-            android:text="Asistente"
+            android:text="@string/asistente"
             tools:ignore="HardcodedText,RtlHardcoded" />
 
     </RadioGroup>

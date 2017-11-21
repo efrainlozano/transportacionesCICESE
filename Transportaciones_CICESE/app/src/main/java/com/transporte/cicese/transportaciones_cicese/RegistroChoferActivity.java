@@ -66,8 +66,7 @@ public class RegistroChoferActivity extends AppCompatActivity {
         registraChofer = (Button) findViewById(R.id.registroChofer_btn);
 
         popupD = (Button) findViewById(R.id.popup);
-        dialogoMsg = "Este campo requiere un número de 10 dígitos.\nEl formato es el siguiente:" +
-                "\n##########\ndonde los tres primeros números son la lada, éstos no se colocan entre \nparéntesis";
+        dialogoMsg = getString (R.string.popup_msg);
 
         //Si se presiona el icono de exclamacion en el campo de telefono
         popupD.setOnClickListener(new View.OnClickListener() {
@@ -91,9 +90,9 @@ public class RegistroChoferActivity extends AppCompatActivity {
     private void PopUp() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(dialogoMsg)
-                .setTitle("Número de teléfono")
+                .setTitle(getString (R.string.tel_fono))
                 .setCancelable(false)
-                .setNeutralButton("Aceptar",
+                .setNeutralButton((getString (R.string.aceptar)),
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();

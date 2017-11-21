@@ -1,0 +1,109 @@
+<resources>
+    <string name="URI">http://192.168.0.5/ci/index.php/api</string>
+    <!-- 192.168.43.192 -->
+    <!-- 192.168.0.5 -->
+    <!-- 10.10.192.1 -->
+
+    <string name="app_name">CICESE Transportations</string>
+    <string name="contrasena">Password</string>
+    <string name="inicio_btn">Login</string>
+    <string name="btn_CICESE_user">CICESE users access</string>
+    <string name="textview_acceso">Enter your username and password</string>
+    <string name="transportaciones">Transportations</string>
+    <string name="title_activity_inicio_pasajero">Home</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="android_studio">User</string>
+    <string name="android_studio_android_com">User type</string>
+    <string name="nuevo_registro">New user registration</string>
+    <string name="n_mero_de_empleado">Employee number</string>
+    <string name="contrase_aChofer">Password</string>
+    <string name="nombre">Name</string>
+    <string name="apellido_paterno">Middle name</string>
+    <string name="apellido_materno">Last name</string>
+    <string name="tel_fono">Phone number</string>
+    <string name="RegistrarChoferbutton">Driver registration</string>
+    <string name="usuario">Username</string>
+    <string name="usuario_generado">Usuario generado</string>
+    <string name="registrar_pasajero">Passenger registration</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="incio">Home</string>
+    <string name="cerrar_sesi_n">Logout</string>
+    <string name="general">General</string>
+    <string name="string_ayuda">Help</string>
+    <string name="acerca_de">About</string>
+    <string name="write_a_message">Write a message</string>
+    <string name="logout">Logout</string>
+    <string name="aceptar">Accept</string>
+    <string name="asistente_obtenido_automaticamente">Assistant(Obtenido Automaticamente)</string>
+    <string name="folio_funcion_generadora">Folio</string>
+    <string name="invitado_combobox_autollenado">Invitado(ComboBox autollenado)</string>
+    <string name="descripci_n">Description</string>
+    <string name="longitud">Length</string>
+    <string name="latitud">Latitude</string>
+    <string name="hora">Hour</string>
+    <string name="fecha">Date</string>
+    <string name="generaFolio">Generate</string>
+    <string name="capture_los_siguientes_datos">Capture the following data</string>
+    <string name="actualizar_servicios_de_esta_solicitud">Update the services associated with this request</string>
+    <string name="actualizar_solicitud">Update request</string>
+    <string name="actualizar_servicio">Update service</string>
+    <string name="actualizar_todo">Update all</string>
+    <string name="dar_seguimiento_a_su_solicitud">Track your services</string>
+    <string name="consultar_sus_eventos">Consultar sus eventos</string>
+    <string name="title_activity_inicio_asistentes">InicioAsistentesActivity</string>
+    <string name="registar_usuarios_y_solicitudes">Registar usuarios, solicitudes y servicios</string>
+    <string name="calificaci_n">Rating</string>
+    <string name="color">Color</string>
+    <string name="title_activity_inicio_choferes">Home</string>
+    <string name="pasajero">Passenger</string>
+    <string name="chofer">Driver</string>
+    <string name="asistente">Assistant</string>
+    <string name="actualizaciones">Updates</string>
+    <string name="registros">Registers</string>
+    <string name="consultas">Queries</string>
+    <string name="servicios">Services</string>
+    <string name="notificaciones_rapidas">Fast notifications</string>
+    <string name="eventos">Events</string>
+    <string name="registrar_chofer">Driver registration</string>
+    <string name="selecccione_una_de_las_siguientes_opciones">Select one of the following options</string>
+    <string name="registrar_asistente">Assistant registration</string>
+    <string name="tip">Please be sure all data is correct</string>
+    <string name="registrar_solicitud">Request registration</string>
+    <string name="tipo">Type</string>
+    <string name="placas">Vehicle registration plate </string>
+    <string name="anio">Year</string>
+    <string name="marca">Brand</string>
+    <string name="model">Model</string>
+    <string name="datos_de_encuentro">Meeting data</string>
+    <string name="datos_de_destino">Destination data</string>
+    <string name="datos_del_vehiculo">Vehicle data</string>
+    <string name="requerido">All fields are required</string>
+    <string name="email">email</string>
+    <string name="username">Username</string>
+    <string name="detalles_servicio">Service details</string>
+    <string name="estado">Status</string>
+    <string name="fum">Fecha de última \nmodificación</string>
+    <string name="nombre_chofer">Driver name</string>
+    <string name="bienvenido">Welcome to CICESE Transportations</string>
+    <string name="como_chofer">As a driver, you can do this:</string>
+    <string name="int_msj">Exchange messages with your assigned passenger and assistant</string>
+    <string name="q_noti">Send quick notifications to passengers</string>
+    <string name="localizacion">Send your location</string>
+    <string name="mayor_info">For more information please consult the help page</string>
+    <string name="como_asistente">As a assistant, you can do this:</string>
+    <string name="int_msj_d">Exchange messages with users associated with a service</string>
+    <string name="update_service">Update the data of registered services</string>
+    <string name="consultas_info">Make queries to registered services</string>
+    <string name="como_pasajero">As a passenger, you can do this:</string>
+    <string name="seguir_solicitud">Follow up on your request</string>
+    <string name="int_msj_t">Exchange messages with your assigned driver and assistant</string>
+    <string name="calendario_eventos">Check your calendar of events</string>
+    <string name="rating_servicio">Rate the service that has been provided</string>
+    <string name="popup_msg">This field requires a 10-digit number. \nThe format is as follows: \n ########## where the first three numbers are the lada, they are not placed in parentheses</string>
+</resources>

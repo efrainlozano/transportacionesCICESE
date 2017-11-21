@@ -9,16 +9,16 @@
         <item
             android:id="@+id/nav_registros"
             android:icon="@drawable/forma_icon"
-            android:title="Registros" />
+            android:title="@string/registros" />
         <item
             android:id="@+id/nav_actualiza"
             android:icon="@drawable/update_icon"
-            android:title="Actualizaciones" />
+            android:title="@string/actualizaciones" />
 
         <item
             android:id="@+id/nav_consulta"
             android:icon="@drawable/consults_icon"
-            android:title="Consultas" />
+            android:title="@string/consultas" />
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/logout_icon"

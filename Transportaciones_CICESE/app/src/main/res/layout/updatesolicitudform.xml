@@ -41,13 +41,14 @@
             <TextView
                 android:id="@+id/textView25"
                 android:layout_width="220dp"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
+                android:layout_alignEnd="@+id/imageView10"
+                android:layout_alignTop="@+id/imageView10"
+                android:layout_marginEnd="21dp"
+                android:text="@string/capture_los_siguientes_datos"
                 android:textColor="?attr/actionMenuTextColor"
                 android:textSize="17sp"
-                android:text="@string/capture_los_siguientes_datos"
-                android:layout_marginEnd="21dp"
-                android:layout_alignTop="@+id/imageView11"
-                android:layout_alignEnd="@+id/imageView10" />
+                android:paddingTop="7dp"/>
 
             <Spinner
                 android:id="@+id/solicitudesSpinner"
@@ -121,7 +122,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:orientation="vertical"
-            android:visibility="visible"
+            android:visibility="invisible"
             android:layout_below="@+id/formContainer"
             android:layout_alignStart="@+id/formContainer"
             >
@@ -149,7 +150,7 @@
                     android:layout_marginTop="11dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Datos de encuentro"
+                    android:text="@string/datos_de_encuentro"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="18sp"
                     android:layout_alignParentTop="true"
@@ -161,7 +162,7 @@
                     android:layout_width="300dp"
                     android:layout_height="40dp"
                     android:ems="10"
-                    android:hint="Descripción"
+                    android:hint="@string/descripci_n"
                     android:inputType="textPersonName"
                     android:layout_marginTop="11dp"
                     android:drawableLeft="@drawable/descriotion_icon"
@@ -172,7 +173,7 @@
 
 
                 <EditText
-                    android:id="@+id/nombre_pasajero"
+                    android:id="@+id/longitud_lugar_encuentro"
 
                     android:background="@drawable/border_style"
                     android:layout_width="300dp"
@@ -182,21 +183,21 @@
                     android:layout_marginTop="10dp"
 
                     android:ems="10"
-                    android:hint="Longitud"
+                    android:hint="@string/longitud"
                     android:inputType="text" />
 
                 <EditText
-                    android:id="@+id/ap_pasajero"
+                    android:id="@+id/latitud_lugar_encuentro"
 
                     android:background="@drawable/border_style"
                     android:layout_width="300dp"
                     android:layout_height="40dp"
-                    android:layout_below="@+id/nombre_pasajero"
-                    android:layout_alignStart="@+id/nombre_pasajero"
+                    android:layout_below="@+id/longitud_lugar_encuentro"
+                    android:layout_alignStart="@+id/longitud_lugar_encuentro"
                     android:layout_marginTop="10dp"
 
                     android:ems="10"
-                    android:hint="Latitud"
+                    android:hint="@string/latitud"
                     android:inputType="text" />
 
 
@@ -204,7 +205,7 @@
                     android:id="@+id/textViewDD2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Datos de destino"
+                    android:text="@string/datos_de_destino"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="18sp"
                     android:layout_marginTop="20dp"
@@ -223,42 +224,42 @@
                     android:drawableLeft="@drawable/descriotion_icon"
                     android:drawablePadding="5dp"
                     android:ems="10"
-                    android:hint="Descripción"
+                    android:hint="@string/descripci_n"
                     android:inputType="text"
                     android:layout_below="@+id/textViewDD2"
                     android:layout_alignEnd="@+id/fecha_encuentro" />
 
                 <EditText
-                    android:id="@+id/usuario_generado"
+                    android:id="@+id/longitud_lugar_destino"
 
-                    android:background="@drawable/border_style"
                     android:layout_width="300dp"
                     android:layout_height="40dp"
-                    android:layout_below="@+id/descripcion_lugar_destino"
                     android:layout_alignStart="@+id/descripcion_lugar_destino"
+                    android:layout_below="@+id/descripcion_lugar_destino"
                     android:layout_marginTop="10dp"
+                    android:background="@drawable/border_style"
 
                     android:ems="10"
-                    android:hint="Longitud"
+                    android:hint="@string/longitud"
                     android:inputType="text" />
 
                 <EditText
-                    android:id="@+id/contrasena_pasajero"
+                    android:id="@+id/latitud_lugar_destino"
                     android:background="@drawable/border_style"
                     android:layout_width="300dp"
                     android:layout_height="40dp"
-                    android:layout_below="@+id/usuario_generado"
-                    android:layout_alignStart="@+id/usuario_generado"
+                    android:layout_below="@+id/longitud_lugar_destino"
+                    android:layout_alignStart="@+id/longitud_lugar_destino"
                     android:layout_marginTop="10dp"
                     android:ems="10"
-                    android:hint="Latitud"
+                    android:hint="@string/latitud"
                     android:inputType="text" />
 
                 <ImageButton
                     android:id="@+id/selectorHoraU"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignStart="@+id/nombre_pasajero"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignStart="@+id/longitud_lugar_encuentro"
                     android:layout_alignTop="@+id/horaEncuentro"
                     app:srcCompat="@drawable/clock"
                     tools:ignore="ContentDescription" />
@@ -266,23 +267,23 @@
                 <EditText
                     android:id="@+id/horaEncuentro"
                     android:background="@drawable/border_style"
-                    android:layout_width="250dp"
+                    android:layout_width="247dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="14dp"
                     android:ems="10"
-                    android:hint="Hora"
+                    android:hint="@string/hora"
                     android:inputType="time"
-                    android:layout_below="@+id/ap_pasajero"
-                    android:layout_alignEnd="@+id/ap_pasajero" />
+                    android:layout_below="@+id/latitud_lugar_encuentro"
+                    android:layout_alignEnd="@+id/latitud_lugar_encuentro" />
 
                 <ImageButton
                     android:id="@+id/selectorFechaU"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    app:srcCompat="@drawable/calendar"
-                    tools:ignore="ContentDescription"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignStart="@+id/selectorHoraU"
                     android:layout_alignTop="@+id/fecha_encuentro"
-                    android:layout_alignStart="@+id/selectorHora" />
+                    app:srcCompat="@drawable/calendar"
+                    tools:ignore="ContentDescription" />
 
                 <EditText
                     android:id="@+id/fecha_encuentro"
@@ -291,7 +292,7 @@
                     android:layout_height="40dp"
                     android:layout_marginTop="12dp"
                     android:ems="10"
-                    android:hint="Fecha"
+                    android:hint="@string/fecha"
                     android:inputType="date"
                     android:layout_below="@+id/horaEncuentro"
                     android:layout_alignStart="@+id/horaEncuentro" />
@@ -300,11 +301,11 @@
                     android:id="@+id/textViewDD3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Datos del vehículo"
+                    android:text="@string/datos_del_vehiculo"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="18sp"
                     android:layout_marginTop="20dp"
-                    android:layout_below="@+id/contrasena_pasajero"
+                    android:layout_below="@+id/latitud_lugar_destino"
                     android:layout_centerHorizontal="true" />
 
 
@@ -315,10 +316,10 @@
                     android:layout_height="40dp"
                     android:layout_marginTop="10dp"
                     android:ems="10"
-                    android:hint="Modelo (Focus,Camry,Spectra,...)"
+                    android:hint="@string/model"
                     android:inputType="text"
                     android:layout_below="@+id/textViewDD3"
-                    android:layout_alignStart="@+id/contrasena_pasajero" />
+                    android:layout_alignStart="@+id/latitud_lugar_destino" />
 
                 <EditText
                     android:id="@+id/marca_vehiculo"
@@ -329,7 +330,7 @@
                     android:layout_alignStart="@+id/modelo_vehiculo"
                     android:layout_marginTop="10dp"
                     android:ems="10"
-                    android:hint="Marca (Ford, Toyota, Kia,...)"
+                    android:hint="@string/marca"
                     android:inputType="text" />
 
                 <EditText
@@ -341,7 +342,7 @@
                     android:layout_alignStart="@+id/marca_vehiculo"
                     android:layout_marginTop="10dp"
                     android:ems="10"
-                    android:hint="Año"
+                    android:hint="@string/anio"
                     android:inputType="number" />
 
                 <EditText
@@ -369,7 +370,7 @@
                     android:ems="10"
                     android:drawableLeft="@drawable/matricula_icon"
                     android:drawablePadding="5dp"
-                    android:hint="Número de placas"
+                    android:hint="@string/placas"
                     android:inputType="text" />
 
                 <EditText
@@ -381,7 +382,7 @@
                     android:layout_alignStart="@+id/numero_placas"
                     android:layout_marginTop="10dp"
                     android:ems="10"
-                    android:hint="Tipo (Sedan, Camioneta, Van,...)"
+                    android:hint="@string/tipo"
                     android:inputType="text" />
 
 
@@ -411,7 +412,7 @@
                 <RelativeLayout
                     android:id="@+id/buttons"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="100dp"
                     android:layout_below="@+id/choferSpinner"
                     android:layout_marginTop="10dp">
 

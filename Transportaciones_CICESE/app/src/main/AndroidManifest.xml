@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -31,37 +32,35 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".RegistroChoferActivity"
-            android:label="Registro de choferes" />
+            android:label="@string/registrar_chofer" />
         <activity
             android:name=".RegistroPasajeroActivity"
-            android:label="Registro de pasajeros" />
+            android:label="@string/registrar_pasajero" />
         <activity
             android:name=".RegistroAsistenteActivity"
-            android:label="Registro de asistentes" />
+            android:label="@string/registrar_asistente" />
         <activity android:name=".chatActivity" />
         <activity
             android:name=".RegistroSolicitudActivity"
-            android:label="Registro de solicitudes" />
+            android:label="@string/registrar_solicitud" />
         <activity
             android:name=".updateSolicitud"
-            android:label="Actualización de solicitudes" />
+            android:label="@string/actualizaciones" />
         <activity
             android:name=".TextoRapidoActivity"
             android:label="Seleccionar texto rápido" />
 
         <activity
             android:name=".InicioAsistentesActivity"
-            android:label="Inicio"
+            android:label="@string/incio"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MenuRegistrosAsistenteActivity"
-            android:label="Registros" />
+            android:label="@string/registros" />
         <activity
             android:name=".InicioChoferesActivity"
             android:label="@string/title_activity_inicio_choferes"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-
-
 
         <!-- [START firebase_service] -->
         <service android:name=".MyFirebaseMessagingService">

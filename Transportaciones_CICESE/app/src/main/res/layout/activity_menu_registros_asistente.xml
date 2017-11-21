@@ -57,9 +57,8 @@
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registrar chofer"
+        android:text="@string/registrar_chofer"
         android:textColor="@color/ColorActionBarTitle"
-        tools:ignore="HardcodedText"
         android:layout_below="@+id/imr1"
         android:layout_alignEnd="@+id/textView20" />
 
@@ -67,20 +66,18 @@
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registrar pasajero"
-        android:textColor="@color/ColorActionBarTitle"
         android:layout_alignBaseline="@+id/textView18"
         android:layout_alignBottom="@+id/textView18"
         android:layout_alignEnd="@+id/imr2"
-        tools:ignore="HardcodedText" />
+        android:text="@string/registrar_pasajero"
+        android:textColor="@color/ColorActionBarTitle" />
 
     <TextView
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registrar asistente"
+        android:text="@string/registrar_asistente"
         android:textColor="@color/ColorActionBarTitle"
-        tools:ignore="HardcodedText"
         android:layout_below="@+id/imr3"
         android:layout_alignStart="@+id/imr3" />
 
@@ -88,8 +85,7 @@
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registrar solicitud"
-        tools:ignore="HardcodedText"
+        android:text="@string/registrar_solicitud"
         android:textColor="@color/ColorActionBarTitle"
         android:layout_alignBaseline="@+id/textView20"
         android:layout_alignBottom="@+id/textView20"
@@ -124,7 +120,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/imageView4"
         android:layout_alignEnd="@+id/imageView10"
-        android:text="Selecccione una de las siguientes opciones"
+        android:text="@string/selecccione_una_de_las_siguientes_opciones"
         android:textAlignment="viewStart"
         android:textColor="?attr/actionMenuTextColor"
         android:textSize="17sp"
@@ -140,7 +136,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/textView20"
         android:layout_marginBottom="43dp"
-        android:text="Al hacer un registro, por favor asegurese de que todos los datos sean correctos"
-        android:textAlignment="center"
-        tools:ignore="HardcodedText" />
+        android:text="@string/tip"
+        android:textAlignment="center" />
 </RelativeLayout>

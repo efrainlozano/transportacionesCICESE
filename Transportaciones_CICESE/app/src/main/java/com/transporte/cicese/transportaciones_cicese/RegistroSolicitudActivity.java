@@ -14,7 +14,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -80,10 +79,10 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
 
         //Componentes EditText
         folioET                     =   (EditText) findViewById(R.id.folioSolicitud);
-        longitud_destino            =   (EditText) findViewById(R.id.usuario_generado);
-        latitud_destino             =   (EditText) findViewById(R.id.contrasena_pasajero);
-        longitud_encuentro          =   (EditText) findViewById(R.id.nombre_pasajero);
-        latitud_encuentro           =   (EditText) findViewById(R.id.ap_pasajero);
+        longitud_destino            =   (EditText) findViewById(R.id.longitud_lugar_destino);
+        latitud_destino             =   (EditText) findViewById(R.id.latitud_lugar_destino);
+        longitud_encuentro          =   (EditText) findViewById(R.id.longitud_lugar_encuentro);
+        latitud_encuentro           =   (EditText) findViewById(R.id.latitud_lugar_encuentro);
         descripcion_lugar_encuentro =   (EditText) findViewById(R.id.descripcion_lugar_encuentro);
         descripcion_lugar_destino   =   (EditText) findViewById(R.id.descripcion_lugar_destino);
         hora_encuentro              =   (EditText) findViewById(R.id.horaEncuentro);

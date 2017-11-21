@@ -17,6 +17,7 @@ import android.widget.Toast;
 import android.widget.ScrollView;
 
 
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.transporte.cicese.transportaciones_cicese.funciones.funcionesGeneradoras;
 
 import org.json.JSONArray;
@@ -112,6 +113,12 @@ public class chatActivity extends AppCompatActivity {
                     recuperamos_variable_string = getIntent().getExtras().getString("textoR_1");
                     messageArea.setText(recuperamos_variable_string);
                 }else{*/
+
+                String token = FirebaseInstanceId.getInstance().getToken();
+                Toast.makeText
+                (getApplicationContext(),token,Toast.LENGTH_SHORT).show();
+
+                messageArea.setText(token);
                 mensaje = messageArea.getText().toString();//}
                 new chatActivity.SendPostRequest().execute(getString(R.string.URI)+"/amensaje");
                 messageArea.setText(null);

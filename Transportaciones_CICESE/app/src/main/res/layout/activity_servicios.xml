@@ -37,6 +37,7 @@
         android:layout_alignEnd="@+id/imageView10"
         android:layout_alignTop="@+id/imageView10"
         android:layout_marginEnd="14dp"
+        android:paddingTop="7dp"
         android:text="@string/capture_los_siguientes_datos"
         android:textColor="?attr/actionMenuTextColor"
         android:textSize="17sp" />
@@ -63,7 +64,7 @@
 
       <TableLayout
           android:layout_width="match_parent"
-          android:layout_height="match_parent"
+          android:layout_height="1000dp"
           android:layout_below="@+id/spinner"
           android:layout_centerHorizontal="true"
           android:background="#ffff"
@@ -83,14 +84,13 @@
               android:layout_centerHorizontal="true"
               android:background="@color/colorPrimaryText"
               android:fontFamily="sans-serif"
-              android:hint="Detalles del servicio"
+              android:hint="@string/detalles_servicio"
               android:lineSpacingExtra="8sp"
               android:textAlignment="center"
               android:textAllCaps="false"
               android:textColorHint="#ffff"
               android:textSize="18sp"
-              android:textStyle="bold"
-              tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+              android:textStyle="bold"/>
 
 
           <TableRow
@@ -100,9 +100,8 @@
 
               <TextView
                   android:padding="3dip"
-                  android:text="Estado"
-                  android:textStyle="bold"
-                  tools:ignore="HardcodedText" />
+                  android:text="@string/estado"
+                  android:textStyle="bold" />
 
               <TextView
                   android:id="@+id/est_servicio"
@@ -139,9 +138,8 @@
 
               <TextView
                   android:padding="3dip"
-                  android:text="Fecha de última \nmodificación"
-                  android:textStyle="bold"
-                  tools:ignore="HardcodedText" />
+                  android:text="@string/fum"
+                  android:textStyle="bold" />
 
               <TextView
                   android:id="@+id/fum_servicio"
@@ -174,9 +172,8 @@
 
               <TextView
                   android:padding="3dip"
-                  android:text="Nombre del chofer"
-                  android:textStyle="bold"
-                  tools:ignore="HardcodedText" />
+                  android:text="@string/nombre_chofer"
+                  android:textStyle="bold"/>
 
               <TextView
                   android:id="@+id/idChofer"
@@ -206,12 +203,11 @@
               android:layout_alignParentTop="true"
               android:layout_centerHorizontal="true"
               android:background="@android:color/holo_blue_light"
-              android:hint="Datos de encuentro"
+              android:hint="@string/datos_de_encuentro"
               android:textAlignment="center"
               android:textColorHint="#ffff"
               android:textSize="18sp"
-              android:textStyle="bold"
-              tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+              android:textStyle="bold" />
 
           <TableRow
               android:id="@+id/tableRow1"
@@ -240,9 +236,8 @@
 
               <TextView
                   android:padding="3dip"
-                  android:text="Longitud"
-                  android:textStyle="bold"
-                  tools:ignore="HardcodedText" />
+                  android:text="@string/longitud"
+                  android:textStyle="bold" />
 
               <TextView
                   android:id="@+id/long_encuentro"
@@ -260,9 +255,8 @@
 
               <TextView
                   android:padding="3dip"
-                  android:text="Latitud"
-                  android:textStyle="bold"
-                  tools:ignore="HardcodedText" />
+                  android:text="@string/latitud"
+                  android:textStyle="bold" />
 
               <TextView
                   android:id="@+id/lat_encuentro"
@@ -301,7 +295,7 @@
 
               <TextView
                   android:padding="3dip"
-                  android:text="Fecha"
+                  android:text="@string/fecha"
                   android:textStyle="bold"
                   tools:ignore="HardcodedText" />
 
@@ -333,12 +327,11 @@
               android:layout_alignParentTop="true"
               android:layout_centerHorizontal="true"
               android:background="@android:color/holo_blue_light"
-              android:hint="Datos de destino"
+              android:hint="@string/datos_de_destino"
               android:textAlignment="center"
               android:textColorHint="#ffff"
               android:textSize="18sp"
-              android:textStyle="bold"
-              tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+              android:textStyle="bold" />
 
 
           <TableRow
@@ -349,9 +342,8 @@
 
               <TextView
                   android:padding="3dip"
-                  android:text="Descripción"
-                  android:textStyle="bold"
-                  tools:ignore="HardcodedText" />
+                  android:text="@string/descripci_n"
+                  android:textStyle="bold" />
 
               <TextView
                   android:id="@+id/desc_destino"
@@ -369,9 +361,8 @@
 
               <TextView
                   android:padding="3dip"
-                  android:text="Longitud"
-                  android:textStyle="bold"
-                  tools:ignore="HardcodedText" />
+                  android:text="@string/longitud"
+                  android:textStyle="bold" />
 
               <TextView
                   android:id="@+id/long_destino"
@@ -389,9 +380,8 @@
 
               <TextView
                   android:padding="3dip"
-                  android:text="Latitud"
-                  android:textStyle="bold"
-                  tools:ignore="HardcodedText" />
+                  android:text="@string/latitud"
+                  android:textStyle="bold" />
 
               <TextView
                   android:id="@+id/lat_destino"
@@ -420,12 +410,11 @@
               android:layout_alignParentTop="true"
               android:layout_centerHorizontal="true"
               android:background="@android:color/holo_blue_light"
-              android:hint="Datos del vehículo"
+              android:hint="@string/datos_del_vehiculo"
               android:textAlignment="center"
               android:textColorHint="#ffff"
               android:textSize="18sp"
-              android:textStyle="bold"
-              tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+              android:textStyle="bold" />
 
           <TableRow
               android:id="@+id/tableRow9"
@@ -435,9 +424,8 @@
 
               <TextView
                   android:padding="3dip"
-                  android:text="Modelo"
-                  android:textStyle="bold"
-                  tools:ignore="HardcodedText" />
+                  android:text="@string/model"
+                  android:textStyle="bold"/>
 
               <TextView
                   android:id="@+id/model_vehiculo"
@@ -455,9 +443,8 @@
 
               <TextView
                   android:padding="3dip"
-                  android:text="Marca"
-                  android:textStyle="bold"
-                  tools:ignore="HardcodedText" />
+                  android:text="@string/marca"
+                  android:textStyle="bold" />
 
               <TextView
                   android:id="@+id/marc_vehiculo"
@@ -475,7 +462,7 @@
 
               <TextView
                   android:padding="3dip"
-                  android:text="Año"
+                  android:text="@string/anio"
                   android:textStyle="bold"
                   tools:ignore="HardcodedText" />
 
@@ -514,7 +501,7 @@
 
               <TextView
                   android:padding="3dip"
-                  android:text="Número de placas"
+                  android:text="@string/placas"
                   android:textStyle="bold"
                   tools:ignore="HardcodedText" />
 
@@ -534,9 +521,8 @@
 
               <TextView
                   android:padding="3dip"
-                  android:text="Tipo"
-                  android:textStyle="bold"
-                  tools:ignore="HardcodedText" />
+                  android:text="@string/tipo"
+                  android:textStyle="bold"/>
 
               <TextView
                   android:id="@+id/tip_vehiculo"

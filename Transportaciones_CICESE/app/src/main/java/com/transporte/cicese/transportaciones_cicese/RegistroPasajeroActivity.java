@@ -15,25 +15,9 @@ import com.transporte.cicese.transportaciones_cicese.funciones.funcionesGenerado
 
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.security.SecureRandom;
-import java.security.cert.X509Certificate;
 import java.util.ArrayList;
-import java.util.Iterator;
 
-import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
 
 /**
  * Created by Blanca Cecilia De Leon Rubio on 12/10/2017.
@@ -61,17 +45,16 @@ public class RegistroPasajeroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registro_pasajero);
 
         //Referencia a los controles de la interfaz
-        usuarioPasajero = (EditText) findViewById(R.id.usuario_generado);
-        contrasenaPasajero = (EditText) findViewById(R.id.contrasena_pasajero);
-        nombrePasajero = (EditText) findViewById(R.id.nombre_pasajero);
-        aPaternoPasajero = (EditText) findViewById(R.id.ap_pasajero);
+        usuarioPasajero = (EditText) findViewById(R.id.longitud_lugar_destino);
+        contrasenaPasajero = (EditText) findViewById(R.id.latitud_lugar_destino);
+        nombrePasajero = (EditText) findViewById(R.id.longitud_lugar_encuentro);
+        aPaternoPasajero = (EditText) findViewById(R.id.latitud_lugar_encuentro);
         aMaternoPasajero = (EditText) findViewById(R.id.am_pasajero);
         numTelefonoPasajero = (EditText) findViewById(R.id.tel_pasajero);
         registraPasajero = (Button) findViewById(R.id.registroPasajero_btn);
 
         popupD = (Button) findViewById(R.id.popup3);
-        dialogoMsg = "Este campo requiere un número de 10 dígitos.\nEl formato es el siguiente:" +
-                "\n##########\ndonde los tres primeros números son la lada, éstos no se colocan entre \nparéntesis";
+        dialogoMsg = getString (R.string.popup_msg);
 
 
         //Si se presiona el icono de exclamacion en el campo de telefono
@@ -96,9 +79,9 @@ public class RegistroPasajeroActivity extends AppCompatActivity {
     private void PopUp() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(dialogoMsg)
-                .setTitle("Número de teléfono")
+                .setTitle(getString (R.string.tel_fono))
                 .setCancelable(false)
-                .setNeutralButton("Aceptar",
+                .setNeutralButton((getString (R.string.aceptar)),
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();

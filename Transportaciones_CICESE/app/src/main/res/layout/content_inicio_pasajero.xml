@@ -24,7 +24,7 @@
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bienvenido a CICESE Transportaciones"
+        android:text="@string/bienvenido"
         android:textAlignment="center"
         android:textColor="@color/ColorActionBarTitle"
         android:textSize="20dp"
@@ -95,7 +95,7 @@
         android:layout_alignStart="@+id/imageView10"
         android:layout_below="@+id/flipper1"
         android:layout_marginTop="24dp"
-        android:text="Como pasajero, a través de esta aplicación usted podrá:"
+        android:text="@string/como_pasajero"
         android:textAlignment="center"
         android:textColor="@android:color/holo_blue_light"
         android:textSize="16sp"
@@ -111,8 +111,7 @@
         android:drawablePadding="5dp"
         android:layout_below="@+id/textView9"
         android:layout_marginTop="11dp"
-        android:text="Dar seguimiento a su solicitud"
-        tools:ignore="RtlHardcoded" />
+        android:text="@string/seguir_solicitud" />
 
     <TextView
         android:id="@+id/textView13"
@@ -124,7 +123,7 @@
         android:drawablePadding="5dp"
         android:layout_below="@+id/textView2"
         android:layout_marginTop="2dp"
-        android:text="Intercambiar mensajes con su chofer asignado y asistente"
+        android:text="@string/int_msj_t"
         tools:ignore="HardcodedText,RtlHardcoded" />
 
     <TextView
@@ -136,7 +135,7 @@
         android:drawableLeft="@drawable/forma_iconp"
         android:drawablePadding="5dp"
         android:layout_marginTop="2dp"
-        android:text="Consultar su calendario de eventos"
+        android:text="@string/calendario_eventos"
         tools:ignore="HardcodedText,RtlHardcoded"
         android:layout_alignEnd="@+id/textView13" />
 
@@ -149,7 +148,7 @@
         android:layout_marginTop="2dp"
         android:drawableLeft="@drawable/forma_iconp"
         android:drawablePadding="5dp"
-        android:text="Calificar el servicio que se le ha brindado"
+        android:text="@string/rating_servicio"
         tools:ignore="HardcodedText,RtlHardcoded"
         android:layout_alignEnd="@+id/textView14" />
 
@@ -157,9 +156,8 @@
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Para mayor información, favor de consultar la ayuda"
+        android:text="@string/mayor_info"
         android:textSize="10sp"
-        tools:ignore="HardcodedText,SmallSp,SpUsage"
         android:layout_marginTop="15dp"
         android:layout_below="@+id/textView15"
         android:layout_centerHorizontal="true" />

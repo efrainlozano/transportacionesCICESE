@@ -16,7 +16,6 @@ import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TimePicker;
@@ -29,18 +28,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Iterator;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -91,10 +83,10 @@ public class updateSolicitud extends AppCompatActivity {
         solicitudSpinner            =(Spinner) findViewById(R.id.solicitudSpinner);
 
         folioEdit                   =(EditText)findViewById(R.id.folioEdit);
-        longitud_destino            =(EditText)findViewById(R.id.usuario_generado);
-        latitud_destino             =(EditText)findViewById(R.id.contrasena_pasajero);
-        longitud_encuentro          =(EditText)findViewById(R.id.nombre_pasajero);
-        latitud_encuentro           =(EditText)findViewById(R.id.ap_pasajero);
+        longitud_destino            =(EditText)findViewById(R.id.longitud_lugar_destino);
+        latitud_destino             =(EditText)findViewById(R.id.latitud_lugar_destino);
+        longitud_encuentro          =(EditText)findViewById(R.id.longitud_lugar_encuentro);
+        latitud_encuentro           =(EditText)findViewById(R.id.latitud_lugar_encuentro);
         descripcion_lugar_encuentro =(EditText)findViewById(R.id.descripcion_lugar_encuentro);
         descripcion_lugar_destino   =(EditText)findViewById(R.id.descripcion_lugar_destino);
         hora_encuentro              =(EditText)findViewById(R.id.horaEncuentro);

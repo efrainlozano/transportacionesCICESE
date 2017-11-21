@@ -16,7 +16,7 @@
         app:srcCompat="@drawable/textbacks"
         tools:ignore="ContentDescription"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/usuario_generado" />
+        android:layout_alignStart="@+id/longitud_lugar_destino" />
 
 
     <ImageView
@@ -32,22 +32,21 @@
     <TextView
         android:id="@+id/textViewRC"
         android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="70dp"
+        android:layout_height="60dp"
+        android:layout_alignEnd="@+id/popup3"
+        android:layout_alignTop="@+id/imageView10"
+        android:paddingTop="7dp"
         android:text="@string/capture_los_siguientes_datos"
         android:textAlignment="viewStart"
         android:textColor="?attr/actionMenuTextColor"
         android:textSize="17sp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="134dp"
-        tools:layout_editor_absoluteY="16dp"
-        android:layout_alignTop="@+id/imageView10"
-        android:layout_alignEnd="@+id/popup3"
-        android:layout_marginTop="8dp" />
+        tools:layout_editor_absoluteY="16dp" />
 
 
     <EditText
-        android:id="@+id/usuario_generado"
+        android:id="@+id/longitud_lugar_destino"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
@@ -55,13 +54,13 @@
         android:drawableLeft="@drawable/user_icon"
         android:drawablePadding="5dp"
         android:ems="10"
-        android:hint="Nombre de usuario"
+        android:hint="@string/username"
         android:inputType="text"
         android:layout_below="@+id/imageView10"
-        android:layout_alignStart="@+id/ap_pasajero" />
+        android:layout_alignStart="@+id/latitud_lugar_encuentro" />
 
     <EditText
-        android:id="@+id/contrasena_pasajero"
+        android:id="@+id/latitud_lugar_destino"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
@@ -72,12 +71,12 @@
         android:fontFamily="sans-serif"
         android:hint="@string/contrase_aChofer"
         android:inputType="textWebPassword"
-        android:layout_below="@+id/usuario_generado"
-        android:layout_alignStart="@+id/usuario_generado" />
+        android:layout_below="@+id/longitud_lugar_destino"
+        android:layout_alignStart="@+id/longitud_lugar_destino" />
 
 
     <EditText
-        android:id="@+id/nombre_pasajero"
+        android:id="@+id/longitud_lugar_encuentro"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
@@ -87,12 +86,12 @@
         android:ems="10"
         android:hint="@string/nombre"
         android:inputType="text"
-        android:layout_below="@+id/contrasena_pasajero"
-        android:layout_alignStart="@+id/contrasena_pasajero" />
+        android:layout_below="@+id/latitud_lugar_destino"
+        android:layout_alignStart="@+id/latitud_lugar_destino" />
 
 
     <EditText
-        android:id="@+id/ap_pasajero"
+        android:id="@+id/latitud_lugar_encuentro"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
@@ -102,7 +101,7 @@
         android:ems="10"
         android:hint="@string/apellido_paterno"
         android:inputType="text"
-        android:layout_below="@+id/nombre_pasajero"
+        android:layout_below="@+id/longitud_lugar_encuentro"
         android:layout_centerHorizontal="true" />
 
     <EditText
@@ -110,8 +109,8 @@
         android:layout_width="300dp"
         android:layout_marginTop="10dp"
         android:layout_height="40dp"
-        android:layout_alignStart="@+id/ap_pasajero"
-        android:layout_below="@+id/ap_pasajero"
+        android:layout_alignStart="@+id/latitud_lugar_encuentro"
+        android:layout_below="@+id/latitud_lugar_encuentro"
         android:background="@drawable/border_style"
         android:drawableLeft="@drawable/name_icon"
         android:drawablePadding="5dp"
@@ -150,7 +149,7 @@
         android:layout_width="255dp"
         android:layout_marginTop="8dp"
         android:layout_height="40dp"
-        android:hint="Correo electrónico"
+        android:hint="@string/email"
         android:ems="10"
         android:background="@drawable/border_style"
         android:drawableLeft="@drawable/email_icon"
