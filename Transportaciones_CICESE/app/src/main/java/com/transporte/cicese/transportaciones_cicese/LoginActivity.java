@@ -111,7 +111,7 @@ public class LoginActivity extends AppCompatActivity {
                             break;
                         case 'a': //Inicio de asistente
                             idUsuario = jObject.getInt("id_asistente");
-                            i = new Intent(LoginActivity.this, InicioAsistentesActivity.class);
+                            i = new Intent(LoginActivity.this, /*InicioAsistentesActivity*/pruebaMapIntents.class);
                             break;
                         case 'p': //Inicio de pasajero
                             idUsuario = jObject.getInt("id_invitado");
@@ -124,7 +124,6 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putString("nUsuario", usuario);
                     editor.putInt("idUsuario", idUsuario);
                     editor.putString("tipoUsuario",String.valueOf(tipoUsuario));
-                    Log.i("id", String.valueOf(idUsuario));
                     editor.commit();//Guardamos los datos del usuario que nos seran utiles mas adelante
 
                     i.putExtra("usuario", usuario);//Guardamos una cadena
