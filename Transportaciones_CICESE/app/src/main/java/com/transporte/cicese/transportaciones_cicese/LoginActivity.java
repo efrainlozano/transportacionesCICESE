@@ -111,7 +111,7 @@ public class LoginActivity extends AppCompatActivity {
                             break;
                         case 'a': //Inicio de asistente
                             idUsuario = jObject.getInt("id_asistente");
-                            i = new Intent(LoginActivity.this, /*InicioAsistentesActivity*/pruebaMapIntents.class);
+                            i = new Intent(LoginActivity.this, InicioAsistentesActivity.class);
                             break;
                         case 'p': //Inicio de pasajero
                             idUsuario = jObject.getInt("id_invitado");

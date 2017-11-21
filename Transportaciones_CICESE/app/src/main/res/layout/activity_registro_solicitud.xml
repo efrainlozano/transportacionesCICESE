@@ -11,37 +11,40 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:ignore="UselessParent">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             tools:ignore="ScrollViewSize">
+
             <RelativeLayout
                 android:id="@+id/solicitudR"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:orientation="vertical"
                 tools:ignore="ObsoleteLayoutParam,UselessParent">
+
                 <ImageView
                     android:id="@+id/imageView10"
                     android:layout_width="300dp"
                     android:layout_height="60dp"
+                    android:layout_alignBottom="@+id/imageView4"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
                     app:srcCompat="@drawable/textbacks"
-                    tools:ignore="ContentDescription,UnknownIdInLayout"
-                    android:layout_alignBottom="@+id/imageView4"
-                    android:layout_centerHorizontal="true" />
+                    tools:ignore="ContentDescription,UnknownIdInLayout" />
 
 
                 <TextView
                     android:id="@+id/textView25"
                     android:layout_width="220dp"
                     android:layout_height="60dp"
-                    android:paddingTop="7dp"
                     android:layout_alignEnd="@+id/imageView10"
                     android:layout_alignTop="@+id/imageView10"
+                    android:paddingTop="7dp"
                     android:text="@string/capture_los_siguientes_datos"
                     android:textAlignment="inherit"
                     android:textColor="?attr/actionMenuTextColor"
@@ -49,43 +52,42 @@
 
                 <EditText
                     android:id="@+id/folioSolicitud"
-                    android:drawableLeft="@drawable/emp_icon"
-                    android:drawablePadding="5dp"
                     android:layout_width="200dp"
                     android:layout_height="40dp"
+                    android:layout_alignStart="@+id/imageView10"
+                    android:layout_below="@+id/imageView10"
                     android:layout_marginTop="14dp"
                     android:background="@drawable/border_style"
+                    android:drawableLeft="@drawable/emp_icon"
+                    android:drawablePadding="5dp"
                     android:ems="10"
                     android:hint="@string/folio_funcion_generadora"
                     android:inputType="number"
                     android:textAlignment="textStart"
-                    android:layout_below="@+id/imageView10"
-                    android:layout_alignStart="@+id/imageView10"
                     tools:ignore="RtlHardcoded" />
 
                 <Spinner
                     android:id="@+id/idInvitado"
                     android:layout_width="300dp"
                     android:layout_height="40dp"
-                    android:background="@drawable/border_style"
-                    android:ems="10"
-                    android:layout_below="@+id/folioSolicitud"
                     android:layout_alignStart="@+id/folioSolicitud"
+                    android:layout_below="@+id/folioSolicitud"
                     android:layout_marginTop="13dp"
-                    />
+                    android:background="@drawable/border_style"
+                    android:ems="10" />
 
                 <Button
                     android:id="@+id/registrarSolicitud"
                     android:layout_width="300dp"
                     android:layout_height="40dp"
+                    android:layout_alignStart="@+id/idInvitado"
+                    android:layout_below="@+id/idInvitado"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/secondary_button_style"
                     android:text="@string/aceptar"
                     android:textAllCaps="false"
-                    android:textColor="#ffff"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_below="@+id/idInvitado"
-                    android:layout_alignStart="@+id/idInvitado" />
+                    android:textColor="#ffff" />
 
                 <Button
                     android:id="@+id/generarFolio_btn"
@@ -101,21 +103,21 @@
                     android:id="@+id/imageView11"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    app:srcCompat="@drawable/solicitud"
-                    tools:ignore="ContentDescription"
-                    android:layout_marginStart="14dp"
                     android:layout_above="@+id/folioSolicitud"
                     android:layout_alignStart="@+id/imageView10"
-                    android:layout_alignTop="@+id/imageView10" />
+                    android:layout_alignTop="@+id/imageView10"
+                    android:layout_marginStart="14dp"
+                    app:srcCompat="@drawable/solicitud"
+                    tools:ignore="ContentDescription" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/relativeServicio"
                 android:layout_width="match_parent"
                 android:layout_height="1000dp"
-                android:orientation="vertical"
                 android:layout_marginTop="20dp"
-                android:visibility="invisible">
+                android:orientation="vertical"
+                android:visibility="visible">
 
 
                 <TextView
@@ -126,7 +128,7 @@
                     android:layout_centerHorizontal="true"
                     android:text="@string/requerido"
                     android:textColor="@android:color/background_dark"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/textViewDE"
@@ -150,6 +152,7 @@
                     android:drawableLeft="@drawable/descriotion_icon"
                     android:drawablePadding="5dp"
                     android:ems="10"
+                    android:enabled="false"
                     android:hint="@string/descripci_n"
                     android:inputType="textPersonName"
                     tools:ignore="RtlHardcoded" />
@@ -213,7 +216,7 @@
                     android:hint="@string/hora"
                     android:inputType="time"
                     android:paddingLeft="10dp"
-                    android:paddingRight="0dp"/>
+                    android:paddingRight="0dp" />
 
                 <!--SELECCIONAR WIDGET-->
                 <EditText
@@ -227,7 +230,7 @@
                     android:hint="@string/fecha"
                     android:inputType="date"
                     android:paddingLeft="10dp"
-                    android:paddingRight="0dp"/>
+                    android:paddingRight="0dp" />
 
                 <TextView
                     android:id="@+id/textViewDD"
@@ -250,13 +253,14 @@
                     android:background="@drawable/border_style"
                     android:drawableLeft="@drawable/descriotion_icon"
                     android:drawablePadding="5dp"
+                    android:enabled="false"
                     android:ems="10"
                     android:hint="@string/descripci_n"
                     android:inputType="text"
                     tools:ignore="RtlHardcoded" />
 
                 <!--Debe llamarse longitud_lugar_destino-->
-                <EditText
+                <Button
                     android:id="@+id/longitud_lugar_destino"
                     android:layout_width="145dp"
                     android:layout_height="40dp"
@@ -275,12 +279,12 @@
                     android:layout_height="40dp"
                     android:layout_alignBottom="@+id/longitud_lugar_destino"
                     android:layout_alignEnd="@+id/descripcion_lugar_destino"
+                    android:layout_alignStart="@+id/color_vehiculo"
                     android:layout_alignTop="@+id/longitud_lugar_destino"
                     android:background="@drawable/border_style"
                     android:ems="10"
                     android:hint="@string/latitud"
-                    android:inputType=""
-                    android:layout_alignStart="@+id/color_vehiculo" />
+                    android:inputType="" />
 
 
                 <TextView
@@ -292,7 +296,7 @@
                     android:layout_marginTop="17dp"
                     android:text="@string/datos_del_vehiculo"
                     android:textColor="@android:color/darker_gray"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp" />
 
 
                 <EditText
@@ -399,6 +403,23 @@
                     android:text="@string/aceptar"
                     android:textAllCaps="false"
                     android:textColor="#ffff" />
+
+                <Button
+                    android:id="@+id/seleccionarEncuentro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@+id/descripcion_lugar_encuentro"
+                    android:text="Encuentro" />
+
+                <Button
+                    android:id="@+id/seleccionarDestino"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/latitud_lugar_destino"
+                    android:layout_alignEnd="@+id/seleccionarEncuentro"
+                    android:layout_marginBottom="18dp"
+                    android:text="Destino" />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

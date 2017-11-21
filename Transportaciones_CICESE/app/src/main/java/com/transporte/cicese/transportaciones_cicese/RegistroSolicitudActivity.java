@@ -2,6 +2,7 @@ package com.transporte.cicese.transportaciones_cicese;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -18,6 +19,10 @@ import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlacePicker;
 import com.transporte.cicese.transportaciones_cicese.adapters.customSpinnerAdapter;
 import com.transporte.cicese.transportaciones_cicese.funciones.funcionesGeneradoras;
 
@@ -35,10 +40,11 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
     private ImageButton seleccionaH, seleccionaF;
     int day,month,year,hour,minutos;
 
-    private Button genera;
+    private Button genera, seleccionarEncuentro, seleccionarDestino;
     String folioGenerado = null;
+    String encuentro,destino,longitud_destino, latitud_destino,longitud_encuentro,latitud_encuentro;
 
-    private EditText folioET, longitud_destino, latitud_destino,longitud_encuentro,latitud_encuentro,
+    private EditText folioET,
             descripcion_lugar_encuentro,descripcion_lugar_destino,
             hora_encuentro,fecha_encuentro,modelo_vehiculo,marca_vehiculo,
             anio_vehiculo,color_vehiculo,numero_placas,tipo_vehiculo;
@@ -47,7 +53,7 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
 
     Button registrarSol, registrarServicio;
 
-    int idSolicitud, idAsistente;
+    int idSolicitud, idAsistente, PLACE_PICKER_REQUEST;;
 
     JSONObject postDataParams;
 
@@ -60,6 +66,36 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
     JSONArray invitadosResult, choferesResult;
 
     customSpinnerAdapter spinnerAdapterInvitado, spinnerAdapterChofer;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==1){
+            if (resultCode == RESULT_OK) {
+                Place place = PlacePicker.getPlace(this,data);
+                StringBuilder stBuilder = new StringBuilder();
+                String latitude = String.valueOf(place.getLatLng().latitude);
+                String longitude = String.valueOf(place.getLatLng().longitude);
+                String address = String.format("%s", place.getAddress());
+                this.encuentro=address;
+                this.latitud_encuentro=latitude;
+                this.longitud_encuentro=longitude;
+                descripcion_lugar_encuentro.setText(encuentro);
+
+            }
+        } else if (requestCode == 2) {
+            if (resultCode == RESULT_OK) {
+                Place place = PlacePicker.getPlace(this,data);
+                String address = String.format("%s", place.getAddress());
+                String latitude = String.valueOf(place.getLatLng().latitude);
+                String longitude = String.valueOf(place.getLatLng().longitude);
+                this.destino=address;
+                this.latitud_destino=latitude;
+                this.longitud_destino=longitude;
+                descripcion_lugar_destino.setText(destino);
+            }
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,13 +112,11 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
         registrarSol                =   (Button) findViewById(R.id.registrarSolicitud);
         registrarServicio           =   (Button) findViewById(R.id.registrarServicio);
         genera                      =   (Button) findViewById(R.id.generarFolio_btn);
+        seleccionarEncuentro        =   (Button) findViewById(R.id.seleccionarEncuentro);
+        seleccionarDestino          =   (Button) findViewById(R.id.seleccionarDestino);
 
         //Componentes EditText
         folioET                     =   (EditText) findViewById(R.id.folioSolicitud);
-        longitud_destino            =   (EditText) findViewById(R.id.longitud_lugar_destino);
-        latitud_destino             =   (EditText) findViewById(R.id.latitud_lugar_destino);
-        longitud_encuentro          =   (EditText) findViewById(R.id.longitud_lugar_encuentro);
-        latitud_encuentro           =   (EditText) findViewById(R.id.latitud_lugar_encuentro);
         descripcion_lugar_encuentro =   (EditText) findViewById(R.id.descripcion_lugar_encuentro);
         descripcion_lugar_destino   =   (EditText) findViewById(R.id.descripcion_lugar_destino);
         hora_encuentro              =   (EditText) findViewById(R.id.horaEncuentro);
@@ -184,6 +218,36 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
                 new RegistroSolicitudActivity.registrarServicio().execute();
             }
         });
+
+        seleccionarEncuentro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PLACE_PICKER_REQUEST = 1;
+                PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
+                try {
+                    startActivityForResult(builder.build(RegistroSolicitudActivity.this), PLACE_PICKER_REQUEST);
+                } catch (GooglePlayServicesRepairableException e) {
+                    e.printStackTrace();
+                } catch (GooglePlayServicesNotAvailableException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        seleccionarDestino.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PLACE_PICKER_REQUEST = 2;
+                PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
+                try {
+                    startActivityForResult(builder.build(RegistroSolicitudActivity.this), PLACE_PICKER_REQUEST);
+                } catch (GooglePlayServicesRepairableException e) {
+                    e.printStackTrace();
+                } catch (GooglePlayServicesNotAvailableException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
     public class registrarServicio extends AsyncTask<String, Void, ArrayList> {
 
@@ -193,10 +257,10 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
             today.setToNow();
             try {
                 postDataParams = new JSONObject();
-                postDataParams.put("longitud_destino"           , longitud_destino.getText().toString());
-                postDataParams.put("latitud_destino"            , latitud_destino.getText().toString());
-                postDataParams.put("longitud_encuentro"         , longitud_encuentro.getText().toString());
-                postDataParams.put("latitud_encuentro"          , latitud_encuentro.getText().toString());
+                postDataParams.put("longitud_destino"           , longitud_destino);
+                postDataParams.put("latitud_destino"            , latitud_destino);
+                postDataParams.put("longitud_encuentro"         , longitud_encuentro);
+                postDataParams.put("latitud_encuentro"          , latitud_encuentro);
                 postDataParams.put("hora_encuentro"             , hora_encuentro.getText().toString());
                 postDataParams.put("fecha_encuentro"            , fecha_encuentro.getText().toString());
                 postDataParams.put("estado_servicio"            , "s");
@@ -228,7 +292,6 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "El servicio se ha registrado con éxito", Toast.LENGTH_SHORT).show();
 
                 //Limpiamos los editText para poder agregar un nuevo servicio a esta solicitud
-                longitud_destino.setText(""); latitud_destino.setText(""); longitud_encuentro.setText(""); latitud_encuentro.setText("");
                 hora_encuentro.setText(""); fecha_encuentro.setText(""); modelo_vehiculo.setText(""); marca_vehiculo.setText("");
                 anio_vehiculo.setText(""); color_vehiculo.setText(""); numero_placas.setText(""); tipo_vehiculo.setText("");
                 descripcion_lugar_encuentro.setText(""); descripcion_lugar_destino.setText("");
