@@ -32,6 +32,7 @@ public class RegistroPasajeroActivity extends AppCompatActivity {
     private EditText aPaternoPasajero;
     private EditText aMaternoPasajero;
     private EditText numTelefonoPasajero;
+    private EditText correoElectronicoPasajero;
     private Button registraPasajero;
 
     private Button popupD;
@@ -51,6 +52,7 @@ public class RegistroPasajeroActivity extends AppCompatActivity {
         aPaternoPasajero = (EditText) findViewById(R.id.latitud_lugar_encuentro);
         aMaternoPasajero = (EditText) findViewById(R.id.am_pasajero);
         numTelefonoPasajero = (EditText) findViewById(R.id.tel_pasajero);
+        correoElectronicoPasajero = (EditText) findViewById(R.id.emailPasajero);
         registraPasajero = (Button) findViewById(R.id.registroPasajero_btn);
 
         popupD = (Button) findViewById(R.id.popup3);
@@ -70,10 +72,34 @@ public class RegistroPasajeroActivity extends AppCompatActivity {
         registraPasajero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new RegistroPasajeroActivity.SendPostRequest().execute();
+                if(usuarioPasajero.getText().toString().length()==0){usuarioPasajero.setError("El campo es requerido" );}
+                if(contrasenaPasajero.getText().toString().length()==0){contrasenaPasajero.setError("El campo es requerido" );}
+                if(nombrePasajero.getText().toString().length()==0){nombrePasajero.setError("El campo es requerido" );}
+                if(aMaternoPasajero.getText().toString().length()==0){aMaternoPasajero.setError("El campo es requerido" );}
+                if(numTelefonoPasajero.getText().toString().length()==0){numTelefonoPasajero.setError("El campo es requerido" );}
+                if(correoElectronicoPasajero.getText().toString().length()==0){correoElectronicoPasajero.setError("El campo es requerido" );}
+                if(usuarioPasajero.getText().toString().length()!=0&&contrasenaPasajero.getText().toString().length()!=0&&
+                        nombrePasajero.getText().toString().length()!=0&&
+                        aMaternoPasajero.getText().toString().length()!=0&&numTelefonoPasajero.getText().toString().length()!=0&&
+                        correoElectronicoPasajero.getText().toString().length()!=0
+                        ){
+                    new RegistroPasajeroActivity.SendPostRequest().execute();
+                }
             }
         });
 
+    }
+
+
+
+    private void limpiarDatos() {
+        usuarioPasajero.setText("");
+        contrasenaPasajero.setText("");
+        nombrePasajero.setText("");
+        aPaternoPasajero.setText("");
+        aMaternoPasajero.setText("");
+        numTelefonoPasajero.setText("");
+        correoElectronicoPasajero.setText("");
     }
 
     private void PopUp() {
@@ -120,6 +146,7 @@ public class RegistroPasajeroActivity extends AppCompatActivity {
             int responseCode=(Integer)result.get(0);
             if(responseCode==HttpsURLConnection.HTTP_OK) {
                 Toast.makeText(getApplicationContext(), "El usuario ha sido registrado con éxito",Toast.LENGTH_SHORT).show();
+                limpiarDatos();
             }
             else if(responseCode==HttpsURLConnection.HTTP_BAD_REQUEST){
                 Toast.makeText(getApplicationContext(), "El usuario que intenta registrar ya está en uso",Toast.LENGTH_SHORT).show();

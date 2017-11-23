@@ -49,8 +49,9 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
     private EditText aMaternoAsistente;
     private EditText numTelefonoAsistente;
     private Button registraAsistente;
+    private EditText correoElectronicoAsistente;
 
-    String usuario, contrasena, telefono, nombre, aPaterno, aMaterno, resource;
+    String usuario, contrasena, telefono, nombre, aPaterno, aMaterno, resource, correo;
 
     private Button popupD;
     private String dialogoMsg;
@@ -98,9 +99,23 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
                 aPaterno = aPaternoAsistente.getText().toString();
                 aMaterno = aMaternoAsistente.getText().toString();
                 telefono = numTelefonoAsistente.getText().toString();
+                correo = correoElectronicoAsistente.getText().toString();
 
 
-                new RegistroAsistenteActivity.SendPostRequest().execute();
+
+                if(usuario.length()==0){usuarioAsistente.setError("El campo es requerido" );}
+                if(contrasena.length()==0){contrasenaAsistente.setError("El campo es requerido" );}
+                if(nombre.length()==0){nombreAsistente.setError("El campo es requerido" );}
+                if(aMaterno.length()==0){aMaternoAsistente.setError("El campo es requerido" );}
+                if(telefono.length()==0){numTelefonoAsistente.setError("El campo es requerido" );}
+                if(correo.length()==0){correoElectronicoAsistente.setError("El campo es requerido" );}
+                if(usuario.length()!=0&&contrasena.length()!=0&&
+                        nombre.length()!=0&&
+                        aMaterno.length()!=0&&telefono.length()!=0&&
+                        correo.length()!=0
+                        ){
+                    new RegistroAsistenteActivity.SendPostRequest().execute();
+                }
             }
         });
 

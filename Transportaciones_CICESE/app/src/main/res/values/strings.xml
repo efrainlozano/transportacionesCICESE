@@ -1,5 +1,5 @@
 <resources>
-    <string name="URI">http://10.10.209.37:4000/ci/index.php/api</string>
+    <string name="URI">http://158.97.64.134/ci/index.php/api</string>
     <string name="google_maps_key">AIzaSyAlmfsfU1lRyiFBri6znizt44y2Uz634lM</string>
     <string name="google_directions_key">AIzaSyAjkSX7UHAXF-wcvFzK--HwaklnHVugJJo</string>
     <!-- 192.168.43.192 -->
@@ -77,11 +77,11 @@
     <string name="registrar_asistente">Registrar asistente</string>
     <string name="tip">Al hacer un registro, por favor asegurese de que todos los datos sean correctos</string>
     <string name="registrar_solicitud">Registrar solicitud</string>
-    <string name="tipo">Tipo (Sedan, Camioneta, Van,...)</string>
+    <string name="tipo">Tipo (Sedan, Camioneta, Van,…)</string>
     <string name="placas">Número de placas</string>
     <string name="anio">Año</string>
-    <string name="marca">Marca (Ford, Toyota, Kia,...)</string>
-    <string name="model">Modelo (Focus, Camry, Spectra,...)</string>
+    <string name="marca">Marca (Ford, Toyota, Kia,…)</string>
+    <string name="model">Modelo (Focus, Camry, Spectra,…)</string>
     <string name="datos_de_encuentro">Datos de encuentro</string>
     <string name="datos_de_destino">Datos de destino</string>
     <string name="datos_del_vehiculo">Datos del vehículo</string>

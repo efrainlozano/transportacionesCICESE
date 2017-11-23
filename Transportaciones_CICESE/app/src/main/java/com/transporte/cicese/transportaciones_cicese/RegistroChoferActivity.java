@@ -44,6 +44,7 @@ public class RegistroChoferActivity extends AppCompatActivity {
     private EditText aPaternoChofer;
     private EditText aMaternoChofer;
     private EditText numTelefonoChofer;
+    private EditText correoElectronicoChofer;
     private Button registraChofer;
 
 
@@ -63,6 +64,7 @@ public class RegistroChoferActivity extends AppCompatActivity {
         aPaternoChofer = (EditText) findViewById(R.id.aPaternoChofer);
         aMaternoChofer = (EditText) findViewById(R.id.aMaternoChofer);
         numTelefonoChofer = (EditText) findViewById(R.id.telefonoChofer);
+        correoElectronicoChofer = (EditText) findViewById(R.id.emailChofer);
         registraChofer = (Button) findViewById(R.id.registroChofer_btn);
 
         popupD = (Button) findViewById(R.id.popup);
@@ -81,10 +83,33 @@ public class RegistroChoferActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Datos capturados en el formulario
-                new RegistroChoferActivity.SendPostRequest().execute();
+                if(numeroEmpleadoChofer.getText().toString().length()==0){numeroEmpleadoChofer.setError("El campo es requerido" );}
+                if(contrasenaChofer.getText().toString().length()==0){contrasenaChofer.setError("El campo es requerido" );}
+                if(nombreChofer.getText().toString().length()==0){nombreChofer.setError("El campo es requerido" );}
+                if(aMaternoChofer.getText().toString().length()==0){aMaternoChofer.setError("El campo es requerido" );}
+                if(numTelefonoChofer.getText().toString().length()==0){numTelefonoChofer.setError("El campo es requerido" );}
+                if(correoElectronicoChofer.getText().toString().length()==0){correoElectronicoChofer.setError("El campo es requerido" );}
+                if(numeroEmpleadoChofer.getText().toString().length()!=0&&contrasenaChofer.getText().toString().length()!=0&&
+                        nombreChofer.getText().toString().length()!=0 &&
+                        aMaternoChofer.getText().toString().length()!=0&&numTelefonoChofer.getText().toString().length()!=0&&
+                        correoElectronicoChofer.getText().toString().length()!=0
+                        ){
+                    new RegistroChoferActivity.SendPostRequest().execute();
+                }
+
             }
         });
 
+    }
+
+    private void limpiarDatos() {
+        numeroEmpleadoChofer.setText("");
+        contrasenaChofer.setText("");
+        nombreChofer.setText("");
+        aPaternoChofer.setText("");
+        aMaternoChofer.setText("");
+        numTelefonoChofer.setText("");
+        correoElectronicoChofer.setText("");
     }
 
     private void PopUp() {
@@ -111,13 +136,13 @@ public class RegistroChoferActivity extends AppCompatActivity {
 
 
                 JSONObject postDataParams = new JSONObject();
-                    postDataParams.put("tipo", "c");
-                    postDataParams.put("usuario", numeroEmpleadoChofer.getText().toString());
-                    postDataParams.put("contrasena", contrasenaChofer.getText().toString());
-                    postDataParams.put("nombre", nombreChofer.getText().toString());
-                    postDataParams.put("apellido_paterno", aPaternoChofer.getText().toString());
-                    postDataParams.put("apellido_materno", aMaternoChofer.getText().toString());
-                    postDataParams.put("numero_telefono", numTelefonoChofer.getText().toString());
+                postDataParams.put("tipo", "c");
+                postDataParams.put("usuario", numeroEmpleadoChofer.getText().toString());
+                postDataParams.put("contrasena", contrasenaChofer.getText().toString());
+                postDataParams.put("nombre", nombreChofer.getText().toString());
+                postDataParams.put("apellido_paterno", aPaternoChofer.getText().toString());
+                postDataParams.put("apellido_materno", aMaternoChofer.getText().toString());
+                postDataParams.put("numero_telefono", numTelefonoChofer.getText().toString());
 
                 return fG.functionPostRequest("ausuario", postDataParams);
             }
@@ -135,6 +160,7 @@ public class RegistroChoferActivity extends AppCompatActivity {
             int responseCode=(Integer)result.get(0);
             if(responseCode==HttpsURLConnection.HTTP_OK) {
                 Toast.makeText(getApplicationContext(), "El usuario ha sido registrado con éxito",Toast.LENGTH_SHORT).show();
+                limpiarDatos();
             }
             else if(responseCode==HttpsURLConnection.HTTP_BAD_REQUEST){
                 Toast.makeText(getApplicationContext(), "El número de empleado que intenta registrar ya está en uso",Toast.LENGTH_SHORT).show();

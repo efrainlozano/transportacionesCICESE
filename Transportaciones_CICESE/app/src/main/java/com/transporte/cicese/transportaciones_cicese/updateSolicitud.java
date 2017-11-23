@@ -120,6 +120,7 @@ public class updateSolicitud extends AppCompatActivity {
 
 
         //Para seleccionar la fecha y hora
+
         seleccionaF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,6 +140,55 @@ public class updateSolicitud extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
+
+
+        fecha_encuentro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Calendar c = Calendar.getInstance();
+                day = c.get(Calendar.DAY_OF_MONTH);
+                month = c.get(Calendar.MONTH);
+                year = c.get(Calendar.YEAR);
+
+                DatePickerDialog datePickerDialog =
+                        new DatePickerDialog(updateSolicitud.this,
+                                new DatePickerDialog.OnDateSetListener() {
+                                    @Override
+                                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                                        fecha_encuentro.setText(year+"-"+(month+1)+"-"+dayOfMonth);
+                                    }
+                                }, year, month, day);
+                datePickerDialog.show();
+            }
+        });
+
+        hora_encuentro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Calendar c =  Calendar.getInstance();
+                hour = c.get(Calendar.HOUR_OF_DAY);
+                minutos = c.get(Calendar.MINUTE);
+
+                TimePickerDialog timePickerDialog = new TimePickerDialog(updateSolicitud.this,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                                if(hourOfDay==0||hourOfDay==1||hourOfDay==2||hourOfDay==3||hourOfDay==4||hourOfDay==5||hourOfDay==6||hourOfDay==7||hourOfDay==8||hourOfDay==9){
+                                    if(minute==0||minute==1||minute==2||minute==3||minute==4||minute==5||minute==6||minute==7||minute==8||minute==9){
+                                        hora_encuentro.setText("0"+hourOfDay+":"+"0"+minute);
+                                    }else{hora_encuentro.setText("0"+hourOfDay+":"+minute);}
+                                }
+                                else{
+                                    if(minute==0||minute==1||minute==2||minute==3||minute==4||minute==5||minute==6||minute==7||minute==8||minute==9){
+                                        hora_encuentro.setText(hourOfDay+":"+"0"+minute);
+                                    }else {hora_encuentro.setText(hourOfDay + ":" + minute);}
+                                }
+                            }
+                        }, hour, minutos, false);
+                timePickerDialog.show();
+            }
+        });
+
         seleccionaH.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

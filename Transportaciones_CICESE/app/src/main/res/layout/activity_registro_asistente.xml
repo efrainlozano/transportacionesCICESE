@@ -129,7 +129,8 @@
         android:drawablePadding="5dp"
         android:ems="10"
         android:hint="@string/tel_fono"
-        android:inputType="phone" />
+        android:inputType="phone"
+        android:maxLength="10"/>
 
     <Button
         android:id="@+id/popup2"

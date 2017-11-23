@@ -272,7 +272,8 @@
                     android:layout_marginTop="14dp"
                     android:ems="10"
                     android:hint="@string/hora"
-                    android:inputType="time"
+                    android:clickable="true"
+                    android:focusable="false"
                     android:layout_below="@+id/latitud_lugar_encuentro"
                     android:layout_alignEnd="@+id/latitud_lugar_encuentro" />
 
@@ -293,9 +294,10 @@
                     android:layout_marginTop="12dp"
                     android:ems="10"
                     android:hint="@string/fecha"
-                    android:inputType="date"
                     android:layout_below="@+id/horaEncuentro"
-                    android:layout_alignStart="@+id/horaEncuentro" />
+                    android:layout_alignStart="@+id/horaEncuentro"
+                    android:clickable="true"
+                    android:focusable="false"/>
 
                 <TextView
                     android:id="@+id/textViewDD3"

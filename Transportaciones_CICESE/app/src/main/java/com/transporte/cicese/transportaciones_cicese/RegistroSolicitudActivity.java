@@ -102,40 +102,71 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_solicitud);
         SharedPreferences settings = getSharedPreferences("prefs", MODE_PRIVATE);
-        idAsistente=settings.getInt("idUsuario",0);
+        idAsistente = settings.getInt("idUsuario", 0);
 
         //Componentes ImageButton
-        seleccionaF                 = (ImageButton) findViewById(R.id.selectorFecha);
-        seleccionaH                 = (ImageButton) findViewById(R.id.selectorHora);
+        seleccionaF = (ImageButton) findViewById(R.id.selectorFecha);
+        seleccionaH = (ImageButton) findViewById(R.id.selectorHora);
 
         //Componentes button
-        registrarSol                =   (Button) findViewById(R.id.registrarSolicitud);
-        registrarServicio           =   (Button) findViewById(R.id.registrarServicio);
-        genera                      =   (Button) findViewById(R.id.generarFolio_btn);
-        seleccionarEncuentro        =   (Button) findViewById(R.id.seleccionarEncuentro);
-        seleccionarDestino          =   (Button) findViewById(R.id.seleccionarDestino);
+        registrarSol = (Button) findViewById(R.id.registrarSolicitud);
+        registrarServicio = (Button) findViewById(R.id.registrarServicio);
+        genera = (Button) findViewById(R.id.generarFolio_btn);
+        seleccionarEncuentro = (Button) findViewById(R.id.seleccionarEncuentro);
+        seleccionarDestino = (Button) findViewById(R.id.seleccionarDestino);
 
         //Componentes EditText
-        folioET                     =   (EditText) findViewById(R.id.folioSolicitud);
-        descripcion_lugar_encuentro =   (EditText) findViewById(R.id.descripcion_lugar_encuentro);
-        descripcion_lugar_destino   =   (EditText) findViewById(R.id.descripcion_lugar_destino);
-        hora_encuentro              =   (EditText) findViewById(R.id.horaEncuentro);
-        fecha_encuentro             =   (EditText) findViewById(R.id.fecha_encuentro);
-        modelo_vehiculo             =   (EditText) findViewById(R.id.modelo_vehiculo);
-        marca_vehiculo              =   (EditText) findViewById(R.id.marca_vehiculo);
-        anio_vehiculo               =   (EditText) findViewById(R.id.anio_vehiculo);
-        color_vehiculo              =   (EditText) findViewById(R.id.color_vehiculo);
-        numero_placas               =   (EditText) findViewById(R.id.numero_placas);
-        tipo_vehiculo               =   (EditText) findViewById(R.id.tipo_vehiculo);
+        folioET = (EditText) findViewById(R.id.folioSolicitud);
+        descripcion_lugar_encuentro = (EditText) findViewById(R.id.descripcion_lugar_encuentro);
+        descripcion_lugar_destino = (EditText) findViewById(R.id.descripcion_lugar_destino);
+        hora_encuentro = (EditText) findViewById(R.id.horaEncuentro);
+        fecha_encuentro = (EditText) findViewById(R.id.fecha_encuentro);
+        modelo_vehiculo = (EditText) findViewById(R.id.modelo_vehiculo);
+        marca_vehiculo = (EditText) findViewById(R.id.marca_vehiculo);
+        anio_vehiculo = (EditText) findViewById(R.id.anio_vehiculo);
+        color_vehiculo = (EditText) findViewById(R.id.color_vehiculo);
+        numero_placas = (EditText) findViewById(R.id.numero_placas);
+        tipo_vehiculo = (EditText) findViewById(R.id.tipo_vehiculo);
 
-        spinner_pasajero            =   (Spinner) findViewById(R.id.idInvitado);
-        spinner_chofer              =   (Spinner) findViewById(R.id.id_chofer);
+        spinner_pasajero = (Spinner) findViewById(R.id.idInvitado);
+        spinner_chofer = (Spinner) findViewById(R.id.id_chofer);
 
         fG = new funcionesGeneradoras(getApplicationContext());
 
         new RegistroSolicitudActivity.poblarInvitadoSpinner().execute();
 
         //Para seleccionar la fecha y hora
+
+        hora_encuentro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Calendar c = Calendar.getInstance();
+                hour = c.get(Calendar.HOUR_OF_DAY);
+                minutos = c.get(Calendar.MINUTE);
+
+                TimePickerDialog timePickerDialog = new TimePickerDialog(RegistroSolicitudActivity.this,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                                if (hourOfDay == 0 || hourOfDay == 1 || hourOfDay == 2 || hourOfDay == 3 || hourOfDay == 4 || hourOfDay == 5 || hourOfDay == 6 || hourOfDay == 7 || hourOfDay == 8 || hourOfDay == 9) {
+                                    if (minute == 0 || minute == 1 || minute == 2 || minute == 3 || minute == 4 || minute == 5 || minute == 6 || minute == 7 || minute == 8 || minute == 9) {
+                                        hora_encuentro.setText("0" + hourOfDay + ":" + "0" + minute);
+                                    } else {
+                                        hora_encuentro.setText("0" + hourOfDay + ":" + minute);
+                                    }
+                                } else {
+                                    if (minute == 0 || minute == 1 || minute == 2 || minute == 3 || minute == 4 || minute == 5 || minute == 6 || minute == 7 || minute == 8 || minute == 9) {
+                                        hora_encuentro.setText(hourOfDay + ":" + "0" + minute);
+                                    } else {
+                                        hora_encuentro.setText(hourOfDay + ":" + minute);
+                                    }
+                                }
+                            }
+                        }, hour, minutos, false);
+                timePickerDialog.show();
+            }
+        });
+
         seleccionaF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,12 +180,33 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
                                 new DatePickerDialog.OnDateSetListener() {
                                     @Override
                                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                                        fecha_encuentro.setText(year+"-"+(month+1)+"-"+dayOfMonth);
+                                        fecha_encuentro.setText(year + "-" + (month + 1) + "-" + dayOfMonth);
                                     }
                                 }, year, month, day);
-                                   datePickerDialog.show();
+                datePickerDialog.show();
             }
         });
+
+        fecha_encuentro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Calendar c = Calendar.getInstance();
+                day = c.get(Calendar.DAY_OF_MONTH);
+                month = c.get(Calendar.MONTH);
+                year = c.get(Calendar.YEAR);
+
+                DatePickerDialog datePickerDialog =
+                        new DatePickerDialog(RegistroSolicitudActivity.this,
+                                new DatePickerDialog.OnDateSetListener() {
+                                    @Override
+                                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                                        fecha_encuentro.setText(year + "-" + (month + 1) + "-" + dayOfMonth);
+                                    }
+                                }, year, month, day);
+                datePickerDialog.show();
+            }
+        });
+
         seleccionaH.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -203,7 +255,9 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (spinner_pasajero.getSelectedItemPosition()!=0) {
+                    if(folioET.getText().toString().length()!=0){
                     new RegistroSolicitudActivity.registrarSolicitud().execute();
+                }else folioET.setError("El campo es requerido");
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"Por favor elegir a un pasajero del listado",Toast.LENGTH_SHORT).show();
@@ -215,7 +269,22 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
         registrarServicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new RegistroSolicitudActivity.registrarServicio().execute();
+
+                if(hora_encuentro.getText().toString().length()==0){hora_encuentro.setError("El campo es requerido" );}
+                if(fecha_encuentro.getText().toString().length()==0){fecha_encuentro.setError("El campo es requerido" );}
+                if(modelo_vehiculo.getText().toString().length()==0){modelo_vehiculo.setError("El campo es requerido" );}
+                if(marca_vehiculo.getText().toString().length()==0){marca_vehiculo.setError("El campo es requerido" );}
+                if(anio_vehiculo.getText().toString().length()==0){anio_vehiculo.setError("El campo es requerido" );}
+                if(color_vehiculo.getText().toString().length()==0){color_vehiculo.setError("El campo es requerido" );}
+                if(numero_placas.getText().toString().length()==0){numero_placas.setError("El campo es requerido" );}
+                if(tipo_vehiculo.getText().toString().length()==0){tipo_vehiculo.setError("El campo es requerido" );}
+
+                if(hora_encuentro.getText().toString().length()!=0&&fecha_encuentro.getText().toString().length()!=0&&
+                        modelo_vehiculo.getText().toString().length()!=0&&marca_vehiculo.getText().toString().length()!=0&&
+                        anio_vehiculo.getText().toString().length()!=0&&color_vehiculo.getText().toString().length()!=0&&
+                        numero_placas.getText().toString().length()!=0&&tipo_vehiculo.getText().toString().length()!=0
+                        ){new RegistroSolicitudActivity.registrarServicio().execute();}
+
             }
         });
 
