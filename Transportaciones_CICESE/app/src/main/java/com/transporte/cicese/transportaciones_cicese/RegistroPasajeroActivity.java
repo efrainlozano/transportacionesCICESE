@@ -6,6 +6,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +17,7 @@ import com.transporte.cicese.transportaciones_cicese.funciones.funcionesGenerado
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -79,6 +81,7 @@ public class RegistroPasajeroActivity extends AppCompatActivity {
                 if(numTelefonoPasajero.getText().toString().length()==0){numTelefonoPasajero.setError("El campo es requerido" );}
                 if(numTelefonoPasajero.getText().toString().length()!=10&&numTelefonoPasajero.getText().toString().length()!=0){numTelefonoPasajero.setError("Debe capturar un número de 10 dígitos");}
                 if(correoElectronicoPasajero.getText().toString().length()==0){correoElectronicoPasajero.setError("El campo es requerido" );}
+                if (!validarEmail(correoElectronicoPasajero.getText().toString())){correoElectronicoPasajero.setError("Email no válido");}
                 if(usuarioPasajero.getText().toString().length()!=0&&contrasenaPasajero.getText().toString().length()!=0&&
                         nombrePasajero.getText().toString().length()!=0&&
                         aMaternoPasajero.getText().toString().length()!=0&&numTelefonoPasajero.getText().toString().length()!=0&&
@@ -89,7 +92,11 @@ public class RegistroPasajeroActivity extends AppCompatActivity {
 
     }
 
-
+    //Validar correo electronico
+    private boolean validarEmail(String email) {
+        Pattern pattern = Patterns.EMAIL_ADDRESS;
+        return pattern.matcher(email).matches();
+    }
 
     private void limpiarDatos() {
         usuarioPasajero.setText("");

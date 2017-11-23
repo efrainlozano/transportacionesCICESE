@@ -6,6 +6,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,6 +28,7 @@ import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.regex.Pattern;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
@@ -101,7 +103,7 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
                 if(numTelefonoAsistente.getText().toString().length()==0){numTelefonoAsistente.setError("El campo es requerido" );}
                 if(numTelefonoAsistente.getText().toString().length()!=10&&numTelefonoAsistente.getText().toString().length()!=0){numTelefonoAsistente.setError("Debe capturar un número de 10 dígitos");}
                 if(correoElectronicoAsistente.getText().toString().length()==0){correoElectronicoAsistente.setError("El campo es requerido" );}
-
+                if (!validarEmail(correoElectronicoAsistente.getText().toString())){correoElectronicoAsistente.setError("Email no válido");}
                 if(usuarioAsistente.getText().toString().length()!=0&&contrasenaAsistente.getText().toString().length()!=0&&
                         nombreAsistente.getText().toString().length()!=0&&
                         aMaternoAsistente.getText().toString().length()!=0&&numTelefonoAsistente.getText().toString().length()!=0&&
@@ -112,6 +114,11 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
 
     }
 
+    //Validar correo electronico
+    private boolean validarEmail(String email) {
+        Pattern pattern = Patterns.EMAIL_ADDRESS;
+        return pattern.matcher(email).matches();
+    }
    /* private void PopUp() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(dialogoMsg)

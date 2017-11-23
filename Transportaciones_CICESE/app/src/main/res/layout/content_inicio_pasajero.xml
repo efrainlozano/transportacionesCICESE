@@ -10,6 +10,8 @@
     tools:showIn="@layout/app_bar_inicio_pasajero"
     android:id="@+id/ContenedorMain">
 
+
+
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="300dp"
@@ -169,5 +171,6 @@
         android:layout_alignTop="@+id/textView2"
         android:layout_toStartOf="@+id/textView2"
         tools:ignore="ContentDescription,UnusedAttribute" />
+
 
 </RelativeLayout>

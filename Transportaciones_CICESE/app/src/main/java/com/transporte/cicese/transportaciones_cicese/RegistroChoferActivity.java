@@ -6,6 +6,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,6 +28,7 @@ import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.regex.Pattern;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
@@ -90,6 +92,7 @@ public class RegistroChoferActivity extends AppCompatActivity {
                 if(numTelefonoChofer.getText().toString().length()==0){numTelefonoChofer.setError("El campo es requerido");}
                 if(numTelefonoChofer.getText().toString().length()!=10&&numTelefonoChofer.getText().toString().length()!=0){numTelefonoChofer.setError("Debe capturar un número de 10 dígitos");}
                 if(correoElectronicoChofer.getText().toString().length()==0){correoElectronicoChofer.setError("El campo es requerido");}
+                if (!validarEmail(correoElectronicoChofer.getText().toString())){correoElectronicoChofer.setError("Email no válido");}
                 if(numeroEmpleadoChofer.getText().toString().length()!=0&&contrasenaChofer.getText().toString().length()!=0&&
                         nombreChofer.getText().toString().length()!=0 &&
                         aMaternoChofer.getText().toString().length()!=0&&numTelefonoChofer.getText().toString().length()!=0&&
@@ -98,6 +101,12 @@ public class RegistroChoferActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    //Validar correo electronico
+    private boolean validarEmail(String email) {
+        Pattern pattern = Patterns.EMAIL_ADDRESS;
+        return pattern.matcher(email).matches();
     }
 
     private void limpiarDatos() {

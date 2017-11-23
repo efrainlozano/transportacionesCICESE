@@ -127,7 +127,7 @@
                 android:layout_height="1000dp"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical"
-                android:visibility="invisible">
+                android:visibility="visible">
 
                 <ImageView
                     android:id="@+id/image"
@@ -385,7 +385,7 @@
                     android:id="@+id/seleccionarDestino"
                     android:layout_width="300dp"
                     android:layout_height="40dp"
-                    android:layout_alignEnd="@+id/textViewDA"
+                    android:layout_alignStart="@+id/selectorFecha"
                     android:layout_below="@+id/textViewDD"
                     android:layout_marginTop="22dp"
                     android:background="@drawable/tercer_button_style"
@@ -397,8 +397,7 @@
                     android:layout_width="300dp"
                     android:layout_height="40dp"
                     android:layout_alignStart="@+id/seleccionarDestino"
-                    android:layout_below="@+id/seleccionarDestino"
-                    android:layout_marginTop="9dp"
+                    android:layout_centerVertical="true"
                     android:background="@drawable/border_style"
                     android:drawableLeft="@drawable/descriotion_icon"
                     android:drawablePadding="5dp"

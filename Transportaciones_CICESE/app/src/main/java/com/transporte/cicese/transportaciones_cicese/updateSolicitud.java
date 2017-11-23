@@ -48,7 +48,7 @@ public class updateSolicitud extends AppCompatActivity {
 
     EditText folioEdit, longitud_destino,latitud_destino,longitud_encuentro,latitud_encuentro,descripcion_lugar_encuentro,descripcion_lugar_destino,
             hora_encuentro,fecha_encuentro,modelo_vehiculo,marca_vehiculo,anio_vehiculo,color_vehiculo,numero_placas,tipo_vehiculo,id_chofer,id_solicitud;
-    Button buttonUpdateSolicitud,actualizarServicioButton, actualizarTodoButton;
+    Button buttonUpdateSolicitud,actualizarServicioButton;// actualizarTodoButton;
     CheckBox checkBoxServicios;
     RelativeLayout servicioLayout, servicioForm, formContainer;
     Spinner solicitudesSpinner, invitadoSpinner, serviciosSpinner, choferSpinner, solicitudSpinner;
@@ -104,7 +104,7 @@ public class updateSolicitud extends AppCompatActivity {
 
         buttonUpdateSolicitud       =(Button)findViewById(R.id.buttonUpdateSolicitud);
         actualizarServicioButton    =(Button)findViewById(R.id.actualizarServicioButton);
-        actualizarTodoButton        =(Button)findViewById(R.id.actualizarTodoButton);
+       // actualizarTodoButton        =(Button)findViewById(R.id.actualizarTodoButton);
 
         checkBoxServicios           =(CheckBox) findViewById(R.id.checkBoxServicios);
 
@@ -345,7 +345,7 @@ public class updateSolicitud extends AppCompatActivity {
                 new updateSolicitud.sendUpdateServicio().execute(getString(R.string.URI)+"/uservicio");
             }
         });
-        actualizarTodoButton.setOnClickListener(new View.OnClickListener() {
+        /*actualizarTodoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (invitadoSpinner.getSelectedItemPosition()!=0) {
@@ -357,7 +357,7 @@ public class updateSolicitud extends AppCompatActivity {
                 }
                 ;
             }
-        });
+        });*/
     }
     public class sendUpdateServicio extends AsyncTask<String, Void, ArrayList> {
 

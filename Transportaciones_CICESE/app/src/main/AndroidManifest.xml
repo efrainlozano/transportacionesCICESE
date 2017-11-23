@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.transporte.cicese.transportaciones_cicese">
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -8,8 +9,7 @@
 
     <uses-feature
         android:glEsVersion="0x00020000"
-        android:required="true"
-    />
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -61,7 +61,6 @@
         <activity
             android:name=".TextoRapidoActivity"
             android:label="Seleccionar texto rápido" />
-
         <activity
             android:name=".InicioAsistentesActivity"
             android:label="@string/incio"
@@ -72,9 +71,9 @@
         <activity
             android:name=".InicioChoferesActivity"
             android:label="@string/title_activity_inicio_choferes"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".pruebaMapIntents"></activity>
-        <activity android:name=".MapsActivity"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".pruebaMapIntents" />
+        <activity android:name=".MapsActivity" />
 
         <!-- [START firebase_service] -->
         <service android:name=".MyFirebaseMessagingService">
@@ -82,8 +81,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
-
         <service android:name=".MiFirebaseInstanceIdService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
@@ -91,7 +88,7 @@
         </service>
         <!-- [END firebase_service] -->
 
-
+        <activity android:name=".AtajosActivity"></activity>
     </application>
 
 </manifest>
