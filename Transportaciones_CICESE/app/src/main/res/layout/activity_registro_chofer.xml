@@ -34,22 +34,30 @@
         android:id="@+id/textViewRC"
         android:layout_width="220dp"
         android:layout_height="60dp"
-        android:layout_alignEnd="@+id/popup"
+        android:layout_alignEnd="@+id/textView6"
         android:layout_alignTop="@+id/imageView10"
-        android:paddingTop="7dp"
-        android:text="@string/capture_los_siguientes_datos"
+        android:paddingTop="5dp"
+        android:text="@string/desc_p_chofer"
         android:textAlignment="viewStart"
         android:textColor="?attr/actionMenuTextColor"
-        android:textSize="17sp"
+        android:textSize="13sp"
         tools:ignore="MissingConstraints,RtlHardcoded"
         tools:layout_editor_absoluteX="134dp"
         tools:layout_editor_absoluteY="16dp" />
 
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView10"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:text="@string/capture_los_siguientes_datos" />
 
     <EditText
         android:id="@+id/numeroEmpleado"
         android:layout_width="300dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="45dp"
         android:layout_height="40dp"
         android:background="@drawable/border_style"
         android:ems="10"
@@ -139,7 +147,7 @@
         android:background="@drawable/border_style"
         android:drawableLeft="@drawable/cell_icon"
         android:drawablePadding="5dp"
-        android:inputType="phone"
+        android:inputType="number"
         android:maxLength="10"
         android:layout_below="@+id/aMaternoChofer"
         android:layout_alignStart="@+id/aMaternoChofer"
@@ -177,7 +185,7 @@
         android:textAllCaps="false"
         android:textColor="@android:color/background_light" />
 
-    <Button
+    <!--Button
         android:id="@+id/popup"
         android:layout_width="20dp"
         android:layout_height="20dp"
@@ -186,6 +194,6 @@
         android:background="@drawable/exclamation"
         tools:ignore="HardcodedText,RtlHardcoded,UnusedAttribute"
         android:layout_alignTop="@+id/telefonoChofer"
-        android:layout_alignEnd="@+id/telefonoChofer"/>
+        android:layout_alignEnd="@+id/telefonoChofer"/-->
 
 </RelativeLayout>

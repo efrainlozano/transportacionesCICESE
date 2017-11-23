@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
                     tipoUsuario = 'p';
                 }
 
-                iniciar.setEnabled(false);
+                //iniciar.setEnabled(false);
                 fields= new ArrayList(Arrays.asList("tipo","usuario","contrasena"));
                 values= new ArrayList(Arrays.asList(tipoUsuario,usuario,contrasena));
                 new LoginActivity.ConsultarDatos().execute();

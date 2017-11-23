@@ -67,36 +67,34 @@ public class RegistroChoferActivity extends AppCompatActivity {
         correoElectronicoChofer = (EditText) findViewById(R.id.emailChofer);
         registraChofer = (Button) findViewById(R.id.registroChofer_btn);
 
-        popupD = (Button) findViewById(R.id.popup);
+     //   popupD = (Button) findViewById(R.id.popup);
         dialogoMsg = getString (R.string.popup_msg);
 
         //Si se presiona el icono de exclamacion en el campo de telefono
-        popupD.setOnClickListener(new View.OnClickListener() {
+       /* popupD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 PopUp();
             }
-        });
+        });*/
 
         //Preparamos el metodo para registrar al chofer
         registraChofer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Datos capturados en el formulario
-                if(numeroEmpleadoChofer.getText().toString().length()==0){numeroEmpleadoChofer.setError("El campo es requerido" );}
-                if(contrasenaChofer.getText().toString().length()==0){contrasenaChofer.setError("El campo es requerido" );}
-                if(nombreChofer.getText().toString().length()==0){nombreChofer.setError("El campo es requerido" );}
-                if(aMaternoChofer.getText().toString().length()==0){aMaternoChofer.setError("El campo es requerido" );}
-                if(numTelefonoChofer.getText().toString().length()==0){numTelefonoChofer.setError("El campo es requerido" );}
-                if(correoElectronicoChofer.getText().toString().length()==0){correoElectronicoChofer.setError("El campo es requerido" );}
+                if(numeroEmpleadoChofer.getText().toString().length()==0){numeroEmpleadoChofer.setError("El campo es requerido");}
+                if(contrasenaChofer.getText().toString().length()==0){contrasenaChofer.setError("El campo es requerido");}
+                if(nombreChofer.getText().toString().length()==0){nombreChofer.setError("El campo es requerido");}
+                if(aMaternoChofer.getText().toString().length()==0){aMaternoChofer.setError("El campo es requerido");}
+                if(numTelefonoChofer.getText().toString().length()==0){numTelefonoChofer.setError("El campo es requerido");}
+                if(numTelefonoChofer.getText().toString().length()!=10&&numTelefonoChofer.getText().toString().length()!=0){numTelefonoChofer.setError("Debe capturar un número de 10 dígitos");}
+                if(correoElectronicoChofer.getText().toString().length()==0){correoElectronicoChofer.setError("El campo es requerido");}
                 if(numeroEmpleadoChofer.getText().toString().length()!=0&&contrasenaChofer.getText().toString().length()!=0&&
                         nombreChofer.getText().toString().length()!=0 &&
                         aMaternoChofer.getText().toString().length()!=0&&numTelefonoChofer.getText().toString().length()!=0&&
-                        correoElectronicoChofer.getText().toString().length()!=0
-                        ){
-                    new RegistroChoferActivity.SendPostRequest().execute();
-                }
-
+                        numTelefonoChofer.getText().toString().length()==10&&correoElectronicoChofer.getText().toString().length()!=0
+                        ){new RegistroChoferActivity.SendPostRequest().execute();}
             }
         });
 
@@ -112,7 +110,7 @@ public class RegistroChoferActivity extends AppCompatActivity {
         correoElectronicoChofer.setText("");
     }
 
-    private void PopUp() {
+   /* private void PopUp() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(dialogoMsg)
                 .setTitle(getString (R.string.tel_fono))
@@ -125,7 +123,7 @@ public class RegistroChoferActivity extends AppCompatActivity {
                         });
         AlertDialog alert = builder.create();
         alert.show();
-    }
+    }*/
 
 
     public class SendPostRequest extends AsyncTask<String, Void, ArrayList> {

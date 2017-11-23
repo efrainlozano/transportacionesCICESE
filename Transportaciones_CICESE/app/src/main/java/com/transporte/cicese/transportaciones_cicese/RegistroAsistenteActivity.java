@@ -53,7 +53,7 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
 
     String usuario, contrasena, telefono, nombre, aPaterno, aMaterno, resource, correo;
 
-    private Button popupD;
+//    private Button popupD;
     private String dialogoMsg;
 
     funcionesGeneradoras fG;
@@ -72,20 +72,21 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
         aMaternoAsistente = (EditText) findViewById(R.id.am_asistente);
         numTelefonoAsistente = (EditText) findViewById(R.id.tel_asistente);
         registraAsistente = (Button) findViewById(R.id.registroAsistente_btn);
+        correoElectronicoAsistente = (EditText) findViewById(R.id.emailAsistente);
 
 
-        popupD = (Button) findViewById(R.id.popup2);
+  //      popupD = (Button) findViewById(R.id.popup2);
         dialogoMsg = getString (R.string.popup_msg);
 
 
         //Si se presiona el icono de exclamacion en el campo de telefono
-        popupD.setOnClickListener(new View.OnClickListener() {
+    /*   popupD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 PopUp();
             }
         });
-
+*/
 
         //Preparamos el metodo para registrar al pasajero
         registraAsistente.setOnClickListener(new View.OnClickListener() {
@@ -93,35 +94,25 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Datos capturados en el formulario
-                usuario = usuarioAsistente.getText().toString();
-                contrasena = contrasenaAsistente.getText().toString();
-                nombre = nombreAsistente.getText().toString();
-                aPaterno = aPaternoAsistente.getText().toString();
-                aMaterno = aMaternoAsistente.getText().toString();
-                telefono = numTelefonoAsistente.getText().toString();
-                correo = correoElectronicoAsistente.getText().toString();
+                if(usuarioAsistente.getText().toString().length()==0){usuarioAsistente.setError("El campo es requerido" );}
+                if(contrasenaAsistente.getText().toString().length()==0){contrasenaAsistente.setError("El campo es requerido" );}
+                if(nombreAsistente.getText().toString().length()==0){nombreAsistente.setError("El campo es requerido" );}
+                if(aMaternoAsistente.getText().toString().length()==0){aMaternoAsistente.setError("El campo es requerido" );}
+                if(numTelefonoAsistente.getText().toString().length()==0){numTelefonoAsistente.setError("El campo es requerido" );}
+                if(numTelefonoAsistente.getText().toString().length()!=10&&numTelefonoAsistente.getText().toString().length()!=0){numTelefonoAsistente.setError("Debe capturar un número de 10 dígitos");}
+                if(correoElectronicoAsistente.getText().toString().length()==0){correoElectronicoAsistente.setError("El campo es requerido" );}
 
-
-
-                if(usuario.length()==0){usuarioAsistente.setError("El campo es requerido" );}
-                if(contrasena.length()==0){contrasenaAsistente.setError("El campo es requerido" );}
-                if(nombre.length()==0){nombreAsistente.setError("El campo es requerido" );}
-                if(aMaterno.length()==0){aMaternoAsistente.setError("El campo es requerido" );}
-                if(telefono.length()==0){numTelefonoAsistente.setError("El campo es requerido" );}
-                if(correo.length()==0){correoElectronicoAsistente.setError("El campo es requerido" );}
-                if(usuario.length()!=0&&contrasena.length()!=0&&
-                        nombre.length()!=0&&
-                        aMaterno.length()!=0&&telefono.length()!=0&&
-                        correo.length()!=0
-                        ){
-                    new RegistroAsistenteActivity.SendPostRequest().execute();
-                }
+                if(usuarioAsistente.getText().toString().length()!=0&&contrasenaAsistente.getText().toString().length()!=0&&
+                        nombreAsistente.getText().toString().length()!=0&&
+                        aMaternoAsistente.getText().toString().length()!=0&&numTelefonoAsistente.getText().toString().length()!=0&&
+                        numTelefonoAsistente.getText().toString().length()==10&&correoElectronicoAsistente.getText().toString().length()!=0
+                        ){new RegistroAsistenteActivity.SendPostRequest().execute();}
             }
         });
 
     }
 
-    private void PopUp() {
+   /* private void PopUp() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(dialogoMsg)
                 .setTitle(getString (R.string.tel_fono))
@@ -134,7 +125,7 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
                         });
         AlertDialog alert = builder.create();
         alert.show();
-    }
+    }*/
 
     public class SendPostRequest extends AsyncTask<String, Void, ArrayList> {
 

@@ -23,33 +23,41 @@
         android:id="@+id/imageView4"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        app:srcCompat="@drawable/pasajero"
-        android:layout_marginStart="15dp"
+        android:layout_alignBottom="@+id/imageView10"
+        android:layout_alignStart="@+id/textView6"
         android:layout_alignTop="@+id/imageView10"
-        android:layout_alignStart="@+id/imageView10"
-        android:layout_alignBottom="@+id/imageView10" />
+        app:srcCompat="@drawable/pasajero" />
 
     <TextView
         android:id="@+id/textViewRC"
         android:layout_width="220dp"
         android:layout_height="60dp"
-        android:layout_alignEnd="@+id/popup3"
+        android:layout_alignEnd="@+id/textView6"
         android:layout_alignTop="@+id/imageView10"
-        android:paddingTop="7dp"
-        android:text="@string/capture_los_siguientes_datos"
+        android:layout_marginEnd="8dp"
+        android:paddingTop="5dp"
+        android:text="@string/desc_p_pasajero"
         android:textAlignment="viewStart"
         android:textColor="?attr/actionMenuTextColor"
-        android:textSize="17sp"
+        android:textSize="13sp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="134dp"
         tools:layout_editor_absoluteY="16dp" />
 
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView10"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:text="@string/capture_los_siguientes_datos" />
 
     <EditText
         android:id="@+id/longitud_lugar_destino"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="45dp"
         android:background="@drawable/border_style"
         android:drawableLeft="@drawable/user_icon"
         android:drawablePadding="5dp"
@@ -130,10 +138,10 @@
         android:drawablePadding="5dp"
         android:ems="10"
         android:hint="@string/tel_fono"
-        android:inputType="phone"
+        android:inputType="number"
         android:maxLength="10"/>
 
-    <Button
+    <!--Button
         android:id="@+id/popup3"
         android:layout_width="20dp"
         android:layout_height="20dp"
@@ -142,7 +150,7 @@
         android:background="@drawable/exclamation"
         tools:ignore="HardcodedText,UnusedAttribute"
         android:layout_alignTop="@+id/tel_pasajero"
-        android:layout_alignEnd="@+id/tel_pasajero" />
+        android:layout_alignEnd="@+id/tel_pasajero" /-->
 
 
     <EditText

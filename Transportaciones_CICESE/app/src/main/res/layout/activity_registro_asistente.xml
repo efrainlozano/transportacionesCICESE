@@ -31,31 +31,30 @@
         android:id="@+id/textViewRC"
         android:layout_width="220dp"
         android:layout_height="60dp"
-        android:paddingTop="7dp"
-        android:layout_alignEnd="@+id/popup2"
+        android:layout_alignEnd="@+id/textView6"
         android:layout_alignTop="@+id/imageView10"
-        android:text="@string/capture_los_siguientes_datos"
+        android:paddingTop="5dp"
+        android:text="@string/desc_p_asistente"
         android:textAlignment="viewStart"
         android:textColor="?attr/actionMenuTextColor"
-        android:textSize="17sp"
+        android:textSize="13sp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="134dp"
-        tools:layout_editor_absoluteY="16dp"
-        />
+        tools:layout_editor_absoluteY="16dp" />
 
     <EditText
         android:id="@+id/usuario_generadoA"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_alignStart="@+id/ap_asistente"
+        android:layout_below="@+id/imageView10"
+        android:layout_marginTop="45dp"
         android:background="@drawable/border_style"
         android:drawableLeft="@drawable/user_icon"
         android:drawablePadding="5dp"
         android:ems="10"
         android:hint="@string/username"
-        android:inputType="text"
-        android:layout_below="@+id/imageView10"
-        android:layout_alignStart="@+id/ap_asistente" />
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/contrasena_asistente"
@@ -129,10 +128,10 @@
         android:drawablePadding="5dp"
         android:ems="10"
         android:hint="@string/tel_fono"
-        android:inputType="phone"
+        android:inputType="number"
         android:maxLength="10"/>
 
-    <Button
+    <!--Button
         android:id="@+id/popup2"
         android:layout_width="20dp"
         android:layout_height="20dp"
@@ -141,7 +140,7 @@
         android:background="@drawable/exclamation"
         tools:ignore="HardcodedText,UnusedAttribute"
         android:layout_alignTop="@+id/tel_asistente"
-        android:layout_alignEnd="@+id/tel_asistente" />
+        android:layout_alignEnd="@+id/tel_asistente" /-->
 
 
 
@@ -173,5 +172,14 @@
         android:layout_alignStart="@+id/emailAsistente"
         android:layout_alignEnd="@+id/emailAsistente"
         android:layout_marginTop="30dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView10"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:text="@string/capture_los_siguientes_datos" />
 
 </RelativeLayout>
