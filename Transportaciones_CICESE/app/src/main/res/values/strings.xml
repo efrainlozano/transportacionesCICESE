@@ -36,6 +36,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="incio">Inicio</string>
     <string name="cerrar_sesi_n">Cerrar sesión</string>
+    <string name="chat">Chat</string>
     <string name="general">General</string>
     <string name="string_ayuda">Ayuda</string>
     <string name="acerca_de">Acerca de</string>

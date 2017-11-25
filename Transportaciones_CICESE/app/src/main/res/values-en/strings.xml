@@ -1,5 +1,7 @@
 <resources>
-    <string name="URI">http://192.168.0.5/ci/index.php/api</string>
+    <string name="URI">http://192.168.43.192/ci/index.php/api</string>
+    <string name="google_maps_key">AIzaSyAlmfsfU1lRyiFBri6znizt44y2Uz634lM</string>
+    <string name="google_directions_key">AIzaSyAjkSX7UHAXF-wcvFzK--HwaklnHVugJJo</string>
     <!-- 192.168.43.192 -->
     <!-- 192.168.0.5 -->
     <!-- 10.10.192.1 -->
@@ -7,6 +9,7 @@
     <string name="app_name">CICESE Transportations</string>
     <string name="contrasena">Password</string>
     <string name="inicio_btn">Login</string>
+    <string name="chat">Chat</string>
     <string name="btn_CICESE_user">CICESE users access</string>
     <string name="textview_acceso">Enter your username and password</string>
     <string name="transportaciones">Transportations</string>

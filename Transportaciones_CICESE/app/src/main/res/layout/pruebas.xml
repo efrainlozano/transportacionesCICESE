@@ -163,6 +163,15 @@
     android:layout_toStartOf="@+id/textView2"
     tools:ignore="ContentDescription,UnusedAttribute" />
 
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView24"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp" />
+
     </RelativeLayout>
 
 

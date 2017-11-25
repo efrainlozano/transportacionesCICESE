@@ -135,6 +135,7 @@ public class funcionesGeneradoras {
         }
 
     }
+
     //Genera una cadena random de digitos de longitud 10
     public String generaFolio(){
         String caracteres="0123456789";

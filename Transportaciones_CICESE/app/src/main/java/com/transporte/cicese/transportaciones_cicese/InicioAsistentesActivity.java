@@ -22,6 +22,8 @@ public class InicioAsistentesActivity extends AppCompatActivity
         AboutFragment.OnFragmentInteractionListener,
         LogoutFragment.OnFragmentInteractionListener {
 
+    Button Registros,Consultas,Updates;
+    Intent i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,33 @@ public class InicioAsistentesActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
+        Registros = (Button) findViewById(R.id.irARegistros);
+        Consultas = (Button) findViewById(R.id.irAConsultas);
+        Updates = (Button) findViewById(R.id.irAUpdate);
 
+        Registros.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                i = new Intent(InicioAsistentesActivity.this, MenuRegistrosAsistenteActivity.class);
+                startActivity(i);
+            }
+        });
+
+        Consultas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                i = new Intent(InicioAsistentesActivity.this, ServiciosActivity.class);
+                startActivity(i);
+            }
+        });
+
+        Updates.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                i = new Intent(InicioAsistentesActivity.this, updateSolicitud.class);
+                startActivity(i);
+            }
+        });
 
        /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -94,29 +122,31 @@ public class InicioAsistentesActivity extends AppCompatActivity
         Fragment fragment = null;
         Boolean fragSelect = false;
         String title = "";
+        Intent i;
 
         if (id == R.id.nav_inicio) {
             // Handle the camera action
         } else if (id == R.id.nav_registros) {
-            Intent i = new Intent(InicioAsistentesActivity.this,MenuRegistrosAsistenteActivity.class);
+            i = new Intent(InicioAsistentesActivity.this,MenuRegistrosAsistenteActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_actualiza) {
-            Intent i = new Intent(InicioAsistentesActivity.this,updateSolicitud.class);
+            i = new Intent(InicioAsistentesActivity.this,updateSolicitud.class);
             startActivity(i);
         } else if (id == R.id.nav_consulta) {
-            Intent i = new Intent(InicioAsistentesActivity.this,ServiciosActivity.class);
+            i = new Intent(InicioAsistentesActivity.this,ServiciosActivity.class);
             startActivity(i);
-
         } else if (id == R.id.nav_logout) {
-            fragment =  new LogoutFragment();
-            title="Cerrar sesión";
-            fragSelect = true;
+            i = new Intent(InicioAsistentesActivity.this,LogoutActivity.class);
+            startActivity(i);
         } else if (id == R.id.nav_about) {
             fragment =  new AboutFragment();
             title="Acerca de";
             fragSelect = true;
         } else if (id == R.id.nav_help) {
 
+        }else if (id == R.id.nav_chat) {
+            i = new Intent(InicioAsistentesActivity.this,chatActivity.class);
+            startActivity(i);
         }
 
         if(fragSelect){

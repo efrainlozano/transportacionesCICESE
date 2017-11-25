@@ -94,7 +94,7 @@ public class InicioPasajeroActivity extends AppCompatActivity
         Fragment fragment = null;
         Boolean fragSelect = false;
         String title = "";
-
+        Intent i;
 
         if (id == R.id.nav_inicio) {
             // Handle the inicio action
@@ -105,19 +105,22 @@ public class InicioPasajeroActivity extends AppCompatActivity
             //fragment =  new ServiciosFragment();
             title="Servicios";
             /*fragSelect = true;*/
-            Intent i = new Intent(InicioPasajeroActivity.this,ServiciosActivity.class);
+            i = new Intent(InicioPasajeroActivity.this,ServiciosActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_logout) {
-            fragment =  new LogoutFragment();
-            title="Cerrar sesión";
-            fragSelect = true;
+            i = new Intent(InicioPasajeroActivity.this,LogoutActivity.class);
+            startActivity(i);
         } else if (id == R.id.nav_about) {
             fragment =  new AboutFragment();
             title="Acerca de";
             fragSelect = true;
         } else if (id == R.id.nav_help) {
 
+        }else if (id == R.id.nav_chat) {
+            i = new Intent(InicioPasajeroActivity.this,chatActivity.class);
+            startActivity(i);
         }
+
 
         if(fragSelect){
             getSupportFragmentManager()

@@ -88,7 +88,7 @@
         </service>
         <!-- [END firebase_service] -->
 
-        <activity android:name=".AtajosActivity"></activity>
+        <activity android:name=".LogoutActivity"></activity>
     </application>
 
 </manifest>

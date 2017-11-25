@@ -20,6 +20,10 @@
             android:icon="@drawable/consults_icon"
             android:title="@string/consultas" />
         <item
+            android:id="@+id/nav_chat"
+            android:icon="@drawable/chat_icon"
+            android:title="@string/chat" />
+        <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/logout_icon"
             android:title="@string/cerrar_sesi_n" />

@@ -150,9 +150,6 @@
             android:layout_alignEnd="@+id/textView14" />
 
 
-    <include layout="@layout/activity_atajos" />
-
-
     <TextView
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
@@ -170,6 +167,5 @@
             android:layout_alignTop="@+id/textView2"
             android:layout_toStartOf="@+id/textView2"
             tools:ignore="ContentDescription,UnusedAttribute" />
-
 
     </RelativeLayout>

@@ -25,7 +25,7 @@ public class InicioChoferesActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,7 +34,7 @@ public class InicioChoferesActivity extends AppCompatActivity
                 Intent i = new Intent(InicioChoferesActivity.this, chatActivity.class);
                 startActivity(i);
             }
-        });
+        });*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -86,7 +86,7 @@ public class InicioChoferesActivity extends AppCompatActivity
         Fragment fragment = null;
         Boolean fragSelect = false;
         String title = "";
-
+        Intent i;
 
         if (id == R.id.nav_inicio) {
             // Handle the camera action
@@ -94,14 +94,19 @@ public class InicioChoferesActivity extends AppCompatActivity
             //fragment =  new ServiciosFragment();
             title="Servicios";
             /*fragSelect = true;*/
-                Intent i = new Intent(InicioChoferesActivity.this,ServiciosActivity.class);
+            i = new Intent(InicioChoferesActivity.this,ServiciosActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_push) {
             title="Servicios";
-            /*fragSelect = true;*/
-            Intent i = new Intent(InicioChoferesActivity.this,TextoRapidoActivity.class);
+            i = new Intent(InicioChoferesActivity.this,TextoRapidoActivity.class);
             startActivity(i);
 
+        }else if(id == R.id.nav_logout){
+            i = new Intent(InicioChoferesActivity.this,LogoutActivity.class);
+            startActivity(i);
+        }else if (id == R.id.nav_chat) {
+            i = new Intent(InicioChoferesActivity.this,chatActivity.class);
+            startActivity(i);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
