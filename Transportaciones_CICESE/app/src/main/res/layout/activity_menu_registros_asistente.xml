@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:background="@android:color/background_light"
     tools:context="com.transporte.cicese.transportaciones_cicese.MenuRegistrosAsistenteActivity">
 
@@ -24,13 +25,13 @@
         android:id="@+id/imr2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@android:color/background_light"
-        app:srcCompat="@drawable/pasajero"
-        android:contentDescription=""
-        tools:ignore="ContentDescription,UnusedAttribute"
-        android:layout_marginEnd="32dp"
+        android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/imr1"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginEnd="42dp"
+        android:backgroundTint="@android:color/background_light"
+        android:contentDescription=""
+        app:srcCompat="@drawable/pasajero"
+        tools:ignore="ContentDescription,UnusedAttribute" />
 
     <ImageButton
         android:id="@+id/imr3"
@@ -47,11 +48,11 @@
         android:id="@+id/imr4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/textView21"
+        android:layout_alignStart="@+id/textView19"
         android:backgroundTint="@android:color/background_light"
         app:srcCompat="@drawable/solicitud"
-        tools:ignore="ContentDescription,UnusedAttribute"
-        android:layout_alignTop="@+id/imr3"
-        android:layout_alignEnd="@+id/textView19" />
+        tools:ignore="ContentDescription,UnusedAttribute" />
 
     <TextView
         android:id="@+id/textView18"
@@ -66,9 +67,8 @@
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView18"
-        android:layout_alignBottom="@+id/textView18"
-        android:layout_alignEnd="@+id/imr2"
+        android:layout_alignStart="@+id/imr2"
+        android:layout_below="@+id/imr2"
         android:text="@string/registrar_pasajero"
         android:textColor="@color/ColorActionBarTitle" />
 
@@ -95,7 +95,7 @@
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="300dp"
-        android:layout_height="90dp"
+        android:layout_height="70dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="19dp"
@@ -106,15 +106,15 @@
     <TextView
         android:id="@+id/textViewRC"
         android:layout_width="220dp"
-        android:layout_height="95dp"
+        android:layout_height="70dp"
         android:layout_alignBottom="@+id/imageView10"
         android:layout_centerHorizontal="true"
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
-        android:text="A continuación se presentan las opciones para registrar usuarios y solicitudes. Seleccione una para ir a su respectivo formulario de registro"
-        android:textAlignment="viewStart"
+        android:text="Seleccione una de las siguientes opciones para registrar usuarios o una solicitud"
+        android:textAlignment="center"
         android:textColor="?attr/actionMenuTextColor"
-        android:textSize="14sp"
+        android:textSize="15sp"
         tools:ignore="MissingConstraints,RtlHardcoded"
         tools:layout_editor_absoluteX="134dp"
         tools:layout_editor_absoluteY="16dp" />

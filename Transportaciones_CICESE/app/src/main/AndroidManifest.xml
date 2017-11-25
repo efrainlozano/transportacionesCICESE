@@ -57,7 +57,8 @@
             android:label="@string/registrar_solicitud" />
         <activity
             android:name=".updateSolicitud"
-            android:label="@string/actualizaciones" />
+            android:label="@string/actualizaciones"
+            android:parentActivityName="com.transporte.cicese.transportaciones_cicese.InicioPasajeroActivity"/>
         <activity
             android:name=".TextoRapidoActivity"
             android:label="Seleccionar texto rápido" />
@@ -67,7 +68,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MenuRegistrosAsistenteActivity"
-            android:label="@string/registros" />
+            android:label="@string/registros"
+            android:parentActivityName="com.transporte.cicese.transportaciones_cicese.InicioPasajeroActivity" />
         <activity
             android:name=".InicioChoferesActivity"
             android:label="@string/title_activity_inicio_choferes"

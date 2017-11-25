@@ -14,7 +14,7 @@
             android:title="@string/servicios" />
         <item
             android:id="@+id/nav_push"
-            android:icon="@drawable/chat_icon"
+            android:icon="@drawable/noti_icon"
             android:title="@string/notificaciones_rapidas" />
         <item
             android:id="@+id/nav_chat"

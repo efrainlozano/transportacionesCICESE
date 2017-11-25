@@ -1,6 +1,9 @@
 package com.transporte.cicese.transportaciones_cicese;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -32,6 +35,13 @@ public class InicioAsistentesActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+        final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_material);
+        upArrow.setColorFilter(Color.parseColor("#000"), PorterDuff.Mode.SRC_ATOP);
+        getSupportActionBar().setHomeAsUpIndicator(upArrow);
+
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Registros = (Button) findViewById(R.id.irARegistros);
         Consultas = (Button) findViewById(R.id.irAConsultas);
