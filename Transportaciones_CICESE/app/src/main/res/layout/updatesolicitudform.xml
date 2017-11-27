@@ -270,17 +270,16 @@
                 <EditText
                     android:id="@+id/descripcion_lugar_destino"
 
-                    android:background="@drawable/border_style"
                     android:layout_width="300dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_alignEnd="@+id/fecha_encuentro"
+                    android:layout_below="@+id/textViewDD2"
+                    android:background="@drawable/border_style"
                     android:drawableLeft="@drawable/descriotion_icon"
                     android:drawablePadding="5dp"
                     android:ems="10"
                     android:hint="@string/descripci_n"
-                    android:inputType="text"
-                    android:layout_below="@+id/textViewDD2"
-                    android:layout_alignEnd="@+id/fecha_encuentro" />
+                    android:inputType="text" />
 
                 <EditText
                     android:id="@+id/longitud_lugar_destino"
@@ -495,6 +494,24 @@
 
 
                 </RelativeLayout>
+
+                <Button
+                    android:id="@+id/seleccionarEncuentro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/longitud_lugar_encuentro"
+                    android:layout_marginTop="20dp"
+                    android:layout_toEndOf="@+id/textViewDD3"
+                    android:text="Encuentro" />
+
+                <Button
+                    android:id="@+id/seleccionarDestino"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/latitud_lugar_destino"
+                    android:layout_marginBottom="17dp"
+                    android:layout_toEndOf="@+id/textViewDD"
+                    android:text="Destino" />
 
 
             </RelativeLayout>

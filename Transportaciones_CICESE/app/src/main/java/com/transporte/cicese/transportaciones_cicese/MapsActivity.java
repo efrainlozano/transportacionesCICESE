@@ -29,7 +29,6 @@ import java.util.concurrent.TimeUnit;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    private GoogleMap mMap;
     private static final int overview = 0;
 
     @Override
@@ -66,16 +65,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         setupGoogleMapScreenSettings(googleMap);
         Intent extra = getIntent();
-        String origen =extra.getStringExtra("origen");
-        String destino=extra.getStringExtra("destino");
-        Log.i("origen",origen);
-        Log.i("destino",destino);
-        DirectionsResult results = getDirectionsDetails(origen,destino,TravelMode.DRIVING);
-        if (results != null) {
-            addPolyline(results, googleMap);
-            positionCamera(results.routes[overview], googleMap);
-            addMarkersToMap(results, googleMap);
+        String action = extra.getStringExtra("action");
+        switch (action){
+            case "r"://Despliega una ruta
+                String origen =extra.getStringExtra("origen");
+                String destino=extra.getStringExtra("destino");
+                DirectionsResult results = getDirectionsDetails(origen,destino,TravelMode.DRIVING);
+                if (results != null) {
+                    addPolyline(results, googleMap);
+                    positionCamera(results.routes[overview], googleMap);
+                    addMarkersToMap(results, googleMap);
+                }
+                break;
+            case "l"://Despliega una locacion
+                LatLng location = new LatLng(Double.valueOf(extra.getStringExtra("latitud").toString()), Double.valueOf(extra.getStringExtra("longitud").toString()));
+                googleMap.addMarker(new MarkerOptions().position(location).title(extra.getStringExtra("address").toString()));
+                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location,18));
+                break;
         }
+
     }
 
     private DirectionsResult getDirectionsDetails(String origin,String destination,TravelMode mode) {
