@@ -44,7 +44,4 @@
         android:text="http://www.cicese.edu.mx/ \n   CICESE, México - ©2017"
         android:textColor="#000000"
         tools:ignore="HardcodedText" />
-
-
-
 </RelativeLayout>

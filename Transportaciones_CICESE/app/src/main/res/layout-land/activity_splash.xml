@@ -39,12 +39,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="28dp"
         android:background="#ffff"
         android:text="http://www.cicese.edu.mx/ \n   CICESE, México - ©2017"
         android:textColor="#000000"
         tools:ignore="HardcodedText" />
-
-
-
 </RelativeLayout>

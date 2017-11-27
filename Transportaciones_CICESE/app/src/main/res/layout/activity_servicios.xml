@@ -37,7 +37,7 @@
         android:layout_alignEnd="@+id/imageView10"
         android:layout_alignTop="@+id/imageView10"
         android:layout_marginEnd="14dp"
-        android:paddingTop="7dp"
+        android:paddingTop="5dp"
         android:text="Por favor seleccione un servicio del siguiente listado para consultar sus datos"
         android:textColor="?attr/actionMenuTextColor"
         android:textSize="14sp" />

@@ -294,16 +294,15 @@
                     tools:ignore="HardcodedText" />
 
                 <!--SELECCIONAR SPINNE, DEFAULT 2017R-->
-                <EditText
+                <Spinner
                     android:id="@+id/anio_vehiculo"
                     android:layout_width="145dp"
                     android:layout_height="40dp"
                     android:layout_alignStart="@+id/marca_vehiculo"
                     android:layout_below="@+id/marca_vehiculo"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/spinner_style"
-                    android:ems="10"
-                    android:prompt="@string/anio"/>
+                    android:entries="@array/years_array"
+                    android:prompt="@string/year_prompt" />
 
                 <EditText
                     android:id="@+id/color_vehiculo"
