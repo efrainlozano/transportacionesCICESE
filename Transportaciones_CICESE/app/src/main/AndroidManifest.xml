@@ -62,7 +62,7 @@
         <activity
             android:name=".updateSolicitud"
             android:label="@string/actualizaciones"
-            android:parentActivityName="com.transporte.cicese.transportaciones_cicese.InicioPasajeroActivity"/>
+            android:parentActivityName="com.transporte.cicese.transportaciones_cicese.InicioAsistentesActivity"/>
         <activity
             android:name=".TextoRapidoActivity"
             android:label="Seleccionar texto rápido"

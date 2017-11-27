@@ -62,10 +62,13 @@ public class ServiciosActivity extends AppCompatActivity {
         idSolicitud=settings.getString("solicitudPasajero","Default");
         tipoUsuario= settings.getString("tipoUsuario","Default");
 
+
         spinnerServicios = (Spinner) findViewById(R.id.buscarServicios);
-        fum_serv = (TextView) findViewById(R.id.fum_servicio);
+
         est_serv = (TextView) findViewById(R.id.est_servicio);
         cal_serv = (TextView) findViewById(R.id.calif_servicio);
+        fum_serv = (TextView) findViewById(R.id.fum_servicio);
+        id_chofer = (TextView) findViewById(R.id.idChofer);
         desc_enc = (TextView) findViewById(R.id.descripcion_lugar_encuentro);
         long_enc = (TextView) findViewById(R.id.long_encuentro);
         lat_enc = (TextView) findViewById(R.id.lat_encuentro);
@@ -80,7 +83,7 @@ public class ServiciosActivity extends AppCompatActivity {
         col_ve = (TextView) findViewById(R.id.col_vehiculo);
         pla_ve = (TextView) findViewById(R.id.pla_vehiculo);
         tip_ve = (TextView) findViewById(R.id.tip_vehiculo);
-        id_chofer = (TextView) findViewById(R.id.idChofer);
+
 
         new ServiciosActivity.obtenerServicios().execute();
 
