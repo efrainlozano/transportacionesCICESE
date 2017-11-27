@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -109,63 +110,63 @@
 
                 <TextView
                     android:id="@+id/textView9"
-                    android:layout_width="wrap_content"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/como_pasajero"
+                    android:text="@string/como_chofer"
                     android:textAlignment="center"
                     android:textColor="@android:color/holo_blue_light"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    tools:ignore="HardcodedText" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@+id/textView13"
-                    android:drawableLeft="@drawable/forma_iconp"
-                    android:drawablePadding="5dp"
                     android:layout_below="@+id/textView9"
                     android:layout_marginTop="11dp"
-                    android:text="@string/seguir_solicitud" />
+                    android:drawableLeft="@drawable/forma_iconp"
+                    android:drawablePadding="5dp"
+                    android:text="@string/dar_seguimiento_a_su_solicitud"
+                    tools:ignore="RtlHardcoded" />
 
                 <TextView
                     android:id="@+id/textView13"
-                    android:layout_width="wrap_content"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@+id/textView9"
-                    android:drawableLeft="@drawable/forma_iconp"
-                    android:drawablePadding="5dp"
                     android:layout_below="@+id/textView2"
                     android:layout_marginTop="2dp"
-                    android:text="@string/int_msj_t"
+                    android:drawableLeft="@drawable/forma_iconp"
+                    android:drawablePadding="5dp"
+                    android:text="@string/int_msj"
                     tools:ignore="HardcodedText,RtlHardcoded" />
 
                 <TextView
                     android:id="@+id/textView14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/textView13"
                     android:layout_alignStart="@+id/textView2"
                     android:layout_below="@+id/textView13"
+                    android:layout_marginTop="2dp"
                     android:drawableLeft="@drawable/forma_iconp"
                     android:drawablePadding="5dp"
-                    android:layout_marginTop="2dp"
-                    android:text="@string/calendario_eventos"
-                    tools:ignore="HardcodedText,RtlHardcoded"
-                    android:layout_alignEnd="@+id/textView13" />
+                    android:text="@string/q_noti"
+                    tools:ignore="HardcodedText,RtlHardcoded" />
 
                 <TextView
                     android:id="@+id/textView15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/textView14"
                     android:layout_alignStart="@+id/textView14"
                     android:layout_below="@+id/textView14"
                     android:layout_marginTop="2dp"
                     android:drawableLeft="@drawable/forma_iconp"
                     android:drawablePadding="5dp"
-                    android:text="@string/rating_servicio"
-                    tools:ignore="HardcodedText,RtlHardcoded"
-                    android:layout_alignEnd="@+id/textView14" />
+                    android:text="@string/localizacion"
+                    tools:ignore="HardcodedText,RtlHardcoded" />
             </RelativeLayout>
             <!--DESDE AQUIIIIIIIIIII-->
             <Button

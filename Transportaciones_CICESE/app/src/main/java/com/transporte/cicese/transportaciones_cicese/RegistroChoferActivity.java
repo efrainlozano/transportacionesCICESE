@@ -50,8 +50,8 @@ public class RegistroChoferActivity extends AppCompatActivity {
     private Button registraChofer;
 
 
-    private Button popupD;
-    private String dialogoMsg;
+    private Button popupT,popupE;
+    private String dialogoMsg,dialogoMsg2;
     funcionesGeneradoras fG;
 
     @Override
@@ -69,16 +69,27 @@ public class RegistroChoferActivity extends AppCompatActivity {
         correoElectronicoChofer = (EditText) findViewById(R.id.emailChofer);
         registraChofer = (Button) findViewById(R.id.registroChofer_btn);
 
-     //   popupD = (Button) findViewById(R.id.popup);
+       popupT = (Button) findViewById(R.id.popupChoferT);
+       popupE = (Button) findViewById(R.id.popupChoferC);
         dialogoMsg = getString (R.string.popup_msg);
+        dialogoMsg2 = getString (R.string.popup_msg2);
+
 
         //Si se presiona el icono de exclamacion en el campo de telefono
-       /* popupD.setOnClickListener(new View.OnClickListener() {
+        popupT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PopUp();
+                PopUpC();
             }
-        });*/
+        });
+
+        //Si se presiona el icono de exclamacion en el campo de telefono
+        popupE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopUpE();
+            }
+        });
 
         //Preparamos el metodo para registrar al chofer
         registraChofer.setOnClickListener(new View.OnClickListener() {
@@ -96,7 +107,7 @@ public class RegistroChoferActivity extends AppCompatActivity {
                 if(numeroEmpleadoChofer.getText().toString().length()!=0&&contrasenaChofer.getText().toString().length()!=0&&
                         nombreChofer.getText().toString().length()!=0 &&
                         aMaternoChofer.getText().toString().length()!=0&&numTelefonoChofer.getText().toString().length()!=0&&
-                        numTelefonoChofer.getText().toString().length()==10&&correoElectronicoChofer.getText().toString().length()!=0
+                        numTelefonoChofer.getText().toString().length()==10&&correoElectronicoChofer.getText().toString().length()!=0&&validarEmail(correoElectronicoChofer.getText().toString())
                         ){new RegistroChoferActivity.SendPostRequest().execute();}
             }
         });
@@ -119,7 +130,7 @@ public class RegistroChoferActivity extends AppCompatActivity {
         correoElectronicoChofer.setText("");
     }
 
-   /* private void PopUp() {
+    private void PopUpC() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(dialogoMsg)
                 .setTitle(getString (R.string.tel_fono))
@@ -132,8 +143,22 @@ public class RegistroChoferActivity extends AppCompatActivity {
                         });
         AlertDialog alert = builder.create();
         alert.show();
-    }*/
+    }
 
+    private void PopUpE() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(dialogoMsg2)
+                .setTitle(getString (R.string.email))
+                .setCancelable(false)
+                .setNeutralButton((getString (R.string.aceptar)),
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
 
     public class SendPostRequest extends AsyncTask<String, Void, ArrayList> {
 

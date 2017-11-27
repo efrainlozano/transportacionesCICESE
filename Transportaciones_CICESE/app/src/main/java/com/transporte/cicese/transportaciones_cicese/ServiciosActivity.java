@@ -44,7 +44,6 @@ public class ServiciosActivity extends AppCompatActivity {
             pla_ve,tip_ve,id_chofer,est_serv,cal_serv,
             fum_serv;
     Spinner spinnerServicios;
-    Button consulta;
     funcionesGeneradoras fG;
 
     JSONArray serviciosResult;
@@ -63,7 +62,6 @@ public class ServiciosActivity extends AppCompatActivity {
         idSolicitud=settings.getString("solicitudPasajero","Default");
         tipoUsuario= settings.getString("tipoUsuario","Default");
 
-        consulta=(Button)findViewById(R.id.buttonBuscar);
         spinnerServicios = (Spinner) findViewById(R.id.buscarServicios);
         fum_serv = (TextView) findViewById(R.id.fum_servicio);
         est_serv = (TextView) findViewById(R.id.est_servicio);

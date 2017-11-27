@@ -279,7 +279,7 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
                 if(numero_placas.getText().toString().length()==0){numero_placas.setError("El campo es requerido" );}
                 if(tipo_vehiculo.getText().toString().length()==0){tipo_vehiculo.setError("El campo es requerido" );}
 
-                if(hora_encuentro.getText().toString().length()!=0&&fecha_encuentro.getText().toString().length()!=0&&
+                if(/*hora_encuentro.getText().toString().length()!=0&&fecha_encuentro.getText().toString().length()!=0&&*/
                         modelo_vehiculo.getText().toString().length()!=0&&marca_vehiculo.getText().toString().length()!=0&&
                         anio_vehiculo.getText().toString().length()!=0&&color_vehiculo.getText().toString().length()!=0&&
                         numero_placas.getText().toString().length()!=0&&tipo_vehiculo.getText().toString().length()!=0

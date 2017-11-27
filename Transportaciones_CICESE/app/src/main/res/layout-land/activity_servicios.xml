@@ -2,40 +2,68 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#ffff"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="600dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/textbacks"
+        tools:ignore="ContentDescription,UnknownIdInLayout"
+        android:layout_alignBottom="@+id/imageView4"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignStart="@+id/imageView10"
+        android:layout_alignTop="@+id/imageView10"
+        android:layout_marginStart="12dp"
+        app:srcCompat="@drawable/consults_icon"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="600dp"
+        android:layout_height="35dp"
+        android:layout_alignTop="@+id/imageView10"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="7dp"
+        android:textAlignment="center"
+        android:text="Por favor seleccione un servicio del siguiente listado para consultar sus datos"
+        android:textColor="?attr/actionMenuTextColor"
+        android:textSize="14sp" />
+
     <Spinner
         android:id="@+id/buscarServicios"
-        android:layout_width="465dp"
+        android:layout_width="600dp"
         android:layout_height="40dp"
-        android:layout_marginTop="12dp"
         android:background="@drawable/border_style"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/scrollView2" />
-
-    <Button
-        android:id="@+id/buttonBuscar"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@android:drawable/ic_menu_search"
-        android:layout_above="@+id/scrollView2"
-        android:layout_alignEnd="@+id/scrollView2" />
+        android:layout_alignStart="@+id/scrollView3"
+        android:layout_below="@+id/imageView10"
+        android:layout_marginTop="40dp" />
 
     <ScrollView
-        android:layout_width="500dp"
-        android:layout_height="match_parent"
+        android:layout_width="600dp"
+        android:layout_height="900dp"
         android:layout_marginTop="15dp"
         android:layout_below="@+id/buscarServicios"
         android:layout_centerHorizontal="true"
-        android:id="@+id/scrollView2">
+        android:id="@+id/scrollView3">
+
         <TableLayout
-            android:layout_width="500dp"
-            android:layout_height="match_parent"
+            android:layout_width="600dp"
+            android:layout_height="1000dp"
             android:layout_below="@+id/spinner"
             android:layout_centerHorizontal="true"
-            android:background="#ffff">
+            android:background="#ffff"
+            tools:ignore="ObsoleteLayoutParam">
 
 
             <TableRow
@@ -49,72 +77,71 @@
                 android:layout_height="30dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:background="#dadada"
-                android:hint="Detalles del servicio"
+                android:background="@color/colorPrimaryText"
+                android:fontFamily="sans-serif"
+                android:hint="@string/detalles_servicio"
+                android:lineSpacingExtra="8sp"
                 android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
+                android:textAllCaps="false"
+                android:textColorHint="#ffff"
                 android:textSize="18sp"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+                android:textStyle="bold"/>
+
 
             <TableRow
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="#fafafa" >
+                android:background="#fafafa">
 
                 <TextView
                     android:padding="3dip"
-                    android:text="ID servicio" />
-                <TextView
-                    android:id="@+id/idServicio"
-                    android:text=""
-                    android:gravity="right"
-                    android:padding="3dip" />
-            </TableRow>
+                    android:text="@string/estado"
+                    android:textStyle="bold" />
 
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:background="#fafafa" >
-
-                <TextView
-                    android:padding="3dip"
-                    android:text="Estado" />
                 <TextView
                     android:id="@+id/est_servicio"
-                    android:text=""
                     android:gravity="right"
-                    android:padding="3dip" />
+                    android:padding="3dip"
+                    android:text=""
+                    tools:ignore="RtlHardcoded" />
             </TableRow>
 
 
             <TableRow
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="#fafafa" >
+                android:background="#f0f0f0">
 
                 <TextView
                     android:padding="3dip"
-                    android:text="Calificación" />
+                    android:text="@string/calificaci_n"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/calif_servicio"
-                    android:text=""
                     android:gravity="right"
-                    android:padding="3dip" />
+                    android:padding="3dip"
+                    android:text=""
+                    tools:ignore="RtlHardcoded" />
             </TableRow>
 
 
             <TableRow
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="#fafafa" >
+                android:background="#fafafa">
+
                 <TextView
-                    android:text="Fecha de última \n modificacion"
-                    android:padding="3dip" />
+                    android:padding="3dip"
+                    android:text="@string/fum"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/fum_servicio"
-                    android:text=""
                     android:gravity="right"
-                    android:padding="3dip" />
+                    android:padding="3dip"
+                    android:text=""
+                    tools:ignore="RtlHardcoded" />
             </TableRow>
 
 
@@ -132,39 +159,32 @@
                 tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
 
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:background="#fafafa" >
-
-                <TextView
-                    android:padding="3dip"
-                    android:text="ID solicitud" />
-                <TextView
-                    android:id="@+id/idSolicitud"
-                    android:text=""
-                    android:gravity="right"
-                    android:padding="3dip" />
-            </TableRow>
-
-
             <TableRow
                 android:id="@+id/tableRow114"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="#fafafa" >
+                android:background="#f0f0f0">
 
                 <TextView
                     android:padding="3dip"
-                    android:text="ID cofer" />
+                    android:text="@string/nombre_chofer"
+                    android:textStyle="bold"/>
+
                 <TextView
                     android:id="@+id/idChofer"
-                    android:text=""
                     android:gravity="right"
-                    android:padding="3dip" />
+                    android:padding="3dip"
+                    android:text=""
+                    tools:ignore="RtlHardcoded" />
             </TableRow>
 
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="15dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
             <TableRow
                 android:layout_width="match_parent"
@@ -177,58 +197,68 @@
                 android:layout_height="25dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:background="#f0f0f0"
-                android:hint="Datos de encuentro"
+                android:background="@android:color/holo_blue_light"
+                android:hint="@string/datos_de_encuentro"
                 android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
+                android:textColorHint="#ffff"
                 android:textSize="18sp"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+                android:textStyle="bold" />
 
             <TableRow
                 android:id="@+id/tableRow1"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="#fafafa" >
+                android:background="#fafafa">
+
                 <TextView
-                    android:text="Descripción"
-                    android:padding="3dip" />
+                    android:padding="3dip"
+                    android:text="@string/descripci_n"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/descripcion_lugar_encuentro"
-                    android:text=""
                     android:gravity="right"
-                    android:padding="3dip" />
+                    android:padding="3dip"
+                    android:text=""
+                    tools:ignore="RtlHardcoded" />
             </TableRow>
 
             <TableRow
                 android:id="@+id/tableRow2"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="#fafafa" >
+                android:background="#f0f0f0">
 
                 <TextView
                     android:padding="3dip"
-                    android:text="Longitud" />
+                    android:text="@string/longitud"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/long_encuentro"
-                    android:text=""
                     android:gravity="right"
-                    android:padding="3dip" />
+                    android:padding="3dip"
+                    android:text=""
+                    tools:ignore="RtlHardcoded" />
             </TableRow>
 
             <TableRow
                 android:id="@+id/tableRow3"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="#fafafa" >
+                android:background="#fafafa">
 
                 <TextView
                     android:padding="3dip"
-                    android:text="Latitud" />
+                    android:text="@string/latitud"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/lat_encuentro"
-                    android:text=""
                     android:gravity="right"
-                    android:padding="3dip" />
+                    android:padding="3dip"
+                    android:text=""
+                    tools:ignore="RtlHardcoded" />
             </TableRow>
 
 
@@ -236,16 +266,19 @@
                 android:id="@+id/tableRow32"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="#fafafa" >
+                android:background="#f0f0f0">
 
                 <TextView
                     android:padding="3dip"
-                    android:text="Hora" />
+                    android:text="@string/hora"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/hor_encuentro"
-                    android:text=""
                     android:gravity="right"
-                    android:padding="3dip" />
+                    android:padding="3dip"
+                    android:text=""
+                    tools:ignore="RtlHardcoded" />
             </TableRow>
 
 
@@ -253,17 +286,29 @@
                 android:id="@+id/tableRow321"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="#fafafa" >
+                android:background="#fafafa">
 
                 <TextView
                     android:padding="3dip"
-                    android:text="Fecha" />
+                    android:text="@string/fecha"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+
                 <TextView
                     android:id="@+id/fec_encuentro"
-                    android:text=""
                     android:gravity="right"
-                    android:padding="3dip" />
+                    android:padding="3dip"
+                    android:text=""
+                    tools:ignore="RtlHardcoded" />
             </TableRow>
+
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="15dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
             <TableRow
                 android:layout_width="match_parent"
@@ -276,61 +321,79 @@
                 android:layout_height="25dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:background="#f0f0f0"
-                android:hint="Datos de destino"
+                android:background="@android:color/holo_blue_light"
+                android:hint="@string/datos_de_destino"
                 android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
+                android:textColorHint="#ffff"
                 android:textSize="18sp"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+                android:textStyle="bold" />
 
 
             <TableRow
                 android:id="@+id/tableRow4"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="#fafafa" >
+                android:background="#fafafa">
 
                 <TextView
                     android:padding="3dip"
-                    android:text="Descripción" />
+                    android:text="@string/descripci_n"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/desc_destino"
-                    android:text=""
                     android:gravity="right"
-                    android:padding="3dip" />
+                    android:padding="3dip"
+                    android:text=""
+                    tools:ignore="RtlHardcoded" />
             </TableRow>
 
             <TableRow
                 android:id="@+id/tableRow5"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="#fafafa" >
+                android:background="#f0f0f0">
 
                 <TextView
                     android:padding="3dip"
-                    android:text="Longitud" />
+                    android:text="@string/longitud"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/long_destino"
-                    android:text=""
                     android:gravity="right"
-                    android:padding="3dip" />
+                    android:padding="3dip"
+                    android:text=""
+                    tools:ignore="RtlHardcoded" />
             </TableRow>
 
             <TableRow
                 android:id="@+id/tableRow6"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="#fafafa" >
+                android:background="#fafafa">
 
                 <TextView
                     android:padding="3dip"
-                    android:text="Latitud" />
+                    android:text="@string/latitud"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/lat_destino"
-                    android:text=""
                     android:gravity="right"
-                    android:padding="3dip" />
+                    android:padding="3dip"
+                    android:text=""
+                    tools:ignore="RtlHardcoded" />
             </TableRow>
+
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="15dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -341,105 +404,127 @@
                 android:layout_height="25dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:background="#f0f0f0"
-                android:hint="Datos del vehículo"
+                android:background="@android:color/holo_blue_light"
+                android:hint="@string/datos_del_vehiculo"
                 android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
+                android:textColorHint="#ffff"
                 android:textSize="18sp"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+                android:textStyle="bold" />
 
             <TableRow
                 android:id="@+id/tableRow9"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="#fafafa" >
+                android:background="#fafafa">
 
                 <TextView
                     android:padding="3dip"
-                    android:text="Modelo" />
+                    android:text="@string/model"
+                    android:textStyle="bold"/>
+
                 <TextView
                     android:id="@+id/model_vehiculo"
-                    android:text=""
                     android:gravity="right"
-                    android:padding="3dip" />
+                    android:padding="3dip"
+                    android:text=""
+                    tools:ignore="RtlHardcoded" />
             </TableRow>
+
             <TableRow
                 android:id="@+id/tableRow0"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="#fafafa" >
+                android:background="#f0f0f0">
 
                 <TextView
                     android:padding="3dip"
-                    android:text="Marca" />
+                    android:text="@string/marca"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/marc_vehiculo"
-                    android:text=""
                     android:gravity="right"
-                    android:padding="3dip" />
+                    android:padding="3dip"
+                    android:text=""
+                    tools:ignore="RtlHardcoded" />
             </TableRow>
 
             <TableRow
                 android:id="@+id/tableRow10"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="#fafafa" >
+                android:background="#fafafa">
 
                 <TextView
                     android:padding="3dip"
-                    android:text="Año" />
+                    android:text="@string/anio"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+
                 <TextView
                     android:id="@+id/an_vehiculo"
-                    android:text=""
                     android:gravity="right"
-                    android:padding="3dip" />
+                    android:padding="3dip"
+                    android:text=""
+                    tools:ignore="RtlHardcoded" />
             </TableRow>
+
             <TableRow
                 android:id="@+id/tableRow11"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="#fafafa" >
+                android:background="#f0f0f0">
 
                 <TextView
                     android:padding="3dip"
-                    android:text="Color" />
+                    android:text="@string/color"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/col_vehiculo"
-                    android:text=""
                     android:gravity="right"
-                    android:padding="3dip" />
+                    android:padding="3dip"
+                    android:text=""
+                    tools:ignore="RtlHardcoded" />
             </TableRow>
 
             <TableRow
                 android:id="@+id/tableRow112"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="#fafafa" >
+                android:background="#fafafa">
 
                 <TextView
                     android:padding="3dip"
-                    android:text="Número de placas" />
+                    android:text="@string/placas"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+
                 <TextView
                     android:id="@+id/pla_vehiculo"
-                    android:text=""
                     android:gravity="right"
-                    android:padding="3dip" />
+                    android:padding="3dip"
+                    android:text=""
+                    tools:ignore="RtlHardcoded" />
             </TableRow>
 
             <TableRow
                 android:id="@+id/tableRow113"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="#fafafa" >
+                android:background="#f0f0f0">
 
                 <TextView
                     android:padding="3dip"
-                    android:text="Tipo" />
+                    android:text="@string/tipo"
+                    android:textStyle="bold"/>
+
                 <TextView
                     android:id="@+id/tip_vehiculo"
-                    android:text=""
                     android:gravity="right"
-                    android:padding="3dip" />
+                    android:padding="3dip"
+                    android:text=""
+                    tools:ignore="RtlHardcoded" />
             </TableRow>
         </TableLayout>
     </ScrollView>

@@ -7,11 +7,17 @@
     android:background="#ffff"
     tools:context="com.transporte.cicese.transportaciones_cicese.RegistroChoferActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="700dp">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="700dp">
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="300dp"
-        android:layout_height="60dp"
+        android:layout_height="65dp"
         android:layout_marginTop="20dp"
         app:srcCompat="@drawable/textbacks"
         tools:ignore="ContentDescription"
@@ -30,20 +36,21 @@
         android:layout_above="@+id/numeroEmpleado"
         tools:ignore="ContentDescription" />
 
-    <TextView
-        android:id="@+id/textViewRC"
-        android:layout_width="220dp"
-        android:layout_height="60dp"
-        android:layout_alignEnd="@+id/textView6"
-        android:layout_alignTop="@+id/imageView10"
-        android:paddingTop="5dp"
-        android:text="@string/desc_p_chofer"
-        android:textAlignment="viewStart"
-        android:textColor="?attr/actionMenuTextColor"
-        android:textSize="13sp"
-        tools:ignore="MissingConstraints,RtlHardcoded"
-        tools:layout_editor_absoluteX="134dp"
-        tools:layout_editor_absoluteY="16dp" />
+        <TextView
+            android:id="@+id/textViewRC"
+            android:layout_width="220dp"
+            android:layout_height="60dp"
+            android:layout_alignTop="@+id/imageView10"
+            android:layout_toEndOf="@+id/imageView4"
+            android:paddingTop="5dp"
+            android:text="@string/desc_p_chofer"
+            android:textAlignment="inherit"
+            android:textColor="?attr/actionMenuTextColor"
+            android:textSize="15sp"
+            android:layout_marginLeft="7dp"
+            tools:ignore="MissingConstraints,RtlHardcoded"
+            tools:layout_editor_absoluteX="134dp"
+            tools:layout_editor_absoluteY="16dp" />
 
     <TextView
         android:id="@+id/textView6"
@@ -185,15 +192,25 @@
         android:textAllCaps="false"
         android:textColor="@android:color/background_light" />
 
-    <!--Button
-        android:id="@+id/popup"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/exclamation"
-        tools:ignore="HardcodedText,RtlHardcoded,UnusedAttribute"
-        android:layout_alignTop="@+id/telefonoChofer"
-        android:layout_alignEnd="@+id/telefonoChofer"/-->
+        <Button
+            android:id="@+id/popupChoferT"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignBaseline="@+id/telefonoChofer"
+            android:layout_alignBottom="@+id/telefonoChofer"
+            android:layout_toEndOf="@+id/telefonoChofer"
+            android:background="@drawable/exclamation"
+            tools:ignore="HardcodedText,RtlHardcoded,UnusedAttribute" />
 
+        <Button
+            android:id="@+id/popupChoferC"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignBaseline="@+id/emailChofer"
+            android:layout_alignBottom="@+id/emailChofer"
+            android:layout_toEndOf="@+id/emailChofer"
+            android:background="@drawable/exclamation"
+            tools:ignore="HardcodedText,RtlHardcoded,UnusedAttribute" />
+    </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

@@ -55,8 +55,8 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
 
     String usuario, contrasena, telefono, nombre, aPaterno, aMaterno, resource, correo;
 
-//    private Button popupD;
-    private String dialogoMsg;
+    private Button popupTel, popupCor;
+    private String dialogoMsg,dialogoMsg2;
 
     funcionesGeneradoras fG;
 
@@ -77,18 +77,27 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
         correoElectronicoAsistente = (EditText) findViewById(R.id.emailAsistente);
 
 
-  //      popupD = (Button) findViewById(R.id.popup2);
-        dialogoMsg = getString (R.string.popup_msg);
-
+       popupTel = (Button) findViewById(R.id.popupAsisT);
+       popupCor = (Button) findViewById(R.id.popupAsisC);
+       dialogoMsg = getString (R.string.popup_msg);
+       dialogoMsg2 = getString (R.string.popup_msg2);
 
         //Si se presiona el icono de exclamacion en el campo de telefono
-    /*   popupD.setOnClickListener(new View.OnClickListener() {
+    popupTel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PopUp();
+                PopUpT();
             }
         });
-*/
+
+        //Si se presiona el icono de exclamacion en el campo de telefono
+        popupCor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopUpC();
+            }
+        });
+
 
         //Preparamos el metodo para registrar al pasajero
         registraAsistente.setOnClickListener(new View.OnClickListener() {
@@ -96,11 +105,11 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Datos capturados en el formulario
-                if(usuarioAsistente.getText().toString().length()==0){usuarioAsistente.setError("El campo es requerido" );}
-                if(contrasenaAsistente.getText().toString().length()==0){contrasenaAsistente.setError("El campo es requerido" );}
-                if(nombreAsistente.getText().toString().length()==0){nombreAsistente.setError("El campo es requerido" );}
-                if(aMaternoAsistente.getText().toString().length()==0){aMaternoAsistente.setError("El campo es requerido" );}
-                if(numTelefonoAsistente.getText().toString().length()==0){numTelefonoAsistente.setError("El campo es requerido" );}
+                if(usuarioAsistente.getText().toString().length()==0)usuarioAsistente.setError("El campo es requerido" );
+                if(contrasenaAsistente.getText().toString().length()==0)contrasenaAsistente.setError("El campo es requerido" );
+                if(nombreAsistente.getText().toString().length()==0)nombreAsistente.setError("El campo es requerido" );
+                if(aMaternoAsistente.getText().toString().length()==0)aMaternoAsistente.setError("El campo es requerido" );
+                if(numTelefonoAsistente.getText().toString().length()==0)numTelefonoAsistente.setError("El campo es requerido" );
                 if(numTelefonoAsistente.getText().toString().length()!=10&&numTelefonoAsistente.getText().toString().length()!=0){numTelefonoAsistente.setError("Debe capturar un número de 10 dígitos");}
                 if(correoElectronicoAsistente.getText().toString().length()==0){correoElectronicoAsistente.setError("El campo es requerido" );}
                 if (!validarEmail(correoElectronicoAsistente.getText().toString())){correoElectronicoAsistente.setError("Email no válido");}
@@ -108,6 +117,7 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
                         nombreAsistente.getText().toString().length()!=0&&
                         aMaternoAsistente.getText().toString().length()!=0&&numTelefonoAsistente.getText().toString().length()!=0&&
                         numTelefonoAsistente.getText().toString().length()==10&&correoElectronicoAsistente.getText().toString().length()!=0
+                        &&validarEmail(correoElectronicoAsistente.getText().toString())
                         ){new RegistroAsistenteActivity.SendPostRequest().execute();}
             }
         });
@@ -119,7 +129,17 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
         Pattern pattern = Patterns.EMAIL_ADDRESS;
         return pattern.matcher(email).matches();
     }
-   /* private void PopUp() {
+
+    private void limpiarDatos() {
+        usuarioAsistente.setText("");
+        contrasenaAsistente.setText("");
+        nombreAsistente.setText("");
+        aMaternoAsistente.setText("");
+        numTelefonoAsistente.setText("");
+        correoElectronicoAsistente.setText("");
+    }
+
+   private void PopUpT() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(dialogoMsg)
                 .setTitle(getString (R.string.tel_fono))
@@ -132,8 +152,22 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
                         });
         AlertDialog alert = builder.create();
         alert.show();
-    }*/
+    }
 
+    private void PopUpC() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(dialogoMsg2)
+                .setTitle(getString (R.string.email))
+                .setCancelable(false)
+                .setNeutralButton((getString (R.string.aceptar)),
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
     public class SendPostRequest extends AsyncTask<String, Void, ArrayList> {
 
         protected void onPreExecute(){}
@@ -165,6 +199,7 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
             int responseCode=(Integer)result.get(0);
             if(responseCode==HttpsURLConnection.HTTP_OK) {
                 Toast.makeText(getApplicationContext(), "El usuario ha sido registrado con éxito",Toast.LENGTH_SHORT).show();
+                limpiarDatos();
             }
             else if(responseCode==HttpsURLConnection.HTTP_BAD_REQUEST){
                 Toast.makeText(getApplicationContext(), "El usuario que intenta registrar ya está en uso",Toast.LENGTH_SHORT).show();
@@ -177,6 +212,8 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
             }
         }
     }
+
+
 
     public String getPostDataString(JSONObject params) throws Exception {
 

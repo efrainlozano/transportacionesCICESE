@@ -169,23 +169,23 @@
             </RelativeLayout>
             <!--DESDE AQUIIIIIIIIIII-->
             <Button
-                android:id="@+id/irNotificaciones"
+                android:id="@+id/irAMisEventos"
                 android:layout_width="195dp"
                 android:layout_height="90dp"
-                android:layout_alignTop="@+id/irAMisServiciosC"
+                android:layout_alignTop="@+id/irAMisServicios"
                 android:layout_marginStart="16dp"
-                android:layout_toEndOf="@+id/irAMisServiciosC"
+                android:layout_toEndOf="@+id/irAMisServicios"
                 android:background="@drawable/fast_button_style"
-                android:drawableLeft="@drawable/noti_icon_b"
+                android:drawableLeft="@drawable/events_icon_b"
                 android:paddingLeft="10dp"
-                android:text="Enviar notificaciones rápidas"
+                android:text="Ver mis eventos"
                 android:textAllCaps="false"
                 android:textColor="#ffff"
                 android:textSize="15dp" />
 
 
             <Button
-                android:id="@+id/irAMisServiciosC"
+                android:id="@+id/irAMisServicios"
                 android:layout_width="195dp"
                 android:layout_height="90dp"
                 android:layout_alignStart="@+id/flipper1"

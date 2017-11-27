@@ -19,6 +19,8 @@ public class MenuRegistrosAsistenteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_registros_asistente);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         //Referencia a los controles de la clase
         rC = (ImageButton) findViewById(R.id.imr1);
         rP = (ImageButton) findViewById(R.id.imr2);

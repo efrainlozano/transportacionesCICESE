@@ -37,8 +37,8 @@ public class RegistroPasajeroActivity extends AppCompatActivity {
     private EditText correoElectronicoPasajero;
     private Button registraPasajero;
 
-    //private Button popupD;
-    private String dialogoMsg;
+    private Button popupT,popupC;
+    private String dialogoMsg,dialogoMsg2;
 
     funcionesGeneradoras fG;
 
@@ -57,36 +57,47 @@ public class RegistroPasajeroActivity extends AppCompatActivity {
         correoElectronicoPasajero = (EditText) findViewById(R.id.emailPasajero);
         registraPasajero = (Button) findViewById(R.id.registroPasajero_btn);
 
-      //  popupD = (Button) findViewById(R.id.popup3);
+        popupT = (Button) findViewById(R.id.popupPasT);
+        popupC = (Button) findViewById(R.id.popupPasC);
         dialogoMsg = getString (R.string.popup_msg);
+        dialogoMsg2 = getString (R.string.popup_msg2);
 
 
         //Si se presiona el icono de exclamacion en el campo de telefono
-      /*  popupD.setOnClickListener(new View.OnClickListener() {
+        popupT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PopUp();
+                PopUpT();
             }
         });
-*/
+
+        popupC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopUpC();
+            }
+        });
 
         //Preparamos el metodo para registrar al pasajero
         registraPasajero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(usuarioPasajero.getText().toString().length()==0){usuarioPasajero.setError("El campo es requerido" );}
-                if(contrasenaPasajero.getText().toString().length()==0){contrasenaPasajero.setError("El campo es requerido" );}
-                if(nombrePasajero.getText().toString().length()==0){nombrePasajero.setError("El campo es requerido" );}
-                if(aMaternoPasajero.getText().toString().length()==0){aMaternoPasajero.setError("El campo es requerido" );}
-                if(numTelefonoPasajero.getText().toString().length()==0){numTelefonoPasajero.setError("El campo es requerido" );}
-                if(numTelefonoPasajero.getText().toString().length()!=10&&numTelefonoPasajero.getText().toString().length()!=0){numTelefonoPasajero.setError("Debe capturar un número de 10 dígitos");}
-                if(correoElectronicoPasajero.getText().toString().length()==0){correoElectronicoPasajero.setError("El campo es requerido" );}
-                if (!validarEmail(correoElectronicoPasajero.getText().toString())){correoElectronicoPasajero.setError("Email no válido");}
+                if(usuarioPasajero.getText().toString().length()==0)usuarioPasajero.setError("El campo es requerido" );
+                if(contrasenaPasajero.getText().toString().length()==0)contrasenaPasajero.setError("El campo es requerido" );
+                if(nombrePasajero.getText().toString().length()==0)nombrePasajero.setError("El campo es requerido" );
+                if(aMaternoPasajero.getText().toString().length()==0)aMaternoPasajero.setError("El campo es requerido" );
+                if(numTelefonoPasajero.getText().toString().length()==0)numTelefonoPasajero.setError("El campo es requerido" );
+                if(numTelefonoPasajero.getText().toString().length()!=10
+                        &&numTelefonoPasajero.getText().toString().length()!=0){
+                    numTelefonoPasajero.setError("Debe capturar un número de 10 dígitos");}
+                if(correoElectronicoPasajero.getText().toString().length()==0)correoElectronicoPasajero.setError("El campo es requerido" );
+                if (!validarEmail(correoElectronicoPasajero.getText().toString()))correoElectronicoPasajero.setError("Email no válido");
                 if(usuarioPasajero.getText().toString().length()!=0&&contrasenaPasajero.getText().toString().length()!=0&&
                         nombrePasajero.getText().toString().length()!=0&&
                         aMaternoPasajero.getText().toString().length()!=0&&numTelefonoPasajero.getText().toString().length()!=0&&
                         numTelefonoPasajero.getText().toString().length()==10&&correoElectronicoPasajero.getText().toString().length()!=0
-                        ){new RegistroPasajeroActivity.SendPostRequest().execute();}
+                        &&validarEmail(correoElectronicoPasajero.getText().toString())){
+                    new RegistroPasajeroActivity.SendPostRequest().execute();}
             }
         });
 
@@ -108,7 +119,7 @@ public class RegistroPasajeroActivity extends AppCompatActivity {
         correoElectronicoPasajero.setText("");
     }
 
-   /* private void PopUp() {
+    private void PopUpT() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(dialogoMsg)
                 .setTitle(getString (R.string.tel_fono))
@@ -121,7 +132,22 @@ public class RegistroPasajeroActivity extends AppCompatActivity {
                         });
         AlertDialog alert = builder.create();
         alert.show();
-    }*/
+    }
+
+    private void PopUpC() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(dialogoMsg2)
+                .setTitle(getString (R.string.email))
+                .setCancelable(false)
+                .setNeutralButton((getString (R.string.aceptar)),
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
 
     public class SendPostRequest extends AsyncTask<String, Void, ArrayList> {
 
