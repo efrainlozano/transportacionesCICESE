@@ -19,103 +19,109 @@
 
             <ImageView
                 android:id="@+id/imageView10"
-                android:layout_width="300dp"
-                android:layout_height="60dp"
+                android:layout_width="500dp"
+                android:layout_height="45dp"
+                android:layout_alignBottom="@+id/imageView4"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
                 app:srcCompat="@drawable/textbacks"
-                tools:ignore="ContentDescription,UnknownIdInLayout"
-                android:layout_alignBottom="@+id/imageView4"
-                android:layout_centerHorizontal="true" />
+                tools:ignore="ContentDescription,UnknownIdInLayout" />
 
             <ImageView
                 android:id="@+id/imageView11"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                app:srcCompat="@drawable/update_icon"
-                tools:ignore="ContentDescription"
-                android:layout_alignTop="@+id/imageView10"
+                android:layout_alignBottom="@+id/imageView10"
+                android:layout_marginBottom="7dp"
+                android:layout_marginEnd="7dp"
                 android:layout_toStartOf="@+id/textView25"
-                android:layout_marginEnd="9dp"
-                android:layout_marginTop="12dp" />
+                app:srcCompat="@drawable/update_icon"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/textView25"
-                android:layout_width="220dp"
-                android:layout_height="wrap_content"
+                android:layout_width="400dp"
+                android:layout_height="45dp"
+                android:layout_alignTop="@+id/imageView10"
+                android:layout_centerHorizontal="true"
+                android:paddingTop="7dp"
+                android:text="@string/desc_p_solicitudup"
                 android:textColor="?attr/actionMenuTextColor"
-                android:textSize="17sp"
-                android:text="@string/capture_los_siguientes_datos"
-                android:layout_marginEnd="21dp"
-                android:layout_alignTop="@+id/imageView11"
-                android:layout_alignEnd="@+id/imageView10" />
+                android:textSize="13sp" />
 
             <Spinner
                 android:id="@+id/solicitudesSpinner"
-                android:layout_width="280dp"
+                android:layout_width="500dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/border_style"
-                android:layout_below="@+id/imageView10"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="17dp" />
+                android:layout_alignStart="@+id/imageView10"
+                android:layout_below="@+id/textView27"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/border_style" />
 
 
             <EditText
                 android:id="@+id/folioEdit"
+                android:layout_width="500dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/solicitudesSpinner"
+                android:layout_below="@+id/solicitudesSpinner"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border_style"
                 android:drawableLeft="@drawable/emp_icon"
                 android:drawablePadding="5dp"
-                android:background="@drawable/border_style"
-                android:layout_width="255dp"
-                android:layout_height="40dp"
-                android:layout_below="@+id/solicitudesSpinner"
-                android:layout_alignStart="@+id/solicitudesSpinner"
-                android:layout_marginTop="10dp"
 
                 android:ems="10"
-                android:hint="Folio"
-                android:inputType="number"
                 android:enabled="false"
-                android:layout_alignEnd="@+id/solicitudesSpinner" />
+                android:hint="Folio"
+                android:inputType="number" />
 
 
             <Spinner
                 android:id="@+id/invitadoSpinner"
 
-                android:background="@drawable/border_style"
-                android:layout_width="300dp"
+                android:layout_width="500dp"
                 android:layout_height="40dp"
-                android:layout_below="@+id/folioEdit"
                 android:layout_alignStart="@+id/folioEdit"
+                android:layout_below="@+id/folioEdit"
                 android:layout_marginTop="10dp"
+                android:background="@drawable/border_style"
 
-                android:enabled="false"
-                android:layout_alignEnd="@+id/folioEdit" />
+                android:enabled="false" />
 
 
             <Button
                 android:id="@+id/buttonUpdateSolicitud"
 
-                android:background="@drawable/secondary_button_style"
-                android:layout_width="300dp"
+                android:layout_width="500dp"
                 android:layout_height="40dp"
+                android:layout_alignStart="@+id/invitadoSpinner"
+                android:layout_below="@+id/invitadoSpinner"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/secondary_button_style"
 
-                android:textColor="#ffff"
-                android:textAllCaps="false"
-                android:text="@string/actualizar_solicitud"
                 android:enabled="false"
-                android:layout_alignTop="@+id/solicitudesSpinner"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="15dp" />
+                android:text="@string/actualizar_solicitud"
+                android:textAllCaps="false"
+                android:textColor="#ffff" />
 
             <CheckBox
                 android:id="@+id/checkBoxServicios"
-                android:layout_width="300dp"
+                android:layout_width="500dp"
                 android:layout_height="40dp"
-                android:layout_below="@+id/buttonUpdateSolicitud"
                 android:layout_alignStart="@+id/buttonUpdateSolicitud"
+                android:layout_below="@+id/buttonUpdateSolicitud"
                 android:layout_marginTop="10dp"
-                android:text="@string/actualizar_servicios_de_esta_solicitud"
-                android:enabled="false"/>
+                android:enabled="false"
+                android:text="@string/actualizar_servicios_de_esta_solicitud" />
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageView10"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="9dp"
+                android:text="@string/capture_los_siguientes_datos" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -129,15 +135,36 @@
             android:layout_alignStart="@+id/formContainer"
             >
 
+            <ImageView
+                android:id="@+id/ima2"
+                android:layout_width="500dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="22dp"
+                app:srcCompat="@drawable/textbacks"
+                tools:ignore="ContentDescription,UnknownIdInLayout" />
+
+            <TextView
+
+                android:layout_width="500dp"
+                android:layout_height="50dp"
+                android:layout_alignTop="@+id/ima2"
+                android:layout_centerHorizontal="true"
+                android:paddingTop="7dp"
+                android:text="Una vez capturada la solicitud, deberá seleccionar un servicio asociado a ésta en el sigueinte listado"
+                android:textAlignment="center"
+                android:textColor="?attr/actionMenuTextColor"
+                android:textSize="14sp" />
+
             <Spinner
                 android:id="@+id/serviciosSpinner"
                 android:layout_width="500dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="48dp"
-                android:background="@drawable/border_style"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="719dp" />
+                android:layout_alignStart="@+id/ima2"
+                android:layout_below="@+id/ima2"
+                android:layout_marginTop="17dp"
+                android:background="@drawable/border_style" />
 
             <RelativeLayout
                 android:id="@+id/servicioForm"
@@ -148,69 +175,98 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="10dp">
 
+                <ImageView
+                    android:id="@+id/ima3"
+                    android:layout_width="500dp"
+                    android:layout_height="45dp"
+                    android:layout_alignBottom="@+id/imageView4"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    app:srcCompat="@drawable/textbacks"
+                    tools:ignore="ContentDescription,UnknownIdInLayout" />
+
+                <TextView
+
+                    android:id="@+id/textView11"
+                    android:layout_width="500dp"
+                    android:layout_height="45dp"
+                    android:layout_alignTop="@+id/ima3"
+                    android:layout_centerHorizontal="true"
+                    android:paddingTop="7dp"
+                    android:text="A continuación se presentan los datos registrados del servicio seleccionado"
+                    android:textAlignment="center"
+                    android:textColor="?attr/actionMenuTextColor"
+                    android:textSize="14sp" />
+
                 <TextView
                     android:id="@+id/textViewDD"
-                    android:layout_marginTop="11dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Datos de encuentro"
+                    android:layout_below="@+id/ima3"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="11dp"
+                    android:text="@string/datos_de_encuentro"
                     android:textColor="@android:color/darker_gray"
-                    android:textSize="18sp"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true" />
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignStart="@+id/ima3"
+                    android:layout_alignTop="@+id/descripcion_lugar_encuentro"
+                    android:paddingTop="10dp"
+                    android:text="@string/descripci_n"
+                    android:textColor="@android:color/black" />
 
                 <EditText
                     android:id="@+id/descripcion_lugar_encuentro"
-                    android:background="@drawable/border_style"
-                    android:layout_width="500dp"
+                    android:layout_width="420dp"
                     android:layout_height="40dp"
-                    android:ems="10"
-                    android:hint="Descripción"
-                    android:inputType="textPersonName"
-                    android:layout_marginTop="11dp"
-                    android:drawableLeft="@drawable/descriotion_icon"
-                    android:drawablePadding="5dp"
+                    android:layout_alignEnd="@+id/ima3"
                     android:layout_below="@+id/textViewDD"
-                    android:layout_centerHorizontal="true" />
-
+                    android:layout_marginTop="22dp"
+                    android:background="@drawable/border_style"
+                    android:drawablePadding="5dp"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
 
 
                 <EditText
                     android:id="@+id/longitud_lugar_encuentro"
 
-                    android:background="@drawable/border_style"
-                    android:layout_width="500dp"
+                    android:layout_width="300dp"
                     android:layout_height="40dp"
-                    android:layout_below="@+id/descripcion_lugar_encuentro"
-                    android:layout_alignStart="@+id/descripcion_lugar_encuentro"
-                    android:layout_marginTop="10dp"
 
+                    android:layout_alignEnd="@+id/descripcion_lugar_encuentro"
+                    android:layout_below="@+id/textView12"
+                    android:layout_marginTop="11dp"
+                    android:background="@drawable/border_style"
                     android:ems="10"
-                    android:hint="Longitud"
-                    android:inputType="text"
-                    android:layout_alignEnd="@+id/descripcion_lugar_encuentro" />
+                    android:hint="@string/longitud"
+                    android:inputType="text" />
 
                 <EditText
                     android:id="@+id/latitud_lugar_encuentro"
 
                     android:background="@drawable/border_style"
-                    android:layout_width="500dp"
+                    android:layout_width="300dp"
                     android:layout_height="40dp"
                     android:layout_below="@+id/longitud_lugar_encuentro"
                     android:layout_alignStart="@+id/longitud_lugar_encuentro"
                     android:layout_marginTop="10dp"
 
                     android:ems="10"
-                    android:hint="Latitud"
-                    android:inputType="text"
-                    android:layout_alignEnd="@+id/longitud_lugar_encuentro" />
+                    android:hint="@string/latitud"
+                    android:inputType="text" />
 
 
                 <TextView
                     android:id="@+id/textViewDD2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Datos de destino"
+                    android:text="@string/datos_de_destino"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="18sp"
                     android:layout_marginTop="20dp"
@@ -218,97 +274,93 @@
                     android:layout_centerHorizontal="true"
                     />
 
-
                 <EditText
                     android:id="@+id/descripcion_lugar_destino"
 
-                    android:background="@drawable/border_style"
-                    android:layout_width="500dp"
+                    android:layout_width="420dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="10dp"
-                    android:drawableLeft="@drawable/descriotion_icon"
-                    android:drawablePadding="5dp"
-                    android:ems="10"
-                    android:hint="Descripción"
-                    android:inputType="text"
+                    android:layout_alignEnd="@+id/horaEncuentro"
                     android:layout_below="@+id/textViewDD2"
-                    android:layout_alignEnd="@+id/fecha_encuentro"
-                    android:layout_alignStart="@+id/selectorFecha" />
+                    android:layout_marginTop="21dp"
+                    android:background="@drawable/border_style"
+                    android:ems="10"
+                    android:inputType="text" />
 
                 <EditText
                     android:id="@+id/longitud_lugar_destino"
 
-                    android:background="@drawable/border_style"
-                    android:layout_width="500dp"
+                    android:layout_width="300dp"
                     android:layout_height="40dp"
-                    android:layout_below="@+id/descripcion_lugar_destino"
-                    android:layout_alignStart="@+id/descripcion_lugar_destino"
-                    android:layout_marginTop="10dp"
 
+                    android:layout_alignEnd="@+id/descripcion_lugar_destino"
+                    android:layout_below="@+id/descripcion_lugar_destino"
+                    android:layout_marginTop="11dp"
+                    android:background="@drawable/border_style"
                     android:ems="10"
-                    android:hint="Longitud"
+                    android:hint="@string/longitud"
                     android:inputType="text" />
 
                 <EditText
                     android:id="@+id/latitud_lugar_destino"
                     android:background="@drawable/border_style"
-                    android:layout_width="500dp"
+                    android:layout_width="300dp"
                     android:layout_height="40dp"
                     android:layout_below="@+id/longitud_lugar_destino"
                     android:layout_alignStart="@+id/longitud_lugar_destino"
                     android:layout_marginTop="10dp"
                     android:ems="10"
-                    android:hint="Latitud"
+                    android:hint="@string/latitud"
                     android:inputType="text" />
 
                 <ImageButton
-                    android:id="@+id/selectorHora"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignStart="@+id/longitud_lugar_encuentro"
-                    android:layout_alignTop="@+id/horaEncuentro"
+                    android:id="@+id/selectorHoraU"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignBottom="@+id/horaEncuentro"
+                    android:layout_alignStart="@+id/textView22"
                     app:srcCompat="@drawable/clock"
                     tools:ignore="ContentDescription" />
 
                 <EditText
                     android:id="@+id/horaEncuentro"
-                    android:background="@drawable/border_style"
-                    android:layout_width="250dp"
+                    android:layout_width="447dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="14dp"
-                    android:ems="10"
-                    android:hint="Hora"
-                    android:inputType="time"
-                    android:layout_below="@+id/latitud_lugar_encuentro"
                     android:layout_alignEnd="@+id/latitud_lugar_encuentro"
-                    android:layout_toEndOf="@+id/selectorHora" />
+                    android:layout_below="@+id/latitud_lugar_encuentro"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border_style"
+                    android:clickable="true"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:hint="@string/hora" />
 
                 <ImageButton
-                    android:id="@+id/selectorFecha"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    app:srcCompat="@drawable/calendar"
-                    tools:ignore="ContentDescription"
+                    android:id="@+id/selectorFechaU"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignStart="@+id/selectorHoraU"
                     android:layout_alignTop="@+id/fecha_encuentro"
-                    android:layout_alignStart="@+id/selectorHora" />
+                    app:srcCompat="@drawable/calendar"
+                    tools:ignore="ContentDescription" />
 
                 <EditText
                     android:id="@+id/fecha_encuentro"
-                    android:background="@drawable/border_style"
-                    android:layout_width="250dp"
+                    android:layout_width="450dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="12dp"
-                    android:ems="10"
-                    android:hint="Fecha"
-                    android:inputType="date"
+                    android:layout_alignStart="@+id/horaEncuentro"
                     android:layout_below="@+id/horaEncuentro"
-                    android:layout_alignStart="@+id/horaEncuentro" />
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/border_style"
+                    android:clickable="true"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:hint="@string/fecha" />
 
                 <TextView
                     android:id="@+id/textViewDD3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Datos del vehículo"
+                    android:text="@string/datos_del_vehiculo"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="18sp"
                     android:layout_marginTop="20dp"
@@ -318,123 +370,124 @@
 
                 <EditText
                     android:id="@+id/modelo_vehiculo"
-                    android:background="@drawable/border_style"
-                    android:layout_width="500dp"
+                    android:layout_width="300dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="10dp"
-                    android:ems="10"
-                    android:hint="Modelo (Focus,Camry,Spectra,...)"
-                    android:inputType="text"
+                    android:layout_alignEnd="@+id/latitud_lugar_destino"
+                    android:layout_alignStart="@+id/descripcion_lugar_destino"
                     android:layout_below="@+id/textViewDD3"
-                    android:layout_alignStart="@+id/latitud_lugar_destino" />
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border_style"
+                    android:ems="10"
+                    android:inputType="text" />
 
                 <EditText
                     android:id="@+id/marca_vehiculo"
-                    android:background="@drawable/border_style"
-                    android:layout_width="500dp"
+                    android:layout_width="300dp"
                     android:layout_height="40dp"
-                    android:layout_below="@+id/modelo_vehiculo"
+                    android:layout_alignEnd="@+id/modelo_vehiculo"
                     android:layout_alignStart="@+id/modelo_vehiculo"
-                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/modelo_vehiculo"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/border_style"
                     android:ems="10"
-                    android:hint="Marca (Ford, Toyota, Kia,...)"
                     android:inputType="text" />
 
                 <EditText
                     android:id="@+id/anio_vehiculo"
-                    android:background="@drawable/border_style"
-                    android:layout_width="500dp"
+                    android:layout_width="300dp"
                     android:layout_height="40dp"
-                    android:layout_below="@+id/marca_vehiculo"
+                    android:layout_alignEnd="@+id/marca_vehiculo"
                     android:layout_alignStart="@+id/marca_vehiculo"
+                    android:layout_below="@+id/marca_vehiculo"
                     android:layout_marginTop="10dp"
+                    android:background="@drawable/border_style"
                     android:ems="10"
-                    android:hint="Año"
                     android:inputType="number" />
 
                 <EditText
                     android:id="@+id/color_vehiculo"
-                    android:background="@drawable/border_style"
-                    android:layout_width="500dp"
+                    android:layout_width="300dp"
                     android:layout_height="40dp"
-                    android:layout_below="@+id/anio_vehiculo"
+                    android:layout_alignEnd="@+id/anio_vehiculo"
                     android:layout_alignStart="@+id/anio_vehiculo"
+                    android:layout_below="@+id/anio_vehiculo"
                     android:layout_marginTop="10dp"
-                    android:ems="10"
-                    android:hint="Color"
+                    android:background="@drawable/border_style"
                     android:drawableLeft="@drawable/color_icon"
                     android:drawablePadding="5dp"
+                    android:ems="10"
                     android:inputType="text" />
 
                 <EditText
                     android:id="@+id/numero_placas"
-                    android:background="@drawable/border_style"
-                    android:layout_width="500dp"
+                    android:layout_width="300dp"
                     android:layout_height="40dp"
-                    android:layout_below="@+id/color_vehiculo"
+                    android:layout_alignEnd="@+id/color_vehiculo"
                     android:layout_alignStart="@+id/color_vehiculo"
+                    android:layout_below="@+id/color_vehiculo"
                     android:layout_marginTop="10dp"
-                    android:ems="10"
+                    android:background="@drawable/border_style"
                     android:drawableLeft="@drawable/matricula_icon"
                     android:drawablePadding="5dp"
-                    android:hint="Número de placas"
+                    android:ems="10"
+                    android:hint="@string/placas"
                     android:inputType="text" />
 
                 <EditText
                     android:id="@+id/tipo_vehiculo"
-                    android:background="@drawable/border_style"
-                    android:layout_width="500dp"
+                    android:layout_width="300dp"
                     android:layout_height="40dp"
-                    android:layout_below="@+id/numero_placas"
+                    android:layout_alignEnd="@+id/numero_placas"
                     android:layout_alignStart="@+id/numero_placas"
+                    android:layout_below="@+id/numero_placas"
                     android:layout_marginTop="10dp"
+                    android:background="@drawable/border_style"
                     android:ems="10"
-                    android:hint="Tipo (Sedan, Camioneta, Van,...)"
                     android:inputType="text" />
 
 
                 <Spinner
                     android:id="@+id/solicitudSpinner"
-                    android:background="@drawable/border_style"
                     android:layout_width="500dp"
                     android:layout_height="40dp"
+                    android:layout_alignEnd="@+id/tipo_vehiculo"
                     android:layout_below="@+id/tipo_vehiculo"
-                    android:layout_alignStart="@+id/tipo_vehiculo"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/border_style"
                     android:ems="10"
                     android:inputType="text" />
 
                 <Spinner
                     android:id="@+id/choferSpinner"
-                    android:background="@drawable/border_style"
                     android:layout_width="500dp"
                     android:layout_height="40dp"
-                    android:layout_below="@+id/solicitudSpinner"
                     android:layout_alignStart="@+id/solicitudSpinner"
-
+                    android:layout_below="@+id/solicitudSpinner"
                     android:layout_marginTop="10dp"
+
+                    android:background="@drawable/border_style"
                     android:ems="10"
                     android:inputType="number" />
 
                 <RelativeLayout
                     android:id="@+id/buttons"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="100dp"
                     android:layout_below="@+id/choferSpinner"
                     android:layout_marginTop="10dp">
 
                     <Button
                         android:id="@+id/actualizarServicioButton"
-                        android:layout_width="140dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/tercer_button_style"
-                        android:textAllCaps="false"
-                        android:text="@string/actualizar_servicio"
-                        android:layout_marginStart="32dp"
+                        android:layout_width="500dp"
+                        android:layout_height="50dp"
                         android:layout_alignParentTop="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/secondary_button_style"
+                        android:text="@string/actualizar_servicio"
+                        android:textAllCaps="false"
+                        android:textColor="#ffff" />
 
-                    <Button
+                    <!--Button
                         android:id="@+id/actualizarTodoButton"
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
@@ -443,10 +496,75 @@
                         android:text="@string/actualizar_todo"
                         android:layout_marginStart="18dp"
                         android:layout_alignParentTop="true"
-                        android:layout_toEndOf="@+id/actualizarServicioButton" />
+                        android:layout_toEndOf="@+id/actualizarServicioButton" /-->
 
 
                 </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignStart="@+id/textView12"
+                    android:layout_alignTop="@+id/descripcion_lugar_destino"
+                    android:paddingTop="10dp"
+                    android:text="@string/descripci_n"
+                    android:textColor="@android:color/black"
+                    android:id="@+id/textView22" />
+
+                <TextView
+                    android:id="@+id/textView28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignStart="@+id/selectorFechaU"
+                    android:layout_alignTop="@+id/modelo_vehiculo"
+                    android:text="@string/model"
+                    android:textColor="@android:color/black"
+                    />
+
+                <TextView
+                    android:id="@+id/textView29"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignStart="@+id/textView28"
+                    android:layout_alignTop="@+id/marca_vehiculo"
+                    android:text="@string/marca"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/textView30"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignStart="@+id/textView29"
+                    android:layout_alignTop="@+id/anio_vehiculo"
+                    android:text="@string/anio"
+                    android:textColor="@android:color/black"/>
+
+                <TextView
+                    android:id="@+id/textView31"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignStart="@+id/textView30"
+                    android:layout_alignTop="@+id/color_vehiculo"
+                    android:text="Color"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/textView32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignStart="@+id/textView31"
+                    android:layout_alignTop="@+id/numero_placas"
+                    android:text="@string/placas"
+                    android:textColor="@android:color/black"/>
+
+                <TextView
+                    android:id="@+id/textView33"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignStart="@+id/textView32"
+                    android:layout_alignTop="@+id/tipo_vehiculo"
+                    android:text="@string/tipo"
+                    android:textColor="@android:color/black"/>
 
 
             </RelativeLayout>

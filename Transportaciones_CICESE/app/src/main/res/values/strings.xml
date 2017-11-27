@@ -115,6 +115,6 @@
     <string name="desc_p_pasajero">Con el presente formulario podrá registrar a un usuario pasajero en el sistema</string>
     <string name="desc_p_asistente">Con el presente formulario podrá registrar a un usuario asistente en el sistema</string>
     <string name="desc_p_solicitud">Con el presente formulario podrá registrar una solicitud de transporte para un usuario pasajero</string>
-    <string name="desc_p_solicitudup">A través de esta pantalla usted podrá actualizar los datos de un servicio previamente registrado</string>
+    <string name="desc_p_solicitudup">Podrá actualizar los datos de un servicio previamente registrado con el presente formulario</string>
     <string name="desc_p_servicio">Una vez registrada la solicitud, para ésta, con el presente formulario, podrá registrar un servicio de transporte </string>
 </resources>

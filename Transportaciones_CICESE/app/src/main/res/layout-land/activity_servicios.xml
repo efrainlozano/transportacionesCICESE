@@ -51,7 +51,7 @@
 
     <ScrollView
         android:layout_width="600dp"
-        android:layout_height="900dp"
+        android:layout_height="1050dp"
         android:layout_marginTop="15dp"
         android:layout_below="@+id/buscarServicios"
         android:layout_centerHorizontal="true"
@@ -65,12 +65,10 @@
             android:background="#ffff"
             tools:ignore="ObsoleteLayoutParam">
 
-
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:ignore="UselessLeaf" />
-
 
             <TextView
                 android:layout_width="100dp"
@@ -86,7 +84,6 @@
                 android:textColorHint="#ffff"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
-
 
             <TableRow
                 android:layout_width="fill_parent"

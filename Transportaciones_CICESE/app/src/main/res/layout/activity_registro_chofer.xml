@@ -176,9 +176,6 @@
         android:layout_alignStart="@+id/telefonoChofer"
         android:layout_alignEnd="@+id/telefonoChofer" />
 
-
-
-
     <Button
         android:id="@+id/registroChofer_btn"
         android:layout_width="wrap_content"

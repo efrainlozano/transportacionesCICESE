@@ -64,7 +64,7 @@
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView6"
-                android:layout_marginStart="81dp"
+                android:layout_marginStart="43dp"
                 android:layout_marginTop="11dp"
                 android:background="@drawable/border_style"
                 android:drawableLeft="@drawable/user_icon"
@@ -124,7 +124,7 @@
                 android:layout_height="40dp"
                 android:layout_alignBaseline="@+id/longitud_lugar_destino"
                 android:layout_alignBottom="@+id/longitud_lugar_destino"
-                android:layout_marginStart="28dp"
+                android:layout_marginStart="8dp"
                 android:layout_toEndOf="@+id/longitud_lugar_destino"
                 android:background="@drawable/border_style"
                 android:drawableLeft="@drawable/name_icon"
@@ -154,17 +154,16 @@
                 android:layout_height="20dp"
                 android:layout_alignBaseline="@+id/tel_pasajero"
                 android:layout_alignBottom="@+id/tel_pasajero"
-                android:layout_marginStart="9dp"
                 android:layout_toEndOf="@+id/tel_pasajero"
                 android:background="@drawable/exclamation"
                 tools:ignore="HardcodedText,RtlHardcoded,UnusedAttribute" />
+
             <Button
                 android:id="@+id/popupPasC"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_alignBaseline="@+id/emailPasajero"
                 android:layout_alignBottom="@+id/emailPasajero"
-                android:layout_marginStart="9dp"
                 android:layout_toEndOf="@+id/emailPasajero"
                 android:background="@drawable/exclamation"
                 tools:ignore="HardcodedText,RtlHardcoded,UnusedAttribute" />

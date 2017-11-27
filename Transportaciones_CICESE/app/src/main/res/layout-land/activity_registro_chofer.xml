@@ -133,7 +133,7 @@
                 android:layout_height="40dp"
                 android:layout_alignBaseline="@+id/numeroEmpleado"
                 android:layout_alignBottom="@+id/numeroEmpleado"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="7dp"
                 android:layout_toEndOf="@+id/numeroEmpleado"
                 android:background="@drawable/border_style"
                 android:drawableLeft="@drawable/name_icon"
@@ -195,17 +195,16 @@
                 android:layout_height="20dp"
                 android:layout_alignBaseline="@+id/telefonoChofer"
                 android:layout_alignBottom="@+id/telefonoChofer"
-                android:layout_marginStart="9dp"
                 android:layout_toEndOf="@+id/telefonoChofer"
                 android:background="@drawable/exclamation"
                 tools:ignore="HardcodedText,RtlHardcoded,UnusedAttribute" />
+
             <Button
                 android:id="@+id/popupChoferC"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_alignBaseline="@+id/emailChofer"
                 android:layout_alignBottom="@+id/emailChofer"
-                android:layout_marginStart="9dp"
                 android:layout_toEndOf="@+id/emailChofer"
                 android:background="@drawable/exclamation"
                 tools:ignore="HardcodedText,RtlHardcoded,UnusedAttribute" />
