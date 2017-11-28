@@ -12,7 +12,7 @@
 
 
     <style name="ActionBarStyle" parent="Widget.AppCompat.ActionBar">
-        <item name="titleTextStyle">#ffffff</item>
+        <item name="titleTextStyle">@color/colorPrimaryText</item>
         <item name="background">@color/colorPrimaryText</item>
         <item name="colorControlNormal">@color/colorAccent</item>
     </style>
