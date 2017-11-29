@@ -39,13 +39,13 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class ServiciosActivity extends AppCompatActivity {
     private String title,encuentro,destino,latEn,latDes,lonEn,lonDes;
-    int idServicio;
+    int idServicio,st;
     private TextView desc_enc, hor_enc, fec_enc,
             desc_dest, model_ve, mar_ve, an_ve, col_ve,
             pla_ve, tip_ve, id_chofer, est_serv, cal_serv,
             fum_serv;
     private Spinner spinnerServicios, solicitudesSpinner;
-    Button consulta, verEncuentro,verDestino, verRuta;
+    Button verEncuentro,verDestino, verRuta, stateServicio;
     private funcionesGeneradoras fG;
     private JSONArray serviciosResult, solicitudesResult;
 
@@ -60,8 +60,7 @@ public class ServiciosActivity extends AppCompatActivity {
         title = "Servicios";
         getSupportActionBar().setTitle(title);
 
-
-        consulta             = (Button) findViewById(R.id.buttonBuscar);
+        stateServicio        = (Button) findViewById(R.id.stateServicio);
         verDestino           = (Button) findViewById(R.id.verDestino);
         verEncuentro         = (Button) findViewById(R.id.verEncuentro);
         verRuta              = (Button) findViewById(R.id.verRuta);
@@ -71,7 +70,7 @@ public class ServiciosActivity extends AppCompatActivity {
         est_serv             = (TextView) findViewById(R.id.est_servicio);
         cal_serv             = (TextView) findViewById(R.id.calif_servicio);
         desc_enc             = (TextView) findViewById(R.id.descripcion_lugar_encuentro);
-        hor_enc              = (TextView) findViewById(R.id.hor_encuentro);
+        hor_enc              = (TextView) findViewById(R.id.mkmkmkmk);
         fec_enc              = (TextView) findViewById(R.id.fec_encuentro);
         desc_dest            = (TextView) findViewById(R.id.desc_destino);
         model_ve             = (TextView) findViewById(R.id.model_vehiculo);
@@ -95,6 +94,20 @@ public class ServiciosActivity extends AppCompatActivity {
                 break;
 
         }
+        final String[] estados = {"Sin Comenzar","En Progreso","Terminado","Cancelado"};
+
+        stateServicio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String actual=stateServicio.getText().toString();
+                for (int aux=0;aux<estados.length-1;aux++)
+                    if(actual==estados[aux])
+                        st=aux;
+                if (st==estados.length-1) st=0;
+                else st++;
+                stateServicio.setText(estados[st]);
+            }
+        });
         verEncuentro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -161,9 +174,11 @@ public class ServiciosActivity extends AppCompatActivity {
                         latEn=jObject.getString("latitud_encuentro");
                         lonDes=jObject.getString("longitud_destino");
                         lonEn=jObject.getString("longitud_encuentro");
-                        /*desc_enc.setText(encuentro);
+                        desc_enc.setText(encuentro);
                         desc_dest.setText(destino);
-                        /*hor_enc.setText(jObject.getString("hora_encuentro"));
+                        String hora=jObject.getString("hora_encuentro");
+                        hor_enc.setText(hora);
+                        Toast.makeText(getApplicationContext(),hora,Toast.LENGTH_SHORT).show();
                         fec_enc.setText(jObject.getString("fecha_encuentro"));
                         switch (jObject.getString("estado_servicio")) {
                             case "s":
@@ -189,7 +204,7 @@ public class ServiciosActivity extends AppCompatActivity {
                         fum_serv.setText(jObject.getString("fecha_ultima_modificacion"));
                         //jObject.getString("id_chofer")
                         //Enviar a mas informacion
-                        id_chofer.setText(jObject.getString("nombre_chofer"));*/
+                        id_chofer.setText(jObject.getString("nombre_chofer"));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -217,7 +232,7 @@ public class ServiciosActivity extends AppCompatActivity {
             ArrayList values;
             switch (tipoUsuario) {
                 case "p":
-                    String solicitudes = settings.getString("solicitudes", "Default")
+                    String solicitudes = settings.getString("idSolicitudes", "Default")
                             .replace("[", "").replace("]", "");
                     values = new ArrayList(Arrays.asList(solicitudes));
                     result = fG.functionGetRequest("gservicios", fields, values);
@@ -266,12 +281,13 @@ public class ServiciosActivity extends AppCompatActivity {
             // Do some validation here
             SharedPreferences settings = getSharedPreferences("prefs", MODE_PRIVATE);
             String tipoUsuario = settings.getString("tipoUsuario", "Default");
-            String arr = settings.getString("solicitudes", "Default").replace("[", "")
+            String arr = settings.getString("idSolicitudes", "Default").replace("[", "")
                     .replace("]", "").replace(" ", "");
+            Log.i("arr",arr);
             //List<String> myList = new ArrayList<String>(Arrays.asList(arr.split(",")));
             ArrayList fields = new ArrayList(Arrays.asList("idSolicitudes"));
-            ArrayList values = new ArrayList(Arrays.asList(/*myList.get(0)*/arr));
-            return fG.functionGetRequest("gdatasolicituds", fields, values);
+            ArrayList values = new ArrayList(Arrays.asList(arr));
+            return fG.functionGetRequest("gDataSolicituds", fields, values);
 
 
             //Funcion que regresa JSON con todos los datos de los pasajeros/invitados

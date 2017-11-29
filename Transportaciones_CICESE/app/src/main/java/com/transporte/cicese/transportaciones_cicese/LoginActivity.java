@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.transporte.cicese.transportaciones_cicese.funciones.funcionesGeneradoras;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -157,8 +158,11 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     SharedPreferences settings = getSharedPreferences("prefs", MODE_PRIVATE);
                     SharedPreferences.Editor editor = settings.edit();
+
                     editor.putString("nUsuario", usuario);
                     editor.putInt("idUsuario", idUsuario);
+                    Log.i("solicitudes",jObject.getString("solicitudes"));
+                    editor.putString("idSolicitudes",jObject.getString("solicitudes"));
                     editor.putString("tipoUsuario",String.valueOf(tipoUsuario));
                     editor.commit();//Guardamos los datos del usuario que nos seran utiles mas adelante
 
