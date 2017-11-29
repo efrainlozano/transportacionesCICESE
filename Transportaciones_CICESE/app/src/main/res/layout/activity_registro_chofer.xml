@@ -88,6 +88,7 @@
         android:drawableLeft="@drawable/password_icon"
         android:drawablePadding="5dp"
         android:ems="10"
+        android:maxLength="8"
         android:fontFamily="sans-serif"
         android:hint="@string/contrase_aChofer"
         android:inputType="textWebPassword"

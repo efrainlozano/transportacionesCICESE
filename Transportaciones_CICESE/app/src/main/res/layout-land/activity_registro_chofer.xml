@@ -90,6 +90,7 @@
                 android:ems="10"
                 android:fontFamily="sans-serif"
                 android:hint="@string/contrase_aChofer"
+                android:maxLength="8"
                 android:inputType="textWebPassword"
                 tools:ignore="RtlHardcoded" />
 

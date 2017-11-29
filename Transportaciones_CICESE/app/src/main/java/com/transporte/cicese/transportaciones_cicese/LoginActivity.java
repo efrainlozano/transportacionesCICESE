@@ -1,6 +1,7 @@
 package com.transporte.cicese.transportaciones_cicese;
 
 import android.app.ActionBar;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -19,6 +20,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.transporte.cicese.transportaciones_cicese.funciones.funcionesGeneradoras;
 
 import org.json.JSONException;
@@ -50,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
     char tipoUsuario;
 
     funcionesGeneradoras fG;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,12 +82,48 @@ public class LoginActivity extends AppCompatActivity {
                     tipoUsuario = 'p';
                 }
 
-                //iniciar.setEnabled(false);
+                iniciar.setEnabled(false);
                 fields= new ArrayList(Arrays.asList("tipo","usuario","contrasena"));
                 values= new ArrayList(Arrays.asList(tipoUsuario,usuario,contrasena));
-                new LoginActivity.ConsultarDatos().execute();
+
+                if(usuario.length()==0){
+                    progressDialog.cancel();
+                    usuarioEdit.setError("El campo es requerido" );
+                    iniciar.setEnabled(true);
+                }
+                if(contrasena.length()==0){
+                    progressDialog.cancel();
+                    contrasenaEdit.setError("El campo es requerido" );
+                    iniciar.setEnabled(true);
+                }
+                if(usuario.length()!=0&&contrasena.length()!=0){
+                    new LoginActivity.ConsultarDatos().execute();
+                    showProgress();
+                }
+
+                //Generar el token
+                String token = FirebaseInstanceId.getInstance().getToken();
             }
         });
+    }
+
+    private void showProgress() {
+        progressDialog = new ProgressDialog(LoginActivity.this);
+        progressDialog.setMessage("Cargando..."); // Setting Message
+        progressDialog.setTitle("Por favor espere"); // Setting Title
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
+        progressDialog.show(); // Display Progress Dialog
+        progressDialog.setCancelable(false);
+        new Thread(new Runnable() {
+            public void run() {
+                try {
+                    Thread.sleep(15000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                progressDialog.dismiss();
+            }
+        }).start();
     }
 
 
@@ -103,7 +142,6 @@ public class LoginActivity extends AppCompatActivity {
                 String jResult = result.get(1).toString().substring(1,result.get(1).toString().length()-1);
                 try {
                     JSONObject jObject = new JSONObject(jResult);
-
                     switch (tipoUsuario) {
                         case 'c': //Inicio de chofer
                             idUsuario = jObject.getInt("id_chofer");
@@ -127,16 +165,27 @@ public class LoginActivity extends AppCompatActivity {
                     editor.commit();//Guardamos los datos del usuario que nos seran utiles mas adelante
 
                     i.putExtra("usuario", usuario);//Guardamos una cadena
+                    progressDialog.cancel();
                     startActivity(i);
+                    limpiarDatos();
+                    iniciar.setEnabled(true);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             } else {
+                progressDialog.cancel();
                 Toast.makeText(getApplicationContext(), "Usuario o contraseña inválidos",
                         Toast.LENGTH_SHORT).show();
+                iniciar.setEnabled(true);
             }
         }
     }
+
+    private void limpiarDatos() {
+        usuarioEdit.setText("");
+        contrasenaEdit.setText("");
+    }
+
     public void trustAllCertificates() {
         try {
             TrustManager[] trustAllCerts = new TrustManager[]{

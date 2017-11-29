@@ -18,7 +18,7 @@
     </style>
 
     <style name="ActionBarTitleTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">@color/ColorActionBarTitle</item>
+        <item name="android:textColor">#ffffff</item>
         <item name="colorControlNormal">@color/colorAccent</item>
     </style>
 

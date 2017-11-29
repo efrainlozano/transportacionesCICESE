@@ -75,6 +75,7 @@
         android:ems="10"
         android:fontFamily="sans-serif"
         android:hint="@string/contrase_aChofer"
+        android:maxLength="8"
         android:inputType="textWebPassword"
         android:layout_below="@+id/usuario_generadoA"
         android:layout_alignStart="@+id/usuario_generadoA" />
