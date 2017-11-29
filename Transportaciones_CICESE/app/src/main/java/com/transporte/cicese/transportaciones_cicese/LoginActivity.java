@@ -87,12 +87,10 @@ public class LoginActivity extends AppCompatActivity {
                 values= new ArrayList(Arrays.asList(tipoUsuario,usuario,contrasena));
 
                 if(usuario.length()==0){
-                    progressDialog.cancel();
                     usuarioEdit.setError("El campo es requerido" );
                     iniciar.setEnabled(true);
                 }
                 if(contrasena.length()==0){
-                    progressDialog.cancel();
                     contrasenaEdit.setError("El campo es requerido" );
                     iniciar.setEnabled(true);
                 }
