@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#ffff"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/textbacks"
+        tools:ignore="ContentDescription,UnknownIdInLayout"
+        android:layout_alignBottom="@+id/imageView4"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:srcCompat="@drawable/consults_icon"
+        tools:ignore="ContentDescription"
+        android:layout_alignTop="@+id/imageView10"
+        android:layout_toStartOf="@+id/textView25"
+        android:layout_marginEnd="9dp"
+        android:layout_marginTop="12dp" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView10"
+        android:layout_alignEnd="@+id/imageView10"
+        android:layout_alignTop="@+id/imageView10"
+        android:layout_marginEnd="14dp"
+        android:text="@string/capture_los_siguientes_datos"
+        android:textColor="?attr/actionMenuTextColor"
+        android:textSize="17sp" />
+
+    <Spinner
+        android:id="@+id/buscarServicios"
+        android:layout_width="260dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+
+        android:layout_below="@+id/imageView10"
+        android:layout_alignStart="@+id/imageView10"
+        android:layout_marginTop="95dp"
+
+        android:layout_alignEnd="@+id/imageView10"/>
+
+  <ScrollView
+        android:layout_width="340dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/buscarServicios"
+        android:layout_centerHorizontal="true"
+      android:id="@+id/scrollView3">
+
+      <TableLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_below="@+id/spinner"
+          android:layout_centerHorizontal="true"
+          android:background="#ffff"
+          tools:ignore="ObsoleteLayoutParam">
+
+
+          <TableRow
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:ignore="UselessLeaf" />
+
+
+          <TextView
+              android:layout_width="100dp"
+              android:layout_height="30dp"
+              android:layout_alignParentTop="true"
+              android:layout_centerHorizontal="true"
+              android:background="@color/colorPrimaryText"
+              android:fontFamily="sans-serif"
+              android:hint="Detalles del servicio"
+              android:lineSpacingExtra="8sp"
+              android:textAlignment="center"
+              android:textAllCaps="false"
+              android:textColorHint="#ffff"
+              android:textSize="18sp"
+              android:textStyle="bold"
+              tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+
+          <TableRow
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:background="#fafafa">
+
+              <TextView
+                  android:padding="3dip"
+                  android:text="Estado"
+                  android:textStyle="bold"
+                  tools:ignore="HardcodedText" />
+
+              <TextView
+                  android:id="@+id/est_servicio"
+                  android:gravity="right"
+                  android:padding="3dip"
+                  android:text=""
+                  tools:ignore="RtlHardcoded" />
+          </TableRow>
+
+
+          <TableRow
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:background="#f0f0f0">
+
+              <TextView
+                  android:padding="3dip"
+                  android:text="@string/calificaci_n"
+                  android:textStyle="bold" />
+
+              <TextView
+                  android:id="@+id/calif_servicio"
+                  android:gravity="right"
+                  android:padding="3dip"
+                  android:text=""
+                  tools:ignore="RtlHardcoded" />
+          </TableRow>
+
+
+          <TableRow
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:background="#fafafa">
+
+              <TextView
+                  android:padding="3dip"
+                  android:text="Fecha de última \nmodificación"
+                  android:textStyle="bold"
+                  tools:ignore="HardcodedText" />
+
+              <TextView
+                  android:id="@+id/fum_servicio"
+                  android:gravity="right"
+                  android:padding="3dip"
+                  android:text=""
+                  tools:ignore="RtlHardcoded" />
+          </TableRow>
+
+
+          <TableRow
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:ignore="UselessLeaf" />
+
+
+          <TextView
+              android:layout_width="100dp"
+              android:layout_height="15dp"
+              android:layout_alignParentTop="true"
+              android:layout_centerHorizontal="true"
+              tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+
+          <TableRow
+              android:id="@+id/tableRow114"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:background="#f0f0f0">
+
+              <TextView
+                  android:padding="3dip"
+                  android:text="Nombre del chofer"
+                  android:textStyle="bold"
+                  tools:ignore="HardcodedText" />
+
+              <TextView
+                  android:id="@+id/idChofer"
+                  android:gravity="right"
+                  android:padding="3dip"
+                  android:text=""
+                  tools:ignore="RtlHardcoded" />
+          </TableRow>
+
+
+          <TextView
+              android:layout_width="100dp"
+              android:layout_height="15dp"
+              android:layout_alignParentTop="true"
+              android:layout_centerHorizontal="true"
+              tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+          <TableRow
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:ignore="UselessLeaf" />
+
+
+          <TextView
+              android:layout_width="100dp"
+              android:layout_height="25dp"
+              android:layout_alignParentTop="true"
+              android:layout_centerHorizontal="true"
+              android:background="@android:color/holo_blue_light"
+              android:hint="Datos de encuentro"
+              android:textAlignment="center"
+              android:textColorHint="#ffff"
+              android:textSize="18sp"
+              android:textStyle="bold"
+              tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+          <TableRow
+              android:id="@+id/tableRow1"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:background="#fafafa">
+
+              <TextView
+                  android:padding="3dip"
+                  android:text="@string/descripci_n"
+                  android:textStyle="bold" />
+
+              <TextView
+                  android:id="@+id/descripcion_lugar_encuentro"
+                  android:gravity="right"
+                  android:padding="3dip"
+                  android:text=""
+                  tools:ignore="RtlHardcoded" />
+          </TableRow>
+
+          <TableRow
+              android:id="@+id/tableRow2"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:background="#f0f0f0">
+
+              <TextView
+                  android:padding="3dip"
+                  android:text="Longitud"
+                  android:textStyle="bold"
+                  tools:ignore="HardcodedText" />
+
+              <TextView
+                  android:id="@+id/long_encuentro"
+                  android:gravity="right"
+                  android:padding="3dip"
+                  android:text=""
+                  tools:ignore="RtlHardcoded" />
+          </TableRow>
+
+          <TableRow
+              android:id="@+id/tableRow3"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:background="#fafafa">
+
+              <TextView
+                  android:padding="3dip"
+                  android:text="Latitud"
+                  android:textStyle="bold"
+                  tools:ignore="HardcodedText" />
+
+              <TextView
+                  android:id="@+id/lat_encuentro"
+                  android:gravity="right"
+                  android:padding="3dip"
+                  android:text=""
+                  tools:ignore="RtlHardcoded" />
+          </TableRow>
+
+
+          <TableRow
+              android:id="@+id/tableRow32"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:background="#f0f0f0">
+
+              <TextView
+                  android:padding="3dip"
+                  android:text="@string/hora"
+                  android:textStyle="bold" />
+
+              <TextView
+                  android:id="@+id/hor_encuentro"
+                  android:gravity="right"
+                  android:padding="3dip"
+                  android:text=""
+                  tools:ignore="RtlHardcoded" />
+          </TableRow>
+
+
+          <TableRow
+              android:id="@+id/tableRow321"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:background="#fafafa">
+
+              <TextView
+                  android:padding="3dip"
+                  android:text="Fecha"
+                  android:textStyle="bold"
+                  tools:ignore="HardcodedText" />
+
+              <TextView
+                  android:id="@+id/fec_encuentro"
+                  android:gravity="right"
+                  android:padding="3dip"
+                  android:text=""
+                  tools:ignore="RtlHardcoded" />
+          </TableRow>
+
+
+          <TextView
+              android:layout_width="100dp"
+              android:layout_height="15dp"
+              android:layout_alignParentTop="true"
+              android:layout_centerHorizontal="true"
+              tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+          <TableRow
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:ignore="UselessLeaf" />
+
+
+          <TextView
+              android:layout_width="100dp"
+              android:layout_height="25dp"
+              android:layout_alignParentTop="true"
+              android:layout_centerHorizontal="true"
+              android:background="@android:color/holo_blue_light"
+              android:hint="Datos de destino"
+              android:textAlignment="center"
+              android:textColorHint="#ffff"
+              android:textSize="18sp"
+              android:textStyle="bold"
+              tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+
+          <TableRow
+              android:id="@+id/tableRow4"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:background="#fafafa">
+
+              <TextView
+                  android:padding="3dip"
+                  android:text="Descripción"
+                  android:textStyle="bold"
+                  tools:ignore="HardcodedText" />
+
+              <TextView
+                  android:id="@+id/desc_destino"
+                  android:gravity="right"
+                  android:padding="3dip"
+                  android:text=""
+                  tools:ignore="RtlHardcoded" />
+          </TableRow>
+
+          <TableRow
+              android:id="@+id/tableRow5"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:background="#f0f0f0">
+
+              <TextView
+                  android:padding="3dip"
+                  android:text="Longitud"
+                  android:textStyle="bold"
+                  tools:ignore="HardcodedText" />
+
+              <TextView
+                  android:id="@+id/long_destino"
+                  android:gravity="right"
+                  android:padding="3dip"
+                  android:text=""
+                  tools:ignore="RtlHardcoded" />
+          </TableRow>
+
+          <TableRow
+              android:id="@+id/tableRow6"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:background="#fafafa">
+
+              <TextView
+                  android:padding="3dip"
+                  android:text="Latitud"
+                  android:textStyle="bold"
+                  tools:ignore="HardcodedText" />
+
+              <TextView
+                  android:id="@+id/lat_destino"
+                  android:gravity="right"
+                  android:padding="3dip"
+                  android:text=""
+                  tools:ignore="RtlHardcoded" />
+          </TableRow>
+
+
+          <TextView
+              android:layout_width="100dp"
+              android:layout_height="15dp"
+              android:layout_alignParentTop="true"
+              android:layout_centerHorizontal="true"
+              tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+          <TableRow
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:ignore="UselessLeaf" />
+
+          <TextView
+              android:layout_width="100dp"
+              android:layout_height="25dp"
+              android:layout_alignParentTop="true"
+              android:layout_centerHorizontal="true"
+              android:background="@android:color/holo_blue_light"
+              android:hint="Datos del vehículo"
+              android:textAlignment="center"
+              android:textColorHint="#ffff"
+              android:textSize="18sp"
+              android:textStyle="bold"
+              tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+          <TableRow
+              android:id="@+id/tableRow9"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:background="#fafafa">
+
+              <TextView
+                  android:padding="3dip"
+                  android:text="Modelo"
+                  android:textStyle="bold"
+                  tools:ignore="HardcodedText" />
+
+              <TextView
+                  android:id="@+id/model_vehiculo"
+                  android:gravity="right"
+                  android:padding="3dip"
+                  android:text=""
+                  tools:ignore="RtlHardcoded" />
+          </TableRow>
+
+          <TableRow
+              android:id="@+id/tableRow0"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:background="#f0f0f0">
+
+              <TextView
+                  android:padding="3dip"
+                  android:text="Marca"
+                  android:textStyle="bold"
+                  tools:ignore="HardcodedText" />
+
+              <TextView
+                  android:id="@+id/marc_vehiculo"
+                  android:gravity="right"
+                  android:padding="3dip"
+                  android:text=""
+                  tools:ignore="RtlHardcoded" />
+          </TableRow>
+
+          <TableRow
+              android:id="@+id/tableRow10"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:background="#fafafa">
+
+              <TextView
+                  android:padding="3dip"
+                  android:text="Año"
+                  android:textStyle="bold"
+                  tools:ignore="HardcodedText" />
+
+              <TextView
+                  android:id="@+id/an_vehiculo"
+                  android:gravity="right"
+                  android:padding="3dip"
+                  android:text=""
+                  tools:ignore="RtlHardcoded" />
+          </TableRow>
+
+          <TableRow
+              android:id="@+id/tableRow11"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:background="#f0f0f0">
+
+              <TextView
+                  android:padding="3dip"
+                  android:text="@string/color"
+                  android:textStyle="bold" />
+
+              <TextView
+                  android:id="@+id/col_vehiculo"
+                  android:gravity="right"
+                  android:padding="3dip"
+                  android:text=""
+                  tools:ignore="RtlHardcoded" />
+          </TableRow>
+
+          <TableRow
+              android:id="@+id/tableRow112"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:background="#fafafa">
+
+              <TextView
+                  android:padding="3dip"
+                  android:text="Número de placas"
+                  android:textStyle="bold"
+                  tools:ignore="HardcodedText" />
+
+              <TextView
+                  android:id="@+id/pla_vehiculo"
+                  android:gravity="right"
+                  android:padding="3dip"
+                  android:text=""
+                  tools:ignore="RtlHardcoded" />
+          </TableRow>
+
+          <TableRow
+              android:id="@+id/tableRow113"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:background="#f0f0f0">
+
+              <TextView
+                  android:padding="3dip"
+                  android:text="Tipo"
+                  android:textStyle="bold"
+                  tools:ignore="HardcodedText" />
+
+              <TextView
+                  android:id="@+id/tip_vehiculo"
+                  android:gravity="right"
+                  android:padding="3dip"
+                  android:text=""
+                  tools:ignore="RtlHardcoded" />
+          </TableRow>
+      </TableLayout>
+  </ScrollView>
+</RelativeLayout>

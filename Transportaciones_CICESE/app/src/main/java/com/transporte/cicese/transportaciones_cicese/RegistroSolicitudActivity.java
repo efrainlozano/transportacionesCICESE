@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.format.Time;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -43,19 +45,18 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
 
     private Button genera, seleccionarEncuentro, seleccionarDestino;
     String folioGenerado = null;
-    String encuentro, destino, longitud_destino, latitud_destino, longitud_encuentro, latitud_encuentro;
+    String encuentro,destino,longitud_destino, latitud_destino,longitud_encuentro,latitud_encuentro, anio_selecc;
 
     private EditText folioET,
-            descripcion_lugar_encuentro, descripcion_lugar_destino,
-            hora_encuentro, fecha_encuentro, modelo_vehiculo, marca_vehiculo,
-            anio_vehiculo, color_vehiculo, numero_placas, tipo_vehiculo;
+            descripcion_lugar_encuentro,descripcion_lugar_destino,
+            hora_encuentro,fecha_encuentro,modelo_vehiculo,marca_vehiculo,
+            color_vehiculo,numero_placas,tipo_vehiculo;
 
-    private Spinner spinner_chofer, spinner_pasajero;
-
+    private Spinner spinner_chofer,spinner_pasajero, anio_vehiculo;
     Button registrarSol, registrarServicio;
 
     int idSolicitud, idAsistente, PLACE_PICKER_REQUEST;
-    ;
+    boolean seleccionoHora, seleccionoFecha = false;
 
     JSONObject postDataParams;
 
@@ -125,13 +126,16 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
         fecha_encuentro = (EditText) findViewById(R.id.fecha_encuentro);
         modelo_vehiculo = (EditText) findViewById(R.id.modelo_vehiculo);
         marca_vehiculo = (EditText) findViewById(R.id.marca_vehiculo);
-        anio_vehiculo = (EditText) findViewById(R.id.anio_vehiculo);
         color_vehiculo = (EditText) findViewById(R.id.color_vehiculo);
         numero_placas = (EditText) findViewById(R.id.numero_placas);
         tipo_vehiculo = (EditText) findViewById(R.id.tipo_vehiculo);
 
+        anio_vehiculo = (Spinner) findViewById(R.id.anio_vehiculo);
         spinner_pasajero = (Spinner) findViewById(R.id.idInvitado);
         spinner_chofer = (Spinner) findViewById(R.id.id_chofer);
+
+        anio_vehiculo = (Spinner) findViewById(R.id.anio_vehiculo);
+        anio_selecc = anio_vehiculo.getSelectedItem().toString();
 
         fG = new funcionesGeneradoras(getApplicationContext());
 
@@ -155,14 +159,18 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
                                 if (hourOfDay == 0 || hourOfDay == 1 || hourOfDay == 2 || hourOfDay == 3 || hourOfDay == 4 || hourOfDay == 5 || hourOfDay == 6 || hourOfDay == 7 || hourOfDay == 8 || hourOfDay == 9) {
                                     if (minute == 0 || minute == 1 || minute == 2 || minute == 3 || minute == 4 || minute == 5 || minute == 6 || minute == 7 || minute == 8 || minute == 9) {
                                         hora_encuentro.setText("0" + hourOfDay + ":" + "0" + minute);
+                                        seleccionoHora = true;
                                     } else {
                                         hora_encuentro.setText("0" + hourOfDay + ":" + minute);
+                                        seleccionoHora = true;
                                     }
                                 } else {
                                     if (minute == 0 || minute == 1 || minute == 2 || minute == 3 || minute == 4 || minute == 5 || minute == 6 || minute == 7 || minute == 8 || minute == 9) {
                                         hora_encuentro.setText(hourOfDay + ":" + "0" + minute);
+                                        seleccionoHora = true;
                                     } else {
                                         hora_encuentro.setText(hourOfDay + ":" + minute);
+                                        seleccionoHora = true;
                                     }
                                 }
                             }
@@ -185,6 +193,7 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
                                     @Override
                                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                                         fecha_encuentro.setText(year + "-" + (month + 1) + "-" + dayOfMonth);
+                                        seleccionoFecha = true;
                                     }
                                 }, year, month, day);
                 datePickerDialog.show();
@@ -205,6 +214,7 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
                                     @Override
                                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                                         fecha_encuentro.setText(year + "-" + (month + 1) + "-" + dayOfMonth);
+                                        seleccionoFecha = true;
                                     }
                                 }, year, month, day);
                 datePickerDialog.show();
@@ -222,17 +232,22 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
                         new TimePickerDialog.OnTimeSetListener() {
                             @Override
                             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                                if (hourOfDay == 0 || hourOfDay == 1 || hourOfDay == 2 || hourOfDay == 3 || hourOfDay == 4 || hourOfDay == 5 || hourOfDay == 6 || hourOfDay == 7 || hourOfDay == 8 || hourOfDay == 9) {
-                                    if (minute == 0 || minute == 1 || minute == 2 || minute == 3 || minute == 4 || minute == 5 || minute == 6 || minute == 7 || minute == 8 || minute == 9) {
-                                        hora_encuentro.setText("0" + hourOfDay + ":" + "0" + minute);
-                                    } else {
-                                        hora_encuentro.setText("0" + hourOfDay + ":" + minute);
+                                if(hourOfDay==0||hourOfDay==1||hourOfDay==2||hourOfDay==3||hourOfDay==4||hourOfDay==5||hourOfDay==6||hourOfDay==7||hourOfDay==8||hourOfDay==9){
+                                    if(minute==0||minute==1||minute==2||minute==3||minute==4||minute==5||minute==6||minute==7||minute==8||minute==9){
+                                        hora_encuentro.setText("0"+hourOfDay+":"+"0"+minute);
+                                        seleccionoHora = true;
+                                    }else{
+                                        hora_encuentro.setText("0"+hourOfDay+":"+minute);
+                                        seleccionoHora = true;
                                     }
-                                } else {
-                                    if (minute == 0 || minute == 1 || minute == 2 || minute == 3 || minute == 4 || minute == 5 || minute == 6 || minute == 7 || minute == 8 || minute == 9) {
-                                        hora_encuentro.setText(hourOfDay + ":" + "0" + minute);
-                                    } else {
+                                }
+                                else{
+                                    if(minute==0||minute==1||minute==2||minute==3||minute==4||minute==5||minute==6||minute==7||minute==8||minute==9){
+                                        hora_encuentro.setText(hourOfDay+":"+"0"+minute);
+                                        seleccionoHora = true;
+                                    }else {
                                         hora_encuentro.setText(hourOfDay + ":" + minute);
+                                        seleccionoHora = true;
                                     }
                                 }
                             }
@@ -283,9 +298,6 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
                 if (marca_vehiculo.getText().toString().length() == 0) {
                     marca_vehiculo.setError("El campo es requerido");
                 }
-                if (anio_vehiculo.getText().toString().length() == 0) {
-                    anio_vehiculo.setError("El campo es requerido");
-                }
                 if (color_vehiculo.getText().toString().length() == 0) {
                     color_vehiculo.setError("El campo es requerido");
                 }
@@ -298,11 +310,24 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
 
                 if (hora_encuentro.getText().toString().length() != 0 && fecha_encuentro.getText().toString().length() != 0 &&
                         modelo_vehiculo.getText().toString().length() != 0 && marca_vehiculo.getText().toString().length() != 0 &&
-                        anio_vehiculo.getText().toString().length() != 0 && color_vehiculo.getText().toString().length() != 0 &&
                         numero_placas.getText().toString().length() != 0 && tipo_vehiculo.getText().toString().length() != 0
                         ) {
                     new RegistroSolicitudActivity.registrarServicio().execute();
                 }
+                if(seleccionoHora == false){Toast.makeText(getApplicationContext(),"Debe capturar la hora de encuentro", Toast.LENGTH_SHORT).show();}
+                if(seleccionoFecha == false){Toast.makeText(getApplicationContext(),"Debe capturar la fecha de encuentro", Toast.LENGTH_SHORT).show();}
+                if(modelo_vehiculo.getText().toString().length()==0){modelo_vehiculo.setError("El campo es requerido" );}
+                if(marca_vehiculo.getText().toString().length()==0){marca_vehiculo.setError("El campo es requerido" );}
+                if(anio_selecc.length()==0){Toast.makeText(getApplicationContext(),"Debe capturar el año del vehículo", Toast.LENGTH_SHORT).show();}
+                if(color_vehiculo.getText().toString().length()==0){color_vehiculo.setError("El campo es requerido" );}
+                if(numero_placas.getText().toString().length()==0){numero_placas.setError("El campo es requerido" );}
+                if(tipo_vehiculo.getText().toString().length()==0){tipo_vehiculo.setError("El campo es requerido" );}
+
+                if(hora_encuentro.getText().toString().length()!=0&&seleccionoHora==true&&fecha_encuentro.getText().toString().length()!=0&&seleccionoFecha==false&&
+                        modelo_vehiculo.getText().toString().length()!=0&&marca_vehiculo.getText().toString().length()!=0&&
+                                anio_selecc.length()!=0&&color_vehiculo.getText().toString().length()!=0&&
+                        numero_placas.getText().toString().length()!=0&&tipo_vehiculo.getText().toString().length()!=0
+                        ){new RegistroSolicitudActivity.registrarServicio().execute();}
 
             }
         });
@@ -346,19 +371,19 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
             today.setToNow();
             try {
                 postDataParams = new JSONObject();
-                postDataParams.put("longitud_destino", longitud_destino);
-                postDataParams.put("latitud_destino", latitud_destino);
-                postDataParams.put("longitud_encuentro", longitud_encuentro);
-                postDataParams.put("latitud_encuentro", latitud_encuentro);
-                postDataParams.put("hora_encuentro", hora_encuentro.getText().toString());
-                postDataParams.put("fecha_encuentro", fecha_encuentro.getText().toString());
-                postDataParams.put("estado_servicio", "s");
-                postDataParams.put("modelo_vehiculo", modelo_vehiculo.getText().toString());
-                postDataParams.put("marca_vehiculo", marca_vehiculo.getText().toString());
-                postDataParams.put("anio_vehiculo", anio_vehiculo.getText().toString());
-                postDataParams.put("color_vehiculo", color_vehiculo.getText().toString());
-                postDataParams.put("numero_placas", numero_placas.getText().toString());
-                postDataParams.put("tipo_vehiculo", tipo_vehiculo.getText().toString());
+                postDataParams.put("longitud_destino"           , longitud_destino);
+                postDataParams.put("latitud_destino"            , latitud_destino);
+                postDataParams.put("longitud_encuentro"         , longitud_encuentro);
+                postDataParams.put("latitud_encuentro"          , latitud_encuentro);
+                postDataParams.put("hora_encuentro"             , hora_encuentro.getText().toString());
+                postDataParams.put("fecha_encuentro"            , fecha_encuentro.getText().toString());
+                postDataParams.put("estado_servicio"            , "s");
+                postDataParams.put("modelo_vehiculo"            , modelo_vehiculo.getText().toString());
+                postDataParams.put("marca_vehiculo"             , marca_vehiculo.getText().toString());
+                postDataParams.put("anio_vehiculo"              , anio_selecc);
+                postDataParams.put("color_vehiculo"             , color_vehiculo.getText().toString());
+                postDataParams.put("numero_placas"              , numero_placas.getText().toString());
+                postDataParams.put("tipo_vehiculo"              , tipo_vehiculo.getText().toString());
                 postDataParams.put("descripcion_lugar_encuentro", descripcion_lugar_encuentro.getText().toString());
                 postDataParams.put("descripcion_lugar_destino", descripcion_lugar_destino.getText().toString());
                 postDataParams.put("fecha_ultima_modificacion", today.year + "-" + (today.month + 1) + "-" + today.monthDay);//Obtener fecha automaticamente
@@ -380,17 +405,11 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "El servicio se ha registrado con éxito", Toast.LENGTH_SHORT).show();
 
                 //Limpiamos los editText para poder agregar un nuevo servicio a esta solicitud
-                hora_encuentro.setText("");
-                fecha_encuentro.setText("");
-                modelo_vehiculo.setText("");
-                marca_vehiculo.setText("");
-                anio_vehiculo.setText("");
-                color_vehiculo.setText("");
-                numero_placas.setText("");
-                tipo_vehiculo.setText("");
-                descripcion_lugar_encuentro.setText("");
-                descripcion_lugar_destino.setText("");
-            } else {
+                hora_encuentro.setText(""); fecha_encuentro.setText(""); modelo_vehiculo.setText(""); marca_vehiculo.setText("");
+                color_vehiculo.setText(""); numero_placas.setText(""); tipo_vehiculo.setText("");
+                descripcion_lugar_encuentro.setText(""); descripcion_lugar_destino.setText("");
+            }
+            else {
                 Toast.makeText(getApplicationContext(), "Error al registrar el servicio, intentelo más tarde o contacte al administrador", Toast.LENGTH_SHORT).show();
             }
         }

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "35434676295",
+    "firebase_url": "https://transportaciones-5f71f.firebaseio.com",
+    "project_id": "transportaciones-5f71f",
+    "storage_bucket": "transportaciones-5f71f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:35434676295:android:7776a8b44eaaa651",
+        "android_client_info": {
+          "package_name": "com.transporte.cicese.transportaciones_cicese"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "35434676295-pddqcnp7ejl27k3rk9na865apak82adi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-5qhWR30PeJV3Nlzh66acNNd8FOUu69s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -52,6 +52,7 @@
         android:layout_below="@+id/imageView10"
         android:layout_marginTop="35dp"
         android:text="Llego en 5 minutos"
+        android:background="@drawable/textbacks"
         android:textAllCaps="false"/>
 
     <Button
@@ -63,6 +64,7 @@
         android:layout_alignStart="@+id/tr_1"
         android:layout_below="@+id/tr_1"
         android:layout_marginTop="10dp"
+        android:background="@drawable/textbacks"
         android:text="Tuve un imprevisto" />
 
     <Button
@@ -74,17 +76,19 @@
         android:layout_alignStart="@+id/tr_2"
         android:layout_below="@+id/tr_2"
         android:layout_marginTop="10dp"
+        android:background="@drawable/textbacks"
         android:text="Voy en camino" />
 
     <Button
         android:id="@+id/tr_4"
-        android:textAllCaps="false"
         android:layout_width="300dp"
-        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/tr_3"
-        android:layout_centerVertical="true"
-        android:text="Llego en 10 minutos" />
+        android:layout_alignStart="@+id/tr_5"
+        android:layout_below="@+id/tr_3"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/textbacks"
+        android:text="Llego en 10 minutos"
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/tr_5"
@@ -94,5 +98,6 @@
         android:layout_alignEnd="@+id/tr_2"
         android:layout_below="@+id/tr_4"
         android:layout_marginTop="10dp"
+        android:background="@drawable/textbacks"
         android:text="Le llamaré pronto" />
 </RelativeLayout>

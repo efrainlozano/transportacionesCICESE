@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#ffff"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/cicesenoche"
+        android:id="@+id/imageView15" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="57dp"
+        android:text="Bienvenido"
+        android:textColor="#ffff"
+        android:textSize="40dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView12"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:text="a Transportaciones CICESE"
+        android:textColor="#ffff"
+        android:textSize="20dp"
+        />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imageView15"
+        app:srcCompat="@drawable/tercer_button_style"/>
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_below="@+id/imageView15"
+        android:layout_centerHorizontal="true"
+        android:text="La aplicación oficial del Centro de Investigación Científica y de Educación Superior  de Ensenada,  Baja California, de transporte a usuarios invitados."
+        android:textAlignment="inherit"
+        android:textColor="@color/colorAccent"/>
+
+    <RelativeLayout
+        android:id="@+id/relativeServicio"
+        android:layout_width="match_parent"
+        android:layout_height="900dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imageView14"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:text="Como asistente, a través de esta aplicación usted podrá:"
+            android:textAlignment="inherit"
+            android:textColor="@android:color/holo_blue_light"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_marginTop="15dp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+    android:id="@+id/textView2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignStart="@+id/textView13"
+    android:drawableLeft="@drawable/forma_iconp"
+    android:drawablePadding="5dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+    android:layout_below="@+id/textView9"
+    android:layout_marginTop="11dp"
+    android:text="@string/registar_usuarios_y_solicitudes"
+    tools:ignore="RtlHardcoded" />
+
+<TextView
+    android:id="@+id/textView13"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignEnd="@+id/imageView10"
+    android:layout_alignStart="@+id/textView9"
+    android:drawableLeft="@drawable/forma_iconp"
+    android:drawablePadding="5dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:layout_below="@+id/textView2"
+    android:layout_marginTop="2dp"
+    android:text="Intercambiar mensajes con los usuarios asociados a un servicio"
+    tools:ignore="HardcodedText,RtlHardcoded" />
+
+<TextView
+    android:id="@+id/textView14"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignStart="@+id/textView2"
+    android:layout_below="@+id/textView13"
+    android:drawableLeft="@drawable/forma_iconp"
+    android:drawablePadding="5dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:layout_marginTop="2dp"
+    android:text="Actualizar los datos de los servicios registrados"
+    tools:ignore="HardcodedText,RtlHardcoded"
+    android:layout_alignEnd="@+id/textView13" />
+
+<TextView
+    android:id="@+id/textView15"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignStart="@+id/textView14"
+    android:layout_below="@+id/textView14"
+    android:layout_marginTop="2dp"
+    android:drawableLeft="@drawable/forma_iconp"
+    android:drawablePadding="5dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:text="Realizar consultas a los servicios registrados"
+    tools:ignore="HardcodedText,RtlHardcoded"
+    android:layout_alignEnd="@+id/textView14" />
+
+<TextView
+    android:id="@+id/textView24"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Para mayor información, favor de consultar la ayuda"
+    android:textSize="10sp"
+    tools:ignore="HardcodedText,SmallSp,SpUsage"
+    android:layout_marginTop="15dp"
+    android:layout_below="@+id/textView15"
+    android:layout_centerHorizontal="true" />
+
+<ImageView
+    android:id="@+id/imageView12"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignTop="@+id/textView2"
+    android:layout_toStartOf="@+id/textView2"
+    tools:ignore="ContentDescription,UnusedAttribute" />
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

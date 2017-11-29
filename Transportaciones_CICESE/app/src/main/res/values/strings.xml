@@ -6,6 +6,7 @@
     <!-- 192.168.0.5 -->
     <!-- 10.10.192.1 -->
 
+    <string name="year_prompt">Año</string>
     <string name="app_name">Transportaciones CICESE</string>
     <string name="contrasena">Contraseña</string>
     <string name="inicio_btn">Iniciar</string>
@@ -78,11 +79,11 @@
     <string name="registrar_asistente">Registrar asistente</string>
     <string name="tip">Al hacer un registro, por favor asegurese de que todos los datos sean correctos</string>
     <string name="registrar_solicitud">Registrar solicitud</string>
-    <string name="tipo">Tipo (Sedan, Camioneta, Van,…)</string>
-    <string name="placas">Número de placas</string>
+    <string name="tipo">Tipo</string> <!--(Sedan, Camioneta, Van,…)-->
+    <string name="placas">Placas</string>
     <string name="anio">Año</string>
-    <string name="marca">Marca (Ford, Toyota, Kia,…)</string>
-    <string name="model">Modelo (Focus, Camry, Spectra,…)</string>
+    <string name="marca">Marca</string> <!--(Ford, Toyota, Kia,…)-->
+    <string name="model">Modelo</string> <!--(Focus, Camry, Spectra,…)-->
     <string name="datos_de_encuentro">Datos de encuentro</string>
     <string name="datos_de_destino">Datos de destino</string>
     <string name="datos_del_vehiculo">Datos del vehículo</string>
@@ -91,7 +92,7 @@
     <string name="username">Nombre de usuario</string>
     <string name="detalles_servicio">Detalles del servicio</string>
     <string name="estado">Estado</string>
-    <string name="fum">Fecha de última \\nmodificación</string>
+    <string name="fum">Fecha de última \nmodificación</string>
     <string name="nombre_chofer">Nombre del chofer</string>
     <string name="bienvenido">Bienvenido a CICESE Transportaciones</string>
     <string name="como_chofer">Como chofer, a través de esta aplicación usted podrá:</string>
@@ -108,11 +109,12 @@
     <string name="int_msj_t">Intercambiar mensajes con su chofer asignado y asistente</string>
     <string name="calendario_eventos">Consultar su calendario de eventos</string>
     <string name="rating_servicio">Calificar el servicio que se le ha brindado</string>
-    <string name="popup_msg">Este campo requiere un número de 10 dígitos.\\nEl formato es el siguiente: \\n##########\\ndonde los tres primeros números son la lada, éstos no se colocan entre paréntesis</string>
-    <string name="desc_p_chofer">A través del presente formulario usted podrá registrar a un usuario como chofer en el sistema</string>
-    <string name="desc_p_pasajero">A través del presente formulario usted podrá registrar a un usuario, como pasajero, en el sistema</string>
-    <string name="desc_p_asistente">A través del presente formulario usted podrá registrar a un usuario como asistente en el sistema</string>
-    <string name="desc_p_solicitud">A través de este formulario usted podrá registrar una solicitud de transporte a un usuario pasajero</string>
-    <string name="desc_p_solicitudup">A través de esta pantalla usted podrá actualizar los datos de un servicio previamente registrado</string>
-    <string name="desc_p_servicio">Una vez registrada la solicitud, para ésta, a través del presente formulario, usted podrá registrar un servicio de transporte </string>
+    <string name="popup_msg">Este campo requiere un número de 10 dígitos. El formato es el siguiente: \n##########\ndonde los tres primeros números son la lada, éstos no se colocan entre paréntesis</string>
+    <string name="popup_msg2">El formato para el correo electrónico es, por ejemplo: \nnickname@dominio.com</string>
+    <string name="desc_p_chofer">Con el presente formulario podrá registrar a un usuario chofer en el sistema</string>
+    <string name="desc_p_pasajero">Con el presente formulario podrá registrar a un usuario pasajero en el sistema</string>
+    <string name="desc_p_asistente">Con el presente formulario podrá registrar a un usuario asistente en el sistema</string>
+    <string name="desc_p_solicitud">Con el presente formulario podrá registrar una solicitud de transporte para un usuario pasajero</string>
+    <string name="desc_p_solicitudup">Podrá actualizar los datos de un servicio previamente registrado con el presente formulario</string>
+    <string name="desc_p_servicio">Una vez registrada la solicitud, para ésta, con el presente formulario, podrá registrar un servicio de transporte </string>
 </resources>

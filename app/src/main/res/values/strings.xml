@@ -1,0 +1,64 @@
+<resources>
+    <string name="URI">http://192.168.43.192/ci/index.php/api</string>
+    <!-- 192.168.43.192 -->
+    <!-- 192.168.0.5 -->
+    <!-- 10.10.192.1 -->
+
+    <string name="app_name">Transportaciones CICESE</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="inicio_btn">Iniciar</string>
+    <string name="btn_CICESE_user">Acceso a usuarios CICESE</string>
+    <string name="textview_acceso">Ingrese los datos de acceso</string>
+    <string name="transportaciones">Transportaciones</string>
+    <string name="title_activity_inicio_pasajero">Inicio</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="android_studio">Usuario</string>
+    <string name="android_studio_android_com">Tipo usuario</string>
+    <string name="nuevo_registro">Nuevo registro</string>
+    <string name="n_mero_de_empleado">Número de empleado</string>
+    <string name="contrase_aChofer">Contraseña</string>
+    <string name="nombre">Nombre (s)</string>
+    <string name="apellido_paterno">Apellido paterno</string>
+    <string name="apellido_materno">Apellido materno</string>
+    <string name="tel_fono">Número de teléfono</string>
+    <string name="RegistrarChoferbutton">Registrar chofer</string>
+    <string name="usuario">Usuario</string>
+    <string name="usuario_generado">Usuario generado</string>
+    <string name="registrar_pasajero">Registrar pasajero</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="incio">Inicio</string>
+    <string name="cerrar_sesi_n">Cerrar sesión</string>
+    <string name="general">General</string>
+    <string name="string_ayuda">Ayuda</string>
+    <string name="acerca_de">Acerca de</string>
+    <string name="write_a_message">Escriba un mensaje</string>
+    <string name="logout">Cerrar sesión</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="asistente_obtenido_automaticamente">Asistente(Obtenido Automaticamente)</string>
+    <string name="folio_funcion_generadora">Folio</string>
+    <string name="invitado_combobox_autollenado">Invitado(ComboBox autollenado)</string>
+    <string name="descripci_n">Descripción</string>
+    <string name="longitud">Longitud</string>
+    <string name="latitud">Latitud</string>
+    <string name="hora">Hora</string>
+    <string name="fecha">Fecha</string>
+    <string name="generaFolio">Generar</string>
+    <string name="capture_los_siguientes_datos">Capture los datos presentados a continuación</string>
+    <string name="actualizar_servicios_de_esta_solicitud">Actualizar los  servicios asociados a esta solicitud</string>
+    <string name="actualizar_solicitud">Actualizar solicitud</string>
+    <string name="actualizar_servicio">Actualizar servicio</string>
+    <string name="actualizar_todo">Actualizar todo</string>
+    <string name="dar_seguimiento_a_su_solicitud">- Dar seguimiento a su solicitud</string>
+    <string name="consultar_sus_eventos">Consultar sus eventos</string>
+    <string name="title_activity_inicio_asistentes">InicioAsistentesActivity</string>
+    <string name="registar_usuarios_y_solicitudes">Registar usuarios, solicitudes y servicios</string>
+    <string name="calificaci_n">Calificación</string>
+    <string name="color">Color</string>
+    <string name="title_activity_inicio_choferes">InicioChoferesActivity</string>
+</resources>

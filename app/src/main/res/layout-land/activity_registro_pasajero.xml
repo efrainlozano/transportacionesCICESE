@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffff"
+    tools:context="com.transporte.cicese.transportaciones_cicese.RegistroPasajeroActivity">
+
+    <TextView
+        android:id="@+id/textViewRC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:text="@string/capture_los_siguientes_datos"
+        android:textColor="@android:color/background_dark"
+        android:textSize="20sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="134dp"
+        tools:layout_editor_absoluteY="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/popup3" />
+
+    <EditText
+        android:id="@+id/usuario_generado"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="19dp"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/user_icon"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="Nombre de usuario"
+        android:inputType="text"
+        android:layout_below="@+id/textViewRC"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="34dp" />
+
+    <EditText
+        android:id="@+id/contrasena_pasajero"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/password_icon"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:hint="@string/contrase_aChofer"
+        android:inputType="textWebPassword"
+        android:layout_below="@+id/usuario_generado"
+        android:layout_alignStart="@+id/usuario_generado"
+        android:layout_alignEnd="@+id/usuario_generado" />
+
+
+    <EditText
+        android:id="@+id/nombre_pasajero"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/name_icon"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="@string/nombre"
+        android:inputType="text"
+        android:layout_below="@+id/contrasena_pasajero"
+        android:layout_alignStart="@+id/contrasena_pasajero"
+        android:layout_alignEnd="@+id/contrasena_pasajero" />
+
+
+    <EditText
+        android:id="@+id/ap_pasajero"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/name_icon"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="@string/apellido_paterno"
+        android:inputType="text"
+        android:layout_below="@+id/nombre_pasajero"
+        android:layout_alignStart="@+id/nombre_pasajero"
+        android:layout_alignEnd="@+id/nombre_pasajero" />
+
+    <EditText
+        android:id="@+id/am_pasajero"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/name_icon"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="@string/apellido_materno"
+        android:inputType="text"
+        android:layout_alignBaseline="@+id/usuario_generado"
+        android:layout_alignBottom="@+id/usuario_generado"
+        android:layout_toEndOf="@+id/usuario_generado"
+        android:layout_marginStart="25dp" />
+
+    <EditText
+        android:id="@+id/tel_pasajero"
+        android:layout_width="300dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/am_pasajero"
+        android:layout_below="@+id/am_pasajero"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/cell_icon"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="@string/tel_fono"
+        android:inputType="phone"
+        android:layout_alignEnd="@+id/am_pasajero" />
+
+    <Button
+        android:id="@+id/popup3"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/exclamation"
+        tools:ignore="HardcodedText,UnusedAttribute"
+        android:layout_alignTop="@+id/tel_pasajero"
+        android:layout_alignEnd="@+id/tel_pasajero" />
+
+
+    <EditText
+        android:id="@+id/emailPasajero"
+        android:layout_width="255dp"
+        android:layout_height="40dp"
+        android:hint="Correo electrónico"
+        android:ems="10"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/email_icon"
+        android:drawablePadding="5dp"
+        android:inputType="textEmailAddress"
+        android:layout_alignBaseline="@+id/nombre_pasajero"
+        android:layout_alignBottom="@+id/nombre_pasajero"
+        android:layout_alignStart="@+id/tel_pasajero" />
+
+    <Button
+        android:id="@+id/registroPasajero_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/secondary_button_style"
+        android:text="@string/aceptar"
+        android:textAllCaps="false"
+        android:textColor="@android:color/background_light"
+        android:layout_alignTop="@+id/ap_pasajero"
+        android:layout_alignStart="@+id/emailPasajero"
+        android:layout_alignEnd="@+id/emailPasajero" />
+
+</RelativeLayout>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#ffff"
+    tools:context="com.transporte.cicese.transportaciones_cicese.RegistroAsistenteActivity">
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        app:srcCompat="@drawable/textbacks"
+        tools:ignore="ContentDescription"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/usuario_generadoA"
+        android:layout_alignEnd="@+id/am_asistente" />
+
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/asistente"
+        android:layout_marginStart="36dp"
+        android:layout_alignTop="@+id/imageView10"
+        android:layout_alignStart="@+id/imageView10" />
+
+    <TextView
+        android:id="@+id/textViewRC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/capture_los_siguientes_datos"
+        android:textAlignment="viewStart"
+        android:textColor="?attr/actionMenuTextColor"
+        android:textSize="17sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="134dp"
+        tools:layout_editor_absoluteY="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_alignTop="@+id/imageView10"
+        android:layout_toEndOf="@+id/imageView4"
+        android:layout_marginStart="29dp" />
+    <EditText
+        android:id="@+id/usuario_generadoA"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/user_icon"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="@string/usuario_generado"
+        android:inputType="text"
+        android:layout_marginTop="9dp"
+        android:layout_marginStart="15dp"
+        android:layout_below="@+id/imageView10"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/contrasena_asistente"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/password_icon"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:hint="@string/contrase_aChofer"
+        android:inputType="textWebPassword"
+        android:layout_below="@+id/usuario_generadoA"
+        android:layout_alignStart="@+id/usuario_generadoA"
+        android:layout_alignEnd="@+id/usuario_generadoA" />
+
+
+    <EditText
+        android:id="@+id/nombre_asistente"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/name_icon"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="@string/nombre"
+        android:inputType="text"
+        android:layout_below="@+id/contrasena_asistente"
+        android:layout_alignStart="@+id/contrasena_asistente"
+        android:layout_alignEnd="@+id/contrasena_asistente" />
+
+
+    <EditText
+        android:id="@+id/ap_asistente"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="11dp"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/name_icon"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="@string/apellido_paterno"
+        android:inputType="text"
+        android:layout_below="@+id/nombre_asistente"
+        android:layout_alignStart="@+id/nombre_asistente" />
+
+    <EditText
+        android:id="@+id/am_asistente"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/name_icon"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="@string/apellido_materno"
+        android:inputType="text"
+        android:layout_marginEnd="33dp"
+        android:layout_alignBaseline="@+id/usuario_generadoA"
+        android:layout_alignBottom="@+id/usuario_generadoA"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:id="@+id/tel_asistente"
+        android:layout_width="300dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/am_asistente"
+        android:layout_below="@+id/am_asistente"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/cell_icon"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="@string/tel_fono"
+        android:inputType="phone"
+        android:layout_alignEnd="@+id/am_asistente" />
+
+    <Button
+        android:id="@+id/popup2"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/exclamation"
+        tools:ignore="HardcodedText,UnusedAttribute"
+        android:layout_alignTop="@+id/tel_asistente"
+        android:layout_alignEnd="@+id/tel_asistente" />
+
+
+    <EditText
+        android:id="@+id/emailAsistente"
+        android:layout_width="255dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:hint="Correo electrónico"
+        android:ems="10"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/email_icon"
+        android:drawablePadding="5dp"
+        android:inputType="textEmailAddress"
+        android:layout_below="@+id/tel_asistente"
+        android:layout_alignStart="@+id/tel_asistente"
+        android:layout_alignEnd="@+id/tel_asistente" />
+
+    <Button
+        android:id="@+id/registroAsistente_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:background="@drawable/secondary_button_style"
+        android:text="@string/aceptar"
+        android:textAllCaps="false"
+        android:textColor="@android:color/background_light"
+        android:layout_alignBaseline="@+id/ap_asistente"
+        android:layout_alignBottom="@+id/ap_asistente"
+        android:layout_alignStart="@+id/emailAsistente"
+        android:layout_alignEnd="@+id/emailAsistente" />
+
+</RelativeLayout>

@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,8 @@ public class InicioPasajeroActivity extends AppCompatActivity
         AboutFragment.OnFragmentInteractionListener,
         LogoutFragment.OnFragmentInteractionListener{
 
+    Button Servicios,Eventos;//Updates;
+    Intent i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,34 @@ public class InicioPasajeroActivity extends AppCompatActivity
         setContentView(R.layout.activity_inicio_pasajero);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Servicios = (Button) findViewById(R.id.irAMisServicios);
+        Eventos = (Button) findViewById(R.id.irAMisEventos);
+        //Updates = (Button) findViewById(R.id.irAUpdate);
+
+        Servicios.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                i = new Intent(InicioPasajeroActivity.this, ServiciosActivity.class);
+                startActivity(i);
+            }
+        });
+
+        Eventos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                i = new Intent(InicioPasajeroActivity.this, ServiciosActivity.class);
+                startActivity(i);
+            }
+        });
+
+     /*   Updates.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                i = new Intent(InicioAsistentesActivity.this, updateSolicitud.class);
+                startActivity(i);
+            }
+        });*/
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

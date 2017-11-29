@@ -32,6 +32,7 @@ public class InicioAsistentesActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Registros = (Button) findViewById(R.id.irARegistros);
         Consultas = (Button) findViewById(R.id.irAConsultas);

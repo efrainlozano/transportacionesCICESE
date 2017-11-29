@@ -3,27 +3,29 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <!--item name="colorPrimary">@color/colorPrimary</item-->
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="actionBarStyle">@style/ActionBarStyle</item>
         <!--item name="colorPrimaryDark">@color/colorPrimaryDark</item-->
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="drawerArrowStyle">@style/DrawerIcon</item>
+        <item name="colorControlNormal">@color/colorAccent</item>
     </style>
 
 
     <style name="ActionBarStyle" parent="Widget.AppCompat.ActionBar">
-        <item name="titleTextStyle">@style/ActionBarTitleTextStyle</item>
-        <item name="background">@color/colorPrimary</item>
+        <item name="titleTextStyle">@color/colorPrimaryText</item>
+        <item name="background">@color/colorPrimaryText</item>
+        <item name="colorControlNormal">@color/colorAccent</item>
     </style>
 
     <style name="ActionBarTitleTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">@color/ColorActionBarTitle</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="colorControlNormal">@color/colorAccent</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="colorControlNormal">@color/colorAccent</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
@@ -34,7 +36,8 @@
 
 
     <style name="DrawerIcon" parent="Widget.AppCompat.DrawerArrowToggle">
-        <item name="color">@color/colorAccent</item>
+        <item name="color">#ffffff</item>
+        <item name="colorControlNormal">@color/colorAccent</item>
     </style>
 
 </resources>

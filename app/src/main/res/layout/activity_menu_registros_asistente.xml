@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    tools:context="com.transporte.cicese.transportaciones_cicese.MenuRegistrosAsistenteActivity">
+
+    <ImageButton
+        android:id="@+id/imr1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imageView10"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="46dp"
+        android:backgroundTint="@android:color/background_light"
+        android:contentDescription=""
+        app:srcCompat="@drawable/chofer"
+        tools:ignore="ContentDescription,UnusedAttribute" />
+
+    <ImageButton
+        android:id="@+id/imr2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/background_light"
+        app:srcCompat="@drawable/pasajero"
+        android:contentDescription=""
+        tools:ignore="ContentDescription,UnusedAttribute"
+        android:layout_marginEnd="32dp"
+        android:layout_alignTop="@+id/imr1"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:id="@+id/imr3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:backgroundTint="@android:color/background_light"
+        app:srcCompat="@drawable/asistente"
+        tools:ignore="ContentDescription,UnusedAttribute"
+        android:layout_below="@+id/imr1"
+        android:layout_alignStart="@+id/imr1" />
+
+    <ImageButton
+        android:id="@+id/imr4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/background_light"
+        app:srcCompat="@drawable/solicitud"
+        tools:ignore="ContentDescription,UnusedAttribute"
+        android:layout_alignTop="@+id/imr3"
+        android:layout_alignEnd="@+id/textView19" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registrar chofer"
+        android:textColor="@color/ColorActionBarTitle"
+        tools:ignore="HardcodedText"
+        android:layout_below="@+id/imr1"
+        android:layout_alignEnd="@+id/textView20" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registrar pasajero"
+        android:textColor="@color/ColorActionBarTitle"
+        android:layout_alignBaseline="@+id/textView18"
+        android:layout_alignBottom="@+id/textView18"
+        android:layout_alignEnd="@+id/imr2"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registrar asistente"
+        android:textColor="@color/ColorActionBarTitle"
+        tools:ignore="HardcodedText"
+        android:layout_below="@+id/imr3"
+        android:layout_alignStart="@+id/imr3" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registrar solicitud"
+        tools:ignore="HardcodedText"
+        android:textColor="@color/ColorActionBarTitle"
+        android:layout_alignBaseline="@+id/textView20"
+        android:layout_alignBottom="@+id/textView20"
+        android:layout_alignEnd="@+id/imr4" />
+
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        app:srcCompat="@drawable/textbacks"
+        tools:ignore="ContentDescription" />
+
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/imageView10"
+        android:layout_alignTop="@+id/imageView10"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="9dp"
+        app:srcCompat="@drawable/forma_icon"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/textViewRC"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView4"
+        android:layout_alignEnd="@+id/imageView10"
+        android:text="Selecccione una de las siguientes opciones"
+        android:textAlignment="viewStart"
+        android:textColor="?attr/actionMenuTextColor"
+        android:textSize="17sp"
+        tools:ignore="MissingConstraints,RtlHardcoded"
+        tools:layout_editor_absoluteX="134dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/imr4"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/textView20"
+        android:layout_marginBottom="43dp"
+        android:text="Al hacer un registro, por favor asegurese de que todos los datos sean correctos"
+        android:textAlignment="center"
+        tools:ignore="HardcodedText" />
+</RelativeLayout>

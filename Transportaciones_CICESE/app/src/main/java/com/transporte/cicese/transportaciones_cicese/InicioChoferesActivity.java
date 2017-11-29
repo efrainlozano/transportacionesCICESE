@@ -14,9 +14,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 public class InicioChoferesActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    Button Servicios,Notificaciones;//Updates;
+    Intent i;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +30,32 @@ public class InicioChoferesActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Servicios = (Button) findViewById(R.id.irAMisServiciosC);
+        Notificaciones = (Button) findViewById(R.id.irNotificaciones);
+       // Updates = (Button) findViewById(R.id.irAUpdate);
+
+        Servicios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Abriendo el chat", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                Intent i = new Intent(InicioChoferesActivity.this, chatActivity.class);
+                i = new Intent(InicioChoferesActivity.this, ServiciosActivity.class);
+                startActivity(i);
+            }
+        });
+
+        Notificaciones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                i = new Intent(InicioChoferesActivity.this, TextoRapidoActivity.class);
+                startActivity(i);
+            }
+        });
+
+        /*Updates.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                i = new Intent(InicioChoferesActivity.this, updateSolicitud.class);
                 startActivity(i);
             }
         });*/

@@ -45,51 +45,59 @@
 
     <Button
         android:id="@+id/tr_1"
-        android:layout_width="150dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/imageView10"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/imageView10"
-        android:layout_marginTop="19dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/textbacks"
         android:text="Llego en 5 minutos"
         android:textAllCaps="false" />
 
     <Button
         android:id="@+id/tr_2"
-        android:layout_width="150dp"
+        android:textAllCaps="false"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/tr_4"
-        android:layout_below="@+id/tr_4"
-        android:layout_marginTop="11dp"
-        android:text="Tuve un imprevisto"
-        android:textAllCaps="false" />
-
-    <Button
-        android:id="@+id/tr_3"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/tr_5"
-        android:layout_alignTop="@+id/tr_4"
-        android:text="Voy en camino"
-        android:textAllCaps="false" />
-
-    <Button
-        android:id="@+id/tr_4"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/tr_1"
         android:layout_alignStart="@+id/tr_1"
         android:layout_below="@+id/tr_1"
         android:layout_marginTop="10dp"
+        android:background="@drawable/textbacks"
+        android:text="Tuve un imprevisto" />
+
+    <Button
+        android:id="@+id/tr_3"
+        android:textAllCaps="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/tr_2"
+        android:layout_alignStart="@+id/tr_2"
+        android:layout_below="@+id/tr_2"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/textbacks"
+        android:text="Voy en camino" />
+
+    <Button
+        android:id="@+id/tr_4"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tr_2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/textbacks"
         android:text="Llego en 10 minutos"
         android:textAllCaps="false" />
 
     <Button
         android:id="@+id/tr_5"
-        android:layout_width="150dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/tr_1"
-        android:layout_alignBottom="@+id/tr_1"
-        android:layout_marginStart="19dp"
-        android:layout_toEndOf="@+id/tr_1"
+        android:layout_alignStart="@+id/tr_4"
+        android:layout_alignTop="@+id/tr_2"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/textbacks"
         android:text="Le llamaré pronto"
         android:textAllCaps="false" />
 </RelativeLayout>

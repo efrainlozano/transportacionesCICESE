@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.transporte.cicese.transportaciones_cicese.InicioPasajeroActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryText"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:titleTextColor="@android:color/background_light" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:id="@+id/scrollView4">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="400dp">
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="600dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                app:srcCompat="@drawable/textback"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="600dp"
+                android:layout_height="30dp"
+                android:layout_alignStart="@+id/imageView10"
+                android:layout_alignTop="@+id/imageView10"
+                android:text="@string/bienvenido"
+                android:textAlignment="center"
+                android:textColor="@color/ColorActionBarTitle"
+                android:textSize="20dp" />
+
+
+            <ViewFlipper
+                android:id="@+id/flipper1"
+                android:layout_width="300dp"
+                android:layout_height="150dp"
+                android:layout_alignStart="@+id/imageView10"
+                android:layout_below="@+id/imageView10"
+                android:layout_marginTop="21dp"
+                android:autoStart="true"
+                android:flipInterval="3000"
+                android:inAnimation="@android:anim/slide_in_left"
+                android:outAnimation="@android:anim/slide_out_right"
+                tools:ignore="UselessLeaf,UselessParent">
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/logocicese"
+                    tools:ignore="ContentDescription" />
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/instalaciones"
+                    tools:ignore="ContentDescription" />
+
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ensenada"
+                    tools:ignore="ContentDescription" />
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/mapa"
+                    tools:ignore="ContentDescription" />
+
+            </ViewFlipper>
+
+
+            <!--DESDE AQUIIIIIIIIIII-->
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/flipper1"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@+id/flipper1">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/como_chofer"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/textView13"
+                    android:layout_below="@+id/textView9"
+                    android:layout_marginTop="11dp"
+                    android:drawableLeft="@drawable/forma_iconp"
+                    android:drawablePadding="5dp"
+                    android:text="@string/dar_seguimiento_a_su_solicitud"
+                    tools:ignore="RtlHardcoded" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/textView9"
+                    android:layout_below="@+id/textView2"
+                    android:layout_marginTop="2dp"
+                    android:drawableLeft="@drawable/forma_iconp"
+                    android:drawablePadding="5dp"
+                    android:text="@string/int_msj"
+                    tools:ignore="HardcodedText,RtlHardcoded" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/textView13"
+                    android:layout_alignStart="@+id/textView2"
+                    android:layout_below="@+id/textView13"
+                    android:layout_marginTop="2dp"
+                    android:drawableLeft="@drawable/forma_iconp"
+                    android:drawablePadding="5dp"
+                    android:text="@string/q_noti"
+                    tools:ignore="HardcodedText,RtlHardcoded" />
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/textView14"
+                    android:layout_alignStart="@+id/textView14"
+                    android:layout_below="@+id/textView14"
+                    android:layout_marginTop="2dp"
+                    android:drawableLeft="@drawable/forma_iconp"
+                    android:drawablePadding="5dp"
+                    android:text="@string/localizacion"
+                    tools:ignore="HardcodedText,RtlHardcoded" />
+            </RelativeLayout>
+            <!--DESDE AQUIIIIIIIIIII-->
+            <Button
+                android:id="@+id/irNotificaciones"
+                android:layout_width="195dp"
+                android:layout_height="90dp"
+                android:layout_alignTop="@+id/irAMisServiciosC"
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@+id/irAMisServiciosC"
+                android:background="@drawable/fast_button_style"
+                android:drawableLeft="@drawable/noti_icon_b"
+                android:paddingLeft="10dp"
+                android:text="Enviar notificaciones rápidas"
+                android:textAllCaps="false"
+                android:textColor="#ffff"
+                android:textSize="15dp" />
+
+
+            <Button
+                android:id="@+id/irAMisServiciosC"
+                android:layout_width="195dp"
+                android:layout_height="90dp"
+                android:layout_alignStart="@+id/flipper1"
+                android:layout_below="@+id/relativeLayout"
+                android:layout_marginTop="26dp"
+                android:background="@drawable/fast_button_style"
+                android:text="Ir a mis servicios"
+                android:textAllCaps="false"
+                android:textColor="#ffff"
+                android:textSize="15dp"
+                android:drawableLeft="@drawable/services_icon_b"
+                android:paddingLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="370dp"
+                android:layout_toEndOf="@+id/irAMisServiciosC"
+                android:text="@string/mayor_info"
+                android:textSize="10sp" />
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

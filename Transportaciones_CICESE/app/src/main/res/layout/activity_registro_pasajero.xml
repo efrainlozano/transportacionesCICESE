@@ -7,7 +7,13 @@
     android:background="#ffff"
     tools:context="com.transporte.cicese.transportaciones_cicese.RegistroPasajeroActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="700dp">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="700dp">
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="300dp"
@@ -78,6 +84,7 @@
         android:ems="10"
         android:fontFamily="sans-serif"
         android:hint="@string/contrase_aChofer"
+        android:maxLength="8"
         android:inputType="textWebPassword"
         android:layout_below="@+id/longitud_lugar_destino"
         android:layout_alignStart="@+id/longitud_lugar_destino" />
@@ -141,19 +148,28 @@
         android:inputType="number"
         android:maxLength="10"/>
 
-    <!--Button
-        android:id="@+id/popup3"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/exclamation"
-        tools:ignore="HardcodedText,UnusedAttribute"
-        android:layout_alignTop="@+id/tel_pasajero"
-        android:layout_alignEnd="@+id/tel_pasajero" /-->
+            <Button
+                android:id="@+id/popupPasT"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignBaseline="@+id/tel_pasajero"
+                android:layout_alignBottom="@+id/tel_pasajero"
+                android:layout_toEndOf="@+id/tel_pasajero"
+                android:background="@drawable/exclamation"
+                tools:ignore="HardcodedText,RtlHardcoded,UnusedAttribute" />
+
+            <Button
+                android:id="@+id/popupPasC"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignBaseline="@+id/emailPasajero"
+                android:layout_alignBottom="@+id/emailPasajero"
+                android:layout_toEndOf="@+id/emailPasajero"
+                android:background="@drawable/exclamation"
+                tools:ignore="HardcodedText,RtlHardcoded,UnusedAttribute" />
 
 
-    <EditText
+            <EditText
         android:id="@+id/emailPasajero"
         android:layout_width="255dp"
         android:layout_marginTop="8dp"
@@ -181,5 +197,6 @@
         android:text="@string/aceptar"
         android:textAllCaps="false"
         android:textColor="@android:color/background_light" />
-
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

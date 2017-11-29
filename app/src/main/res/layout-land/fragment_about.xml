@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffff"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.transporte.cicese.transportaciones_cicese.AboutFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="200dp"
+        android:layout_height="95dp"
+        app:srcCompat="@drawable/logocicese"
+        tools:ignore="ContentDescription"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="61dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/transportaciones"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/imageView3"
+        android:layout_alignStart="@+id/imageView3"
+        android:layout_marginStart="29dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Es una aplicación desarrollada por:"
+        tools:ignore="HardcodedText"
+        android:layout_alignTop="@+id/imageView3"
+        android:layout_alignStart="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Efrain Lozano Morales"
+        tools:ignore="HardcodedText"
+        android:layout_marginLeft="116dp"
+        android:layout_marginStart="34dp"
+        android:layout_above="@+id/nombre1"
+        android:layout_toEndOf="@+id/imageView3" />
+
+    <TextView
+        android:id="@+id/nombre1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Blanca Cecilia De León Rubio"
+        tools:ignore="HardcodedText"
+        android:layout_marginBottom="22dp"
+        android:layout_above="@+id/textView4"
+        android:layout_alignStart="@+id/textView7" />
+
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="©2017, Todos los derechos liberados"
+        tools:ignore="HardcodedText"
+        android:layout_below="@+id/textView4"
+        android:layout_alignStart="@+id/nombre1" />
+</RelativeLayout>

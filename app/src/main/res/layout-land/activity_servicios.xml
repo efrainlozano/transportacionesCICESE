@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffff"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <Spinner
+        android:id="@+id/buscarServicios"
+        android:layout_width="465dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/border_style"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/scrollView2" />
+
+    <Button
+        android:id="@+id/buttonBuscar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@android:drawable/ic_menu_search"
+        android:layout_above="@+id/scrollView2"
+        android:layout_alignEnd="@+id/scrollView2" />
+
+    <ScrollView
+        android:layout_width="500dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/buscarServicios"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/scrollView2">
+        <TableLayout
+            android:layout_width="500dp"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/spinner"
+            android:layout_centerHorizontal="true"
+            android:background="#ffff">
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="UselessLeaf" />
+
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="#dadada"
+                android:hint="Detalles del servicio"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#fafafa" >
+
+                <TextView
+                    android:padding="3dip"
+                    android:text="ID servicio" />
+                <TextView
+                    android:id="@+id/idServicio"
+                    android:text=""
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#fafafa" >
+
+                <TextView
+                    android:padding="3dip"
+                    android:text="Estado" />
+                <TextView
+                    android:id="@+id/est_servicio"
+                    android:text=""
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#fafafa" >
+
+                <TextView
+                    android:padding="3dip"
+                    android:text="Calificación" />
+                <TextView
+                    android:id="@+id/calif_servicio"
+                    android:text=""
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#fafafa" >
+                <TextView
+                    android:text="Fecha de última \n modificacion"
+                    android:padding="3dip" />
+                <TextView
+                    android:id="@+id/fum_servicio"
+                    android:text=""
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="UselessLeaf" />
+
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="15dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#fafafa" >
+
+                <TextView
+                    android:padding="3dip"
+                    android:text="ID solicitud" />
+                <TextView
+                    android:id="@+id/idSolicitud"
+                    android:text=""
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+
+
+            <TableRow
+                android:id="@+id/tableRow114"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#fafafa" >
+
+                <TextView
+                    android:padding="3dip"
+                    android:text="ID cofer" />
+                <TextView
+                    android:id="@+id/idChofer"
+                    android:text=""
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="UselessLeaf" />
+
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="25dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="#f0f0f0"
+                android:hint="Datos de encuentro"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#fafafa" >
+                <TextView
+                    android:text="Descripción"
+                    android:padding="3dip" />
+                <TextView
+                    android:id="@+id/descripcion_lugar_encuentro"
+                    android:text=""
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#fafafa" >
+
+                <TextView
+                    android:padding="3dip"
+                    android:text="Longitud" />
+                <TextView
+                    android:id="@+id/long_encuentro"
+                    android:text=""
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#fafafa" >
+
+                <TextView
+                    android:padding="3dip"
+                    android:text="Latitud" />
+                <TextView
+                    android:id="@+id/lat_encuentro"
+                    android:text=""
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+
+
+            <TableRow
+                android:id="@+id/tableRow32"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#fafafa" >
+
+                <TextView
+                    android:padding="3dip"
+                    android:text="Hora" />
+                <TextView
+                    android:id="@+id/hor_encuentro"
+                    android:text=""
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+
+
+            <TableRow
+                android:id="@+id/tableRow321"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#fafafa" >
+
+                <TextView
+                    android:padding="3dip"
+                    android:text="Fecha" />
+                <TextView
+                    android:id="@+id/fec_encuentro"
+                    android:text=""
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="UselessLeaf" />
+
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="25dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="#f0f0f0"
+                android:hint="Datos de destino"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+
+            <TableRow
+                android:id="@+id/tableRow4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#fafafa" >
+
+                <TextView
+                    android:padding="3dip"
+                    android:text="Descripción" />
+                <TextView
+                    android:id="@+id/desc_destino"
+                    android:text=""
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#fafafa" >
+
+                <TextView
+                    android:padding="3dip"
+                    android:text="Longitud" />
+                <TextView
+                    android:id="@+id/long_destino"
+                    android:text=""
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#fafafa" >
+
+                <TextView
+                    android:padding="3dip"
+                    android:text="Latitud" />
+                <TextView
+                    android:id="@+id/lat_destino"
+                    android:text=""
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="UselessLeaf" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="25dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="#f0f0f0"
+                android:hint="Datos del vehículo"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+            <TableRow
+                android:id="@+id/tableRow9"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#fafafa" >
+
+                <TextView
+                    android:padding="3dip"
+                    android:text="Modelo" />
+                <TextView
+                    android:id="@+id/model_vehiculo"
+                    android:text=""
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#fafafa" >
+
+                <TextView
+                    android:padding="3dip"
+                    android:text="Marca" />
+                <TextView
+                    android:id="@+id/marc_vehiculo"
+                    android:text=""
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow10"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#fafafa" >
+
+                <TextView
+                    android:padding="3dip"
+                    android:text="Año" />
+                <TextView
+                    android:id="@+id/an_vehiculo"
+                    android:text=""
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow11"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#fafafa" >
+
+                <TextView
+                    android:padding="3dip"
+                    android:text="Color" />
+                <TextView
+                    android:id="@+id/col_vehiculo"
+                    android:text=""
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow112"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#fafafa" >
+
+                <TextView
+                    android:padding="3dip"
+                    android:text="Número de placas" />
+                <TextView
+                    android:id="@+id/pla_vehiculo"
+                    android:text=""
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow113"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#fafafa" >
+
+                <TextView
+                    android:padding="3dip"
+                    android:text="Tipo" />
+                <TextView
+                    android:id="@+id/tip_vehiculo"
+                    android:text=""
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+</RelativeLayout>

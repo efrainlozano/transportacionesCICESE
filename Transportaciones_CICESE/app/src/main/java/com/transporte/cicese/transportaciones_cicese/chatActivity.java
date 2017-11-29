@@ -114,11 +114,7 @@ public class chatActivity extends AppCompatActivity {
                     messageArea.setText(recuperamos_variable_string);
                 }else{*/
 
-                String token = FirebaseInstanceId.getInstance().getToken();
-                Toast.makeText
-                (getApplicationContext(),token,Toast.LENGTH_SHORT).show();
 
-                messageArea.setText(token);
                 mensaje = messageArea.getText().toString();//}
                 new chatActivity.SendPostRequest().execute(getString(R.string.URI)+"/amensaje");
                 messageArea.setText(null);

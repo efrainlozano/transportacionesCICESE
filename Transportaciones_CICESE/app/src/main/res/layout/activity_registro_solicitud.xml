@@ -127,7 +127,7 @@
                 android:layout_height="1000dp"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical"
-                android:visibility="visible">
+                android:visibility="invisible">
 
                 <ImageView
                     android:id="@+id/image"
@@ -294,16 +294,16 @@
                     tools:ignore="HardcodedText" />
 
                 <!--SELECCIONAR SPINNE, DEFAULT 2017R-->
-                <EditText
+                <Spinner
                     android:id="@+id/anio_vehiculo"
                     android:layout_width="145dp"
                     android:layout_height="40dp"
                     android:layout_alignStart="@+id/marca_vehiculo"
                     android:layout_below="@+id/marca_vehiculo"
                     android:layout_marginTop="10dp"
+                    android:entries="@array/years_array"
                     android:background="@drawable/spinner_style"
-                    android:ems="10"
-                    android:prompt="@string/anio"/>
+                    android:prompt="@string/year_prompt" />
 
                 <EditText
                     android:id="@+id/color_vehiculo"
