@@ -10,11 +10,20 @@ android:paddingRight="@dimen/activity_horizontal_margin"
 android:paddingTop="@dimen/activity_vertical_margin"
 android:orientation="vertical"
 tools:context="com.transporte.cicese.transportaciones_cicese.chatActivity">
-
     <Spinner
+        android:id="@+id/solicitudesSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/spinner_style">
+        android:background="@drawable/spinner_style"
+        android:visibility="invisible">
+
+    </Spinner>
+    <Spinner
+        android:id="@+id/serviciosSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/spinner_style"
+        android:saveEnabled="false">
 
     </Spinner>
 <ScrollView
