@@ -60,8 +60,6 @@ public class ServiciosActivity extends AppCompatActivity {
         title = "Servicios";
         getSupportActionBar().setTitle(title);
 
-
-        consulta             = (Button) findViewById(R.id.buttonBuscar);
         verDestino           = (Button) findViewById(R.id.verDestino);
         verEncuentro         = (Button) findViewById(R.id.verEncuentro);
         verRuta              = (Button) findViewById(R.id.verRuta);
@@ -155,15 +153,15 @@ public class ServiciosActivity extends AppCompatActivity {
                     try {
                         jObject = new JSONObject(serviciosResult.get(i-1).toString());
                         //idServicio = jObject.getInt("id_servicio");
-                        encuentro=jObject.getString("descripcion_lugar_encuentro");
-                        destino=jObject.getString("descripcion_lugar_destino");
-                        latDes=jObject.getString("latitud_destino");
-                        latEn=jObject.getString("latitud_encuentro");
-                        lonDes=jObject.getString("longitud_destino");
-                        lonEn=jObject.getString("longitud_encuentro");
+                        encuentro = jObject.getString("descripcion_lugar_encuentro");
+                        destino = jObject.getString("descripcion_lugar_destino");
+                        latDes = jObject.getString("latitud_destino");
+                        latEn = jObject.getString("latitud_encuentro");
+                        lonDes = jObject.getString("longitud_destino");
+                        lonEn = jObject.getString("longitud_encuentro");
                         /*desc_enc.setText(encuentro);
-                        desc_dest.setText(destino);
-                        /*hor_enc.setText(jObject.getString("hora_encuentro"));
+                        desc_dest.setText(destino);*/
+                        hor_enc.setText(jObject.getString("hora_encuentro"));
                         fec_enc.setText(jObject.getString("fecha_encuentro"));
                         switch (jObject.getString("estado_servicio")) {
                             case "s":
@@ -189,7 +187,7 @@ public class ServiciosActivity extends AppCompatActivity {
                         fum_serv.setText(jObject.getString("fecha_ultima_modificacion"));
                         //jObject.getString("id_chofer")
                         //Enviar a mas informacion
-                        id_chofer.setText(jObject.getString("nombre_chofer"));*/
+                        id_chofer.setText(jObject.getString("nombre_chofer"));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

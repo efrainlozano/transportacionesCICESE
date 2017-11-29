@@ -280,18 +280,16 @@
                     android:inputType="text"
                     tools:ignore="HardcodedText" />
 
-                <EditText
+                <Spinner
                     android:id="@+id/marca_vehiculo"
                     android:layout_width="245dp"
                     android:layout_height="40dp"
-                    android:layout_alignBaseline="@+id/modelo_vehiculo"
-                    android:layout_alignBottom="@+id/modelo_vehiculo"
                     android:layout_alignStart="@+id/color_vehiculo"
+                    android:layout_alignTop="@+id/modelo_vehiculo"
                     android:background="@drawable/border_style"
                     android:ems="10"
-                    android:hint="@string/marca"
-                    android:inputType="text"
-                    tools:ignore="HardcodedText" />
+                    android:entries="@array/marcas_array"
+                    android:prompt="@string/marca" />
 
                 <!--SELECCIONAR SPINNE, DEFAULT 2017R-->
                 <Spinner
@@ -299,24 +297,21 @@
                     android:layout_width="245dp"
                     android:layout_height="40dp"
                     android:layout_alignStart="@+id/modelo_vehiculo"
-                    android:layout_below="@+id/marca_vehiculo"
-                    android:layout_marginTop="27dp"
+                    android:layout_below="@+id/modelo_vehiculo"
+                    android:layout_marginTop="9dp"
                     android:entries="@array/years_array"
-                    android:prompt="@string/year_prompt" />
+                    android:prompt="@string/year_prompt"
+                    android:background="@drawable/border_style"/>
 
-                <EditText
+                <Spinner
                     android:id="@+id/color_vehiculo"
                     android:layout_width="245dp"
                     android:layout_height="40dp"
                     android:layout_above="@+id/numero_placas"
                     android:layout_alignEnd="@+id/id_chofer"
                     android:background="@drawable/border_style"
-                    android:drawableLeft="@drawable/color_icon"
-                    android:drawablePadding="5dp"
                     android:ems="10"
-                    android:hint="Color"
-                    android:inputType="text"
-                    tools:ignore="HardcodedText,RtlHardcoded" />
+                    android:entries="@array/colores_array"/>
 
                 <EditText
                     android:id="@+id/numero_placas"

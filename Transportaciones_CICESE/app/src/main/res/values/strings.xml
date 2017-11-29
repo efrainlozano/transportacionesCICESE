@@ -1,5 +1,5 @@
 <resources>
-    <string name="URI">http://192.168.1.127:4000/ci/index.php/api</string>
+    <string name="URI">http://158.97.66.159/ci/index.php/api</string>
     <string name="google_maps_key">AIzaSyAlmfsfU1lRyiFBri6znizt44y2Uz634lM</string>
     <string name="google_directions_key">AIzaSyAjkSX7UHAXF-wcvFzK--HwaklnHVugJJo</string>
     <!-- 192.168.43.192 -->
@@ -109,7 +109,7 @@
     <string name="int_msj_t">Intercambiar mensajes con su chofer asignado y asistente</string>
     <string name="calendario_eventos">Consultar su calendario de eventos</string>
     <string name="rating_servicio">Calificar el servicio que se le ha brindado</string>
-    <string name="popup_msg">Este campo requiere un número de 10 dígitos. El formato es el siguiente: \n##########\ndonde los tres primeros números son la lada, éstos no se colocan entre paréntesis</string>
+    <string name="popup_msg">Este campo requiere un número de 10 dígitos, por ejemplo: \n(646)1234567\ndonde los tres primeros números son la lada, éstos no se colocan entre paréntesis</string>
     <string name="popup_msg2">El formato para el correo electrónico es, por ejemplo: \nnickname@dominio.com</string>
     <string name="desc_p_chofer">Con el presente formulario podrá registrar a un usuario chofer en el sistema</string>
     <string name="desc_p_pasajero">Con el presente formulario podrá registrar a un usuario pasajero en el sistema</string>

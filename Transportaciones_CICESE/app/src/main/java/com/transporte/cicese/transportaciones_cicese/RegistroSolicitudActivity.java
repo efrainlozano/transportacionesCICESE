@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -45,14 +46,14 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
 
     private Button genera, seleccionarEncuentro, seleccionarDestino;
     String folioGenerado = null;
-    String encuentro,destino,longitud_destino, latitud_destino,longitud_encuentro,latitud_encuentro, anio_selecc;
+    String encuentro,destino,longitud_destino, latitud_destino,longitud_encuentro,latitud_encuentro, anio_selecc, marca_selecc, color_selecc;
 
     private EditText folioET,
             descripcion_lugar_encuentro,descripcion_lugar_destino,
-            hora_encuentro,fecha_encuentro,modelo_vehiculo,marca_vehiculo,
-            color_vehiculo,numero_placas,tipo_vehiculo;
+            hora_encuentro,fecha_encuentro,modelo_vehiculo,
+            numero_placas,tipo_vehiculo;
 
-    private Spinner spinner_chofer,spinner_pasajero, anio_vehiculo;
+    private Spinner spinner_chofer,spinner_pasajero, anio_vehiculo, marca_vehiculo, color_vehiculo;
     Button registrarSol, registrarServicio;
 
     int idSolicitud, idAsistente, PLACE_PICKER_REQUEST;
@@ -125,17 +126,19 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
         hora_encuentro = (EditText) findViewById(R.id.horaEncuentro);
         fecha_encuentro = (EditText) findViewById(R.id.fecha_encuentro);
         modelo_vehiculo = (EditText) findViewById(R.id.modelo_vehiculo);
-        marca_vehiculo = (EditText) findViewById(R.id.marca_vehiculo);
-        color_vehiculo = (EditText) findViewById(R.id.color_vehiculo);
         numero_placas = (EditText) findViewById(R.id.numero_placas);
         tipo_vehiculo = (EditText) findViewById(R.id.tipo_vehiculo);
 
-        anio_vehiculo = (Spinner) findViewById(R.id.anio_vehiculo);
         spinner_pasajero = (Spinner) findViewById(R.id.idInvitado);
         spinner_chofer = (Spinner) findViewById(R.id.id_chofer);
 
+        marca_vehiculo = (Spinner) findViewById(R.id.marca_vehiculo);
         anio_vehiculo = (Spinner) findViewById(R.id.anio_vehiculo);
+        color_vehiculo = (Spinner) findViewById(R.id.color_vehiculo);
+
+        marca_selecc = marca_vehiculo.getSelectedItem().toString();
         anio_selecc = anio_vehiculo.getSelectedItem().toString();
+        color_selecc = color_vehiculo.getSelectedItem().toString();
 
         fG = new funcionesGeneradoras(getApplicationContext());
 
@@ -286,49 +289,39 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                Boolean validaCampo = false;
                 if (hora_encuentro.getText().toString().length() == 0) {
                     hora_encuentro.setError("El campo es requerido");
+                    validaCampo = true;
                 }
                 if (fecha_encuentro.getText().toString().length() == 0) {
                     fecha_encuentro.setError("El campo es requerido");
+                    validaCampo = true;
                 }
                 if (modelo_vehiculo.getText().toString().length() == 0) {
                     modelo_vehiculo.setError("El campo es requerido");
+                    validaCampo = true;
                 }
-                if (marca_vehiculo.getText().toString().length() == 0) {
+              /*  if (marca_vehiculo.getText().toString().length() == 0) {
                     marca_vehiculo.setError("El campo es requerido");
+                    validaCampo = true;
                 }
                 if (color_vehiculo.getText().toString().length() == 0) {
                     color_vehiculo.setError("El campo es requerido");
-                }
+                    validaCampo = true;
+                }*/
                 if (numero_placas.getText().toString().length() == 0) {
                     numero_placas.setError("El campo es requerido");
+                    validaCampo = true;
                 }
                 if (tipo_vehiculo.getText().toString().length() == 0) {
                     tipo_vehiculo.setError("El campo es requerido");
+                    validaCampo = true;
                 }
 
-                if (hora_encuentro.getText().toString().length() != 0 && fecha_encuentro.getText().toString().length() != 0 &&
-                        modelo_vehiculo.getText().toString().length() != 0 && marca_vehiculo.getText().toString().length() != 0 &&
-                        numero_placas.getText().toString().length() != 0 && tipo_vehiculo.getText().toString().length() != 0
-                        ) {
+                if(validaCampo == false) {
                     new RegistroSolicitudActivity.registrarServicio().execute();
                 }
-                if(seleccionoHora == false){Toast.makeText(getApplicationContext(),"Debe capturar la hora de encuentro", Toast.LENGTH_SHORT).show();}
-                if(seleccionoFecha == false){Toast.makeText(getApplicationContext(),"Debe capturar la fecha de encuentro", Toast.LENGTH_SHORT).show();}
-                if(modelo_vehiculo.getText().toString().length()==0){modelo_vehiculo.setError("El campo es requerido" );}
-                if(marca_vehiculo.getText().toString().length()==0){marca_vehiculo.setError("El campo es requerido" );}
-                if(anio_selecc.length()==0){Toast.makeText(getApplicationContext(),"Debe capturar el año del vehículo", Toast.LENGTH_SHORT).show();}
-                if(color_vehiculo.getText().toString().length()==0){color_vehiculo.setError("El campo es requerido" );}
-                if(numero_placas.getText().toString().length()==0){numero_placas.setError("El campo es requerido" );}
-                if(tipo_vehiculo.getText().toString().length()==0){tipo_vehiculo.setError("El campo es requerido" );}
-
-                if(hora_encuentro.getText().toString().length()!=0&&seleccionoHora==true&&fecha_encuentro.getText().toString().length()!=0&&seleccionoFecha==false&&
-                        modelo_vehiculo.getText().toString().length()!=0&&marca_vehiculo.getText().toString().length()!=0&&
-                                anio_selecc.length()!=0&&color_vehiculo.getText().toString().length()!=0&&
-                        numero_placas.getText().toString().length()!=0&&tipo_vehiculo.getText().toString().length()!=0
-                        ){new RegistroSolicitudActivity.registrarServicio().execute();}
-
             }
         });
 
@@ -379,9 +372,9 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
                 postDataParams.put("fecha_encuentro"            , fecha_encuentro.getText().toString());
                 postDataParams.put("estado_servicio"            , "s");
                 postDataParams.put("modelo_vehiculo"            , modelo_vehiculo.getText().toString());
-                postDataParams.put("marca_vehiculo"             , marca_vehiculo.getText().toString());
+                postDataParams.put("marca_vehiculo"             , marca_selecc);
                 postDataParams.put("anio_vehiculo"              , anio_selecc);
-                postDataParams.put("color_vehiculo"             , color_vehiculo.getText().toString());
+                postDataParams.put("color_vehiculo"             , color_selecc);
                 postDataParams.put("numero_placas"              , numero_placas.getText().toString());
                 postDataParams.put("tipo_vehiculo"              , tipo_vehiculo.getText().toString());
                 postDataParams.put("descripcion_lugar_encuentro", descripcion_lugar_encuentro.getText().toString());
@@ -405,8 +398,8 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "El servicio se ha registrado con éxito", Toast.LENGTH_SHORT).show();
 
                 //Limpiamos los editText para poder agregar un nuevo servicio a esta solicitud
-                hora_encuentro.setText(""); fecha_encuentro.setText(""); modelo_vehiculo.setText(""); marca_vehiculo.setText("");
-                color_vehiculo.setText(""); numero_placas.setText(""); tipo_vehiculo.setText("");
+                hora_encuentro.setText(""); fecha_encuentro.setText(""); modelo_vehiculo.setText("");
+                numero_placas.setText(""); tipo_vehiculo.setText("");
                 descripcion_lugar_encuentro.setText(""); descripcion_lugar_destino.setText("");
             }
             else {

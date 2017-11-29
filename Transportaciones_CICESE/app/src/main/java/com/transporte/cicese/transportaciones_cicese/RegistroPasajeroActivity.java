@@ -1,5 +1,6 @@
 package com.transporte.cicese.transportaciones_cicese;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
@@ -39,6 +40,7 @@ public class RegistroPasajeroActivity extends AppCompatActivity {
 
     private Button popupT,popupC;
     private String dialogoMsg,dialogoMsg2;
+    private ProgressDialog progressDialog;
 
     funcionesGeneradoras fG;
 
@@ -82,24 +84,68 @@ public class RegistroPasajeroActivity extends AppCompatActivity {
         registraPasajero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(usuarioPasajero.getText().toString().length()==0)usuarioPasajero.setError("El campo es requerido" );
-                if(contrasenaPasajero.getText().toString().length()==0)contrasenaPasajero.setError("El campo es requerido" );
-                if(nombrePasajero.getText().toString().length()==0)nombrePasajero.setError("El campo es requerido" );
-                if(aMaternoPasajero.getText().toString().length()==0)aMaternoPasajero.setError("El campo es requerido" );
-                if(numTelefonoPasajero.getText().toString().length()==0)numTelefonoPasajero.setError("El campo es requerido" );
+                boolean validaCamposP = false;
+
+                if(usuarioPasajero.getText().toString().length()==0){
+                    usuarioPasajero.setError("El campo es requerido" );
+                    validaCamposP = true;
+                }
+                if(contrasenaPasajero.getText().toString().length()==0){
+                    contrasenaPasajero.setError("El campo es requerido" );
+                    validaCamposP = true;
+                }
+                if(nombrePasajero.getText().toString().length()==0){
+                    nombrePasajero.setError("El campo es requerido" );
+                    validaCamposP = true;
+                }
+                if(aMaternoPasajero.getText().toString().length()==0){
+                    aMaternoPasajero.setError("El campo es requerido" );
+                    validaCamposP = true;
+                }
+                if(numTelefonoPasajero.getText().toString().length()==0){
+                    numTelefonoPasajero.setError("El campo es requerido" );
+                    validaCamposP = true;
+                }
                 if(numTelefonoPasajero.getText().toString().length()!=10
                         &&numTelefonoPasajero.getText().toString().length()!=0){
-                    numTelefonoPasajero.setError("Debe capturar un número de 10 dígitos");}
-                if(correoElectronicoPasajero.getText().toString().length()==0)correoElectronicoPasajero.setError("El campo es requerido" );
-                if (!validarEmail(correoElectronicoPasajero.getText().toString()))correoElectronicoPasajero.setError("Email no válido");
-                if(usuarioPasajero.getText().toString().length()!=0&&contrasenaPasajero.getText().toString().length()!=0&&
-                        nombrePasajero.getText().toString().length()!=0&&
-                        aMaternoPasajero.getText().toString().length()!=0&&numTelefonoPasajero.getText().toString().length()!=0&&
-                        numTelefonoPasajero.getText().toString().length()==10&&correoElectronicoPasajero.getText().toString().length()!=0
-                        &&validarEmail(correoElectronicoPasajero.getText().toString())){
-                    new RegistroPasajeroActivity.SendPostRequest().execute();}
+                    numTelefonoPasajero.setError("Debe capturar un número de 10 dígitos");
+                    validaCamposP = true;
+                }
+                if(correoElectronicoPasajero.getText().toString().length()==0){
+                    correoElectronicoPasajero.setError("El campo es requerido" );
+                    validaCamposP = true;
+                }
+                if (!validarEmail(correoElectronicoPasajero.getText().toString())){
+                    correoElectronicoPasajero.setError("Email no válido");
+                    validaCamposP = true;
+                }
+
+                if(validaCamposP == false){
+                    new RegistroPasajeroActivity.SendPostRequest().execute();
+                    showProgress();
+                }
             }
         });
+
+    }
+
+    private void showProgress() {
+        progressDialog = new ProgressDialog(RegistroPasajeroActivity.this);
+        progressDialog.setMessage("Cargando..."); // Setting Message
+        progressDialog.setTitle("Por favor espere"); // Setting Title
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
+        progressDialog.show(); // Display Progress Dialog
+        progressDialog.setCancelable(false);
+        new Thread(new Runnable() {
+            public void run() {
+                try {
+                    Thread.sleep(15000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                progressDialog.dismiss();
+            }
+        }).start();
 
     }
 
@@ -177,16 +223,20 @@ public class RegistroPasajeroActivity extends AppCompatActivity {
         protected void onPostExecute(ArrayList result) {
             int responseCode=(Integer)result.get(0);
             if(responseCode==HttpsURLConnection.HTTP_OK) {
+                progressDialog.cancel();
                 Toast.makeText(getApplicationContext(), "El usuario ha sido registrado con éxito",Toast.LENGTH_SHORT).show();
                 limpiarDatos();
             }
             else if(responseCode==HttpsURLConnection.HTTP_BAD_REQUEST){
+                progressDialog.cancel();
                 Toast.makeText(getApplicationContext(), "El usuario que intenta registrar ya está en uso",Toast.LENGTH_SHORT).show();
             }
             else if (responseCode==HttpsURLConnection.HTTP_FORBIDDEN){
+                progressDialog.cancel();
                 Toast.makeText(getApplicationContext(), "El usuario no pudo registrarse, revise los datos ingresados o contacte al administrador del sistema",Toast.LENGTH_SHORT).show();
             }
             else{
+                progressDialog.cancel();
                 Toast.makeText(getApplicationContext(), "Ocurrió un problema al procesar la solicitud, inténtelo más tarde",Toast.LENGTH_SHORT).show();
             }
         }

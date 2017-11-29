@@ -11,6 +11,8 @@ import android.text.format.Time;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -52,8 +54,8 @@ public class updateSolicitud extends AppCompatActivity {
     int day, month, year, hour, minutos, PLACE_PICKER_REQUEST;
 
     EditText folioEdit, descripcion_lugar_encuentro, descripcion_lugar_destino,
-            hora_encuentro, fecha_encuentro, modelo_vehiculo, marca_vehiculo,
-            anio_vehiculo, color_vehiculo, numero_placas, tipo_vehiculo;
+            hora_encuentro, fecha_encuentro, modelo_vehiculo, numero_placas,tipo_vehiculo;
+    AutoCompleteTextView marca_vehiculo,anio_vehiculo, color_vehiculo;
     Button buttonUpdateSolicitud, actualizarServicioButton, seleccionarEncuentro, seleccionarDestino;// actualizarTodoButton;
     CheckBox checkBoxServicios;
     RelativeLayout servicioLayout, servicioForm, formContainer;
@@ -114,15 +116,28 @@ public class updateSolicitud extends AppCompatActivity {
 
         folioEdit = (EditText) findViewById(R.id.folioEdit);
         descripcion_lugar_encuentro = (EditText) findViewById(R.id.descripcion_lugar_encuentro);
-        descripcion_lugar_destino = (EditText) findViewById(R.id.descripcion_lugar_destino);
+        descripcion_lugar_destino   = (EditText) findViewById(R.id.descripcion_lugar_destino);
         hora_encuentro = (EditText) findViewById(R.id.horaEncuentro);
         fecha_encuentro = (EditText) findViewById(R.id.fecha_encuentro);
         modelo_vehiculo = (EditText) findViewById(R.id.modelo_vehiculo);
-        marca_vehiculo = (EditText) findViewById(R.id.marca_vehiculo);
-        anio_vehiculo = (EditText) findViewById(R.id.anio_vehiculo);
-        color_vehiculo = (EditText) findViewById(R.id.color_vehiculo);
+        marca_vehiculo = (AutoCompleteTextView) findViewById(R.id.marca_vehiculo);
+        anio_vehiculo = (AutoCompleteTextView) findViewById(R.id.anio_vehiculo);
+        color_vehiculo = (AutoCompleteTextView) findViewById(R.id.color_vehiculo);
         numero_placas = (EditText) findViewById(R.id.numero_placas);
         tipo_vehiculo = (EditText) findViewById(R.id.tipo_vehiculo);
+
+        //Para los textos de autocompletado
+        String[] marcas = getResources().getStringArray(R.array.marcas_array);
+        String[] anios = getResources().getStringArray(R.array.years_array);
+        String[] colores = getResources().getStringArray(R.array.colores_array);
+
+        ArrayAdapter<String> adapterM = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, marcas);
+        ArrayAdapter<String> adapterY = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, anios);
+        ArrayAdapter<String> adapterC = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, colores);
+
+        marca_vehiculo.setAdapter(adapterM);
+        anio_vehiculo.setAdapter(adapterY);
+        color_vehiculo.setAdapter(adapterC);
 
         SharedPreferences settings = getSharedPreferences("prefs", MODE_PRIVATE);
         idUsuario = settings.getInt("idUsuario", 0);

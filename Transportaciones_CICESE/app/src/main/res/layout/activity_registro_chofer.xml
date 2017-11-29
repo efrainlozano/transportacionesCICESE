@@ -74,7 +74,8 @@
         android:inputType="number"
         android:layout_below="@+id/imageView10"
         android:layout_centerHorizontal="true"
-        tools:ignore="RtlHardcoded" />
+        tools:ignore="RtlHardcoded"
+        android:maxLength="5"/>
 
     <EditText
         android:id="@+id/contrasenaChofer"

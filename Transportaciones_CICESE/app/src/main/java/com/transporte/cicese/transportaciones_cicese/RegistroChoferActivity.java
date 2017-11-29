@@ -1,5 +1,6 @@
 package com.transporte.cicese.transportaciones_cicese;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
@@ -52,6 +53,8 @@ public class RegistroChoferActivity extends AppCompatActivity {
 
     private Button popupT,popupE;
     private String dialogoMsg,dialogoMsg2;
+    private ProgressDialog progressDialog;
+
     funcionesGeneradoras fG;
 
     @Override
@@ -71,8 +74,9 @@ public class RegistroChoferActivity extends AppCompatActivity {
 
        popupT = (Button) findViewById(R.id.popupChoferT);
        popupE = (Button) findViewById(R.id.popupChoferC);
-        dialogoMsg = getString (R.string.popup_msg);
-        dialogoMsg2 = getString (R.string.popup_msg2);
+
+       dialogoMsg = getString (R.string.popup_msg);
+       dialogoMsg2 = getString (R.string.popup_msg2);
 
 
         //Si se presiona el icono de exclamacion en el campo de telefono
@@ -96,22 +100,66 @@ public class RegistroChoferActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Datos capturados en el formulario
-                if(numeroEmpleadoChofer.getText().toString().length()==0){numeroEmpleadoChofer.setError("El campo es requerido");}
-                if(contrasenaChofer.getText().toString().length()==0){contrasenaChofer.setError("El campo es requerido");}
-                if(nombreChofer.getText().toString().length()==0){nombreChofer.setError("El campo es requerido");}
-                if(aMaternoChofer.getText().toString().length()==0){aMaternoChofer.setError("El campo es requerido");}
-                if(numTelefonoChofer.getText().toString().length()==0){numTelefonoChofer.setError("El campo es requerido");}
-                if(numTelefonoChofer.getText().toString().length()!=10&&numTelefonoChofer.getText().toString().length()!=0){numTelefonoChofer.setError("Debe capturar un número de 10 dígitos");}
-                if(correoElectronicoChofer.getText().toString().length()==0){correoElectronicoChofer.setError("El campo es requerido");}
-                if (!validarEmail(correoElectronicoChofer.getText().toString())){correoElectronicoChofer.setError("Email no válido");}
-                if(numeroEmpleadoChofer.getText().toString().length()!=0&&contrasenaChofer.getText().toString().length()!=0&&
-                        nombreChofer.getText().toString().length()!=0 &&
-                        aMaternoChofer.getText().toString().length()!=0&&numTelefonoChofer.getText().toString().length()!=0&&
-                        numTelefonoChofer.getText().toString().length()==10&&correoElectronicoChofer.getText().toString().length()!=0&&validarEmail(correoElectronicoChofer.getText().toString())
-                        ){new RegistroChoferActivity.SendPostRequest().execute();}
+                Boolean validaChofer = false;
+                if(numeroEmpleadoChofer.getText().toString().length()==0){
+                    numeroEmpleadoChofer.setError("El campo es requerido");
+                    validaChofer = true;
+                }
+                if(contrasenaChofer.getText().toString().length()==0){
+                    contrasenaChofer.setError("El campo es requerido");
+                    validaChofer = true;
+                }
+                if(nombreChofer.getText().toString().length()==0){
+                    nombreChofer.setError("El campo es requerido");
+                    validaChofer = true;
+                }
+                if(aMaternoChofer.getText().toString().length()==0){
+                    aMaternoChofer.setError("El campo es requerido");
+                    validaChofer = true;
+                }
+                if(numTelefonoChofer.getText().toString().length()==0){
+                    numTelefonoChofer.setError("El campo es requerido");
+                    validaChofer = true;
+                }
+                if(numTelefonoChofer.getText().toString().length()!=10
+                        && numTelefonoChofer.getText().toString().length()!=0){
+                    numTelefonoChofer.setError("Debe capturar un número de 10 dígitos");
+                    validaChofer = true;
+                }
+                if(correoElectronicoChofer.getText().toString().length()==0){
+                    correoElectronicoChofer.setError("El campo es requerido");
+                    validaChofer = true;
+                }
+                if (!validarEmail(correoElectronicoChofer.getText().toString())){
+                    correoElectronicoChofer.setError("Email no válido");
+                    validaChofer = true;
+                }
+                if(validaChofer == false){
+                    new RegistroChoferActivity.SendPostRequest().execute();
+                    showProgress();
+                }
             }
         });
 
+    }
+
+    private void showProgress() {
+        progressDialog = new ProgressDialog(RegistroChoferActivity.this);
+        progressDialog.setMessage("Cargando..."); // Setting Message
+        progressDialog.setTitle("Por favor espere"); // Setting Title
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
+        progressDialog.show(); // Display Progress Dialog
+        progressDialog.setCancelable(false);
+        new Thread(new Runnable() {
+            public void run() {
+                try {
+                    Thread.sleep(15000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                progressDialog.dismiss();
+            }
+        }).start();
     }
 
     //Validar correo electronico
@@ -191,16 +239,20 @@ public class RegistroChoferActivity extends AppCompatActivity {
         protected void onPostExecute(ArrayList result) {
             int responseCode=(Integer)result.get(0);
             if(responseCode==HttpsURLConnection.HTTP_OK) {
+                progressDialog.cancel();
                 Toast.makeText(getApplicationContext(), "El usuario ha sido registrado con éxito",Toast.LENGTH_SHORT).show();
                 limpiarDatos();
             }
             else if(responseCode==HttpsURLConnection.HTTP_BAD_REQUEST){
+                progressDialog.cancel();
                 Toast.makeText(getApplicationContext(), "El número de empleado que intenta registrar ya está en uso",Toast.LENGTH_SHORT).show();
             }
             else if (responseCode==HttpsURLConnection.HTTP_FORBIDDEN){
+                progressDialog.cancel();
                 Toast.makeText(getApplicationContext(), "El usuario no pudo registrarse, revise los datos ingresados o contacte al administrador del sistema",Toast.LENGTH_SHORT).show();
             }
             else{
+                progressDialog.cancel();
                 Toast.makeText(getApplicationContext(), "Ocurrió un problema al procesar la solicitud, inténtelo más tarde",Toast.LENGTH_SHORT).show();
             }
         }

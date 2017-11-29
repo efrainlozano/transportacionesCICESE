@@ -11,6 +11,23 @@
     android:orientation="vertical"
     tools:context="com.transporte.cicese.transportaciones_cicese.chatActivity">
 
+    <Spinner
+        android:id="@+id/solicitudesSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/spinner_style"
+        android:visibility="invisible">
+
+    </Spinner>
+    <Spinner
+        android:id="@+id/serviciosSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/spinner_style"
+        android:layout_marginTop="10dp"
+        android:saveEnabled="false">
+    </Spinner>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_weight="20"

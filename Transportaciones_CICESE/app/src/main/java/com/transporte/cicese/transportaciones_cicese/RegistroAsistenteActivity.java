@@ -1,5 +1,6 @@
 package com.transporte.cicese.transportaciones_cicese;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
@@ -57,6 +58,7 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
 
     private Button popupTel, popupCor;
     private String dialogoMsg,dialogoMsg2;
+    private ProgressDialog progressDialog;
 
     funcionesGeneradoras fG;
 
@@ -118,10 +120,32 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
                         aMaternoAsistente.getText().toString().length()!=0&&numTelefonoAsistente.getText().toString().length()!=0&&
                         numTelefonoAsistente.getText().toString().length()==10&&correoElectronicoAsistente.getText().toString().length()!=0
                         &&validarEmail(correoElectronicoAsistente.getText().toString())
-                        ){new RegistroAsistenteActivity.SendPostRequest().execute();}
+                        ){
+                    new RegistroAsistenteActivity.SendPostRequest().execute();
+                    showProgress();
+                }
             }
         });
 
+    }
+
+    private void showProgress() {
+        progressDialog = new ProgressDialog(RegistroAsistenteActivity.this);
+        progressDialog.setMessage("Cargando..."); // Setting Message
+        progressDialog.setTitle("Por favor espere"); // Setting Title
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
+        progressDialog.show(); // Display Progress Dialog
+        progressDialog.setCancelable(false);
+        new Thread(new Runnable() {
+            public void run() {
+                try {
+                    Thread.sleep(15000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                progressDialog.dismiss();
+            }
+        }).start();
     }
 
     //Validar correo electronico
@@ -198,16 +222,20 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
         protected void onPostExecute(ArrayList result) {
             int responseCode=(Integer)result.get(0);
             if(responseCode==HttpsURLConnection.HTTP_OK) {
+                progressDialog.cancel();
                 Toast.makeText(getApplicationContext(), "El usuario ha sido registrado con éxito",Toast.LENGTH_SHORT).show();
                 limpiarDatos();
             }
             else if(responseCode==HttpsURLConnection.HTTP_BAD_REQUEST){
+                progressDialog.cancel();
                 Toast.makeText(getApplicationContext(), "El usuario que intenta registrar ya está en uso",Toast.LENGTH_SHORT).show();
             }
             else if (responseCode==HttpsURLConnection.HTTP_FORBIDDEN){
+                progressDialog.cancel();
                 Toast.makeText(getApplicationContext(), "El usuario no pudo registrarse, revise los datos ingresados o contacte al administrador del sistema",Toast.LENGTH_SHORT).show();
             }
             else{
+                progressDialog.cancel();
                 Toast.makeText(getApplicationContext(), "Ocurrió un problema al procesar la solicitud, inténtelo más tarde",Toast.LENGTH_SHORT).show();
             }
         }

@@ -13,7 +13,7 @@ tools:context="com.transporte.cicese.transportaciones_cicese.chatActivity">
     <Spinner
         android:id="@+id/solicitudesSpinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:background="@drawable/spinner_style"
         android:visibility="invisible">
 
@@ -21,8 +21,9 @@ tools:context="com.transporte.cicese.transportaciones_cicese.chatActivity">
     <Spinner
         android:id="@+id/serviciosSpinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:background="@drawable/spinner_style"
+        android:layout_marginTop="10dp"
         android:saveEnabled="false">
 
     </Spinner>

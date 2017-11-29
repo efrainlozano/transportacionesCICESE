@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="marcas_array">
+        <item>Acura</item>
+        <item>Alfa Romeo</item>
+        <item>Select Make</item>
+        <item>Audi</item>
+        <item>Buick</item>
+        <item>Cadillac</item>
+        <item>Chevrolet</item>
+        <item>Chrysler</item>
+        <item>Dodge/Ram</item>
+        <item>Fiat</item>
+        <item>Ford</item>
+        <item>Genesis</item>
+        <item>GMC</item>
+        <item>Honda</item>
+        <item>Hyundai</item>
+        <item>Infiniti</item>
+        <item>Jeep</item>
+        <item>Kia</item>
+        <item>Lexus</item>
+        <item>Lincoln</item>
+        <item>Mazda</item>
+        <item>Mercedes Benz</item>
+        <item>Mini</item>
+        <item>Mitsubishi</item>
+        <item>Nissan</item>
+        <item>Subaru</item>
+        <item>Toyota</item>
+        <item>Volkswagen</item>
+    </string-array>
+</resources>

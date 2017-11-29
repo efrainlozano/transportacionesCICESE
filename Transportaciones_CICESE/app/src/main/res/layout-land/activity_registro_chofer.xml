@@ -74,7 +74,8 @@
                 android:ems="10"
                 android:hint="@string/n_mero_de_empleado"
                 android:inputType="number"
-                tools:ignore="RtlHardcoded" />
+                tools:ignore="RtlHardcoded"
+                android:maxLength="5"/>
 
             <EditText
                 android:id="@+id/contrasenaChofer"

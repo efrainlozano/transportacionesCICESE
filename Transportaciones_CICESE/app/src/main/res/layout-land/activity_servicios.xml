@@ -44,10 +44,10 @@
         android:id="@+id/buscarServicios"
         android:layout_width="600dp"
         android:layout_height="40dp"
-        android:background="@drawable/border_style"
         android:layout_alignStart="@+id/scrollView3"
-        android:layout_below="@+id/imageView10"
-        android:layout_marginTop="40dp" />
+        android:layout_below="@+id/solicitudesSpinner"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border_style" />
 
     <ScrollView
         android:layout_width="600dp"
@@ -525,4 +525,13 @@
             </TableRow>
         </TableLayout>
     </ScrollView>
+    <Spinner
+        android:id="@+id/solicitudesSpinner"
+        android:layout_width="600dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/imageView10"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/border_style"
+        android:visibility="visible" />
 </RelativeLayout>

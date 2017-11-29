@@ -46,13 +46,11 @@
         android:id="@+id/buscarServicios"
         android:layout_width="260dp"
         android:layout_height="40dp"
-        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/solicitudesSpinner"
+        android:layout_below="@+id/solicitudesSpinner"
+        android:layout_marginTop="17dp"
         android:background="@drawable/border_style"
-        android:layout_below="@+id/imageView10"
-        android:layout_alignStart="@+id/imageView10"
-        android:layout_marginTop="95dp"
-        android:saveEnabled="false"
-        android:layout_alignEnd="@+id/imageView10"/>
+        android:saveEnabled="false" />
 
   <ScrollView
         android:layout_width="340dp"
@@ -79,7 +77,7 @@
 
           <TextView
               android:layout_width="100dp"
-              android:layout_height="30dp"
+              android:layout_height="40dp"
               android:layout_alignParentTop="true"
               android:layout_centerHorizontal="true"
               android:background="@color/colorPrimaryText"
@@ -90,7 +88,8 @@
               android:textAllCaps="false"
               android:textColorHint="#ffff"
               android:textSize="18sp"
-              android:textStyle="bold"/>
+              android:textStyle="bold"
+              android:paddingTop="5dp"/>
 
 
           <TableRow
@@ -103,18 +102,20 @@
                   android:text="@string/estado"
                   android:textStyle="bold" />
 
-              <TextView
+              <!--TextView
                   android:id="@+id/est_servicio"
                   android:gravity="right"
                   android:padding="3dip"
                   android:text=""
-                  tools:ignore="RtlHardcoded" />
+                  tools:ignore="RtlHardcoded" /-->
 
               <Button
                   android:id="@+id/verRuta"
-                  android:layout_width="wrap_content"
+                  android:layout_width="205dp"
                   android:layout_height="wrap_content"
-                  android:text="ver ruta" />
+                  android:background="@drawable/tercer_button_style"
+                  android:text="ver ruta"
+                  android:textAllCaps="false" />
           </TableRow>
 
 
@@ -149,6 +150,7 @@
 
               <TextView
                   android:id="@+id/fum_servicio"
+                  android:layout_height="match_parent"
                   android:gravity="right"
                   android:padding="3dip"
                   android:text=""
@@ -245,18 +247,21 @@
                   android:text="@string/longitud"
                   android:textStyle="bold" />
 
-              <TextView
+
+              <!--TextView
                   android:id="@+id/long_encuentro"
                   android:gravity="right"
                   android:padding="3dip"
                   android:text=""
-                  tools:ignore="RtlHardcoded" />
+                  tools:ignore="RtlHardcoded" /-->
 
               <Button
                   android:id="@+id/verEncuentro"
-                  android:layout_width="wrap_content"
+                  android:layout_width="205dp"
                   android:layout_height="wrap_content"
-                  android:text="Ver Encuentro" />
+                  android:text="Ver Encuentro"
+                  android:textAllCaps="false"
+                  android:background="@drawable/tercer_button_style"/>
           </TableRow>
 
           <TableRow
@@ -376,18 +381,19 @@
                   android:text="@string/longitud"
                   android:textStyle="bold" />
 
-              <TextView
+              <!--TextView
                   android:id="@+id/long_destino"
                   android:gravity="right"
                   android:padding="3dip"
                   android:text=""
-                  tools:ignore="RtlHardcoded" />
+                  tools:ignore="RtlHardcoded" /-->
 
               <Button
                   android:id="@+id/verDestino"
-                  android:layout_width="wrap_content"
+                  android:layout_width="205dp"
                   android:layout_height="wrap_content"
-                  android:text="Ver Destino" />
+                  android:text="Ver Destino"
+                  android:background="@drawable/tercer_button_style"/>
           </TableRow>
 
           <TableRow
@@ -554,9 +560,11 @@
 
     <Spinner
         android:id="@+id/solicitudesSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:layout_width="260dp"
+        android:layout_height="40dp"
         android:layout_below="@+id/imageView10"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/border_style"
         android:visibility="invisible" />
 </RelativeLayout>

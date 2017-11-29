@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
     char tipoUsuario;
 
     funcionesGeneradoras fG;
-    ProgressDialog progressDialog;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +68,9 @@ public class LoginActivity extends AppCompatActivity {
         final RadioButton radioAsistente = (RadioButton) findViewById(R.id.radio_asistente);
         final RadioButton radioChofer = (RadioButton) findViewById(R.id.radio_chofer);
         final RadioButton radioPasajero = (RadioButton) findViewById(R.id.radio_pasajero);
+
+        //    ((EditText) findViewById(R.id.usuario_editText)).setHint("Número de empleado");
+
 
         iniciar.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string-array name="years_array">
-        <item>1997</item>
-        <item>1998</item>
-        <item>1999</item>
-        <item>2000</item>
-        <item>2001</item>
-        <item>2002</item>
-        <item>2003</item>
-        <item>2004</item>
         <item>2005</item>
         <item>2006</item>
         <item>2007</item>
@@ -33,15 +24,5 @@
         <item>2025</item>
         <item>2026</item>
         <item>2027</item>
-        <item>2028</item>
-        <item>2029</item>
-        <item>2030</item>
-        <item>2031</item>
-        <item>2032</item>
-        <item>2033</item>
-        <item>2034</item>
-        <item>2035</item>
-        <item>2036</item>
-        <item>2037</item>
     </string-array>
 </resources>
