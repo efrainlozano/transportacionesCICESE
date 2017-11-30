@@ -1,6 +1,7 @@
 package com.transporte.cicese.transportaciones_cicese;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -63,6 +64,7 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
 
 
     RelativeLayout registroSol, registroSer;
+    private ProgressDialog progressDialog;
 
     funcionesGeneradoras fG;
 
@@ -321,6 +323,7 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
 
                 if(validaCampo == false) {
                     new RegistroSolicitudActivity.registrarServicio().execute();
+                    showProgress();
                 }
             }
         });
@@ -354,6 +357,25 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void showProgress() {
+        progressDialog = new ProgressDialog(RegistroSolicitudActivity.this);
+        progressDialog.setMessage("Cargando..."); // Setting Message
+        progressDialog.setTitle("Por favor espere"); // Setting Title
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
+        progressDialog.show(); // Display Progress Dialog
+        progressDialog.setCancelable(false);
+        new Thread(new Runnable() {
+            public void run() {
+                try {
+                    Thread.sleep(15000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                progressDialog.dismiss();
+            }
+        }).start();
     }
 
     public class registrarServicio extends AsyncTask<String, Void, ArrayList> {
@@ -395,6 +417,7 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
         protected void onPostExecute(ArrayList responseResult) {
             int responseCode = (Integer) responseResult.get(0);
             if (responseCode == HttpURLConnection.HTTP_OK) {
+                progressDialog.cancel();
                 Toast.makeText(getApplicationContext(), "El servicio se ha registrado con éxito", Toast.LENGTH_SHORT).show();
 
                 //Limpiamos los editText para poder agregar un nuevo servicio a esta solicitud
@@ -403,6 +426,7 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
                 descripcion_lugar_encuentro.setText(""); descripcion_lugar_destino.setText("");
             }
             else {
+                progressDialog.cancel();
                 Toast.makeText(getApplicationContext(), "Error al registrar el servicio, intentelo más tarde o contacte al administrador", Toast.LENGTH_SHORT).show();
             }
         }

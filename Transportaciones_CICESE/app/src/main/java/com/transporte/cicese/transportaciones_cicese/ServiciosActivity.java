@@ -69,7 +69,7 @@ public class ServiciosActivity extends AppCompatActivity {
         solicitudesSpinner   = (Spinner) findViewById(R.id.solicitudesSpinner);
         fum_serv             = (TextView) findViewById(R.id.fum_servicio);
         est_serv             = (TextView) findViewById(R.id.est_servicio);
-        cal_serv             = (TextView) findViewById(R.id.calif_servicio);
+       // cal_serv             = (TextView) findViewById(R.id.calif_servicio);
         desc_enc             = (TextView) findViewById(R.id.descripcion_lugar_encuentro);
         hor_enc              = (TextView) findViewById(R.id.hor_encuentro);
         fec_enc              = (TextView) findViewById(R.id.fec_encuentro);
