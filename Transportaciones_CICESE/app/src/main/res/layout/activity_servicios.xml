@@ -58,10 +58,12 @@
         android:id="@+id/scrollView3">
 
         <RelativeLayout
+            android:id="@+id/despliegueInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:enabled="false">
 
 
             <TextView
@@ -84,11 +86,12 @@
 
             <TextView
                 android:id="@+id/textView22"
-                android:layout_width="200dp"
-                android:layout_height="40dp"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView12"
                 android:background="@color/colorPrimary"
+                android:gravity="center_vertical"
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
                 android:text="@string/estado"
@@ -98,10 +101,11 @@
             <TextView
                 android:id="@+id/est_servicio"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="60dp"
                 android:layout_below="@+id/textView12"
                 android:layout_toEndOf="@+id/textView22"
                 android:background="@color/colorPrimary"
+                android:gravity="center_vertical"
                 android:paddingTop="10dp"
                 android:text=""
                 android:textSize="17dp"
@@ -113,8 +117,10 @@
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView22"
+                android:layout_marginRight="60dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/tercer_button_style"
+                android:saveEnabled="false"
                 android:textAllCaps="false" />
 
             <Button
@@ -126,11 +132,12 @@
                 android:layout_marginTop="11dp"
                 android:background="@drawable/tercer_button_style"
                 android:text="Ver ruta"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:saveEnabled="false"/>
 
             <TextView
                 android:id="@+id/textView34"
-                android:layout_width="150dp"
+                android:layout_width="130dp"
                 android:layout_height="60dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/verRuta"
@@ -148,10 +155,13 @@
                 android:layout_height="60dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignTop="@+id/textView34"
+                android:layout_marginRight="5dp"
                 android:layout_toEndOf="@+id/textView34"
                 android:background="@color/colorPrimary"
-                android:numStars="5"
-                android:saveEnabled="false" />
+                android:stepSize="1.0"
+                android:isIndicator="true"
+                android:visibility="invisible"
+                />
 
             <TextView
                 android:id="@+id/textView35"
@@ -180,7 +190,7 @@
             <TextView
                 android:id="@+id/textView36"
                 android:layout_width="150dp"
-                android:layout_height="100dp"
+                android:layout_height="60dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView35"
                 android:background="@color/colorPrimary"
@@ -194,11 +204,14 @@
             <TextView
                 android:id="@+id/idChofer"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_alignBottom="@+id/textView36"
-                android:layout_toEndOf="@+id/textView36"
+                android:layout_height="60dp"
+                android:layout_below="@+id/fum_servicio"
+                android:layout_toEndOf="@+id/textView35"
                 android:background="@color/colorPrimary"
+                android:clickable="true"
+                android:onClick="onClick"
                 android:paddingTop="10dp"
+                android:textColor="@color/colorPrimaryText"
                 android:textSize="17dp"
                 tools:ignore="RtlHardcoded" />
 
@@ -253,7 +266,8 @@
                 android:layout_marginTop="12dp"
                 android:background="@drawable/tercer_button_style"
                 android:text="Ver Encuentro"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:saveEnabled="false"/>
 
             <TextView
                 android:id="@+id/textView39"
@@ -348,7 +362,8 @@
                 android:layout_marginTop="11dp"
                 android:background="@drawable/tercer_button_style"
                 android:text="Ver Destino"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:saveEnabled="false"/>
 
 
             <TextView
@@ -526,6 +541,26 @@
                 android:background="#d0d0d0"
                 android:paddingTop="10dp"
                 android:textSize="17dp" />
+
+            <Button
+                android:id="@+id/setEstado"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_above="@+id/verRuta"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="5dp"
+                android:text="Ok"
+                android:enabled="false"/>
+
+            <Button
+                android:id="@+id/buttonCalificar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/textView35"
+                android:layout_alignEnd="@+id/ratingServicio"
+                android:layout_alignTop="@+id/ratingServicio"
+                android:layout_toEndOf="@+id/textView34"
+                android:visibility="invisible"/>
         </RelativeLayout>
 
 

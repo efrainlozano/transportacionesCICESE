@@ -164,7 +164,6 @@ public class LoginActivity extends AppCompatActivity {
 
                     editor.putString("nUsuario", usuario);
                     editor.putInt("idUsuario", idUsuario);
-                    Log.i("solicitudes",jObject.getString("solicitudes"));
                     editor.putString("idSolicitudes",jObject.getString("solicitudes"));
                     editor.putString("tipoUsuario",String.valueOf(tipoUsuario));
                     editor.commit();//Guardamos los datos del usuario que nos seran utiles mas adelante

@@ -334,7 +334,7 @@ public class chatActivity extends AppCompatActivity {
             funcionesGeneradoras fG= new funcionesGeneradoras(getApplication());
             SharedPreferences settings = getSharedPreferences("prefs", MODE_PRIVATE);
             String tipoUsuario = settings.getString("tipoUsuario", "Default");
-            String arr = settings.getString("solicitudes", "Default").replace("[", "")
+            String arr = settings.getString("idSolicitudes", "Default").replace("[", "")
                     .replace("]", "").replace(" ", "");
             //List<String> myList = new ArrayList<String>(Arrays.asList(arr.split(",")));
             ArrayList fields = new ArrayList(Arrays.asList("idSolicitudes"));

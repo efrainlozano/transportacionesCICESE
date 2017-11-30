@@ -393,6 +393,7 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
                 postDataParams.put("hora_encuentro"             , hora_encuentro.getText().toString());
                 postDataParams.put("fecha_encuentro"            , fecha_encuentro.getText().toString());
                 postDataParams.put("estado_servicio"            , "s");
+                postDataParams.put("calificacion_servicio"      , "0");
                 postDataParams.put("modelo_vehiculo"            , modelo_vehiculo.getText().toString());
                 postDataParams.put("marca_vehiculo"             , marca_selecc);
                 postDataParams.put("anio_vehiculo"              , anio_selecc);
