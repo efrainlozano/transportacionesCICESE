@@ -10,33 +10,30 @@
 
     <ImageView
         android:id="@+id/imageView10"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:layout_alignBottom="@+id/imageView4"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         app:srcCompat="@drawable/textbacks"
-        tools:ignore="ContentDescription,UnknownIdInLayout"
-        android:layout_alignBottom="@+id/imageView4"
-        android:layout_centerHorizontal="true" />
+        tools:ignore="ContentDescription,UnknownIdInLayout" />
 
     <ImageView
         android:id="@+id/imageView11"
-        android:layout_width="match_parent"
+        android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_alignBottom="@+id/imageView10"
+        android:layout_alignStart="@+id/imageView10"
+        android:layout_marginStart="9dp"
         app:srcCompat="@drawable/consults_icon"
-        tools:ignore="ContentDescription"
-        android:layout_alignTop="@+id/imageView10"
-        android:layout_toStartOf="@+id/textView25"
-        android:layout_marginEnd="9dp"
-        android:layout_marginTop="12dp" />
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/textView25"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView10"
         android:layout_alignEnd="@+id/imageView10"
         android:layout_alignTop="@+id/imageView10"
-        android:layout_marginEnd="14dp"
         android:paddingTop="5dp"
         android:text="Por favor seleccione un servicio del siguiente listado para consultar sus datos"
         android:textColor="?attr/actionMenuTextColor"
@@ -44,15 +41,13 @@
 
     <Spinner
         android:id="@+id/buscarServicios"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/solicitudesSpinner"
+        android:layout_below="@+id/solicitudesSpinner"
+        android:layout_marginTop="11dp"
         android:background="@drawable/border_style"
-        android:layout_below="@+id/imageView10"
-        android:layout_alignStart="@+id/imageView10"
-        android:layout_marginTop="95dp"
-        android:saveEnabled="false"
-        android:layout_alignEnd="@+id/imageView10"/>
+        android:saveEnabled="false" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -72,13 +67,14 @@
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="40dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:background="@color/colorPrimaryText"
                 android:fontFamily="sans-serif"
                 android:hint="@string/detalles_servicio"
                 android:lineSpacingExtra="8sp"
+                android:paddingTop="8dp"
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColorHint="#ffff"
@@ -92,9 +88,11 @@
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView12"
-                android:padding="3dip"
+                android:background="@color/colorPrimary"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
                 android:text="@string/estado"
-                android:textSize="15dp"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -103,9 +101,10 @@
                 android:layout_height="40dp"
                 android:layout_below="@+id/textView12"
                 android:layout_toEndOf="@+id/textView22"
-                android:gravity="right"
-                android:padding="3dip"
+                android:background="@color/colorPrimary"
+                android:paddingTop="10dp"
                 android:text=""
+                android:textSize="17dp"
                 tools:ignore="RtlHardcoded" />
 
             <Button
@@ -115,7 +114,8 @@
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView22"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/tercer_button_style" />
+                android:background="@drawable/tercer_button_style"
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/verRuta"
@@ -125,83 +125,94 @@
                 android:layout_below="@+id/stateServicio"
                 android:layout_marginTop="11dp"
                 android:background="@drawable/tercer_button_style"
-                android:text="ver ruta" />
+                android:text="Ver ruta"
+                android:textAllCaps="false" />
 
             <TextView
                 android:id="@+id/textView34"
-                android:layout_width="200dp"
-                android:layout_height="58dp"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/verRuta"
                 android:layout_marginTop="9dp"
-                android:padding="3dip"
+                android:background="@color/colorPrimary"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
                 android:text="@string/calificaci_n"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <RatingBar
                 android:id="@+id/ratingServicio"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignTop="@+id/textView34"
                 android:layout_toEndOf="@+id/textView34"
+                android:background="@color/colorPrimary"
                 android:numStars="5"
                 android:saveEnabled="false" />
 
             <TextView
                 android:id="@+id/textView35"
-                android:layout_width="200dp"
-                android:layout_height="40dp"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView34"
-                android:layout_marginTop="9dp"
-                android:padding="3dip"
+                android:background="#d0d0d0"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
                 android:text="@string/fum"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/fum_servicio"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_alignBaseline="@+id/textView35"
-                android:layout_alignBottom="@+id/textView35"
+                android:layout_height="60dp"
+                android:layout_below="@+id/ratingServicio"
                 android:layout_toEndOf="@+id/textView35"
-                android:gravity="right"
-                android:padding="3dip"
+                android:background="#d0d0d0"
+                android:paddingTop="10dp"
+                android:textSize="17dp"
                 tools:ignore="RtlHardcoded" />
 
             <TextView
                 android:id="@+id/textView36"
-                android:layout_width="200dp"
-                android:layout_height="40dp"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView35"
-                android:layout_marginTop="12dp"
-                android:padding="3dip"
+                android:background="@color/colorPrimary"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
                 android:text="@string/nombre_chofer"
+
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/idChofer"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="100dp"
                 android:layout_alignBottom="@+id/textView36"
                 android:layout_toEndOf="@+id/textView36"
-                android:gravity="right"
-                android:padding="3dip"
-                android:text=""
+                android:background="@color/colorPrimary"
+                android:paddingTop="10dp"
+                android:textSize="17dp"
                 tools:ignore="RtlHardcoded" />
 
 
             <TextView
                 android:id="@+id/textView37"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="40dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView36"
                 android:layout_marginTop="10dp"
                 android:background="@android:color/holo_blue_light"
                 android:hint="@string/datos_de_encuentro"
+                android:paddingTop="8dp"
                 android:textAlignment="center"
                 android:textColorHint="#ffff"
                 android:textSize="18sp"
@@ -210,24 +221,26 @@
 
             <TextView
                 android:id="@+id/textView38"
-                android:layout_width="200dp"
-                android:layout_height="40dp"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView37"
-                android:padding="3dip"
+                android:background="#d0d0d0"
+                android:paddingLeft="20dp"
+                android:paddingTop="30dp"
                 android:text="@string/descripci_n"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
 
             <TextView
                 android:id="@+id/descripcion_lugar_encuentro"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="100dp"
                 android:layout_below="@+id/textView37"
                 android:layout_toEndOf="@+id/textView38"
-                android:gravity="right"
-                android:padding="3dip"
-                android:text=""
+                android:background="#d0d0d0"
+                android:textSize="15dp"
                 tools:ignore="RtlHardcoded" />
 
 
@@ -237,28 +250,37 @@
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView38"
-                android:text="Ver Encuentro" />
+                android:layout_marginTop="12dp"
+                android:background="@drawable/tercer_button_style"
+                android:text="Ver Encuentro"
+                android:textAllCaps="false" />
 
             <TextView
                 android:id="@+id/textView39"
-                android:layout_width="200dp"
+                android:layout_width="150dp"
                 android:layout_height="40dp"
+                android:layout_alignBaseline="@+id/hor_encuentro"
+                android:layout_alignBottom="@+id/hor_encuentro"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/verEncuentro"
-                android:padding="3dip"
+                android:background="#d0d0d0"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
                 android:text="@string/hora"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
 
             <TextView
                 android:id="@+id/textView40"
-                android:layout_width="200dp"
+                android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView39"
-                android:layout_marginTop="9dp"
-                android:padding="3dip"
+                android:background="@color/colorPrimary"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
                 android:text="@string/fecha"
+                android:textSize="17dp"
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
 
@@ -269,21 +291,23 @@
                 android:layout_alignBaseline="@+id/textView40"
                 android:layout_alignBottom="@+id/textView40"
                 android:layout_toEndOf="@+id/textView40"
-                android:gravity="right"
-                android:padding="3dip"
+                android:background="@color/colorPrimary"
+                android:paddingTop="10dp"
                 android:text=""
+                android:textSize="17dp"
                 tools:ignore="RtlHardcoded" />
 
 
             <TextView
                 android:id="@+id/textView41"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="40dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView40"
                 android:layout_marginTop="18dp"
                 android:background="@android:color/holo_blue_light"
                 android:hint="@string/datos_de_destino"
+                android:paddingTop="8dp"
                 android:textAlignment="center"
                 android:textColorHint="#ffff"
                 android:textSize="18sp"
@@ -292,23 +316,27 @@
 
             <TextView
                 android:id="@+id/textView42"
-                android:layout_width="200dp"
-                android:layout_height="40dp"
+                android:layout_width="150dp"
+                android:layout_height="80dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView41"
-                android:padding="3dip"
+                android:background="@color/colorPrimary"
+                android:paddingLeft="20dp"
+                android:paddingTop="30dp"
                 android:text="@string/descripci_n"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/desc_destino"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="80dp"
                 android:layout_below="@+id/textView41"
                 android:layout_toEndOf="@+id/textView42"
-                android:gravity="right"
-                android:padding="3dip"
+                android:background="@color/colorPrimary"
+                android:paddingTop="10dp"
                 android:text=""
+                android:textSize="15dp"
                 tools:ignore="RtlHardcoded" />
 
             <Button
@@ -318,18 +346,21 @@
                 android:layout_below="@+id/desc_destino"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="11dp"
-                android:text="Ver Destino" />
+                android:background="@drawable/tercer_button_style"
+                android:text="Ver Destino"
+                android:textAllCaps="false" />
 
 
             <TextView
                 android:id="@+id/textView43"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="40dp"
                 android:layout_below="@+id/verDestino"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="11dp"
                 android:background="@android:color/holo_blue_light"
                 android:hint="@string/datos_del_vehiculo"
+                android:paddingTop="8dp"
                 android:textAlignment="center"
                 android:textColorHint="#ffff"
                 android:textSize="18sp"
@@ -338,34 +369,40 @@
 
             <TextView
                 android:id="@+id/textView44"
-                android:layout_width="200dp"
+                android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView43"
-                android:padding="3dip"
+                android:background="@color/colorPrimary"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
                 android:text="@string/model"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/model_vehiculo"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_alignBaseline="@+id/textView44"
-                android:layout_alignBottom="@+id/textView44"
+                android:layout_below="@+id/textView43"
                 android:layout_toEndOf="@+id/textView44"
-                android:gravity="right"
-                android:padding="3dip"
+                android:background="@color/colorPrimary"
+                android:paddingTop="10dp"
                 android:text=""
+                android:textSize="17dp"
                 tools:ignore="RtlHardcoded" />
 
             <TextView
                 android:id="@+id/textView45"
-                android:layout_width="200dp"
+                android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView44"
-                android:padding="3dip"
+                android:background="#d0d0d0"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
                 android:text="@string/marca"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -374,19 +411,23 @@
                 android:layout_height="40dp"
                 android:layout_below="@+id/model_vehiculo"
                 android:layout_toEndOf="@+id/textView45"
-                android:gravity="right"
-                android:padding="3dip"
+                android:background="#d0d0d0"
+                android:paddingTop="10dp"
                 android:text=""
+                android:textSize="17dp"
                 tools:ignore="RtlHardcoded" />
 
             <TextView
                 android:id="@+id/textView47"
-                android:layout_width="200dp"
+                android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView45"
-                android:padding="3dip"
+                android:background="@color/colorPrimary"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
                 android:text="@string/anio"
+                android:textSize="17dp"
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
 
@@ -396,19 +437,22 @@
                 android:layout_height="40dp"
                 android:layout_below="@+id/marc_vehiculo"
                 android:layout_toEndOf="@+id/textView47"
-                android:gravity="right"
-                android:padding="3dip"
+                android:background="@color/colorPrimary"
+                android:paddingTop="10dp"
                 android:text=""
                 tools:ignore="RtlHardcoded" />
 
             <TextView
                 android:id="@+id/textView48"
-                android:layout_width="200dp"
+                android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView47"
-                android:padding="3dip"
+                android:background="#d0d0d0"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
                 android:text="@string/color"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
 
@@ -418,19 +462,22 @@
                 android:layout_height="40dp"
                 android:layout_below="@+id/an_vehiculo"
                 android:layout_toEndOf="@+id/textView48"
-                android:gravity="right"
-                android:padding="3dip"
+                android:background="#d0d0d0"
+                android:paddingTop="10dp"
                 android:text=""
                 tools:ignore="RtlHardcoded" />
 
             <TextView
                 android:id="@+id/textView49"
-                android:layout_width="200dp"
+                android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView48"
-                android:padding="3dip"
+                android:background="@color/colorPrimary"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
                 android:text="@string/placas"
+                android:textSize="17dp"
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
 
@@ -440,19 +487,22 @@
                 android:layout_height="40dp"
                 android:layout_below="@+id/col_vehiculo"
                 android:layout_toEndOf="@+id/textView48"
-                android:gravity="right"
-                android:padding="3dip"
+                android:background="@color/colorPrimary"
+                android:paddingTop="10dp"
                 android:text=""
                 tools:ignore="RtlHardcoded" />
 
             <TextView
                 android:id="@+id/textView50"
-                android:layout_width="200dp"
+                android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView49"
-                android:padding="3dip"
+                android:background="#d0d0d0"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
                 android:text="@string/tipo"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -461,8 +511,8 @@
                 android:layout_height="40dp"
                 android:layout_below="@+id/pla_vehiculo"
                 android:layout_toEndOf="@+id/textView50"
-                android:gravity="right"
-                android:padding="3dip"
+                android:background="#d0d0d0"
+                android:paddingTop="10dp"
                 android:text=""
                 tools:ignore="RtlHardcoded" />
 
@@ -470,9 +520,12 @@
                 android:id="@+id/hor_encuentro"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="10dp"
-                android:layout_toEndOf="@+id/textView39" />
+                android:layout_below="@+id/verEncuentro"
+                android:layout_marginTop="14dp"
+                android:layout_toEndOf="@+id/textView39"
+                android:background="#d0d0d0"
+                android:paddingTop="10dp"
+                android:textSize="17dp" />
         </RelativeLayout>
 
 
@@ -480,11 +533,13 @@
 
     <Spinner
         android:id="@+id/solicitudesSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/imageView10"
-        android:visibility="invisible" />
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/imageView11"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="9dp"
+        android:background="@drawable/border_style" />
+
 
 
 </RelativeLayout>
