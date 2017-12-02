@@ -4,6 +4,8 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.format.Time;
 import android.util.Log;
 import android.view.Gravity;
@@ -93,9 +95,11 @@ public class chatActivity extends AppCompatActivity {
         miId = settings.getInt("idUsuario",0); //AQUI DEBERA DE IR AL SHAREDPREFERENCE DEL ID DEL USUARIO LOGUEADO
         miNombre=settings.getString("nUsuario","Default");
         String tipoUsuario = settings.getString("tipoUsuario","Default");
+        sendButton.setEnabled(false);
         switch (tipoUsuario) {
             case "p":
                 serviciosSpinner.setEnabled(true);
+                serviciosSpinner.setVisibility(View.VISIBLE);
                 new chatActivity.obtenerServicios().execute();
                 break;
             default:
@@ -121,6 +125,7 @@ public class chatActivity extends AppCompatActivity {
         solicitudesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                messageArea.setEnabled(false);
                 if (position != 0) {
                     JSONObject jObject = null;
                     try {
@@ -133,13 +138,35 @@ public class chatActivity extends AppCompatActivity {
                     }
                 }
                 else{
-                    serviciosSpinner.setEnabled(false);
+                    serviciosSpinner.setVisibility(View.INVISIBLE);
+                    messageArea.setEnabled(false);
+                    layout.removeAllViews();
+
                 }
             }
 
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        messageArea.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.length()!=0)
+                    sendButton.setEnabled(true);
+                else
+                    sendButton.setEnabled(false);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
 
             }
         });
@@ -153,11 +180,18 @@ public class chatActivity extends AppCompatActivity {
                         //idServicio = jObject.getInt("id_servicio");
                         idServicio=jObject.getInt("id_servicio");
                         layout.removeAllViews();
+                        messageArea.setEnabled(true);
                         new chatActivity.ConsultarDatos().execute();
                     } catch (JSONException e) {
+                        messageArea.setEnabled(false);
                         e.printStackTrace();
                     }
                 }
+                else {
+                    messageArea.setEnabled(false);
+                    layout.removeAllViews();
+                }
+
             }
 
             @Override
@@ -285,7 +319,7 @@ public class chatActivity extends AppCompatActivity {
             ArrayList values;
             switch (tipoUsuario) {
                 case "p":
-                    String solicitudes = settings.getString("solicitudes", "Default")
+                    String solicitudes = settings.getString("idSolicitudes", "Default")
                             .replace("[", "").replace("]", "");
                     values = new ArrayList(Arrays.asList(solicitudes));
                     result = fG.functionGetRequest("gservicios", fields, values);
@@ -317,10 +351,12 @@ public class chatActivity extends AppCompatActivity {
                     }
                     spinnerAdapterServicios = new customSpinnerAdapter(chatActivity.this, serviciosArray, null);
                     serviciosSpinner.setAdapter(spinnerAdapterServicios);
+                    serviciosSpinner.setVisibility(View.VISIBLE);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             } else {
+                serviciosSpinner.setVisibility(View.INVISIBLE);
                 Toast.makeText(getApplicationContext(), "No hay servicios regitrados a esta solicitud", Toast.LENGTH_SHORT).show();
             }
 
