@@ -85,10 +85,10 @@ public class LoginActivity extends AppCompatActivity {
                 }else if(radioPasajero.isChecked()==true){
                     tipoUsuario = 'p';
                 }
-
+                String token = FirebaseInstanceId.getInstance().getToken();
                 iniciar.setEnabled(false);
-                fields= new ArrayList(Arrays.asList("tipo","usuario","contrasena"));
-                values= new ArrayList(Arrays.asList(tipoUsuario,usuario,contrasena));
+                fields= new ArrayList(Arrays.asList("tipo","usuario","contrasena","token"));
+                values= new ArrayList(Arrays.asList(tipoUsuario,usuario,contrasena,token));
 
                 if(usuario.length()==0){
                     usuarioEdit.setError("El campo es requerido" );
@@ -104,7 +104,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 //Generar el token
-                String token = FirebaseInstanceId.getInstance().getToken();
+
             }
         });
     }

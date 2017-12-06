@@ -63,7 +63,7 @@ public class chatActivity extends AppCompatActivity {
     private int miId, idServicio;
     private ImageView sendButton;
     private ScrollView scrollView;
-    private String title = "";
+    private String title = "",tipoUsuario;
     private ArrayList fields,values;
     private Spinner serviciosSpinner,solicitudesSpinner;
     private JSONArray serviciosResult,solicitudesResult;
@@ -94,7 +94,7 @@ public class chatActivity extends AppCompatActivity {
         scrollView = (ScrollView)findViewById(R.id.scrollView);
         miId = settings.getInt("idUsuario",0); //AQUI DEBERA DE IR AL SHAREDPREFERENCE DEL ID DEL USUARIO LOGUEADO
         miNombre=settings.getString("nUsuario","Default");
-        String tipoUsuario = settings.getString("tipoUsuario","Default");
+        tipoUsuario = settings.getString("tipoUsuario","Default");
         sendButton.setEnabled(false);
         switch (tipoUsuario) {
             case "p":
@@ -213,6 +213,9 @@ public class chatActivity extends AppCompatActivity {
                 fecha = today.year+"-"+(today.month+1)+"-"+today.monthDay;
                 hora=today.hour+":"+today.minute;
                 JSONObject postDataParams = new JSONObject();
+                //JSONObject jObject = new JSONObject(solicitudesResult.get(solicitudesSpinner.getSelectedItemPosition()-1).toString());
+                postDataParams.put("idsolicitud",72);
+                postDataParams.put("tipo",tipoUsuario);
                 postDataParams.put("idservicio", idServicio);
                 postDataParams.put("mensaje", mensaje);
                 postDataParams.put("remitente", miNombre);
@@ -234,6 +237,7 @@ public class chatActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Recuerda recargar para ver nuevos mensajes entrantes", Toast.LENGTH_SHORT).show();
                 addMessageBox("Tu:\n" + mensaje + "\n" + fecha + " - " + hora, 1);
             }
+            Log.i("r",result.get(0).toString());
         }
     }
 
