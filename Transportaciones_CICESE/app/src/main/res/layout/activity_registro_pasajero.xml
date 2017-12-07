@@ -68,6 +68,7 @@
         android:drawableLeft="@drawable/user_icon"
         android:drawablePadding="5dp"
         android:ems="10"
+        android:maxLength="8"
         android:hint="@string/username"
         android:inputType="text"
         android:layout_below="@+id/imageView10"
@@ -100,7 +101,7 @@
         android:drawablePadding="5dp"
         android:ems="10"
         android:hint="@string/nombre"
-        android:inputType="text"
+        android:inputType="textCapWords"
         android:layout_below="@+id/latitud_lugar_destino"
         android:layout_alignStart="@+id/latitud_lugar_destino" />
 
@@ -115,7 +116,7 @@
         android:drawablePadding="5dp"
         android:ems="10"
         android:hint="@string/apellido_paterno"
-        android:inputType="text"
+        android:inputType="textCapWords"
         android:layout_below="@+id/longitud_lugar_encuentro"
         android:layout_centerHorizontal="true" />
 
@@ -131,7 +132,7 @@
         android:drawablePadding="5dp"
         android:ems="10"
         android:hint="@string/apellido_materno"
-        android:inputType="text" />
+        android:inputType="textCapWords" />
 
     <EditText
         android:id="@+id/tel_pasajero"

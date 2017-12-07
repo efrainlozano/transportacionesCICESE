@@ -22,7 +22,6 @@ import android.widget.Toast;
 public class InicioPasajeroActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         InicioFragment.OnFragmentInteractionListener,
-        ServiciosFragment.OnFragmentInteractionListener,
         AboutFragment.OnFragmentInteractionListener,
         LogoutFragment.OnFragmentInteractionListener{
 
@@ -133,9 +132,6 @@ public class InicioPasajeroActivity extends AppCompatActivity
             title="Inicio";
             fragSelect = true;
         } else if (id == R.id.nav_servicio) {
-            //fragment =  new ServiciosFragment();
-            title="Servicios";
-            /*fragSelect = true;*/
             i = new Intent(InicioPasajeroActivity.this,ServiciosActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_logout) {

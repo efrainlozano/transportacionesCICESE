@@ -2,13 +2,10 @@ package com.transporte.cicese.transportaciones_cicese;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
@@ -44,7 +41,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_ONE_SHOT);
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.drawable.noti_icon)
                 .setContentTitle(title)
                 .setContentText(body)
                 .setAutoCancel(true)

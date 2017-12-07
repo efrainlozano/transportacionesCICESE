@@ -109,6 +109,11 @@ public class RegistroChoferActivity extends AppCompatActivity {
                     contrasenaChofer.setError("El campo es requerido");
                     validaChofer = true;
                 }
+                if(contrasenaChofer.getText().toString().length()!=8
+                        && contrasenaChofer.getText().toString().length()!=0){
+                    contrasenaChofer.setError("Debe capturar una contraseña de 8 dígitos");
+                    validaChofer = true;
+                }
                 if(nombreChofer.getText().toString().length()==0){
                     nombreChofer.setError("El campo es requerido");
                     validaChofer = true;

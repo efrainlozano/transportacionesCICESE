@@ -146,8 +146,6 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
 
         new RegistroSolicitudActivity.poblarInvitadoSpinner().execute();
 
-
-
         //Para seleccionar la fecha y hora
 
         hora_encuentro.setOnClickListener(new View.OnClickListener() {
@@ -494,7 +492,7 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
                     invitadosResult = new JSONArray(data);
                     invitadosArray = new String[invitadosResult.length() + 1];
                     ArrayList index = new ArrayList();
-                    invitadosArray[0] = "Selecciona un usuario pasajero de la lista";
+                    invitadosArray[0] = "Seleccione a un pasajero de la lista";
                     for (int i = 0; i < invitadosResult.length(); i++) {
                         JSONObject oneObject = invitadosResult.getJSONObject(i);
                         invitadosArray[i + 1] = oneObject.getString("nombre") + " " + oneObject.getString("apellido_paterno") + " " + oneObject.getString("apellido_materno");

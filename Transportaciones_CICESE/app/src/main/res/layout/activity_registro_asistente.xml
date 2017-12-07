@@ -62,7 +62,9 @@
         android:drawablePadding="5dp"
         android:ems="10"
         android:hint="@string/username"
-        android:inputType="text" />
+        android:inputType="text"
+        android:maxLength="8"
+        />
 
     <EditText
         android:id="@+id/contrasena_asistente"
@@ -91,7 +93,7 @@
         android:drawablePadding="5dp"
         android:ems="10"
         android:hint="@string/nombre"
-        android:inputType="text"
+        android:inputType="textCapWords"
         android:layout_below="@+id/contrasena_asistente"
         android:layout_alignStart="@+id/contrasena_asistente" />
 
@@ -106,7 +108,7 @@
         android:drawablePadding="5dp"
         android:ems="10"
         android:hint="@string/apellido_paterno"
-        android:inputType="text"
+        android:inputType="textCapWords"
         android:layout_below="@+id/nombre_asistente"
         android:layout_centerHorizontal="true" />
 
@@ -122,7 +124,7 @@
         android:drawablePadding="5dp"
         android:ems="10"
         android:hint="@string/apellido_materno"
-        android:inputType="text" />
+        android:inputType="textCapWords" />
 
     <!--Info. Formato-->
     <EditText

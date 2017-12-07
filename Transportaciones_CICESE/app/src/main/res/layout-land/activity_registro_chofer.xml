@@ -106,7 +106,7 @@
                 android:drawableLeft="@drawable/name_icon"
                 android:drawablePadding="5dp"
                 android:hint="@string/nombre"
-                android:inputType="text"
+                android:inputType="textCapWords"
                 android:layout_below="@+id/contrasenaChofer"
                 android:layout_alignStart="@+id/contrasenaChofer"
                 android:layout_alignEnd="@+id/contrasenaChofer"
@@ -123,7 +123,7 @@
                 android:drawableLeft="@drawable/name_icon"
                 android:drawablePadding="5dp"
                 android:hint="@string/apellido_paterno"
-                android:inputType="text"
+                android:inputType="textCapWords"
                 android:layout_below="@+id/nombreChofer"
                 android:layout_alignStart="@+id/nombreChofer"
                 android:layout_alignEnd="@+id/nombreChofer"
@@ -142,7 +142,7 @@
                 android:drawablePadding="5dp"
                 android:ems="10"
                 android:hint="@string/apellido_materno"
-                android:inputType="text"
+                android:inputType="textCapWords"
                 tools:ignore="RtlHardcoded" />
 
             <!--INFORMACION DE FORMATO-->

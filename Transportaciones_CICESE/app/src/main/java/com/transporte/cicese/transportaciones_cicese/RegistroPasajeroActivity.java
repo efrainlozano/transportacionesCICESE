@@ -94,6 +94,11 @@ public class RegistroPasajeroActivity extends AppCompatActivity {
                     contrasenaPasajero.setError("El campo es requerido" );
                     validaCamposP = true;
                 }
+                if(contrasenaPasajero.getText().toString().length()!=8
+                        &&contrasenaPasajero.getText().toString().length()!=0){
+                    contrasenaPasajero.setError("Debe capturar una contraseña de 8 dígitos");
+                    validaCamposP = true;
+                }
                 if(nombrePasajero.getText().toString().length()==0){
                     nombrePasajero.setError("El campo es requerido" );
                     validaCamposP = true;

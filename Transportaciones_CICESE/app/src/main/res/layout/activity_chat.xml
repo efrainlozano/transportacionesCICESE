@@ -15,6 +15,7 @@ tools:context="com.transporte.cicese.transportaciones_cicese.chatActivity">
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/spinner_style"
+        android:spinnerMode="dropdown"
         android:visibility="invisible">
 
     </Spinner>
@@ -23,6 +24,7 @@ tools:context="com.transporte.cicese.transportaciones_cicese.chatActivity">
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/spinner_style"
+        android:spinnerMode="dropdown"
         android:layout_marginTop="10dp"
         android:saveEnabled="false">
 

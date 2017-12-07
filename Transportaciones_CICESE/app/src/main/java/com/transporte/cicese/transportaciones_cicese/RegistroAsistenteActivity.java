@@ -106,21 +106,47 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                boolean validaCampos = false;
                 //Datos capturados en el formulario
-                if(usuarioAsistente.getText().toString().length()==0)usuarioAsistente.setError("El campo es requerido" );
-                if(contrasenaAsistente.getText().toString().length()==0)contrasenaAsistente.setError("El campo es requerido" );
-                if(nombreAsistente.getText().toString().length()==0)nombreAsistente.setError("El campo es requerido" );
-                if(aMaternoAsistente.getText().toString().length()==0)aMaternoAsistente.setError("El campo es requerido" );
-                if(numTelefonoAsistente.getText().toString().length()==0)numTelefonoAsistente.setError("El campo es requerido" );
-                if(numTelefonoAsistente.getText().toString().length()!=10&&numTelefonoAsistente.getText().toString().length()!=0){numTelefonoAsistente.setError("Debe capturar un número de 10 dígitos");}
-                if(correoElectronicoAsistente.getText().toString().length()==0){correoElectronicoAsistente.setError("El campo es requerido" );}
-                if (!validarEmail(correoElectronicoAsistente.getText().toString())){correoElectronicoAsistente.setError("Email no válido");}
-                if(usuarioAsistente.getText().toString().length()!=0&&contrasenaAsistente.getText().toString().length()!=0&&
-                        nombreAsistente.getText().toString().length()!=0&&
-                        aMaternoAsistente.getText().toString().length()!=0&&numTelefonoAsistente.getText().toString().length()!=0&&
-                        numTelefonoAsistente.getText().toString().length()==10&&correoElectronicoAsistente.getText().toString().length()!=0
-                        &&validarEmail(correoElectronicoAsistente.getText().toString())
-                        ){
+                if(usuarioAsistente.getText().toString().length()==0){
+                    usuarioAsistente.setError("El campo es requerido" );
+                    validaCampos = true;
+                }
+                if(contrasenaAsistente.getText().toString().length()==0){
+                    contrasenaAsistente.setError("El campo es requerido");
+                    validaCampos = true;
+                }
+                if(contrasenaAsistente.getText().toString().length()!=8
+                        && contrasenaAsistente.getText().toString().length()!=0){
+                    contrasenaAsistente.setError("Debe capturar una contraseña de 8 dígitos");
+                    validaCampos = true;
+                }
+                if(nombreAsistente.getText().toString().length()==0){
+                    nombreAsistente.setError("El campo es requerido");
+                    validaCampos = true;
+                }
+                if(aMaternoAsistente.getText().toString().length()==0){
+                    aMaternoAsistente.setError("El campo es requerido");
+                    validaCampos = true;
+                }
+                if(numTelefonoAsistente.getText().toString().length()==0){
+                    numTelefonoAsistente.setError("El campo es requerido");
+                    validaCampos = true;
+                }
+                if(numTelefonoAsistente.getText().toString().length()!=10
+                        && numTelefonoAsistente.getText().toString().length()!=0){
+                    numTelefonoAsistente.setError("Debe capturar un número de 10 dígitos");
+                    validaCampos = true;
+                }
+                if(correoElectronicoAsistente.getText().toString().length()==0){
+                    correoElectronicoAsistente.setError("El campo es requerido");
+                    validaCampos = true;
+                }
+                if (!validarEmail(correoElectronicoAsistente.getText().toString())){
+                    correoElectronicoAsistente.setError("Email no válido");
+                    validaCampos = true;
+                }
+                if(validaCampos==false){
                     new RegistroAsistenteActivity.SendPostRequest().execute();
                     showProgress();
                 }

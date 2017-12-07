@@ -37,7 +37,9 @@
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ServiciosActivity" />
+        <activity
+            android:name=".ServiciosActivity"
+            />
         <activity
             android:name=".InicioPasajeroActivity"
             android:label="@string/title_activity_inicio_pasajero"

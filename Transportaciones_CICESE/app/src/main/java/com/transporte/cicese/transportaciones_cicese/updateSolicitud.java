@@ -1,6 +1,7 @@
 package com.transporte.cicese.transportaciones_cicese;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -67,6 +68,7 @@ public class updateSolicitud extends AppCompatActivity {
     /*a=asistente
     * p=invitado/pasajero
     * c=chofer*/
+    private ProgressDialog progressDialog;
     String[] solicitudesArray, invitadosArray, serviciosArray, choferesArray;
     JSONArray solicitudesResult, invitadosResult, serviciosResult, choferesResult;
     int idSolicitud; //Identificador de la solicitud que se esta modificando
@@ -392,6 +394,14 @@ public class updateSolicitud extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 boolean b = true;
+                if (descripcion_lugar_encuentro.getText().toString().length() == 0){
+                    descripcion_lugar_encuentro.setError("Por favor seleccione el lugar de encuentro");
+                    b = false;
+                }
+                if(descripcion_lugar_destino.getText().toString().length() == 0){
+                    descripcion_lugar_destino.setError("Por favor seleccione el lugar de destino");
+                    b = false;
+                }
                 if (hora_encuentro.getText().toString().length() == 0) {
                     hora_encuentro.setError("El campo es requerido");
                     b = false;
@@ -428,9 +438,11 @@ public class updateSolicitud extends AppCompatActivity {
                     switch (actionUpdate) {
                         case 1:
                             new updateSolicitud.sendUpdateServicio().execute();
+                            showProgress();
                             break;
                         case 0:
                             new updateSolicitud.registrarServicio().execute();
+                            showProgress();
 
                     }
                 }
@@ -481,6 +493,25 @@ public class updateSolicitud extends AppCompatActivity {
         });*/
     }
 
+    private void showProgress() {
+        progressDialog = new ProgressDialog(updateSolicitud.this);
+        progressDialog.setMessage("Cargando..."); // Setting Message
+        progressDialog.setTitle("Por favor espere"); // Setting Title
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
+        progressDialog.show(); // Display Progress Dialog
+        progressDialog.setCancelable(false);
+        new Thread(new Runnable() {
+            public void run() {
+                try {
+                    Thread.sleep(15000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                progressDialog.dismiss();
+            }
+        }).start();
+    }
+
     public class sendUpdateServicio extends AsyncTask<String, Void, ArrayList> {
 
         protected ArrayList doInBackground(String... urls) {
@@ -519,9 +550,11 @@ public class updateSolicitud extends AppCompatActivity {
         protected void onPostExecute(ArrayList result) {
             responseCode = (Integer) result.get(0);
             if (responseCode == HttpURLConnection.HTTP_OK) {
+                progressDialog.cancel();
                 Toast.makeText(getApplicationContext(), "Informacion actualizada", Toast.LENGTH_SHORT).show();
 
             } else {
+                progressDialog.cancel();
                 Toast.makeText(getApplicationContext(), "Error al actualizar servicio", Toast.LENGTH_SHORT).show();
             }
         }

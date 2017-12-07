@@ -52,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
     Button iniciar;
     char tipoUsuario;
 
+    String token;
     funcionesGeneradoras fG;
     private ProgressDialog progressDialog;
 
@@ -104,7 +105,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 //Generar el token
-                String token = FirebaseInstanceId.getInstance().getToken();
+                token = FirebaseInstanceId.getInstance().getToken();
             }
         });
     }
@@ -221,4 +222,42 @@ public class LoginActivity extends AppCompatActivity {
         } catch (Exception e) {
         }
     }
+
+    /*public class SendPostRequest extends AsyncTask<String, Void, ArrayList> {
+
+        protected ArrayList doInBackground(String... arg0) {
+            fG = new funcionesGeneradoras(getApplicationContext());
+            try {
+                JSONObject postDataParams = new JSONObject();
+                postDataParams.put("tipo", tipoUsuario);
+                postDataParams.put("usuario", usuario);
+                postDataParams.put("mobile_token", token);
+
+                return fG.functionPostRequest("ausuario",postDataParams);
+            }
+            catch(Exception e){
+                Log.e("Exception",e.toString());
+                return null;
+            }
+
+        }
+
+        //Muestra en pantalla el resultado con un mensaje Toast
+        @Override
+        protected void onPostExecute(ArrayList result) {
+            int responseCode=(Integer)result.get(0);
+            if(responseCode==HttpsURLConnection.HTTP_OK) {
+                Toast.makeText(getApplicationContext(), "Se ha registrado el token",Toast.LENGTH_SHORT).show();
+            }
+            else if(responseCode==HttpsURLConnection.HTTP_BAD_REQUEST){
+                Toast.makeText(getApplicationContext(), "El usuario que intenta registrar ya está en uso",Toast.LENGTH_SHORT).show();
+            }
+            else if (responseCode==HttpsURLConnection.HTTP_FORBIDDEN){
+                Toast.makeText(getApplicationContext(), "Token no pudo registrarse",Toast.LENGTH_SHORT).show();
+            }
+            else{
+                Toast.makeText(getApplicationContext(), "Ocurrió un problema al procesar la solicitud, inténtelo más tarde",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }*/
 }
