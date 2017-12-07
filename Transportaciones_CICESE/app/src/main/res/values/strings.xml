@@ -1,5 +1,5 @@
 <resources>
-    <string name="URI">http://192.168.0.5/ci/index.php/api</string>
+    <string name="URI">http://192.168.1.130:4000/ci/index.php/api</string>
     <string name="google_maps_key">AIzaSyAlmfsfU1lRyiFBri6znizt44y2Uz634lM</string>
     <string name="google_directions_key">AIzaSyAjkSX7UHAXF-wcvFzK--HwaklnHVugJJo</string>
     <!-- 192.168.43.192 -->
