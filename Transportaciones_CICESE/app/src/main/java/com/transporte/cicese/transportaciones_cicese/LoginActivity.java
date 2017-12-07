@@ -86,10 +86,10 @@ public class LoginActivity extends AppCompatActivity {
                 }else if(radioPasajero.isChecked()==true){
                     tipoUsuario = 'p';
                 }
-
+                String token = FirebaseInstanceId.getInstance().getToken();
                 iniciar.setEnabled(false);
-                fields= new ArrayList(Arrays.asList("tipo","usuario","contrasena"));
-                values= new ArrayList(Arrays.asList(tipoUsuario,usuario,contrasena));
+                fields= new ArrayList(Arrays.asList("tipo","usuario","contrasena","token"));
+                values= new ArrayList(Arrays.asList(tipoUsuario,usuario,contrasena,token));
 
                 if(usuario.length()==0){
                     usuarioEdit.setError("El campo es requerido" );
@@ -103,9 +103,6 @@ public class LoginActivity extends AppCompatActivity {
                     new LoginActivity.ConsultarDatos().execute();
                     showProgress();
                 }
-
-                //Generar el token
-                token = FirebaseInstanceId.getInstance().getToken();
             }
         });
     }
@@ -222,42 +219,4 @@ public class LoginActivity extends AppCompatActivity {
         } catch (Exception e) {
         }
     }
-
-    /*public class SendPostRequest extends AsyncTask<String, Void, ArrayList> {
-
-        protected ArrayList doInBackground(String... arg0) {
-            fG = new funcionesGeneradoras(getApplicationContext());
-            try {
-                JSONObject postDataParams = new JSONObject();
-                postDataParams.put("tipo", tipoUsuario);
-                postDataParams.put("usuario", usuario);
-                postDataParams.put("mobile_token", token);
-
-                return fG.functionPostRequest("ausuario",postDataParams);
-            }
-            catch(Exception e){
-                Log.e("Exception",e.toString());
-                return null;
-            }
-
-        }
-
-        //Muestra en pantalla el resultado con un mensaje Toast
-        @Override
-        protected void onPostExecute(ArrayList result) {
-            int responseCode=(Integer)result.get(0);
-            if(responseCode==HttpsURLConnection.HTTP_OK) {
-                Toast.makeText(getApplicationContext(), "Se ha registrado el token",Toast.LENGTH_SHORT).show();
-            }
-            else if(responseCode==HttpsURLConnection.HTTP_BAD_REQUEST){
-                Toast.makeText(getApplicationContext(), "El usuario que intenta registrar ya está en uso",Toast.LENGTH_SHORT).show();
-            }
-            else if (responseCode==HttpsURLConnection.HTTP_FORBIDDEN){
-                Toast.makeText(getApplicationContext(), "Token no pudo registrarse",Toast.LENGTH_SHORT).show();
-            }
-            else{
-                Toast.makeText(getApplicationContext(), "Ocurrió un problema al procesar la solicitud, inténtelo más tarde",Toast.LENGTH_SHORT).show();
-            }
-        }
-    }*/
 }

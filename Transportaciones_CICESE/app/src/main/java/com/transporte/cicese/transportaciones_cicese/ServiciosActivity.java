@@ -100,6 +100,7 @@ public class ServiciosActivity extends AppCompatActivity {
         switch (tipoUsuario) {
             case "p":
                 spinnerServicios.setEnabled(true);
+                solicitudesSpinner.setVisibility(View.INVISIBLE);
                 stateServicio.setVisibility(View.INVISIBLE);
                 setEstado.setVisibility(View.INVISIBLE);
                 new ServiciosActivity.obtenerServicios().execute();
@@ -234,6 +235,14 @@ public class ServiciosActivity extends AppCompatActivity {
                         String hora=jObject.getString("hora_encuentro");
                         hor_enc.setText(hora);
                         fec_enc.setText(jObject.getString("fecha_encuentro"));
+                        SharedPreferences settings = getSharedPreferences("prefs", MODE_PRIVATE);
+                        String tipoUsuario = settings.getString("tipoUsuario", "Default");
+                        calificacion.setVisibility(View.INVISIBLE);
+                        calificar.setVisibility(View.INVISIBLE);
+                        if(!tipoUsuario.equals("p"))
+                            stateServicio.setEnabled(true);
+                        else
+                            stateServicio.setEnabled(false);
                         switch (jObject.getString("estado_servicio")) {
                             case "s":
                                 est_serv.setText("Este servicio aun no comienza");
@@ -250,13 +259,15 @@ public class ServiciosActivity extends AppCompatActivity {
                             case "t":
                                 est_serv.setText("Este servicio ya fue terminado");
                                 stateServicio.setText("Finalizado");
+                                stateServicio.setEnabled(false);
                                 int cal=jObject.getInt("calificacion_servicio");
-                                if((cal==0)&&(calChecker)) {
+                                if((cal==0)&&(calChecker)&&(tipoUsuario.equals("p"))) {
                                     alertDialog("Califica tu servicio","Ahora puedes calificar tu servicio con el boton 'Califica tu servicio '" +
                                             "que se muestra en la seccion de detalles");
                                     calificar.setText("Califica tu servicio");
                                     calificar.setVisibility(View.VISIBLE);
                                     calificacion.setVisibility(View.INVISIBLE);
+                                    calChecker=false;
                                 }
                                 else if (cal!=0){
                                     calificacion.setVisibility(View.VISIBLE);
@@ -275,7 +286,6 @@ public class ServiciosActivity extends AppCompatActivity {
                         //jObject.getString("id_chofer")
                         //Enviar a mas informacion
                         id_chofer.setText(jObject.getString("nombre_chofer"));
-                        servicioLayout.setEnabled(true);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -489,7 +499,7 @@ public class ServiciosActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
                 calificar.setVisibility(View.INVISIBLE);
                 calificacion.setVisibility(View.VISIBLE);
-                calificacion.setRating(Integer.valueOf(result.get(2).toString().charAt(0)));
+                calificacion.setRating(Integer.valueOf(result.get(2).toString()));
                 calChecker=false;
 
             } else {
@@ -521,6 +531,8 @@ public class ServiciosActivity extends AppCompatActivity {
         verDestino.setEnabled(state);
         if (!state)
             setEstado.setEnabled(state);
+            calificacion.setVisibility(View.INVISIBLE);
+            calificar.setVisibility(View.INVISIBLE);
     }
 
     public void calificarServicio() {
@@ -544,7 +556,11 @@ public class ServiciosActivity extends AppCompatActivity {
         popDialog.setPositiveButton("Enviar",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        new ServiciosActivity.sendCalificacion().execute(currentServ,String.valueOf(rating.getRating()));
+                        int rat=Integer.valueOf(String.valueOf(rating.getRating()).charAt(0));
+                        if(rat!=0)
+                            new ServiciosActivity.sendCalificacion().execute(currentServ, String.valueOf(rat));
+                        else
+                            Toast.makeText(getApplicationContext(),"La calificacion minima debe ser 1",Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
                     }
                 }).setNegativeButton("Cancelar",

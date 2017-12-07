@@ -27,7 +27,8 @@
         android:background="@drawable/spinner_style"
         android:spinnerMode="dropdown"
         android:layout_marginTop="10dp"
-        android:saveEnabled="false">
+        android:saveEnabled="false"
+        android:visibility="invisible">
     </Spinner>
 
     <ScrollView

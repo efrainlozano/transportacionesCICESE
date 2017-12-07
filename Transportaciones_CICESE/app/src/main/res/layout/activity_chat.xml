@@ -26,7 +26,8 @@ tools:context="com.transporte.cicese.transportaciones_cicese.chatActivity">
         android:background="@drawable/spinner_style"
         android:spinnerMode="dropdown"
         android:layout_marginTop="10dp"
-        android:saveEnabled="false">
+        android:saveEnabled="false"
+        android:visibility="invisible">
 
     </Spinner>
 <ScrollView
@@ -53,5 +54,6 @@ tools:context="com.transporte.cicese.transportaciones_cicese.chatActivity">
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:gravity="bottom"
-    android:layout_marginTop="5dp"/>
+    android:layout_marginTop="5dp"
+    />
 </LinearLayout>

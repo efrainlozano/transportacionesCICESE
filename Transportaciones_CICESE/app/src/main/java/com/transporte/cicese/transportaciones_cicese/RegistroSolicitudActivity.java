@@ -468,11 +468,13 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
                 // -----NOTA-----
                 registroSol.setEnabled(false);
                 new RegistroSolicitudActivity.poblarChoferSpinner().execute();
-                Toast.makeText(getApplicationContext(), "El servicio se ha registrado con éxito", Toast.LENGTH_SHORT).show();
-
-            } else {
-                Toast.makeText(getApplicationContext(), "Error al registrar solicitud, intentelo más tarde o contacte al administrador", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "La solicitud se ha registrado con éxito", Toast.LENGTH_SHORT).show();
             }
+            else if(responseCode == HttpURLConnection.HTTP_BAD_REQUEST)
+                Toast.makeText(getApplicationContext(), "ERROR, ya existe una solicitud registrada para este invitado", Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(getApplicationContext(), "Error al registrar solicitud, intentelo más tarde o contacte al administrador", Toast.LENGTH_SHORT).show();
+
         }
     }
 
