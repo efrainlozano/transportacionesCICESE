@@ -15,6 +15,11 @@ public class MenuRegistrosAsistenteActivity extends AppCompatActivity {
     Intent i;
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_registros_asistente);
@@ -32,7 +37,7 @@ public class MenuRegistrosAsistenteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 i = new Intent(MenuRegistrosAsistenteActivity.this, RegistroChoferActivity.class);
-                startActivity(i);
+                startActivityForResult(i,1);
             }
         });
 
@@ -41,7 +46,7 @@ public class MenuRegistrosAsistenteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 i = new Intent(MenuRegistrosAsistenteActivity.this, RegistroPasajeroActivity.class);
-                startActivity(i);
+                startActivityForResult(i,2);
             }
         });
 
@@ -50,7 +55,7 @@ public class MenuRegistrosAsistenteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 i = new Intent(MenuRegistrosAsistenteActivity.this, RegistroAsistenteActivity.class);
-                startActivity(i);
+                startActivityForResult(i,3);
             }
         });
 
@@ -59,7 +64,7 @@ public class MenuRegistrosAsistenteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 i = new Intent(MenuRegistrosAsistenteActivity.this, RegistroSolicitudActivity.class);
-                startActivity(i);
+                startActivityForResult(i,4);
             }
         });
     }

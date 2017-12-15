@@ -1,5 +1,5 @@
 <resources>
-    <string name="URI">http://192.168.1.127:4000/ci/index.php/api</string>
+    <string name="URI">http://158.97.67.93:4000/ci/index.php/api</string>
     <string name="google_maps_key">AIzaSyAlmfsfU1lRyiFBri6znizt44y2Uz634lM</string>
     <string name="google_directions_key">AIzaSyAjkSX7UHAXF-wcvFzK--HwaklnHVugJJo</string>
     <!-- 192.168.43.192 -->
@@ -109,4 +109,6 @@
     <string name="calendario_eventos">Check your calendar of events</string>
     <string name="rating_servicio">Rate the service that has been provided</string>
     <string name="popup_msg">This field requires a 10-digit number. \nThe format is as follows: \n ########## where the first three numbers are the lada, they are not placed in parentheses</string>
+    <string name="iramisservicios">Mis servicios</string>
+    <string name="iramiseventos">Mis eventos</string>
 </resources>

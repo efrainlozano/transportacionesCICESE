@@ -9,12 +9,15 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.InputType;
 import android.text.format.Time;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -26,6 +29,7 @@ import com.transporte.cicese.transportaciones_cicese.funciones.funcionesGenerado
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -51,7 +55,10 @@ public class LoginActivity extends AppCompatActivity {
     EditText usuarioEdit, contrasenaEdit;
     Button iniciar;
     char tipoUsuario;
+    ImageView verClave;
+    int input;
 
+    String token;
     funcionesGeneradoras fG;
     private ProgressDialog progressDialog;
 
@@ -66,12 +73,29 @@ public class LoginActivity extends AppCompatActivity {
         usuarioEdit = (EditText) findViewById(R.id.usuario_editText);
         contrasenaEdit = (EditText) findViewById(R.id.contrasena_editText);
         iniciar = (Button) findViewById(R.id.iniciar_button);
+        verClave=(ImageView)findViewById(R.id.verClave);
         final RadioButton radioAsistente = (RadioButton) findViewById(R.id.radio_asistente);
         final RadioButton radioChofer = (RadioButton) findViewById(R.id.radio_chofer);
         final RadioButton radioPasajero = (RadioButton) findViewById(R.id.radio_pasajero);
 
         //    ((EditText) findViewById(R.id.usuario_editText)).setHint("Número de empleado");
 
+        verClave.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                switch (event.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        input=contrasenaEdit.getInputType();
+                        contrasenaEdit.setInputType(InputType.TYPE_CLASS_TEXT);
+                        return true;
+                    case MotionEvent.ACTION_UP:
+                        contrasenaEdit.setInputType(input);
+                        return true;
+                }
+                return false;
+            }
+        });
 
         iniciar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,11 +126,16 @@ public class LoginActivity extends AppCompatActivity {
                     new LoginActivity.ConsultarDatos().execute();
                     showProgress();
                 }
-
-                //Generar el token
-
             }
         });
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.cancel();
+        }
     }
 
     private void showProgress() {
@@ -147,15 +176,15 @@ public class LoginActivity extends AppCompatActivity {
                     switch (tipoUsuario) {
                         case 'c': //Inicio de chofer
                             idUsuario = jObject.getInt("id_chofer");
-                            i = new Intent(LoginActivity.this, InicioChoferesActivity.class);
+                            i = new Intent(LoginActivity.this, InicioChoferesActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
                             break;
                         case 'a': //Inicio de asistente
                             idUsuario = jObject.getInt("id_asistente");
-                            i = new Intent(LoginActivity.this, InicioAsistentesActivity.class);
+                            i = new Intent(LoginActivity.this, InicioAsistentesActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
                             break;
                         case 'p': //Inicio de pasajero
                             idUsuario = jObject.getInt("id_invitado");
-                            i = new Intent(LoginActivity.this, InicioPasajeroActivity.class);
+                            i = new Intent(LoginActivity.this, InicioPasajeroActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
                             break;
 
                     }
@@ -169,10 +198,11 @@ public class LoginActivity extends AppCompatActivity {
                     editor.commit();//Guardamos los datos del usuario que nos seran utiles mas adelante
 
                     i.putExtra("usuario", usuario);//Guardamos una cadena
-                    progressDialog.cancel();
+                    //progressDialog.cancel();
                     startActivity(i);
                     limpiarDatos();
                     iniciar.setEnabled(true);
+                    finish();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

@@ -13,7 +13,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="400dp">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/imageView10"
@@ -38,12 +38,12 @@
 
             <TextView
                 android:id="@+id/textViewRC"
-                android:text="@string/desc_p_chofer"
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:layout_alignTop="@+id/imageView10"
                 android:layout_toEndOf="@+id/imageView4"
                 android:paddingTop="5dp"
+                android:text="@string/desc_p_chofer"
                 android:textAlignment="inherit"
                 android:textColor="?attr/actionMenuTextColor"
                 android:textSize="15sp"
@@ -74,8 +74,8 @@
                 android:ems="10"
                 android:hint="@string/n_mero_de_empleado"
                 android:inputType="number"
-                tools:ignore="RtlHardcoded"
-                android:maxLength="5"/>
+                android:maxLength="8"
+                tools:ignore="RtlHardcoded" />
 
             <EditText
                 android:id="@+id/contrasenaChofer"
@@ -91,47 +91,48 @@
                 android:ems="10"
                 android:fontFamily="sans-serif"
                 android:hint="@string/contrase_aChofer"
-                android:maxLength="8"
                 android:inputType="textWebPassword"
+                android:maxLength="30"
                 tools:ignore="RtlHardcoded" />
 
+            <EditText
+                android:id="@+id/confirmaClaveChofer"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_alignEnd="@+id/contrasenaChofer"
+                android:layout_alignStart="@+id/contrasenaChofer"
+                android:layout_below="@+id/contrasenaChofer"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border_style"
+                android:drawableLeft="@drawable/password_icon"
+                android:drawablePadding="5dp"
+                android:ems="10"
+                android:fontFamily="sans-serif"
+                android:hint="Confirma contraseña"
+                android:inputType="textWebPassword"
+                android:maxLength="30"
+                tools:ignore="RtlHardcoded" />
 
             <EditText
                 android:id="@+id/nombreChofer"
                 android:layout_width="300dp"
-                android:layout_marginTop="10dp"
                 android:layout_height="40dp"
-                android:ems="10"
+                android:layout_alignEnd="@+id/confirmaClaveChofer"
+                android:layout_alignStart="@+id/confirmaClaveChofer"
+                android:layout_below="@+id/confirmaClaveChofer"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/border_style"
                 android:drawableLeft="@drawable/name_icon"
                 android:drawablePadding="5dp"
+                android:ems="10"
                 android:hint="@string/nombre"
-                android:inputType="text"
-                android:layout_below="@+id/contrasenaChofer"
-                android:layout_alignStart="@+id/contrasenaChofer"
-                android:layout_alignEnd="@+id/contrasenaChofer"
+                android:inputType="textCapWords"
                 tools:ignore="RtlHardcoded" />
 
 
             <EditText
                 android:id="@+id/aPaternoChofer"
                 android:layout_width="300dp"
-                android:layout_marginTop="10dp"
-                android:layout_height="40dp"
-                android:ems="10"
-                android:background="@drawable/border_style"
-                android:drawableLeft="@drawable/name_icon"
-                android:drawablePadding="5dp"
-                android:hint="@string/apellido_paterno"
-                android:inputType="text"
-                android:layout_below="@+id/nombreChofer"
-                android:layout_alignStart="@+id/nombreChofer"
-                android:layout_alignEnd="@+id/nombreChofer"
-                tools:ignore="RtlHardcoded" />
-
-            <EditText
-                android:id="@+id/aMaternoChofer"
-                android:layout_width="250dp"
                 android:layout_height="40dp"
                 android:layout_alignBaseline="@+id/numeroEmpleado"
                 android:layout_alignBottom="@+id/numeroEmpleado"
@@ -141,51 +142,67 @@
                 android:drawableLeft="@drawable/name_icon"
                 android:drawablePadding="5dp"
                 android:ems="10"
+                android:hint="@string/apellido_paterno"
+                android:inputType="textCapWords"
+                tools:ignore="RtlHardcoded" />
+
+            <EditText
+                android:id="@+id/aMaternoChofer"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_alignEnd="@+id/aPaternoChofer"
+                android:layout_alignStart="@+id/aPaternoChofer"
+                android:layout_below="@+id/aPaternoChofer"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border_style"
+                android:drawableLeft="@drawable/name_icon"
+                android:drawablePadding="5dp"
+                android:ems="10"
                 android:hint="@string/apellido_materno"
-                android:inputType="text"
+                android:inputType="textCapWords"
                 tools:ignore="RtlHardcoded" />
 
             <!--INFORMACION DE FORMATO-->
             <EditText
                 android:id="@+id/telefonoChofer"
                 android:layout_width="255dp"
-                android:layout_marginTop="10dp"
                 android:layout_height="40dp"
-                android:hint="@string/tel_fono"
-                android:ems="10"
+                android:layout_alignEnd="@+id/aMaternoChofer"
+                android:layout_alignStart="@+id/aMaternoChofer"
+                android:layout_below="@+id/aMaternoChofer"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/border_style"
                 android:drawableLeft="@drawable/cell_icon"
                 android:drawablePadding="5dp"
+                android:ems="10"
+                android:hint="@string/tel_fono"
                 android:inputType="number"
                 android:maxLength="10"
-                android:layout_below="@+id/aMaternoChofer"
-                android:layout_alignStart="@+id/aMaternoChofer"
-                android:layout_alignEnd="@+id/aMaternoChofer"
                 tools:ignore="RtlHardcoded" />
 
             <EditText
                 android:id="@+id/emailChofer"
                 android:layout_width="255dp"
-                android:layout_marginTop="10dp"
                 android:layout_height="40dp"
-                android:hint="@string/email"
-                android:ems="10"
+                android:layout_alignEnd="@+id/telefonoChofer"
+                android:layout_alignStart="@+id/telefonoChofer"
+                android:layout_below="@+id/telefonoChofer"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/border_style"
                 android:drawableLeft="@drawable/email_icon"
                 android:drawablePadding="5dp"
-                android:inputType="textEmailAddress"
-                android:layout_below="@+id/telefonoChofer"
-                android:layout_alignStart="@+id/telefonoChofer"
-                android:layout_alignEnd="@+id/telefonoChofer" />
+                android:ems="10"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress" />
 
 
             <Button
                 android:id="@+id/registroChofer_btn"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
-                android:layout_alignBaseline="@+id/aPaternoChofer"
-                android:layout_alignBottom="@+id/aPaternoChofer"
-                android:layout_alignStart="@+id/emailChofer"
+                android:layout_alignEnd="@+id/textView6"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/popupChoferC"
                 android:background="@drawable/secondary_button_style"
                 android:text="@string/aceptar"
                 android:textAllCaps="false"

@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="350dp"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_alignBottom="@+id/imageView4"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
@@ -22,7 +22,7 @@
         android:id="@+id/imageView11"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_alignBottom="@+id/imageView10"
+        android:layout_alignBottom="@+id/textView25"
         android:layout_alignStart="@+id/imageView10"
         android:layout_marginStart="9dp"
         app:srcCompat="@drawable/consults_icon"
@@ -46,7 +46,8 @@
         android:layout_alignStart="@+id/solicitudesSpinner"
         android:layout_below="@+id/solicitudesSpinner"
         android:layout_marginTop="11dp"
-        android:background="@drawable/border_style"
+        android:background="@drawable/spinner_style"
+        android:spinnerMode="dropdown"
         android:saveEnabled="false" />
 
     <ScrollView
@@ -65,7 +66,6 @@
             android:orientation="vertical"
             android:enabled="false">
 
-
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="match_parent"
@@ -82,7 +82,6 @@
                 android:textColorHint="#ffff"
                 android:textSize="18sp"
                 android:textStyle="bold" />
-
 
             <TextView
                 android:id="@+id/textView22"
@@ -137,7 +136,7 @@
 
             <TextView
                 android:id="@+id/textView34"
-                android:layout_width="130dp"
+                android:layout_width="150dp"
                 android:layout_height="60dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/verRuta"
@@ -405,6 +404,7 @@
                 android:paddingTop="10dp"
                 android:text=""
                 android:textSize="17dp"
+                android:textAlignment="center"
                 tools:ignore="RtlHardcoded" />
 
             <TextView
@@ -426,10 +426,11 @@
                 android:layout_height="40dp"
                 android:layout_below="@+id/model_vehiculo"
                 android:layout_toEndOf="@+id/textView45"
-                android:background="#d0d0d0"
+                android:background="#d1d1d1"
                 android:paddingTop="10dp"
                 android:text=""
                 android:textSize="17dp"
+                android:textAlignment="center"
                 tools:ignore="RtlHardcoded" />
 
             <TextView
@@ -455,6 +456,7 @@
                 android:background="@color/colorPrimary"
                 android:paddingTop="10dp"
                 android:text=""
+                android:textAlignment="center"
                 tools:ignore="RtlHardcoded" />
 
             <TextView
@@ -480,6 +482,7 @@
                 android:background="#d0d0d0"
                 android:paddingTop="10dp"
                 android:text=""
+                android:textAlignment="center"
                 tools:ignore="RtlHardcoded" />
 
             <TextView
@@ -505,6 +508,7 @@
                 android:background="@color/colorPrimary"
                 android:paddingTop="10dp"
                 android:text=""
+                android:textAlignment="center"
                 tools:ignore="RtlHardcoded" />
 
             <TextView
@@ -529,6 +533,7 @@
                 android:background="#d0d0d0"
                 android:paddingTop="10dp"
                 android:text=""
+                android:textAlignment="center"
                 tools:ignore="RtlHardcoded" />
 
             <TextView
@@ -549,8 +554,11 @@
                 android:layout_above="@+id/verRuta"
                 android:layout_alignParentEnd="true"
                 android:layout_marginRight="5dp"
+                android:background="@drawable/secondary_button_style"
+                android:enabled="false"
                 android:text="Ok"
-                android:enabled="false"/>
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
 
             <Button
                 android:id="@+id/buttonCalificar"
@@ -562,8 +570,6 @@
                 android:layout_toEndOf="@+id/textView34"
                 android:visibility="invisible"/>
         </RelativeLayout>
-
-
     </ScrollView>
 
     <Spinner
@@ -572,9 +578,7 @@
         android:layout_height="40dp"
         android:layout_below="@+id/imageView11"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="9dp"
-        android:background="@drawable/border_style" />
-
-
-
+        android:layout_marginTop="15dp"
+        android:background="@drawable/spinner_style"
+        android:spinnerMode="dropdown" />
 </RelativeLayout>

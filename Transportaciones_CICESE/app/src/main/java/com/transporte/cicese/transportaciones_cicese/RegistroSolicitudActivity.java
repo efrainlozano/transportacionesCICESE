@@ -3,11 +3,14 @@ package com.transporte.cicese.transportaciones_cicese;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.text.format.Time;
 import android.util.Log;
 import android.view.View;
@@ -75,6 +78,7 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        progressDialog.cancel();
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
@@ -87,6 +91,7 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
                 this.latitud_encuentro = latitude;
                 this.longitud_encuentro = longitude;
                 descripcion_lugar_encuentro.setText(encuentro);
+                descripcion_lugar_encuentro.setInputType(InputType.TYPE_NULL);
 
             }
         } else if (requestCode == 2) {
@@ -99,6 +104,7 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
                 this.latitud_destino = latitude;
                 this.longitud_destino = longitude;
                 descripcion_lugar_destino.setText(destino);
+                descripcion_lugar_destino.setInputType(InputType.TYPE_NULL);
             }
         }
     }
@@ -145,9 +151,18 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
         fG = new funcionesGeneradoras(getApplicationContext());
 
         new RegistroSolicitudActivity.poblarInvitadoSpinner().execute();
-
-
-
+        descripcion_lugar_destino.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog("Descripcion de lugar de destino",descripcion_lugar_destino.getText().toString());
+            }
+        });
+        descripcion_lugar_encuentro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog("Descripcion lugar de encuentro", descripcion_lugar_encuentro.getText().toString());
+            }
+        });
         //Para seleccionar la fecha y hora
 
         hora_encuentro.setOnClickListener(new View.OnClickListener() {
@@ -331,6 +346,7 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
         seleccionarEncuentro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                showProgress();
                 PLACE_PICKER_REQUEST = 1;
                 PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
                 try {
@@ -345,6 +361,7 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
         seleccionarDestino.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                showProgress();
                 PLACE_PICKER_REQUEST = 2;
                 PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
                 try {
@@ -496,7 +513,7 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
                     invitadosResult = new JSONArray(data);
                     invitadosArray = new String[invitadosResult.length() + 1];
                     ArrayList index = new ArrayList();
-                    invitadosArray[0] = "Selecciona un usuario pasajero de la lista";
+                    invitadosArray[0] = "Seleccione a un pasajero de la lista";
                     for (int i = 0; i < invitadosResult.length(); i++) {
                         JSONObject oneObject = invitadosResult.getJSONObject(i);
                         invitadosArray[i + 1] = oneObject.getString("nombre") + " " + oneObject.getString("apellido_paterno") + " " + oneObject.getString("apellido_materno");
@@ -543,5 +560,17 @@ public class RegistroSolicitudActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Ocurrió un problema al buscar usuarios choferes, revise su conexión", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+    public void alertDialog(String title,String message) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(RegistroSolicitudActivity.this);
+        alert.setTitle(title);
+        alert.setMessage(message);
+        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        alert.show();
     }
 }

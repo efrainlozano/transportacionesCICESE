@@ -1,6 +1,7 @@
 package com.transporte.cicese.transportaciones_cicese;
 
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -59,6 +60,7 @@ public class ServiciosActivity extends AppCompatActivity {
     private RelativeLayout servicioLayout;
     private Handler handler;
     private Boolean calChecker;
+    private ProgressDialog progressDialog;
 
 
     @Override
@@ -145,6 +147,7 @@ public class ServiciosActivity extends AppCompatActivity {
         verEncuentro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                showProgress();
                 Intent i = new Intent(ServiciosActivity.this,MapsActivity.class);
                 i.putExtra("action","l");
                 i.putExtra("latitud",latEn);
@@ -156,6 +159,7 @@ public class ServiciosActivity extends AppCompatActivity {
         verDestino.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                showProgress();
                 Intent i = new Intent(ServiciosActivity.this,MapsActivity.class);
                 i.putExtra("action","l");
                 i.putExtra("latitud",latDes);
@@ -167,6 +171,7 @@ public class ServiciosActivity extends AppCompatActivity {
         verRuta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                showProgress();
                 Intent i = new Intent(ServiciosActivity.this,MapsActivity.class);
                 i.putExtra("action","r");
                 i.putExtra("origen",encuentro);
@@ -314,6 +319,14 @@ public class ServiciosActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.cancel();
+        }
     }
 
     private class obtenerServicios extends AsyncTask<String, Void, ArrayList> {
@@ -571,5 +584,23 @@ public class ServiciosActivity extends AppCompatActivity {
                 });
         popDialog.create();
         popDialog.show();
+    }
+    private void showProgress() {
+        progressDialog = new ProgressDialog(ServiciosActivity.this);
+        progressDialog.setMessage("Cargando..."); // Setting Message
+        progressDialog.setTitle("Por favor espere"); // Setting Title
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
+        progressDialog.show(); // Display Progress Dialog
+        progressDialog.setCancelable(false);
+        new Thread(new Runnable() {
+            public void run() {
+                try {
+                    Thread.sleep(15000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                progressDialog.dismiss();
+            }
+        }).start();
     }
 }

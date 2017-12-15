@@ -30,7 +30,7 @@ import javax.net.ssl.HttpsURLConnection;
 public class RegistroPasajeroActivity extends AppCompatActivity {
 
     private EditText usuarioPasajero;
-    private EditText contrasenaPasajero;
+    private EditText contrasenaPasajero,confirmaClave;
     private EditText nombrePasajero;
     private EditText aPaternoPasajero;
     private EditText aMaternoPasajero;
@@ -58,7 +58,7 @@ public class RegistroPasajeroActivity extends AppCompatActivity {
         numTelefonoPasajero = (EditText) findViewById(R.id.tel_pasajero);
         correoElectronicoPasajero = (EditText) findViewById(R.id.emailPasajero);
         registraPasajero = (Button) findViewById(R.id.registroPasajero_btn);
-
+        confirmaClave=(EditText)findViewById(R.id.confirmaClavePasajero);
         popupT = (Button) findViewById(R.id.popupPasT);
         popupC = (Button) findViewById(R.id.popupPasC);
         dialogoMsg = getString (R.string.popup_msg);
@@ -92,6 +92,14 @@ public class RegistroPasajeroActivity extends AppCompatActivity {
                 }
                 if(contrasenaPasajero.getText().toString().length()==0){
                     contrasenaPasajero.setError("El campo es requerido" );
+                    validaCamposP = true;
+                }
+                if(contrasenaPasajero.getText().toString().length()<8){
+                    contrasenaPasajero.setError("Debe capturar una contraseña de al menos 8 caracteres");
+                    validaCamposP = true;
+                }
+                if(!contrasenaPasajero.getText().toString().equals(confirmaClave.getText().toString())){
+                    confirmaClave.setError("Las contraseñas no coinciden");
                     validaCamposP = true;
                 }
                 if(nombrePasajero.getText().toString().length()==0){
@@ -224,22 +232,60 @@ public class RegistroPasajeroActivity extends AppCompatActivity {
             int responseCode=(Integer)result.get(0);
             if(responseCode==HttpsURLConnection.HTTP_OK) {
                 progressDialog.cancel();
-                Toast.makeText(getApplicationContext(), "El usuario ha sido registrado con éxito",Toast.LENGTH_SHORT).show();
+                setConfirmation();
                 limpiarDatos();
             }
             else if(responseCode==HttpsURLConnection.HTTP_BAD_REQUEST){
                 progressDialog.cancel();
-                Toast.makeText(getApplicationContext(), "El usuario que intenta registrar ya está en uso",Toast.LENGTH_SHORT).show();
+                error("El usuario que intenta registrar ya está en uso");
             }
             else if (responseCode==HttpsURLConnection.HTTP_FORBIDDEN){
                 progressDialog.cancel();
-                Toast.makeText(getApplicationContext(), "El usuario no pudo registrarse, revise los datos ingresados o contacte al administrador del sistema",Toast.LENGTH_SHORT).show();
+                error("El usuario no pudo registrarse, revise los datos ingresados o contacte al administrador del sistema");
             }
             else{
                 progressDialog.cancel();
-                Toast.makeText(getApplicationContext(), "Ocurrió un problema al procesar la solicitud, inténtelo más tarde",Toast.LENGTH_SHORT).show();
+                error("Ocurrió un problema al procesar la solicitud, inténtelo más tarde");
             }
         }
     }
+    public void setConfirmation() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(RegistroPasajeroActivity.this);
+        alert.setTitle("Desea continuar en esta ventana?");
+        alert.setMessage("Su registro fue echo con exito, ¿Desea continuar registrando otros usuarios? o ¿Desea salir de esta ventana?");
+        alert.setPositiveButton("Seguir aqui", new DialogInterface.OnClickListener() {
 
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+
+            }
+        });
+
+        alert.setNegativeButton("Salir", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                finish();
+            }
+        });
+
+        alert.show();
+    }
+    public void error(String message) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(RegistroPasajeroActivity.this);
+        alert.setTitle("Ocurrio un error");
+        alert.setMessage(message);
+        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+
+            }
+        });
+
+        alert.show();
+    }
 }

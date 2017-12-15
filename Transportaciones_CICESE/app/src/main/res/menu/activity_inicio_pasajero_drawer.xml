@@ -9,11 +9,11 @@
         <item
             android:id="@+id/nav_servicio"
             android:icon="@drawable/services_icon"
-            android:title="@string/servicios" />
-        <item
+            android:title="@string/iramisservicios" />
+        <!--item
             android:id="@+id/nav_envento"
             android:icon="@drawable/events_icon"
-            android:title="@string/eventos" />
+            android:title="@string/iramiseventos" /-->
         <item
             android:id="@+id/nav_chat"
             android:icon="@drawable/chat_icon"
@@ -24,7 +24,7 @@
             android:title="@string/cerrar_sesi_n" />
     </group>
 
-    <item android:title="@string/general">
+    <!--item android:title="@string/general">
         <menu>
             <item
                 android:id="@+id/nav_help"
@@ -35,5 +35,5 @@
                 android:icon="@drawable/about_icon"
                 android:title="@string/acerca_de" />
         </menu>
-    </item>
+    </item-->
 </menu>

@@ -19,8 +19,7 @@ import android.widget.Button;
 
 public class InicioAsistentesActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
-        AboutFragment.OnFragmentInteractionListener,
-        LogoutFragment.OnFragmentInteractionListener {
+        AboutFragment.OnFragmentInteractionListener{
 
     Button Registros,Consultas,Updates;
     Intent i;
@@ -137,15 +136,16 @@ public class InicioAsistentesActivity extends AppCompatActivity
             i = new Intent(InicioAsistentesActivity.this,ServiciosActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_logout) {
-            i = new Intent(InicioAsistentesActivity.this,LogoutActivity.class);
+            i = new Intent(InicioAsistentesActivity.this, LoginActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);;
             startActivity(i);
-        } else if (id == R.id.nav_about) {
+            finish();
+        }/* else if (id == R.id.nav_about) {
             fragment =  new AboutFragment();
             title="Acerca de";
             fragSelect = true;
         } else if (id == R.id.nav_help) {
 
-        }else if (id == R.id.nav_chat) {
+        }*/else if (id == R.id.nav_chat) {
             i = new Intent(InicioAsistentesActivity.this,chatActivity.class);
             startActivity(i);
         }

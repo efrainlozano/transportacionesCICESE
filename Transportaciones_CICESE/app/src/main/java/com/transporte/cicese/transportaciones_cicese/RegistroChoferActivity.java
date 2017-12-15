@@ -42,7 +42,7 @@ public class RegistroChoferActivity extends AppCompatActivity {
 
 
     private EditText numeroEmpleadoChofer;
-    private EditText contrasenaChofer;
+    private EditText contrasenaChofer,confirmaClave;
     private EditText nombreChofer;
     private EditText aPaternoChofer;
     private EditText aMaternoChofer;
@@ -71,6 +71,7 @@ public class RegistroChoferActivity extends AppCompatActivity {
         numTelefonoChofer = (EditText) findViewById(R.id.telefonoChofer);
         correoElectronicoChofer = (EditText) findViewById(R.id.emailChofer);
         registraChofer = (Button) findViewById(R.id.registroChofer_btn);
+        confirmaClave=(EditText)findViewById(R.id.confirmaClaveChofer);
 
        popupT = (Button) findViewById(R.id.popupChoferT);
        popupE = (Button) findViewById(R.id.popupChoferC);
@@ -107,6 +108,14 @@ public class RegistroChoferActivity extends AppCompatActivity {
                 }
                 if(contrasenaChofer.getText().toString().length()==0){
                     contrasenaChofer.setError("El campo es requerido");
+                    validaChofer = true;
+                }
+                if(contrasenaChofer.getText().toString().length()<8){
+                    contrasenaChofer.setError("Debe capturar una contraseña de al menos 8 caracteres");
+                    validaChofer = true;
+                }
+                if(!contrasenaChofer.getText().toString().equals(confirmaClave.getText().toString())){
+                    confirmaClave.setError("Las contraseñas no coinciden");
                     validaChofer = true;
                 }
                 if(nombreChofer.getText().toString().length()==0){
@@ -240,21 +249,58 @@ public class RegistroChoferActivity extends AppCompatActivity {
             int responseCode=(Integer)result.get(0);
             if(responseCode==HttpsURLConnection.HTTP_OK) {
                 progressDialog.cancel();
-                Toast.makeText(getApplicationContext(), "El usuario ha sido registrado con éxito",Toast.LENGTH_SHORT).show();
+                setConfirmation();
                 limpiarDatos();
             }
             else if(responseCode==HttpsURLConnection.HTTP_BAD_REQUEST){
                 progressDialog.cancel();
-                Toast.makeText(getApplicationContext(), "El número de empleado que intenta registrar ya está en uso",Toast.LENGTH_SHORT).show();
+                error("El número de empleado que intenta registrar ya está en uso");
             }
             else if (responseCode==HttpsURLConnection.HTTP_FORBIDDEN){
                 progressDialog.cancel();
-                Toast.makeText(getApplicationContext(), "El usuario no pudo registrarse, revise los datos ingresados o contacte al administrador del sistema",Toast.LENGTH_SHORT).show();
-            }
+                error("El usuario no pudo registrarse, revise los datos ingresados o contacte al administrador del sistema");            }
             else{
                 progressDialog.cancel();
-                Toast.makeText(getApplicationContext(), "Ocurrió un problema al procesar la solicitud, inténtelo más tarde",Toast.LENGTH_SHORT).show();
-            }
+                error("Ocurrió un problema al procesar la solicitud, inténtelo más tarde");            }
         }
+    }
+    public void setConfirmation() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(RegistroChoferActivity.this);
+        alert.setTitle("Desea continuar en esta ventana?");
+        alert.setMessage("Su registro fue echo con exito, ¿Desea continuar registrando otros usuarios? o ¿Desea salir de esta ventana?");
+        alert.setPositiveButton("Seguir aqui", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+
+            }
+        });
+
+        alert.setNegativeButton("Salir", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                finish();
+            }
+        });
+
+        alert.show();
+    }
+    public void error(String message) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(RegistroChoferActivity.this);
+        alert.setTitle("Ocurrio un error");
+        alert.setMessage(message);
+        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+
+            }
+        });
+
+        alert.show();
     }
 }

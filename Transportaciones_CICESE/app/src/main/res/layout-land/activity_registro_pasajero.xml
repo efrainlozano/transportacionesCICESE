@@ -13,7 +13,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="400dp">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/imageView10"
@@ -62,16 +62,17 @@
                 android:id="@+id/longitud_lugar_destino"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
-                android:layout_alignParentStart="true"
+                android:layout_alignStart="@+id/imageView10"
                 android:layout_below="@+id/textView6"
-                android:layout_marginStart="43dp"
-                android:layout_marginTop="11dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="9dp"
                 android:background="@drawable/border_style"
                 android:drawableLeft="@drawable/user_icon"
                 android:drawablePadding="5dp"
                 android:ems="10"
                 android:hint="@string/username"
-                android:inputType="text" />
+                android:inputType="text"
+                android:maxLength="20" />
 
             <EditText
                 android:id="@+id/latitud_lugar_destino"
@@ -86,41 +87,44 @@
                 android:ems="10"
                 android:fontFamily="sans-serif"
                 android:hint="@string/contrase_aChofer"
-                android:maxLength="8"
-                android:inputType="textWebPassword" />
+                android:inputType="textWebPassword"
+                android:maxLength="30" />
 
+            <EditText
+                android:id="@+id/confirmaClavePasajero"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_alignEnd="@+id/latitud_lugar_destino"
+                android:layout_alignStart="@+id/latitud_lugar_destino"
+                android:layout_below="@+id/latitud_lugar_destino"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border_style"
+                android:drawableLeft="@drawable/password_icon"
+                android:drawablePadding="5dp"
+                android:ems="10"
+                android:fontFamily="sans-serif"
+                android:hint="Confirma contraseña"
+                android:inputType="textWebPassword"
+                android:maxLength="30"
+                tools:ignore="RtlHardcoded" />
 
             <EditText
                 android:id="@+id/longitud_lugar_encuentro"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
-                android:layout_alignStart="@+id/latitud_lugar_destino"
-                android:layout_below="@+id/latitud_lugar_destino"
+                android:layout_alignStart="@+id/confirmaClavePasajero"
+                android:layout_below="@+id/confirmaClavePasajero"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/border_style"
                 android:drawableLeft="@drawable/name_icon"
                 android:drawablePadding="5dp"
                 android:ems="10"
                 android:hint="@string/nombre"
-                android:inputType="text" />
+                android:inputType="textCapWords" />
 
 
             <EditText
                 android:id="@+id/latitud_lugar_encuentro"
-                android:layout_width="250dp"
-                android:layout_height="40dp"
-                android:layout_alignStart="@+id/longitud_lugar_encuentro"
-                android:layout_below="@+id/longitud_lugar_encuentro"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/border_style"
-                android:drawableLeft="@drawable/name_icon"
-                android:drawablePadding="5dp"
-                android:ems="10"
-                android:hint="@string/apellido_paterno"
-                android:inputType="text" />
-
-            <EditText
-                android:id="@+id/am_pasajero"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
                 android:layout_alignBaseline="@+id/longitud_lugar_destino"
@@ -131,8 +135,22 @@
                 android:drawableLeft="@drawable/name_icon"
                 android:drawablePadding="5dp"
                 android:ems="10"
+                android:hint="@string/apellido_paterno"
+                android:inputType="textCapWords" />
+
+            <EditText
+                android:id="@+id/am_pasajero"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/latitud_lugar_encuentro"
+                android:layout_below="@+id/latitud_lugar_encuentro"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border_style"
+                android:drawableLeft="@drawable/name_icon"
+                android:drawablePadding="5dp"
+                android:ems="10"
                 android:hint="@string/apellido_materno"
-                android:inputType="text" />
+                android:inputType="textCapWords" />
 
             <EditText
                 android:id="@+id/tel_pasajero"
@@ -189,9 +207,9 @@
                 android:id="@+id/registroPasajero_btn"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
-                android:layout_alignBaseline="@+id/latitud_lugar_encuentro"
-                android:layout_alignBottom="@+id/latitud_lugar_encuentro"
-                android:layout_alignStart="@+id/emailPasajero"
+                android:layout_alignEnd="@+id/textView6"
+                android:layout_below="@+id/longitud_lugar_encuentro"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/secondary_button_style"
                 android:text="@string/aceptar"
                 android:textAllCaps="false"

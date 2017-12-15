@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,7 +19,6 @@
         android:layout_weight="0.98"
         tools:ignore="InefficientWeight"
         android:enabled="false"/>
-
     <ImageView
         android:id="@+id/sendButton"
         android:layout_width="50dp"
@@ -27,4 +27,14 @@
         android:src="@drawable/send_icon"
         tools:ignore="ContentDescription,InefficientWeight"
         android:saveEnabled="false"/>
+
+    <ImageView
+        android:id="@+id/notificacionesRapidas"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:padding="4dp"
+        android:saveEnabled="false"
+        android:visibility="invisible"
+        app:srcCompat="@android:drawable/ic_notification_overlay"
+        tools:ignore="ContentDescription,InefficientWeight" />
 </LinearLayout>

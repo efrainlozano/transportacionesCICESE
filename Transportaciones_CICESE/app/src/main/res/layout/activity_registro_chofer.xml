@@ -75,7 +75,7 @@
         android:layout_below="@+id/imageView10"
         android:layout_centerHorizontal="true"
         tools:ignore="RtlHardcoded"
-        android:maxLength="5"/>
+        android:maxLength="8"/>
 
     <EditText
         android:id="@+id/contrasenaChofer"
@@ -89,12 +89,29 @@
         android:drawableLeft="@drawable/password_icon"
         android:drawablePadding="5dp"
         android:ems="10"
-        android:maxLength="8"
+        android:maxLength="30"
         android:fontFamily="sans-serif"
         android:hint="@string/contrase_aChofer"
         android:inputType="textWebPassword"
         tools:ignore="RtlHardcoded" />
 
+    <EditText
+        android:id="@+id/confirmaClaveChofer"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/contrasenaChofer"
+        android:layout_alignStart="@+id/contrasenaChofer"
+        android:layout_alignEnd="@+id/contrasenaChofer"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border_style"
+        android:drawableLeft="@drawable/password_icon"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:maxLength="30"
+        android:fontFamily="sans-serif"
+        android:hint="Confirma contraseña"
+        android:inputType="textWebPassword"
+        tools:ignore="RtlHardcoded" />
 
     <EditText
         android:id="@+id/nombreChofer"
@@ -106,10 +123,10 @@
         android:drawableLeft="@drawable/name_icon"
         android:drawablePadding="5dp"
         android:hint="@string/nombre"
-        android:inputType="text"
-        android:layout_below="@+id/contrasenaChofer"
-        android:layout_alignStart="@+id/contrasenaChofer"
-        android:layout_alignEnd="@+id/contrasenaChofer"
+        android:inputType="textCapWords"
+        android:layout_below="@+id/confirmaClaveChofer"
+        android:layout_alignStart="@+id/confirmaClaveChofer"
+        android:layout_alignEnd="@+id/confirmaClaveChofer"
         tools:ignore="RtlHardcoded" />
 
 
@@ -123,7 +140,7 @@
         android:drawableLeft="@drawable/name_icon"
         android:drawablePadding="5dp"
         android:hint="@string/apellido_paterno"
-        android:inputType="text"
+        android:inputType="textCapWords"
         android:layout_below="@+id/nombreChofer"
         android:layout_alignStart="@+id/nombreChofer"
         android:layout_alignEnd="@+id/nombreChofer"
@@ -139,7 +156,7 @@
         android:drawableLeft="@drawable/name_icon"
         android:drawablePadding="5dp"
         android:hint="@string/apellido_materno"
-        android:inputType="text"
+        android:inputType="textCapWords"
         android:layout_below="@+id/aPaternoChofer"
         android:layout_alignStart="@+id/aPaternoChofer"
         android:layout_alignEnd="@+id/aPaternoChofer"
@@ -210,6 +227,7 @@
             android:layout_toEndOf="@+id/emailChofer"
             android:background="@drawable/exclamation"
             tools:ignore="HardcodedText,RtlHardcoded,UnusedAttribute" />
+
     </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

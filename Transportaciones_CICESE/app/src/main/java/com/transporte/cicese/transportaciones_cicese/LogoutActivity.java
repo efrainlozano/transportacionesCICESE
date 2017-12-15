@@ -21,8 +21,9 @@ public class LogoutActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                i = new Intent(LogoutActivity.this, LoginActivity.class);
+                i = new Intent(LogoutActivity.this, LoginActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);;
                 startActivity(i);
+                finish();
             }
         });
     }

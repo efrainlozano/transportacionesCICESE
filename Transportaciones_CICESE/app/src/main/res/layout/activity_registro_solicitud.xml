@@ -83,10 +83,9 @@
                     android:layout_alignStart="@+id/folioSolicitud"
                     android:layout_below="@+id/folioSolicitud"
                     android:layout_marginTop="13dp"
-                    android:background="@drawable/border_style"
+                    android:background="@drawable/spinner_style"
                     android:ems="10"
-                    android:spinnerMode="dialog"
-                    />
+                    android:spinnerMode="dialog" />
 
                 <Button
                     android:id="@+id/registrarSolicitud"
@@ -188,9 +187,8 @@
                     android:drawableLeft="@drawable/descriotion_icon"
                     android:drawablePadding="5dp"
                     android:ems="10"
-                    android:enabled="false"
                     android:hint="@string/descripci_n"
-                    android:inputType="textPersonName"
+                    android:inputType="none"
                     tools:ignore="RtlHardcoded" />
 
 
@@ -289,13 +287,12 @@
                     android:layout_alignStart="@+id/modelo_vehiculo"
                     android:layout_below="@+id/modelo_vehiculo"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/border_style"
-                    android:entries="@array/marcas_array"
+                    android:background="@drawable/spinner_style"
                     android:ems="10"
-                    android:spinnerMode="dialog"
-                    android:prompt="@string/marca"/>
+                    android:entries="@array/marcas_array"
+                    android:prompt="@string/marca"
+                    android:spinnerMode="dialog" />
 
-                <!--SELECCIONAR SPINNE, DEFAULT 2017R-->
                 <Spinner
                     android:id="@+id/anio_vehiculo"
                     android:layout_width="145dp"
@@ -303,10 +300,10 @@
                     android:layout_alignStart="@+id/marca_vehiculo"
                     android:layout_below="@+id/marca_vehiculo"
                     android:layout_marginTop="10dp"
-                    android:entries="@array/years_array"
                     android:background="@drawable/spinner_style"
-                    android:spinnerMode="dialog"
-                    android:prompt="@string/year_prompt" />
+                    android:entries="@array/years_array"
+                    android:prompt="@string/year_prompt"
+                    android:spinnerMode="dialog" />
 
                 <Spinner
                     android:id="@+id/color_vehiculo"
@@ -314,11 +311,11 @@
                     android:layout_height="40dp"
                     android:layout_above="@+id/numero_placas"
                     android:layout_alignEnd="@+id/marca_vehiculo"
-                    android:background="@drawable/border_style"
+                    android:background="@drawable/spinner_style"
                     android:ems="10"
-                    android:spinnerMode="dialog"
+                    android:entries="@array/colores_array"
                     android:prompt="@string/color"
-                    android:entries="@array/colores_array"/>
+                    android:spinnerMode="dialog" />
 
                 <EditText
                     android:id="@+id/numero_placas"
@@ -356,8 +353,9 @@
                     android:layout_alignStart="@+id/tipo_vehiculo"
                     android:layout_below="@+id/tipo_vehiculo"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/border_style"
-                    android:ems="10" />
+                    android:background="@drawable/spinner_style"
+                    android:ems="10"
+                    android:spinnerMode="dialog" />
 
                 <Button
                     android:id="@+id/registrarServicio"
@@ -405,7 +403,7 @@
                     android:ems="10"
                     android:enabled="false"
                     android:hint="@string/descripci_n"
-                    android:inputType="text" />
+                    android:inputType="none" />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

@@ -46,7 +46,7 @@ import javax.net.ssl.X509TrustManager;
 public class RegistroAsistenteActivity extends AppCompatActivity {
 
     private EditText usuarioAsistente;
-    private EditText contrasenaAsistente;
+    private EditText contrasenaAsistente,confirmaClave;
     private EditText nombreAsistente;
     private EditText aPaternoAsistente;
     private EditText aMaternoAsistente;
@@ -77,6 +77,7 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
         numTelefonoAsistente = (EditText) findViewById(R.id.tel_asistente);
         registraAsistente = (Button) findViewById(R.id.registroAsistente_btn);
         correoElectronicoAsistente = (EditText) findViewById(R.id.emailAsistente);
+        confirmaClave=(EditText)findViewById(R.id.confirmaClaveAsistente);
 
 
        popupTel = (Button) findViewById(R.id.popupAsisT);
@@ -106,21 +107,50 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                boolean validaCampos = false;
                 //Datos capturados en el formulario
-                if(usuarioAsistente.getText().toString().length()==0)usuarioAsistente.setError("El campo es requerido" );
-                if(contrasenaAsistente.getText().toString().length()==0)contrasenaAsistente.setError("El campo es requerido" );
-                if(nombreAsistente.getText().toString().length()==0)nombreAsistente.setError("El campo es requerido" );
-                if(aMaternoAsistente.getText().toString().length()==0)aMaternoAsistente.setError("El campo es requerido" );
-                if(numTelefonoAsistente.getText().toString().length()==0)numTelefonoAsistente.setError("El campo es requerido" );
-                if(numTelefonoAsistente.getText().toString().length()!=10&&numTelefonoAsistente.getText().toString().length()!=0){numTelefonoAsistente.setError("Debe capturar un número de 10 dígitos");}
-                if(correoElectronicoAsistente.getText().toString().length()==0){correoElectronicoAsistente.setError("El campo es requerido" );}
-                if (!validarEmail(correoElectronicoAsistente.getText().toString())){correoElectronicoAsistente.setError("Email no válido");}
-                if(usuarioAsistente.getText().toString().length()!=0&&contrasenaAsistente.getText().toString().length()!=0&&
-                        nombreAsistente.getText().toString().length()!=0&&
-                        aMaternoAsistente.getText().toString().length()!=0&&numTelefonoAsistente.getText().toString().length()!=0&&
-                        numTelefonoAsistente.getText().toString().length()==10&&correoElectronicoAsistente.getText().toString().length()!=0
-                        &&validarEmail(correoElectronicoAsistente.getText().toString())
-                        ){
+                if(usuarioAsistente.getText().toString().length()==0){
+                    usuarioAsistente.setError("El campo es requerido" );
+                    validaCampos = true;
+                }
+                if(contrasenaAsistente.getText().toString().length()==0){
+                    contrasenaAsistente.setError("El campo es requerido");
+                    validaCampos = true;
+                }
+                if(contrasenaAsistente.getText().toString().length()<8){
+                    contrasenaAsistente.setError("Debe capturar una contraseña de al menos 8 caracteres");
+                    validaCampos = true;
+                }
+                if(!contrasenaAsistente.getText().toString().equals(confirmaClave.getText().toString())){
+                    confirmaClave.setError("Las contraseñas no coinciden");
+                    validaCampos = true;
+                }
+                if(nombreAsistente.getText().toString().length()==0){
+                    nombreAsistente.setError("El campo es requerido");
+                    validaCampos = true;
+                }
+                if(aMaternoAsistente.getText().toString().length()==0){
+                    aMaternoAsistente.setError("El campo es requerido");
+                    validaCampos = true;
+                }
+                if(numTelefonoAsistente.getText().toString().length()==0){
+                    numTelefonoAsistente.setError("El campo es requerido");
+                    validaCampos = true;
+                }
+                if(numTelefonoAsistente.getText().toString().length()!=10
+                        && numTelefonoAsistente.getText().toString().length()!=0){
+                    numTelefonoAsistente.setError("Debe capturar un número de 10 dígitos");
+                    validaCampos = true;
+                }
+                if(correoElectronicoAsistente.getText().toString().length()==0){
+                    correoElectronicoAsistente.setError("El campo es requerido");
+                    validaCampos = true;
+                }
+                if (!validarEmail(correoElectronicoAsistente.getText().toString())){
+                    correoElectronicoAsistente.setError("Email no válido");
+                    validaCampos = true;
+                }
+                if(validaCampos==false){
                     new RegistroAsistenteActivity.SendPostRequest().execute();
                     showProgress();
                 }
@@ -159,6 +189,7 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
         contrasenaAsistente.setText("");
         nombreAsistente.setText("");
         aMaternoAsistente.setText("");
+        aPaternoAsistente.setText("");
         numTelefonoAsistente.setText("");
         correoElectronicoAsistente.setText("");
     }
@@ -202,12 +233,12 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
                 resource="ausuario";
                 JSONObject postDataParams = new JSONObject();
                 postDataParams.put("tipo", "a");
-                postDataParams.put("usuario", usuario);
-                postDataParams.put("contrasena", contrasena);
-                postDataParams.put("nombre", nombre);
-                postDataParams.put("apellido_paterno", aPaterno);
-                postDataParams.put("apellido_materno", aMaterno);
-                postDataParams.put("numero_telefono", telefono);
+                postDataParams.put("usuario", usuarioAsistente.getText().toString());
+                postDataParams.put("contrasena", contrasenaAsistente.getText().toString());
+                postDataParams.put("nombre", nombreAsistente.getText().toString());
+                postDataParams.put("apellido_paterno", aPaternoAsistente.getText().toString());
+                postDataParams.put("apellido_materno", aMaternoAsistente.getText().toString());
+                postDataParams.put("numero_telefono", numTelefonoAsistente.getText().toString());
                 return fG.functionPostRequest(resource,postDataParams);
             }
             catch(Exception e){
@@ -223,48 +254,60 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
             int responseCode=(Integer)result.get(0);
             if(responseCode==HttpsURLConnection.HTTP_OK) {
                 progressDialog.cancel();
-                Toast.makeText(getApplicationContext(), "El usuario ha sido registrado con éxito",Toast.LENGTH_SHORT).show();
+                setConfirmation();
                 limpiarDatos();
             }
             else if(responseCode==HttpsURLConnection.HTTP_BAD_REQUEST){
                 progressDialog.cancel();
-                Toast.makeText(getApplicationContext(), "El usuario que intenta registrar ya está en uso",Toast.LENGTH_SHORT).show();
+                error("El usuario que intenta registrar ya está en uso");
             }
             else if (responseCode==HttpsURLConnection.HTTP_FORBIDDEN){
                 progressDialog.cancel();
-                Toast.makeText(getApplicationContext(), "El usuario no pudo registrarse, revise los datos ingresados o contacte al administrador del sistema",Toast.LENGTH_SHORT).show();
+                error("El usuario no pudo registrarse, revise los datos ingresados o contacte al administrador del sistema");
             }
             else{
                 progressDialog.cancel();
-                Toast.makeText(getApplicationContext(), "Ocurrió un problema al procesar la solicitud, inténtelo más tarde",Toast.LENGTH_SHORT).show();
+                error("Ocurrió un problema al procesar la solicitud, inténtelo más tarde");
             }
         }
     }
+    public void setConfirmation() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(RegistroAsistenteActivity.this);
+        alert.setTitle("Desea continuar en esta ventana?");
+        alert.setMessage("Su registro fue echo con exito, ¿Desea continuar registrando otros usuarios? o ¿Desea salir de esta ventana?");
+        alert.setPositiveButton("Seguir aqui", new DialogInterface.OnClickListener() {
 
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
 
+            }
+        });
 
-    public String getPostDataString(JSONObject params) throws Exception {
+        alert.setNegativeButton("Salir", new DialogInterface.OnClickListener() {
 
-        StringBuilder result = new StringBuilder();
-        boolean first = true;
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                finish();
+            }
+        });
 
-        Iterator<String> itr = params.keys();
+        alert.show();
+    }
+    public void error(String message) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(RegistroAsistenteActivity.this);
+        alert.setTitle("Ocurrio un error");
+        alert.setMessage(message);
+        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 
-        while(itr.hasNext()){
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
 
-            String key= itr.next();
-            Object value = params.get(key);
+            }
+        });
 
-            if (first)
-                first = false;
-            else
-                result.append("&");
-
-            result.append(URLEncoder.encode(key, "UTF-8"));
-            result.append("=");
-            result.append(URLEncoder.encode(value.toString(), "UTF-8"));
-
-        }
-        return result.toString();
+        alert.show();
     }
 }

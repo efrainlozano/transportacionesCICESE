@@ -22,9 +22,7 @@ import android.widget.Toast;
 public class InicioPasajeroActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         InicioFragment.OnFragmentInteractionListener,
-        ServiciosFragment.OnFragmentInteractionListener,
-        AboutFragment.OnFragmentInteractionListener,
-        LogoutFragment.OnFragmentInteractionListener{
+        AboutFragment.OnFragmentInteractionListener{
 
     Button Servicios,Eventos;//Updates;
     Intent i;
@@ -37,7 +35,7 @@ public class InicioPasajeroActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         Servicios = (Button) findViewById(R.id.irAMisServicios);
-        Eventos = (Button) findViewById(R.id.irAMisEventos);
+        //Eventos = (Button) findViewById(R.id.irAMisEventos);
         //Updates = (Button) findViewById(R.id.irAUpdate);
 
         Servicios.setOnClickListener(new View.OnClickListener() {
@@ -48,13 +46,13 @@ public class InicioPasajeroActivity extends AppCompatActivity
             }
         });
 
-        Eventos.setOnClickListener(new View.OnClickListener() {
+        /*Eventos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 i = new Intent(InicioPasajeroActivity.this, ServiciosActivity.class);
                 startActivity(i);
             }
-        });
+        });*/
 
      /*   Updates.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,32 +131,23 @@ public class InicioPasajeroActivity extends AppCompatActivity
             title="Inicio";
             fragSelect = true;
         } else if (id == R.id.nav_servicio) {
-            //fragment =  new ServiciosFragment();
-            title="Servicios";
-            /*fragSelect = true;*/
             i = new Intent(InicioPasajeroActivity.this,ServiciosActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_logout) {
-            i = new Intent(InicioPasajeroActivity.this,LogoutActivity.class);
+            i = new Intent(InicioPasajeroActivity.this, LoginActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);;
             startActivity(i);
-        } else if (id == R.id.nav_about) {
+            finish();
+        }/* else if (id == R.id.nav_about) {
             fragment =  new AboutFragment();
             title="Acerca de";
             fragSelect = true;
         } else if (id == R.id.nav_help) {
 
-        }else if (id == R.id.nav_chat) {
+        }*/else if (id == R.id.nav_chat) {
             i = new Intent(InicioPasajeroActivity.this,chatActivity.class);
             startActivity(i);
         }
 
-
-        if(fragSelect){
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.ContenedorMain, fragment).commit();
-            getSupportActionBar().setTitle(title);
-        }
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

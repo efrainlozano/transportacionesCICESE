@@ -1,5 +1,5 @@
 <resources>
-    <string name="URI">http://192.168.1.130:4000/ci/index.php/api</string>
+    <string name="URI">http://158.97.67.93:4000/ci/index.php/api</string>
     <string name="google_maps_key">AIzaSyAlmfsfU1lRyiFBri6znizt44y2Uz634lM</string>
     <string name="google_directions_key">AIzaSyAjkSX7UHAXF-wcvFzK--HwaklnHVugJJo</string>
     <!-- 192.168.43.192 -->
@@ -115,6 +115,8 @@
     <string name="desc_p_pasajero">Con el presente formulario podrá registrar a un usuario pasajero en el sistema</string>
     <string name="desc_p_asistente">Con el presente formulario podrá registrar a un usuario asistente en el sistema</string>
     <string name="desc_p_solicitud">Con el presente formulario podrá registrar una solicitud de transporte para un usuario pasajero</string>
-    <string name="desc_p_solicitudup">Podrá actualizar los datos de un servicio previamente registrado con el presente formulario</string>
+    <string name="desc_p_solicitudup">Podrá actualizar los datos de una solicitud previamente registrado con el presente formulario</string>
     <string name="desc_p_servicio">Una vez registrada la solicitud, para ésta, con el presente formulario, podrá registrar un servicio de transporte </string>
+    <string name="iramisservicios">Mis servicios</string>
+    <string name="iramiseventos">Mis eventos</string>
 </resources>

@@ -124,9 +124,9 @@
                 <TextView
                     android:id="@+id/textView18"
                     android:layout_width="wrap_content"
-                    android:layout_height="17dp"
-                    android:layout_alignBottom="@+id/textView19"
-                    android:layout_alignStart="@+id/imr1"
+                    android:layout_height="20dp"
+                    android:layout_above="@+id/imr4"
+                    android:layout_alignEnd="@+id/imr1"
                     android:text="@string/registrar_chofer"
                     android:textColor="@color/ColorActionBarTitle" />
 

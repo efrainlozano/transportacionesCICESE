@@ -1,7 +1,9 @@
 package com.transporte.cicese.transportaciones_cicese;
 
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -12,9 +14,11 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -60,8 +64,8 @@ public class chatActivity extends AppCompatActivity {
     private LinearLayout layout;
     private EditText messageArea;
     private String mensaje, miNombre,fecha,hora,resource;
-    private int miId, idServicio;
-    private ImageView sendButton;
+    private int miId, idServicio, idSolicitud;
+    private ImageView sendButton,notificacionesRapidas;
     private ScrollView scrollView;
     private String title = "",tipoUsuario;
     private ArrayList fields,values;
@@ -88,25 +92,44 @@ public class chatActivity extends AppCompatActivity {
         title="Chat";
         getSupportActionBar().setTitle(title);
         SharedPreferences settings = getSharedPreferences("prefs", MODE_PRIVATE);
-        sendButton = (ImageView)findViewById(R.id.sendButton);
-        messageArea = (EditText)findViewById(R.id.messageArea);
-        layout = (LinearLayout) findViewById(R.id.layout1);
-        scrollView = (ScrollView)findViewById(R.id.scrollView);
-        miId = settings.getInt("idUsuario",0); //AQUI DEBERA DE IR AL SHAREDPREFERENCE DEL ID DEL USUARIO LOGUEADO
-        miNombre=settings.getString("nUsuario","Default");
-        tipoUsuario = settings.getString("tipoUsuario","Default");
+        sendButton              = (ImageView)findViewById(R.id.sendButton);
+        notificacionesRapidas   = (ImageView)findViewById(R.id.notificacionesRapidas);
+        messageArea             = (EditText)findViewById(R.id.messageArea);
+        layout                  = (LinearLayout) findViewById(R.id.layout1);
+        scrollView              = (ScrollView)findViewById(R.id.scrollView);
+        miId                    =  settings.getInt("idUsuario",0); //AQUI DEBERA DE IR AL SHAREDPREFERENCE DEL ID DEL USUARIO LOGUEADO
+        miNombre                =  settings.getString("nUsuario","Default");
+        tipoUsuario             =  settings.getString("tipoUsuario","Default");
         sendButton.setEnabled(false);
         switch (tipoUsuario) {
             case "p":
-                serviciosSpinner.setEnabled(true);
-                serviciosSpinner.setVisibility(View.VISIBLE);
-                new chatActivity.obtenerServicios().execute();
+                String solicitud = settings.getString("idSolicitudes", "Default")
+                        .replace("[", "").replace("]","");
+                if(!solicitud.equals("Default")&&(solicitud!="")&&(solicitud!=null)){
+                idSolicitud=Integer.parseInt(solicitud);
+                   serviciosSpinner.setEnabled(true);
+                   serviciosSpinner.setVisibility(View.VISIBLE);
+                   new chatActivity.obtenerServicios().execute();
+               }
+                break;
+            case "c":
+                notificacionesRapidas.getLayoutParams().width=50;
+                notificacionesRapidas.setVisibility(View.VISIBLE);
+                notificacionesRapidas.setEnabled(true);
+                solicitudesSpinner.setVisibility(View.VISIBLE);
+                new chatActivity.obtenerSolicitudes().execute();
                 break;
             default:
                 solicitudesSpinner.setVisibility(View.VISIBLE);
                 new chatActivity.obtenerSolicitudes().execute();
                 break;
         }
+        notificacionesRapidas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrarNotificacionesRapidas();
+            }
+        });
         //trustAllCertificates();
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,12 +155,14 @@ public class chatActivity extends AppCompatActivity {
                         serviciosSpinner.setEnabled(true);
                         jObject = new JSONObject(solicitudesResult.get(position - 1).toString());
                         serviciosSpinner.setAdapter(null);
-                        new chatActivity.obtenerServicios().execute(jObject.getString("id_solicitud"));
+                        idSolicitud=jObject.getInt("id_solicitud");
+                        new chatActivity.obtenerServicios().execute(String.valueOf(idSolicitud));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
                 else{
+                    notificacionesRapidas.setEnabled(false);
                     serviciosSpinner.setVisibility(View.INVISIBLE);
                     messageArea.setEnabled(false);
                     layout.removeAllViews();
@@ -181,6 +206,7 @@ public class chatActivity extends AppCompatActivity {
                         idServicio=jObject.getInt("id_servicio");
                         layout.removeAllViews();
                         messageArea.setEnabled(true);
+                        notificacionesRapidas.setEnabled(true);
                         new chatActivity.ConsultarDatos().execute();
                     } catch (JSONException e) {
                         messageArea.setEnabled(false);
@@ -188,6 +214,7 @@ public class chatActivity extends AppCompatActivity {
                     }
                 }
                 else {
+                    notificacionesRapidas.setEnabled(false);
                     messageArea.setEnabled(false);
                     layout.removeAllViews();
                 }
@@ -209,12 +236,11 @@ public class chatActivity extends AppCompatActivity {
             today.setToNow();
             funcionesGeneradoras fG= new funcionesGeneradoras(getApplication());
             try {
-                URL url = new URL(urls[0]); // here is your URL path
                 fecha = today.year+"-"+(today.month+1)+"-"+today.monthDay;
                 hora=today.hour+":"+today.minute;
                 JSONObject postDataParams = new JSONObject();
                 //JSONObject jObject = new JSONObject(solicitudesResult.get(solicitudesSpinner.getSelectedItemPosition()-1).toString());
-                postDataParams.put("idsolicitud",72);
+                postDataParams.put("idsolicitud",idSolicitud);
                 postDataParams.put("tipo",tipoUsuario);
                 postDataParams.put("idservicio", idServicio);
                 postDataParams.put("mensaje", mensaje);
@@ -238,6 +264,30 @@ public class chatActivity extends AppCompatActivity {
                 addMessageBox("Tu:\n" + mensaje + "\n" + fecha + " - " + hora, 1);
             }
             Log.i("r",result.get(0).toString());
+        }
+    }
+    public class enviarNotificacion extends AsyncTask<String, Void, ArrayList> {
+
+        protected void onPreExecute(){}
+
+        protected ArrayList doInBackground(String... mensaje) {
+            Time today = new Time(Time.getCurrentTimezone());
+            today.setToNow();
+            funcionesGeneradoras fG= new funcionesGeneradoras(getApplication());
+            try {
+                JSONObject postDataParams = new JSONObject();
+                postDataParams.put("idsolicitud",idSolicitud);
+                postDataParams.put("mensaje",mensaje[0]);
+                return fG.functionPostRequest("notificacionrapida",postDataParams);
+            }
+            catch(Exception e){
+                return new ArrayList(Arrays.asList(0));
+            }
+
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList result) {
         }
     }
 
@@ -323,9 +373,8 @@ public class chatActivity extends AppCompatActivity {
             ArrayList values;
             switch (tipoUsuario) {
                 case "p":
-                    String solicitudes = settings.getString("idSolicitudes", "Default")
-                            .replace("[", "").replace("]", "");
-                    values = new ArrayList(Arrays.asList(solicitudes));
+
+                    values = new ArrayList(Arrays.asList(idSolicitud));
                     result = fG.functionGetRequest("gservicios", fields, values);
                     break;
                 default:
@@ -412,6 +461,92 @@ public class chatActivity extends AppCompatActivity {
             }
 
         }
+    }
+    public void mostrarNotificacionesRapidas() {
+        final AlertDialog.Builder popDialog = new AlertDialog.Builder(this);
+        final Button cincoMinutos = new Button(this);
+        final Button diezMinutos = new Button(this);
+        final Button imprevisto = new Button(this);
+        final Button enCamino = new Button(this);
+        final Button teLlamare = new Button(this);
+        cincoMinutos.setText("Llego en 5 minutos");
+        diezMinutos.setText("Llego en 10 minutos");
+        imprevisto.setText("Tuve un imprevisto");
+        enCamino.setText("Me encuentro en camino");
+        teLlamare.setText("Le llamaré en seguida");
+        cincoMinutos.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT));
+        diezMinutos.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT));
+        imprevisto.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT));
+        enCamino.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT));
+        teLlamare.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT));
+        LinearLayout parent = new LinearLayout(this);
+        parent.setOrientation(LinearLayout.VERTICAL);
+        parent.setGravity(Gravity.CENTER);
+        parent.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.MATCH_PARENT));
+        parent.addView(cincoMinutos);
+        parent.addView(diezMinutos);
+        parent.addView(imprevisto);
+        parent.addView(enCamino);
+        parent.addView(teLlamare);
+
+        // popDialog.setIcon(android.R.drawable.btn_star_big_on);
+        popDialog.setTitle("Notificaciones Rapidas");
+        popDialog.setView(parent);
+        cincoMinutos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new chatActivity.enviarNotificacion().execute("Su chofer llegara en aproximadamente cinco minutos");
+            }
+        });
+        diezMinutos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new chatActivity.enviarNotificacion().execute("Su chofer llegara en aproximadamente diez minutos");
+            }
+        });
+        imprevisto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new chatActivity.enviarNotificacion().execute("Su chofer tuvo un imprevisto y se retraso unos minutos");
+            }
+        });
+        enCamino.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new chatActivity.enviarNotificacion().execute("Su chofer se encuentra en camino a recogerlo en este momento");
+            }
+        });
+        teLlamare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new chatActivity.enviarNotificacion().execute("Su chofer le llamara en unos momentos");
+            }
+        });
+        // Button OK
+        popDialog/*.setPositiveButton("Enviar",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        int rat=Integer.valueOf(String.valueOf(rating.getRating()).charAt(0));
+                        if(rat!=0)
+                            new ServiciosActivity.sendCalificacion().execute(currentServ, String.valueOf(rat));
+                        else
+                            Toast.makeText(getApplicationContext(),"La calificacion minima debe ser 1",Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                })*/.setNegativeButton("Cancelar",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        popDialog.create();
+        popDialog.show();
     }
 }
 

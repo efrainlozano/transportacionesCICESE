@@ -1,6 +1,7 @@
 package com.transporte.cicese.transportaciones_cicese;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -67,12 +68,14 @@ public class updateSolicitud extends AppCompatActivity {
     /*a=asistente
     * p=invitado/pasajero
     * c=chofer*/
+    private ProgressDialog progressDialog;
     String[] solicitudesArray, invitadosArray, serviciosArray, choferesArray;
     JSONArray solicitudesResult, invitadosResult, serviciosResult, choferesResult;
     int idSolicitud; //Identificador de la solicitud que se esta modificando
     customSpinnerAdapter spinnerAdapterSolicitudes, spinnerAdapterInvitado, spinnerAdapterServicios, spinnerAdapterChofer;
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        progressDialog.cancel();
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
@@ -392,6 +395,14 @@ public class updateSolicitud extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 boolean b = true;
+                if (descripcion_lugar_encuentro.getText().toString().length() == 0){
+                    descripcion_lugar_encuentro.setError("Por favor seleccione el lugar de encuentro");
+                    b = false;
+                }
+                if(descripcion_lugar_destino.getText().toString().length() == 0){
+                    descripcion_lugar_destino.setError("Por favor seleccione el lugar de destino");
+                    b = false;
+                }
                 if (hora_encuentro.getText().toString().length() == 0) {
                     hora_encuentro.setError("El campo es requerido");
                     b = false;
@@ -428,9 +439,12 @@ public class updateSolicitud extends AppCompatActivity {
                     switch (actionUpdate) {
                         case 1:
                             new updateSolicitud.sendUpdateServicio().execute();
+                            showProgress();
                             break;
                         case 0:
                             new updateSolicitud.registrarServicio().execute();
+                            showProgress();
+                            break;
 
                     }
                 }
@@ -441,6 +455,7 @@ public class updateSolicitud extends AppCompatActivity {
         seleccionarEncuentro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                showProgress();
                 PLACE_PICKER_REQUEST = 1;
                 PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
                 try {
@@ -455,6 +470,7 @@ public class updateSolicitud extends AppCompatActivity {
         seleccionarDestino.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                showProgress();
                 PLACE_PICKER_REQUEST = 2;
                 PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
                 try {
@@ -479,6 +495,25 @@ public class updateSolicitud extends AppCompatActivity {
                 ;
             }
         });*/
+    }
+
+    private void showProgress() {
+        progressDialog = new ProgressDialog(updateSolicitud.this);
+        progressDialog.setMessage("Cargando..."); // Setting Message
+        progressDialog.setTitle("Por favor espere"); // Setting Title
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
+        progressDialog.show(); // Display Progress Dialog
+        progressDialog.setCancelable(false);
+        new Thread(new Runnable() {
+            public void run() {
+                try {
+                    Thread.sleep(15000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                progressDialog.dismiss();
+            }
+        }).start();
     }
 
     public class sendUpdateServicio extends AsyncTask<String, Void, ArrayList> {
@@ -524,6 +559,7 @@ public class updateSolicitud extends AppCompatActivity {
             } else {
                 Toast.makeText(getApplicationContext(), "Error al actualizar servicio", Toast.LENGTH_SHORT).show();
             }
+            progressDialog.cancel();
         }
     }
 
@@ -539,7 +575,6 @@ public class updateSolicitud extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(ArrayList result) {
-            Log.i("Result", result.get(0).toString());
             if ((Integer) result.get(0) == HttpURLConnection.HTTP_OK) {
                 servicioLayout.setVisibility(View.VISIBLE);
                 String data = result.get(1).toString();
@@ -559,7 +594,7 @@ public class updateSolicitud extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-            } else if ((Integer) result.get(0) == HttpURLConnection.HTTP_NOT_FOUND) {
+            } else{
                 servicioLayout.setVisibility(View.VISIBLE);
                 serviciosArray = new String[2];
                 serviciosArray[0] = "Seleccione una accion de la lista";
@@ -567,8 +602,6 @@ public class updateSolicitud extends AppCompatActivity {
                 spinnerAdapterServicios = new customSpinnerAdapter(updateSolicitud.this, serviciosArray, null);
                 serviciosSpinner.setAdapter(spinnerAdapterServicios);
                 Toast.makeText(getApplicationContext(), "No se encontraron servicios para esta solicitud", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(getApplicationContext(), "Ocurrio un problema, contacte al administrador", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -603,7 +636,7 @@ public class updateSolicitud extends AppCompatActivity {
                     e.printStackTrace();
                 }
             } else {
-                Toast.makeText(getApplicationContext(), "Ocurrió un problema, revise su conexión", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "No tienes servicios por actualizar", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -651,9 +684,14 @@ public class updateSolicitud extends AppCompatActivity {
                 URL url = new URL(urls[0]); // here is your URL path
                 JSONObject postDataParams = new JSONObject();
                 postDataParams.put("id_solicitud", idSolicitud);
+                Log.i("SO",String.valueOf(idSolicitud));
                 postDataParams.put("id_folio", folioEdit.getText().toString());
-                JSONObject oneObject = invitadosResult.getJSONObject(invitadoSpinner.getSelectedItemPosition());
+                Log.i("AS",folioEdit.getText().toString());
+                Log.i("position",String.valueOf(invitadoSpinner.getSelectedItemPosition()));
+                JSONObject oneObject = invitadosResult.getJSONObject(invitadoSpinner.getSelectedItemPosition()-1);
                 postDataParams.put("id_invitado", oneObject.getString("id_invitado"));
+                Log.i("IN",oneObject.getString("id_invitado"));
+
 
                 return fG.functionPostRequest("usolicitud", postDataParams);
             } catch (Exception e) {
@@ -665,6 +703,7 @@ public class updateSolicitud extends AppCompatActivity {
         @Override
         protected void onPostExecute(ArrayList result) {
             responseCode = (Integer) result.get(0);
+            Log.i("ResponseUp",String.valueOf(responseCode));
             if (responseCode == HttpURLConnection.HTTP_OK) {
                 Toast.makeText(getApplicationContext(), "Informacion actualizada", Toast.LENGTH_SHORT).show();
 
@@ -691,7 +730,7 @@ public class updateSolicitud extends AppCompatActivity {
                 try {
                     solicitudesResult = new JSONArray(result);
                     solicitudesArray = new String[solicitudesResult.length() + 1];
-                    solicitudesArray[0] = "Seleccione la solicitud que desea modificar";
+                    solicitudesArray[0] = "Seleccione la solicitud";
                     ArrayList index = new ArrayList();
                     for (int i = 0; i < solicitudesResult.length(); i++) {
                         JSONObject oneObject = solicitudesResult.getJSONObject(i);
@@ -764,6 +803,7 @@ public class updateSolicitud extends AppCompatActivity {
             } else {
                 Toast.makeText(getApplicationContext(), "Error al registrar el servicio, intentelo más tarde o contacte al administrador", Toast.LENGTH_SHORT).show();
             }
+            progressDialog.cancel();
         }
     }
 

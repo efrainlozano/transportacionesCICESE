@@ -126,8 +126,9 @@ public class InicioChoferesActivity extends AppCompatActivity
             startActivity(i);
 
         }else if(id == R.id.nav_logout){
-            i = new Intent(InicioChoferesActivity.this,LogoutActivity.class);
+            i = new Intent(InicioChoferesActivity.this, LoginActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);;
             startActivity(i);
+            finish();
         }else if (id == R.id.nav_chat) {
             i = new Intent(InicioChoferesActivity.this,chatActivity.class);
             startActivity(i);

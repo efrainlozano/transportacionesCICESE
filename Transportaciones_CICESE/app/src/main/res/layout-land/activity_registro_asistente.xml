@@ -63,7 +63,8 @@
                 android:drawablePadding="5dp"
                 android:ems="10"
                 android:hint="@string/username"
-                android:inputType="text" />
+                android:inputType="text"
+                android:maxLength="20"/>
 
             <EditText
                 android:id="@+id/contrasena_asistente"
@@ -77,10 +78,25 @@
                 android:fontFamily="sans-serif"
                 android:hint="@string/contrase_aChofer"
                 android:inputType="textWebPassword"
-                android:maxLength="8"
+                android:maxLength="30"
                 android:layout_below="@+id/usuario_generadoA"
                 android:layout_alignStart="@+id/usuario_generadoA" />
-
+            <EditText
+                android:id="@+id/confirmaClaveAsistente"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_below="@+id/contrasena_asistente"
+                android:layout_alignStart="@+id/contrasena_asistente"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border_style"
+                android:drawableLeft="@drawable/password_icon"
+                android:drawablePadding="5dp"
+                android:ems="10"
+                android:maxLength="30"
+                android:fontFamily="sans-serif"
+                android:hint="Confirma contraseña"
+                android:inputType="textWebPassword"
+                tools:ignore="RtlHardcoded" />
 
             <EditText
                 android:id="@+id/nombre_asistente"
@@ -92,27 +108,13 @@
                 android:drawablePadding="5dp"
                 android:ems="10"
                 android:hint="@string/nombre"
-                android:inputType="text"
-                android:layout_below="@+id/contrasena_asistente"
-                android:layout_alignStart="@+id/contrasena_asistente" />
+                android:inputType="textCapWords"
+                android:layout_below="@+id/confirmaClaveAsistente"
+                android:layout_alignStart="@+id/confirmaClaveAsistente" />
 
 
             <EditText
                 android:id="@+id/ap_asistente"
-                android:layout_width="250dp"
-                android:layout_height="40dp"
-                android:layout_alignStart="@+id/nombre_asistente"
-                android:layout_below="@+id/nombre_asistente"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/border_style"
-                android:drawableLeft="@drawable/name_icon"
-                android:drawablePadding="5dp"
-                android:ems="10"
-                android:hint="@string/apellido_paterno"
-                android:inputType="text" />
-
-            <EditText
-                android:id="@+id/am_asistente"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
                 android:layout_alignBaseline="@+id/usuario_generadoA"
@@ -123,8 +125,22 @@
                 android:drawableLeft="@drawable/name_icon"
                 android:drawablePadding="5dp"
                 android:ems="10"
+                android:hint="@string/apellido_paterno"
+                android:inputType="textCapWords" />
+
+            <EditText
+                android:id="@+id/am_asistente"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignStart="@+id/ap_asistente"
+                android:layout_below="@+id/ap_asistente"
+                android:background="@drawable/border_style"
+                android:drawableLeft="@drawable/name_icon"
+                android:drawablePadding="5dp"
+                android:ems="10"
                 android:hint="@string/apellido_materno"
-                android:inputType="text" />
+                android:inputType="textCapWords" />
 
             <!--Info. Formato-->
             <EditText
@@ -183,8 +199,9 @@
                 android:id="@+id/registroAsistente_btn"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
-                android:layout_alignStart="@+id/emailAsistente"
-                android:layout_alignTop="@+id/ap_asistente"
+                android:layout_marginTop="10dp"
+                android:layout_alignEnd="@+id/textView6"
+                android:layout_below="@+id/nombre_asistente"
                 android:background="@drawable/secondary_button_style"
                 android:text="@string/aceptar"
                 android:textAllCaps="false"

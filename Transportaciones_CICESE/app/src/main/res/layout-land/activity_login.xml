@@ -48,6 +48,7 @@
         android:layout_height="50dp"
         android:background="@drawable/button_style"
         android:text="@string/inicio_btn"
+        android:layout_marginTop="10dp"
         android:textColor="@android:color/background_light"
         android:layout_below="@+id/opciones_login"
         android:layout_alignStart="@+id/contrasena_editText" />
@@ -90,8 +91,17 @@
         android:layout_alignEnd="@+id/usuario_editText"
         android:layout_marginTop="22dp" />
 
-
-    <Button
+    <TextView
+        android:id="@+id/textView46"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/contrasena_editText"
+        android:layout_centerVertical="true"
+        android:text="Iniciar como:"
+        android:layout_below="@id/contrasena_editText"
+        android:layout_marginTop="7dp"
+        android:textColor="@android:color/black" />
+    <!--Button
         android:id="@+id/button"
         android:layout_width="230dp"
         android:layout_height="50dp"
@@ -101,7 +111,7 @@
         android:textColor="@android:color/white"
         android:textSize="16sp"
         android:layout_alignBottom="@+id/iniciar_button"
-        android:layout_alignStart="@+id/imageView" />
+        android:layout_alignStart="@+id/imageView" /-->
 
 
 
@@ -113,9 +123,9 @@
         android:gravity="center"
         android:orientation="horizontal"
         android:layout_marginEnd="21dp"
-        android:layout_below="@+id/contrasena_editText"
+        android:layout_below="@+id/textView46"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="7dp">
+        android:layout_marginTop="1dp">
 
         <RadioButton
             android:id="@+id/radio_pasajero"
@@ -142,6 +152,14 @@
             tools:ignore="HardcodedText,RtlHardcoded" />
 
     </RadioGroup>
+
+    <ImageView
+        android:id="@+id/verClave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/contrasena_editText"
+        android:layout_toEndOf="@+id/contrasena_editText"
+        app:srcCompat="@android:drawable/ic_menu_view" />
 
 
 </RelativeLayout>

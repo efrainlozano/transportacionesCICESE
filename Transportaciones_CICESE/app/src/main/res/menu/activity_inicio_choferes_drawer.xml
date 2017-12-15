@@ -11,7 +11,7 @@
         <item
             android:id="@+id/nav_servicio"
             android:icon="@drawable/services_icon"
-            android:title="@string/servicios" />
+            android:title="@string/iramisservicios" />
         <item
             android:id="@+id/nav_push"
             android:icon="@drawable/noti_icon"
@@ -26,7 +26,7 @@
             android:title="@string/cerrar_sesi_n" />
     </group>
 
-    <item android:title="@string/general">
+    <!--item android:title="@string/general">
         <menu>
             <item
                 android:id="@+id/nav_help"
@@ -37,5 +37,5 @@
                 android:icon="@drawable/about_icon"
                 android:title="@string/acerca_de" />
         </menu>
-    </item>
+    </item-->
 </menu>

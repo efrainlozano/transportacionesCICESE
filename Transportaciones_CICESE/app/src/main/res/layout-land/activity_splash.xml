@@ -31,18 +31,4 @@
         android:textColor="@color/colorPrimaryText"
         android:textSize="25sp"
         android:textStyle="bold"/>
-
-    <TextView
-        android:id="@+id/textView10"
-        style="@android:style/Widget.DeviceDefault.Light.TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="28dp"
-        android:background="#ffff"
-        android:textAlignment="center"
-        android:text="http://www.cicese.edu.mx/ \nCICESE, México - ©2017"
-        android:textColor="#000000"
-        tools:ignore="HardcodedText" />
 </RelativeLayout>
