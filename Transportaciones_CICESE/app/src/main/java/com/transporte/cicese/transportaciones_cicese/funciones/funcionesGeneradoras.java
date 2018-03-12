@@ -33,7 +33,6 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class funcionesGeneradoras {
     private Context context;
-    JSONObject resultado;
     ArrayList returnstm;
 //save the context recievied via constructor in a local variable
 
@@ -45,13 +44,15 @@ public class funcionesGeneradoras {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public ArrayList functionPostRequest(String resource, JSONObject postDataParams) {
+        //Funcion encargada de hacer las peticiones POST
         returnstm=new ArrayList();
         try {
-            URL url = new URL(context.getString(R.string.URI) +"/"+resource); // here is your URL path
+            URL url = new URL(context.getString(R.string.URI) +"/"+resource); //URL al que se hara la peticion
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setReadTimeout(15000 /* milliseconds */);
-            conn.setConnectTimeout(15000 /* milliseconds */);
+            //Establecemos los parametros de la conexion
+            conn.setReadTimeout(15000 /*milisegundos*/);
+            conn.setConnectTimeout(15000 /* milisegundos */);
             conn.setRequestMethod("POST");
             conn.setDoInput(true);
             conn.setDoOutput(true);
@@ -60,15 +61,15 @@ public class funcionesGeneradoras {
             BufferedWriter writer = new BufferedWriter(
                     new OutputStreamWriter(os, "UTF-8"));
             writer.write(getPostDataString(postDataParams));
-
             writer.flush();
             writer.close();
             os.close();
 
-            int responseCode = conn.getResponseCode();
+            int responseCode = conn.getResponseCode();//Codigo de respuesta API
             returnstm.add(responseCode);
             if (responseCode == HttpsURLConnection.HTTP_OK) {
-                BufferedReader in=new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                BufferedReader in=new BufferedReader(
+                        new InputStreamReader(conn.getInputStream()));
 
                 StringBuffer sb = new StringBuffer("");
                 String line="";
@@ -81,9 +82,7 @@ public class funcionesGeneradoras {
                 returnstm.add(sb.toString());
                 return returnstm;
             }
-            else {
-                return returnstm;
-            }
+            else return returnstm;
         }
         catch(Exception e){
             if (returnstm.isEmpty()){
@@ -94,11 +93,12 @@ public class funcionesGeneradoras {
     }
 
     public ArrayList functionGetRequest(String resource, ArrayList fields, ArrayList values) {
-        URL url = null; // here is your URL path
+        //Funcion encargada de hacer las peticiones GET a la API
         returnstm = new ArrayList();
         try {
             String bundle=fieldsBuilder(fields,values);
-            url = new URL(this.context.getString(R.string.URI)+"/"+resource+"?bundle="+bundle);
+            //URL al que se hara la peticion
+            URL url = new URL(this.context.getString(R.string.URI)+"/"+resource+"?bundle="+bundle);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setReadTimeout(15000 /* milliseconds */);
             conn.setConnectTimeout(15000 /* milliseconds */);
@@ -106,7 +106,6 @@ public class funcionesGeneradoras {
 
             int responseCode=conn.getResponseCode();
             returnstm.add(responseCode);
-            Log.i("Response",String.valueOf(responseCode));
             if (responseCode == HttpsURLConnection.HTTP_OK) {
                 BufferedReader in=new BufferedReader(new InputStreamReader(conn.getInputStream()));
                 StringBuffer sb = new StringBuffer("");
@@ -117,15 +116,10 @@ public class funcionesGeneradoras {
                     break;
                 }
                 in.close();
-
-
                 returnstm.add(sb.toString());
                 return returnstm;
-
             }
-            else {
-                return returnstm;
-            }
+            else return returnstm;
 
         } catch(Exception e){
             if (returnstm.isEmpty()){

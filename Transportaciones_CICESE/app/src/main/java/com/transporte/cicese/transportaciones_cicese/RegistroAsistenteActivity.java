@@ -11,32 +11,15 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.transporte.cicese.transportaciones_cicese.funciones.funcionesGeneradoras;
 
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.security.SecureRandom;
-import java.security.cert.X509Certificate;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.regex.Pattern;
 
-import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
 
 /**
  * Created by Blanca Cecilia De Leon Rubio on 12/10/2017.
@@ -151,7 +134,7 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
                     validaCampos = true;
                 }
                 if(validaCampos==false){
-                    new RegistroAsistenteActivity.SendPostRequest().execute();
+                    new registrarAsistente().execute();
                     showProgress();
                 }
             }
@@ -223,15 +206,13 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
         AlertDialog alert = builder.create();
         alert.show();
     }
-    public class SendPostRequest extends AsyncTask<String, Void, ArrayList> {
-
-        protected void onPreExecute(){}
-
+    public class registrarAsistente extends AsyncTask<String, Void, ArrayList> {
+        //DESCRIPCION: ASYNKTASK para registrar en bd los datos de un nuevo asistente
         protected ArrayList doInBackground(String... arg0) {
 
             try {
                 resource="ausuario";
-                JSONObject postDataParams = new JSONObject();
+                JSONObject postDataParams = new JSONObject();//JSON que contendra los parametros post a enviar
                 postDataParams.put("tipo", "a");
                 postDataParams.put("usuario", usuarioAsistente.getText().toString());
                 postDataParams.put("contrasena", contrasenaAsistente.getText().toString());
@@ -245,10 +226,7 @@ public class RegistroAsistenteActivity extends AppCompatActivity {
                 Log.e("Exception",e.toString());
                 return null;
             }
-
         }
-
-        //Muestra en pantalla el resultado con un mensaje Toast
         @Override
         protected void onPostExecute(ArrayList result) {
             int responseCode=(Integer)result.get(0);
